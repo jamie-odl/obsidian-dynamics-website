@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Obsidian Dynamics</title>
+    <meta name="description" content="Get in touch with Obsidian Dynamics. Enquiries about Project SkyGrid aircraft monitoring or Strait Signal maritime intelligence.">
+    <meta name="author" content="Obsidian Dynamics Limited">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050507">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact Obsidian Dynamics">
+    <meta property="og:description" content="Reach out about aviation anomaly monitoring or maritime chokepoint intelligence.">
+    <meta property="og:url" content="https://obsidiandynamics.co.uk/contact.html">
+    <meta property="og:site_name" content="Obsidian Dynamics">
+    <link rel="canonical" href="https://obsidiandynamics.co.uk/contact.html">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 2L37 11V29L20 38L3 29V11L20 2Z" stroke="url(#logoGrad)" stroke-width="2" fill="none"/><path d="M20 8L31 14V26L20 32L9 26V14L20 8Z" fill="url(#logoGrad)" opacity="0.3"/><path d="M20 14L25 17V23L20 26L15 23V17L20 14Z" fill="url(#logoGrad)"/><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient></defs></svg>
+                <span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="skygrid.html" class="nav-link">Project SkyGrid</a>
+                <a href="strait-signal.html" class="nav-link">Strait Signal</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero page-hero--contact">
+        <div class="hero-grid-overlay" aria-hidden="true"></div>
+        <div class="page-hero__badge">CONTACT</div>
+        <h1 class="page-hero__title">Get in <span class="gradient-text">Touch</span></h1>
+        <p class="page-hero__subtitle">
+            Interested in Project SkyGrid or Strait Signal? Whether you're exploring a use case or ready to integrate, we'd like to hear from you.
+        </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Send a Message</h2>
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest" class="form-label">Area of Interest</label>
+                            <select id="interest" name="interest" class="form-input form-select">
+                                <option value="">Select a platform</option>
+                                <option value="skygrid">Project SkyGrid — Aircraft Anomaly Monitoring</option>
+                                <option value="strait-signal">Strait Signal — Maritime Chokepoint Intelligence</option>
+                                <option value="both">Both Platforms</option>
+                                <option value="general">General Enquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-input form-textarea" placeholder="Tell us about your use case or question..." rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-full">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="contact-info-card">
+                        <h3>Direct Email</h3>
+                        <p>Prefer email? Click below to reveal our contact address.</p>
+                        <button class="btn btn-ghost email-reveal-btn" id="emailRevealBtn" aria-label="Reveal email address">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13L2 4"/></svg>
+                            <span id="emailRevealText">Click to reveal email</span>
+                        </button>
+                    </div>
+                    <div class="contact-info-card">
+                        <h3>Platforms</h3>
+                        <ul class="contact-links">
+                            <li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg></a></li>
+                            <li><a href="https://strait-signal.com" target="_blank" rel="noopener noreferrer">strait-signal.com <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg></a></li>
+                        </ul>
+                    </div>
+                    <div class="contact-info-card">
+                        <h3>Company</h3>
+                        <p>Obsidian Dynamics Limited</p>
+                        <p class="contact-info__meta">Company No. 16663833<br>England &amp; Wales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home"><svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 2L37 11V29L20 38L3 29V11L20 2Z" stroke="url(#logoGrad2)" stroke-width="2" fill="none"/><path d="M20 8L31 14V26L20 32L9 26V14L20 8Z" fill="url(#logoGrad2)" opacity="0.3"/><path d="M20 14L25 17V23L20 26L15 23V17L20 14Z" fill="url(#logoGrad2)"/><defs><linearGradient id="logoGrad2" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient></defs></svg><span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span></a>
+                    <p class="footer-tagline">Mission-critical data intelligence for aviation and maritime operations.</p>
+                    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>
+                </div>
+                <div class="footer-links"><h4>Platforms</h4><ul><li><a href="skygrid.html">Project SkyGrid</a></li><li><a href="strait-signal.html">Strait Signal</a></li></ul></div>
+                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+                <div class="footer-links"><h4>External</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://strait-signal.com" target="_blank" rel="noopener noreferrer">strait-signal.com</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Obsidian Dynamics Limited. All rights reserved. Company No. 16663833</p><div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

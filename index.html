@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsidian Dynamics | Data as a Service for Aviation &amp; Maritime Intelligence</title>
+    <meta name="description" content="Obsidian Dynamics builds mission-critical Data as a Service platforms. Project SkyGrid for aircraft anomaly monitoring and StraitSignal for maritime chokepoint intelligence.">
+    <meta name="keywords" content="DaaS, Data as a Service, aviation monitoring, aircraft anomaly detection, maritime intelligence, chokepoint monitoring, AIS data, flight tracking, supply chain risk, Obsidian Dynamics">
+    <meta name="author" content="Obsidian Dynamics Limited">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#050507">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Obsidian Dynamics | Data as a Service for Aviation &amp; Maritime Intelligence">
+    <meta property="og:description" content="Mission-critical data platforms. Project SkyGrid monitors aircraft anomalies in real time. StraitSignal turns AIS vessel data into actionable chokepoint intelligence.">
+    <meta property="og:url" content="https://obsidiandynamics.co.uk">
+    <meta property="og:site_name" content="Obsidian Dynamics">
+    <meta property="og:locale" content="en_GB">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Obsidian Dynamics | Aviation &amp; Maritime DaaS">
+    <meta name="twitter:description" content="Mission-critical data platforms for aircraft anomaly monitoring and maritime chokepoint intelligence.">
+    <link rel="canonical" href="https://obsidiandynamics.co.uk">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Obsidian Dynamics Limited",
+        "url": "https://obsidiandynamics.co.uk",
+        "description": "Obsidian Dynamics builds mission-critical Data as a Service platforms for aviation and maritime operations.",
+        "address": { "@type": "PostalAddress", "addressCountry": "GB" },
+        "sameAs": ["https://projectskygrid.com", "https://strait-signal.com"]
+    }
+    </script>
+</head>
+<body>
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M20 2L37 11V29L20 38L3 29V11L20 2Z" stroke="url(#logoGrad)" stroke-width="2" fill="none"/>
+                    <path d="M20 8L31 14V26L20 32L9 26V14L20 8Z" fill="url(#logoGrad)" opacity="0.3"/>
+                    <path d="M20 14L25 17V23L20 26L15 23V17L20 14Z" fill="url(#logoGrad)"/>
+                    <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient></defs>
+                </svg>
+                <span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="skygrid.html" class="nav-link">Project SkyGrid</a>
+                <a href="strait-signal.html" class="nav-link">Strait Signal</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-grid-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+            <div class="hero-badge">DATA AS A SERVICE</div>
+            <h1 class="hero-title" id="hero-heading">
+                Intelligence at the
+                <span class="gradient-text">Speed of Decision</span>
+            </h1>
+            <p class="hero-subtitle">
+                Obsidian Dynamics builds mission-critical data platforms for aviation and maritime operations.
+                Aircraft anomaly monitoring. Chokepoint disruption intelligence. 
+                Real-time data your analysts can act on.
+            </p>
+            <div class="hero-actions">
+                <a href="#services" class="btn btn-primary">
+                    Explore Platforms
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
+            </div>
+            <div class="hero-stats" aria-label="Platform statistics">
+                <div class="stat">
+                    <span class="stat-number" data-count="9785">0</span>
+                    <span class="stat-label">Aircraft Tracked Live</span>
+                </div>
+                <div class="stat-divider" aria-hidden="true"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="7">0</span>
+                    <span class="stat-label">Chokepoints Monitored</span>
+                </div>
+                <div class="stat-divider" aria-hidden="true"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="8">0</span>
+                    <span class="stat-label">Anomaly Detection Classes</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services" aria-labelledby="services-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">OUR PLATFORMS</span>
+                <h2 class="section-title" id="services-heading">Two Platforms.<br><span class="gradient-text">One Mission.</span></h2>
+                <p class="section-desc">Purpose-built data services for industries where the speed and accuracy of information defines the outcome.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- SkyGrid -->
+                <a href="skygrid.html" class="service-card service-card--skygrid">
+                    <div class="service-card__glow" aria-hidden="true"></div>
+                    <div class="service-card__content">
+                        <div class="service-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="1.5" opacity="0.3"/><circle cx="32" cy="32" r="18" stroke="currentColor" stroke-width="1.5" opacity="0.5"/><circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M32 4V60M4 32H60" stroke="currentColor" stroke-width="0.75" opacity="0.2"/><path d="M22 18L32 8L42 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 8V38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <span class="service-card__tag">AIRCRAFT ANOMALY MONITORING</span>
+                        <h3 class="service-card__title">Project SkyGrid</h3>
+                        <p class="service-card__desc">
+                            Browser-first airspace monitoring. Detect and review aircraft anomalies without leaving the browser —
+                            monitor live traffic, triage suspicious patterns, and forward validated events into downstream workflows with structured data.
+                        </p>
+                        <div class="service-card__features">
+                            <div class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Loiter, Ghost &amp; Squawk Detection</div>
+                            <div class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>GPS Jamming &amp; ICAO Spoofing</div>
+                            <div class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Interactive Cesium 3D Map</div>
+                        </div>
+                        <div class="service-card__link">Explore SkyGrid <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                    </div>
+                    <div class="service-card__visual service-card__visual--skygrid" aria-hidden="true"><div class="radar-sweep"></div></div>
+                </a>
+
+                <!-- Strait Signal -->
+                <a href="strait-signal.html" class="service-card service-card--strait">
+                    <div class="service-card__glow" aria-hidden="true"></div>
+                    <div class="service-card__content">
+                        <div class="service-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" fill="none"><path d="M8 40C16 36 24 44 32 40C40 36 48 44 56 40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/><path d="M8 32C16 28 24 36 32 32C40 28 48 36 56 32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><path d="M8 24C16 20 24 28 32 24C40 20 48 28 56 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="32" cy="24" r="4" fill="currentColor" opacity="0.8"/><circle cx="20" cy="32" r="3" fill="currentColor" opacity="0.5"/><circle cx="44" cy="32" r="3" fill="currentColor" opacity="0.5"/></svg>
+                        </div>
+                        <span class="service-card__tag">MARITIME CHOKEPOINT INTELLIGENCE</span>
+                        <h3 class="service-card__title">Strait Signal</h3>
+                        <p class="service-card__desc">
+                            Suez congestion. Red Sea rerouting. Panama drought.
+                            We turn AIS vessel data into actionable chokepoint intelligence — hours before your freight team hears from a carrier.
+                        </p>
+                        <div class="service-card__features">
+                            <div class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Anchorage Queue Tracking</div>
+                            <div class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Delay Delta Baselines</div>
+                            <div class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Route Risk Scoring</div>
+                        </div>
+                        <div class="service-card__link">Explore Strait Signal <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                    </div>
+                    <div class="service-card__visual service-card__visual--strait" aria-hidden="true"><div class="wave-animation"></div></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="capabilities" aria-labelledby="capabilities-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">WHY OBSIDIAN DYNAMICS</span>
+                <h2 class="section-title" id="capabilities-heading">Built for <span class="gradient-text">Operational Reality</span></h2>
+            </div>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="20"/><path d="M24 12V24L32 28"/></svg></div>
+                    <h3>Browser-First Operations</h3>
+                    <p>No installs. No desktop clients. Full operational dashboards in any modern browser with live data feeds and interactive maps.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="40" height="40" rx="4"/><path d="M4 16H44M16 4V44"/><circle cx="30" cy="30" r="6"/></svg></div>
+                    <h3>API &amp; Webhook Delivery</h3>
+                    <p>JSON APIs with webhook integration. Route validated events directly into Slack, Teams, email, or any downstream system.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4L44 16V32L24 44L4 32V16L24 4Z"/><path d="M24 4V44M4 16L44 32M44 16L4 32"/></svg></div>
+                    <h3>Pattern-Based Detection</h3>
+                    <p>Anomaly detection tuned for real operational use. Loiter patterns, ghost tracks, squawk codes, GPS jamming, ICAO spoofing, and more.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="20"/><path d="M16 20C16 20 20 14 24 14C28 14 32 20 32 20C32 20 28 26 24 26C20 26 16 20 16 20Z"/><circle cx="24" cy="20" r="3"/></svg></div>
+                    <h3>Baseline Intelligence</h3>
+                    <p>Metrics compared against 7-day, 30-day, 90-day, and 365-day baselines. Context turns a number into actionable intelligence.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="32" height="32" rx="2"/><path d="M16 24L22 30L32 18"/></svg></div>
+                    <h3>SOC 2 Compliant</h3>
+                    <p>Security-first architecture. SOC 2 compliant infrastructure with 99.9% uptime SLA across all platform services.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4V12M24 36V44M44 24H36M12 24H4"/><circle cx="24" cy="24" r="8"/><path d="M10 10L16 16M32 32L38 38M38 10L32 16M16 32L10 38"/></svg></div>
+                    <h3>Analyst-First Design</h3>
+                    <p>Built for operations teams who triage events, not data scientists. Every detection is advisory, structured, and reviewable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <h2>Ready to see the platforms in action?</h2>
+                    <p>Start with one watch area or one chokepoint. Validate the intelligence before scaling coverage.</p>
+                    <div class="cta-actions">
+                        <a href="contact.html" class="btn btn-primary btn-lg">Start a Conversation <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+                <div class="cta-visual" aria-hidden="true"><div class="cta-orb"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 2L37 11V29L20 38L3 29V11L20 2Z" stroke="url(#logoGrad2)" stroke-width="2" fill="none"/><path d="M20 8L31 14V26L20 32L9 26V14L20 8Z" fill="url(#logoGrad2)" opacity="0.3"/><path d="M20 14L25 17V23L20 26L15 23V17L20 14Z" fill="url(#logoGrad2)"/><defs><linearGradient id="logoGrad2" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient></defs></svg>
+                        <span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span>
+                    </a>
+                    <p class="footer-tagline">Mission-critical data intelligence for aviation and maritime operations.</p>
+                    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>
+                </div>
+                <div class="footer-links"><h4>Platforms</h4><ul><li><a href="skygrid.html">Project SkyGrid</a></li><li><a href="strait-signal.html">Strait Signal</a></li></ul></div>
+                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+                <div class="footer-links"><h4>External</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://strait-signal.com" target="_blank" rel="noopener noreferrer">strait-signal.com</a></li></ul></div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Obsidian Dynamics Limited. All rights reserved. Company No. 16663833</p>
+                <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
