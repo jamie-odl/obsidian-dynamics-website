@@ -248,6 +248,103 @@ input, textarea, select { font-family: inherit; }
     margin-top: 4px;
 }
 
+/* --- Hero aliases (index.html uses hyphenated names) --- */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--sky-primary);
+    margin-bottom: 32px;
+    backdrop-filter: blur(10px);
+}
+.hero-title {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--obsidian-50);
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+}
+.hero-subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: var(--obsidian-300);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 600px;
+    margin: 64px auto 0;
+    padding-top: 48px;
+    border-top: 1px solid var(--glass-border);
+}
+.stat { text-align: center; }
+.stat-number {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 28px;
+    font-weight: 700;
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.stat-label {
+    display: block;
+    font-size: 12px;
+    color: var(--obsidian-400);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+.stat-divider { display: none; }
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--obsidian-500);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--obsidian-500), transparent);
+    animation: scroll-bounce 2s ease-in-out infinite;
+}
+@keyframes scroll-bounce {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+    50% { opacity: 1; transform: scaleY(1); }
+}
+
 /* ============================================================
    PAGE HERO — Sub-pages
    ============================================================ */
@@ -482,6 +579,10 @@ input, textarea, select { font-family: inherit; }
     margin-bottom: 20px;
     color: var(--obsidian-300);
 }
+.feature-card__icon svg {
+    width: 100%;
+    height: 100%;
+}
 .feature-card--sky .feature-card__icon { color: var(--sky-primary); }
 .feature-card--strait .feature-card__icon { color: var(--strait-primary); }
 
@@ -507,6 +608,139 @@ input, textarea, select { font-family: inherit; }
 .feature-card__link:hover { color: var(--obsidian-50); }
 .feature-card__link--strait { color: var(--strait-primary); }
 .feature-card__link--strait:hover { color: var(--obsidian-50); }
+
+/* ============================================================
+   SERVICE CARDS — Index page (with visual/glow/content)
+   ============================================================ */
+.services { position: relative; z-index: 1; padding: 100px 0; }
+
+.service-card__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px;
+    color: var(--obsidian-300);
+}
+.service-card__icon svg {
+    width: 100%;
+    height: 100%;
+}
+.service-card--skygrid .service-card__icon,
+.service-card--sky .service-card__icon { color: var(--sky-primary); }
+.service-card--strait .service-card__icon { color: var(--strait-primary); }
+
+.service-card--skygrid { border-color: transparent; }
+.service-card--skygrid:hover { border-color: rgba(0, 212, 255, 0.15); }
+.service-card--skygrid::before { background: var(--gradient-sky); }
+.service-card--skygrid .service-card__tag { color: var(--sky-primary); }
+.service-card--skygrid .service-card__link { color: var(--sky-primary); }
+
+.service-card__glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: -1;
+}
+.service-card--skygrid .service-card__glow { background: radial-gradient(ellipse at 30% 0%, rgba(0,212,255,0.08) 0%, transparent 70%); }
+.service-card--strait .service-card__glow { background: radial-gradient(ellipse at 30% 0%, rgba(16,185,129,0.08) 0%, transparent 70%); }
+.service-card:hover .service-card__glow { opacity: 1; }
+
+.service-card__content { position: relative; z-index: 1; }
+
+.service-card__title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--obsidian-50);
+    margin-bottom: 12px;
+}
+.service-card__desc {
+    font-size: 15px;
+    color: var(--obsidian-300);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.service-card__visual {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    opacity: 0.06;
+    pointer-events: none;
+}
+.radar-sweep {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0%, var(--sky-primary) 10%, transparent 20%);
+    animation: radar-spin 4s linear infinite;
+}
+@keyframes radar-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.wave-animation {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(16,185,129,0.2) 8px, rgba(16,185,129,0.2) 10px);
+    animation: wave-drift 3s ease-in-out infinite;
+}
+@keyframes wave-drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--obsidian-300);
+    padding: 4px 0;
+}
+.feature-item svg { flex-shrink: 0; color: var(--sky-primary); }
+.service-card--strait .feature-item svg { color: var(--strait-primary); }
+
+/* ============================================================
+   CAPABILITIES — Index page
+   ============================================================ */
+.capabilities { position: relative; z-index: 1; padding: 100px 0; }
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.capability-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 32px 28px;
+    transition: all 0.3s var(--ease-out-expo);
+    backdrop-filter: blur(10px);
+}
+.capability-card:hover {
+    border-color: var(--glass-border-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+}
+.capability-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    color: var(--sky-primary);
+}
+.capability-icon svg {
+    width: 100%;
+    height: 100%;
+}
+.capability-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--obsidian-50);
+    margin-bottom: 10px;
+}
+.capability-card p {
+    font-size: 14px;
+    color: var(--obsidian-300);
+    line-height: 1.7;
+}
 
 /* ============================================================
    CAPABILITY / SERVICE CARDS (Home)
@@ -1054,6 +1288,7 @@ input, textarea, select { font-family: inherit; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .contact-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
+    .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
     .cta-card { padding: 48px; }
 }
 
@@ -1084,6 +1319,8 @@ input, textarea, select { font-family: inherit; }
     .features-grid--2col,
     .features-grid--3col,
     .features-grid--chokepoints { grid-template-columns: 1fr; }
+
+    .capabilities-grid { grid-template-columns: 1fr; }
 
     .metrics-grid { grid-template-columns: repeat(2, 1fr); }
 

@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Scroll Reveal (Intersection Observer) ---
     const fadeEls = document.querySelectorAll(
-        '.feature-card, .service-card, .metric-card, .step-item, .cta-card, .company-info-card, .contact-info-card, .contact-form-wrapper'
+        '.feature-card, .service-card, .metric-card, .step-item, .cta-card, .company-info-card, .contact-info-card, .contact-form-wrapper, .capability-card'
     );
     if (fadeEls.length) {
         fadeEls.forEach(el => el.classList.add('fade-in'));
