@@ -5,7 +5,7 @@
             <stop offset="100%" stop-color="#7b2fff"/>
         </linearGradient>
     </defs>
-    <path d="M20 2L37 11V29L20 38L3 29V11L20 2Z" stroke="url(#g)" stroke-width="2" fill="none"/>
-    <path d="M20 8L31 14V26L20 32L9 26V14L20 8Z" fill="url(#g)" opacity="0.3"/>
-    <path d="M20 14L25 17V23L20 26L15 23V17L20 14Z" fill="url(#g)"/>
+    <path d="M20 21L38 12L34 35L20 39Z" fill="url(#g)"/>
+    <path d="M2 12L20 21L20 39L6 35Z" fill="url(#g)" opacity="0.55"/>
+    <path d="M20 1L38 12L20 21L2 12Z" fill="url(#g)" opacity="0.75"/>
 </svg>
