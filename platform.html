@@ -52,6 +52,7 @@
                 <a href="platform.html" class="nav-link active">Platform</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="contact.html" class="nav-link">Contact</a>
+                <a href="contact.html" class="nav-cta">Book Demo</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span></span><span></span><span></span>
@@ -192,6 +193,87 @@
         </div>
     </section>
 
+    <!-- Webhook Schema Example -->
+    <section class="features-section" style="padding-top: 0;" aria-labelledby="webhook-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">WEBHOOK DELIVERY</span>
+                <h2 class="section-title" id="webhook-heading">Sample Webhook <span class="gradient-text">Payload</span></h2>
+                <p class="section-desc">When events match your configured thresholds, the platform delivers structured JSON via webhook. Here's an example payload your endpoint receives.</p>
+            </div>
+            <div class="sample-payload">
+                <div class="sample-payload__header">
+                    <span class="sample-payload__label">WEBHOOK DELIVERY — FIREHOSE EVENT</span>
+                    <span class="sample-payload__badge">POST</span>
+                </div>
+<pre class="sample-payload__code"><code>{
+  "webhook_id": "wh-20260415-0847-3fa2b1e9",
+  "delivered_at": "2026-04-15T08:47:12.847Z",
+  "signature": "sha256=a1b2c3d4e5f6...",
+  "event": {
+    "event_id": "ss-evt-20260415-0847-delay-7b1e",
+    "domain": "maritime",
+    "type": "delay_delta",
+    "severity": "high",
+    "chokepoint": "suez_canal",
+    "timestamp": "2026-04-15T08:47:12Z",
+    "summary": "Suez Canal queue depth exceeded threshold: 47 vessels (baseline: 12)",
+    "metrics": {
+      "current_queue_depth": 47,
+      "baseline_queue_depth": 12,
+      "delay_delta_hours": "+7.2"
+    }
+  },
+  "delivery": {
+    "attempt": 1,
+    "max_retries": 5,
+    "retry_backoff": "exponential",
+    "content_type": "application/json"
+  }
+}</code></pre>
+                <p class="sample-payload__note">Webhooks include HMAC signatures for payload verification. Failed deliveries retry with exponential backoff (5 attempts). Delivery logs are accessible via the REST API.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="features-section" style="padding-top: 0;" aria-labelledby="specs-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">SPECIFICATIONS</span>
+                <h2 class="section-title" id="specs-heading">Technical <span class="gradient-text">Details</span></h2>
+            </div>
+            <div class="company-info-card">
+                <div class="company-details">
+                    <div class="company-detail">
+                        <span class="company-detail__label">Pipeline Latency</span>
+                        <span class="company-detail__value">Aviation: &lt;60 seconds (receiver → detection → delivery). Maritime: 15-minute refresh cycle with &lt;90-second alert delivery.</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="company-detail__label">Data Retention</span>
+                        <span class="company-detail__value">Event data retained for contract duration plus 90-day wind-down. Baseline history retained for rolling computation. Custom retention available.</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="company-detail__label">Response Format</span>
+                        <span class="company-detail__value">All endpoints return application/json. SSE streams use text/event-stream with JSON event payloads. UTF-8 encoding throughout.</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="company-detail__label">Pagination</span>
+                        <span class="company-detail__value">Cursor-based pagination. Cursors are monotonically increasing integers. No events are missed between reconnections.</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="company-detail__label">Error Handling</span>
+                        <span class="company-detail__value">Standard HTTP status codes. 429 for rate limits with Retry-After header. Error responses include machine-readable error codes and human-readable messages.</span>
+                    </div>
+                    <div class="company-detail">
+                        <span class="company-detail__label">Security</span>
+                        <span class="company-detail__value">TLS 1.2+ required. API key + HMAC authentication. IP allowlisting optional. All infrastructure SOC 2 compliant. <a href="security.html" style="color: var(--sky-primary);">Full security details →</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Unified Platform Value -->
     <section class="features-section" style="padding-top: 0;" aria-labelledby="unified-heading">
         <div class="container">
@@ -318,7 +400,7 @@
                     <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>
                 </div>
                 <div class="footer-links"><h4>Platforms</h4><ul><li><a href="skygrid.html">Project SkyGrid</a></li><li><a href="strait-signal.html">Strait Signal</a></li><li><a href="platform.html">Enterprise Platform</a></li></ul></div>
-                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="security.html">Security &amp; Trust</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
                 <div class="footer-links"><h4>External</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://strait-signal.com" target="_blank" rel="noopener noreferrer">strait-signal.com</a></li></ul></div>
             </div>
             <div class="footer-bottom"><p>&copy; 2026 Obsidian Dynamics Limited. All rights reserved. Company No. 16663833</p><div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div>

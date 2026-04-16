@@ -58,6 +58,7 @@
                 <a href="platform.html" class="nav-link">Platform</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="contact.html" class="nav-link">Contact</a>
+                <a href="contact.html" class="nav-cta">Book Demo</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span></span><span></span><span></span>
@@ -167,6 +168,37 @@
         </div>
     </section>
 
+    <!-- Role-Based Entry Paths -->
+    <section class="features-section" aria-labelledby="roles-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">START HERE</span>
+                <h2 class="section-title" id="roles-heading">Built for Your <span class="gradient-text">Role</span></h2>
+                <p class="section-desc">Different teams need different answers. Find your entry point.</p>
+            </div>
+            <div class="role-paths-grid">
+                <a href="skygrid.html" class="role-path-card">
+                    <span class="role-path-card__tag">DEFENCE &amp; INTELLIGENCE</span>
+                    <h3>For Analysts</h3>
+                    <p>You need to detect aircraft anomalies over watch areas — loiter, spoofing, jamming — and triage events before they escalate. You care about detection quality, confidence scoring, and audit trails.</p>
+                    <span class="role-path-card__link">Explore SkyGrid detections <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </a>
+                <a href="strait-signal.html" class="role-path-card">
+                    <span class="role-path-card__tag" style="color: var(--strait-primary);">LOGISTICS &amp; SUPPLY CHAIN</span>
+                    <h3>For Freight &amp; Ops Teams</h3>
+                    <p>You need early warning on chokepoint delays — Suez queues, Red Sea rerouting, Panama restrictions — to make rerouting decisions before your carrier sends an email.</p>
+                    <span class="role-path-card__link" style="color: var(--strait-primary);">Explore Strait Signal intelligence <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </a>
+                <a href="platform.html" class="role-path-card">
+                    <span class="role-path-card__tag" style="color: var(--purple-primary);">ENGINEERING &amp; INTEGRATION</span>
+                    <h3>For Technical Evaluators</h3>
+                    <p>You need to assess integration effort — API contracts, webhook schemas, authentication, rate limits, and data formats. You want to see the payloads before you book a call.</p>
+                    <span class="role-path-card__link" style="color: var(--purple-primary);">Review platform API docs <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- How It Works -->
     <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
         <div class="container">
@@ -210,7 +242,13 @@
                 <div class="case-card">
                     <div class="case-card__tag case-card__tag--strait">STRAIT SIGNAL</div>
                     <h3 class="case-card__title">Ever Given — Suez Canal Blockage</h3>
-                    <p class="case-card__desc">When the Ever Given grounded in March 2021, anchorage queues at both canal approaches began building hours before major outlets reported the blockage. Strait Signal's queue-tracking and delay-delta baselines would have flagged the anomaly within the first data cycle — giving logistics teams a critical head start to reroute or hold cargo.</p>
+                    <p class="case-card__desc">When the Ever Given grounded in March 2021, anchorage queues at both canal approaches began building hours before major outlets reported the blockage. Strait Signal's queue-tracking and delay-delta models are calibrated against this event — the queue anomaly is detectable within the first 15-minute data cycle, hours before carrier advisories reached freight customers.</p>
+                    <div class="signal-timeline">
+                        <div class="signal-timeline__step"><span class="signal-timeline__time">T+0h</span><span class="signal-timeline__label">Vessel grounds</span></div>
+                        <div class="signal-timeline__step signal-timeline__step--highlight signal-timeline__step--strait"><span class="signal-timeline__time">T+15min</span><span class="signal-timeline__label">Queue delta spikes</span></div>
+                        <div class="signal-timeline__step"><span class="signal-timeline__time">T+4h</span><span class="signal-timeline__label">Carrier advisories</span></div>
+                        <div class="signal-timeline__step"><span class="signal-timeline__time">T+8h</span><span class="signal-timeline__label">Media coverage</span></div>
+                    </div>
                     <div class="case-card__metrics">
                         <div class="case-metric"><span class="case-metric__value">6+ days</span><span class="case-metric__label">Canal blocked</span></div>
                         <div class="case-metric"><span class="case-metric__value">422</span><span class="case-metric__label">Vessels queued</span></div>
@@ -220,7 +258,13 @@
                 <div class="case-card">
                     <div class="case-card__tag case-card__tag--strait">STRAIT SIGNAL</div>
                     <h3 class="case-card__title">Houthi Attacks — Red Sea Rerouting</h3>
-                    <p class="case-card__desc">As Houthi missile strikes escalated in late 2023, major carriers quietly rerouted south around the Cape of Good Hope. Strait Signal's Bab el-Mandeb transit volumes and route-scoring algorithms detect rerouting surges as they form — before carriers issue formal advisories to freight customers.</p>
+                    <p class="case-card__desc">As Houthi missile strikes escalated in late 2023, major carriers quietly rerouted south around the Cape of Good Hope. Strait Signal's Bab el-Mandeb transit volume monitoring detected the rerouting surge as it formed — transit counts dropped 65% before carriers issued formal advisories to freight customers.</p>
+                    <div class="signal-timeline">
+                        <div class="signal-timeline__step"><span class="signal-timeline__time">Day 1</span><span class="signal-timeline__label">Strikes escalate</span></div>
+                        <div class="signal-timeline__step signal-timeline__step--highlight signal-timeline__step--strait"><span class="signal-timeline__time">Day 1–2</span><span class="signal-timeline__label">Transit volume drops</span></div>
+                        <div class="signal-timeline__step"><span class="signal-timeline__time">Day 3–5</span><span class="signal-timeline__label">Carrier reroute notices</span></div>
+                        <div class="signal-timeline__step"><span class="signal-timeline__time">Day 7+</span><span class="signal-timeline__label">Industry-wide response</span></div>
+                    </div>
                     <div class="case-card__metrics">
                         <div class="case-metric"><span class="case-metric__value">-65%</span><span class="case-metric__label">Suez transits at peak</span></div>
                         <div class="case-metric"><span class="case-metric__value">+10 days</span><span class="case-metric__label">Added voyage time</span></div>
@@ -230,7 +274,7 @@
                 <div class="case-card">
                     <div class="case-card__tag case-card__tag--sky">PROJECT SKYGRID</div>
                     <h3 class="case-card__title">GPS Jamming Zones — Baltic & Eastern Med</h3>
-                    <p class="case-card__desc">GPS jamming and spoofing events near conflict zones cause aircraft position data to degrade or shift. SkyGrid's GPS-jamming and ICAO-spoof detection classes identify affected aircraft in real time, mapping interference zones that align with known electronic warfare activity and alerting analysts before airspace advisories are issued.</p>
+                    <p class="case-card__desc">GPS jamming and spoofing events near conflict zones cause aircraft position data to degrade or shift. SkyGrid's GPS-jamming and ICAO-spoof detection classes identify affected aircraft in real time — mapping interference zones that align with confirmed electronic warfare activity across the Baltic and Eastern Mediterranean, with detections logged hours before NOTAM updates.</p>
                     <div class="case-card__metrics">
                         <div class="case-metric"><span class="case-metric__value">8</span><span class="case-metric__label">Detection classes active</span></div>
                         <div class="case-metric"><span class="case-metric__value">&lt;15 min</span><span class="case-metric__label">Detection cycle</span></div>
@@ -247,9 +291,10 @@
             <div class="cta-card cta-card--inline">
                 <div class="cta-content">
                     <h2>See the intelligence for yourself</h2>
-                    <p>Book a 30-minute technical walkthrough. We'll show you live data, real detections, and how the platforms integrate with your existing workflows.</p>
+                    <p>Book a 30-minute technical walkthrough with live data and real detections. Or start with a sample output — no call required.</p>
                     <div class="cta-actions">
                         <a href="contact.html" class="btn btn-primary btn-lg">Book a Walkthrough <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                        <a href="skygrid.html#sample-output" class="btn btn-ghost btn-lg">View Sample Alert</a>
                     </div>
                 </div>
                 <div class="cta-visual" aria-hidden="true"><div class="cta-orb"></div></div>
@@ -294,6 +339,50 @@
                     <div class="capability-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4V12M24 36V44M44 24H36M12 24H4"/><circle cx="24" cy="24" r="8"/><path d="M10 10L16 16M32 32L38 38M38 10L32 16M16 32L10 38"/></svg></div>
                     <h3>Analyst-First Design</h3>
                     <p>Built for operations teams who triage events, not data scientists. Every detection is advisory, structured, and reviewable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="features-section" aria-labelledby="faq-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title" id="faq-heading">Common <span class="gradient-text">Questions</span></h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>What data sources do you use?</h4>
+                    <p>ADS-B transponder feeds from distributed ground-based receiver networks (aviation) and AIS position reports from terrestrial and satellite receivers (maritime). All data is ingested via authenticated feeds, not scraped.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What's the detection latency?</h4>
+                    <p>SkyGrid: end-to-end pipeline latency under 60 seconds from receiver to event delivery. Strait Signal: chokepoint metrics refresh every 15 minutes with sub-90-second alert delivery. Webhooks add &lt;200ms.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How do I access the data?</h4>
+                    <p>Via interactive browser dashboards, REST APIs with JSON responses, SSE real-time streaming, or webhook delivery to Slack, Teams, email, or custom endpoints. No desktop software required.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What browsers are supported?</h4>
+                    <p>All modern browsers — Chrome, Firefox, Safari, Edge. Dashboards are fully browser-based with no plugins or installs. 3D map views use WebGL (Cesium).</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How does pricing work?</h4>
+                    <p>Pricing is scoped to your use case, data volume, and integration requirements. Minimum 3-month initial term, then month-to-month. No twelve-month lock-ins. Contact us to discuss.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Who is this NOT for?</h4>
+                    <p>This is not a consumer flight tracker or vessel finder. It's built for operations teams, analysts, and logistics professionals who need structured intelligence for decision-making — not casual browsing.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I export data?</h4>
+                    <p>Yes. All event data is available via REST API as structured JSON. Webhook delivery pushes events in real time. Dashboard views support filtering and export. Enterprise customers get cursor-based firehose access.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Where is my data stored?</h4>
+                    <p>All data is processed and stored within UK/EU infrastructure on SOC 2 Type II certified cloud services. Encryption in transit (TLS 1.2+) and at rest (AES-256). See our <a href="security.html" style="color: var(--sky-primary);">Security &amp; Trust</a> page.</p>
                 </div>
             </div>
         </div>
@@ -363,7 +452,7 @@
                     <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>
                 </div>
                 <div class="footer-links"><h4>Platforms</h4><ul><li><a href="skygrid.html">Project SkyGrid</a></li><li><a href="strait-signal.html">Strait Signal</a></li><li><a href="platform.html">Enterprise Platform</a></li></ul></div>
-                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="security.html">Security &amp; Trust</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
                 <div class="footer-links"><h4>External</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://strait-signal.com" target="_blank" rel="noopener noreferrer">strait-signal.com</a></li></ul></div>
             </div>
             <div class="footer-bottom">

@@ -1764,6 +1764,8 @@ input, textarea, select { font-family: inherit; }
     .process-grid { grid-template-columns: 1fr; gap: 24px; }
     .trust-grid { grid-template-columns: 1fr; }
     .case-card__metrics { flex-wrap: wrap; gap: 24px; }
+    .role-paths-grid { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
     .process-grid { gap: 20px; }
@@ -1774,4 +1776,314 @@ input, textarea, select { font-family: inherit; }
     .trust-card { padding: 28px 24px; }
     .cta-actions { flex-direction: column; align-items: stretch; }
     .cta-actions .btn { text-align: center; justify-content: center; }
+    .sample-payload__code { font-size: 0.68rem; }
+    .analyst-steps { grid-template-columns: 1fr; }
+    .methodology-grid { grid-template-columns: 1fr; }
+    .nav-cta { display: none; }
+}
+
+/* ============================================================
+   SAMPLE PAYLOAD BLOCK
+   ============================================================ */
+.sample-payload {
+    max-width: 720px;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: rgba(5, 5, 7, 0.8);
+}
+.sample-payload--strait {
+    border-color: rgba(16, 185, 129, 0.15);
+}
+.sample-payload__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(0, 212, 255, 0.06);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+}
+.sample-payload--strait .sample-payload__header {
+    background: rgba(16, 185, 129, 0.06);
+    border-bottom-color: rgba(16, 185, 129, 0.1);
+}
+.sample-payload__label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--sky-primary);
+}
+.sample-payload--strait .sample-payload__label {
+    color: var(--strait-primary);
+}
+.sample-payload__badge {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--obsidian-300);
+    border: 1px solid var(--glass-border);
+}
+.sample-payload__code {
+    display: block;
+    padding: 20px 24px;
+    margin: 0;
+    background: transparent;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    line-height: 1.7;
+    color: var(--obsidian-200);
+    border: none;
+}
+.sample-payload__code code {
+    font-family: inherit;
+    background: none;
+    padding: 0;
+}
+.sample-payload__note {
+    padding: 14px 20px;
+    font-size: 0.82rem;
+    color: var(--obsidian-400);
+    border-top: 1px solid var(--glass-border);
+    line-height: 1.6;
+}
+
+/* ============================================================
+   METHODOLOGY BLOCK
+   ============================================================ */
+.methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 32px;
+}
+.methodology-item {
+    padding: 24px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+}
+.methodology-item h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--obsidian-100);
+    margin-bottom: 8px;
+}
+.methodology-item p {
+    font-size: 0.85rem;
+    color: var(--obsidian-300);
+    line-height: 1.6;
+}
+
+/* ============================================================
+   ANALYST WORKFLOW STEPS
+   ============================================================ */
+.analyst-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+}
+.analyst-step {
+    padding: 28px 24px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    position: relative;
+}
+.analyst-step__number {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: 800;
+    background: var(--gradient-sky);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.4;
+    margin-bottom: 12px;
+    display: block;
+}
+.analyst-step--strait .analyst-step__number {
+    background: var(--gradient-strait);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.analyst-step h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--obsidian-100);
+    margin-bottom: 8px;
+}
+.analyst-step p {
+    font-size: 0.85rem;
+    color: var(--obsidian-300);
+    line-height: 1.6;
+}
+
+/* ============================================================
+   ROLE PATH CARDS (HOMEPAGE)
+   ============================================================ */
+.role-paths-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.role-path-card {
+    padding: 28px 24px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    display: block;
+}
+.role-path-card:hover {
+    border-color: var(--glass-border-hover);
+    transform: translateY(-2px);
+}
+.role-path-card__tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sky-primary);
+    margin-bottom: 12px;
+    display: block;
+}
+.role-path-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--obsidian-50);
+    margin-bottom: 8px;
+}
+.role-path-card p {
+    font-size: 0.85rem;
+    color: var(--obsidian-300);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+.role-path-card__link {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--sky-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ============================================================
+   NAV CTA BUTTON
+   ============================================================ */
+.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--gradient-main);
+    border-radius: 6px;
+    transition: opacity 0.2s ease;
+    margin-left: 12px;
+    white-space: nowrap;
+}
+.nav-cta:hover {
+    opacity: 0.85;
+}
+
+/* ============================================================
+   FAQ SECTION
+   ============================================================ */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.faq-item {
+    padding: 24px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+}
+.faq-item h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--obsidian-100);
+    margin-bottom: 8px;
+}
+.faq-item p {
+    font-size: 0.85rem;
+    color: var(--obsidian-300);
+    line-height: 1.65;
+}
+
+/* ============================================================
+   TIMELINE (PROOF DESIGN)
+   ============================================================ */
+.signal-timeline {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 32px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+.signal-timeline__step {
+    flex: 1;
+    padding: 20px 16px;
+    text-align: center;
+    border-right: 1px solid var(--glass-border);
+    position: relative;
+}
+.signal-timeline__step:last-child {
+    border-right: none;
+}
+.signal-timeline__step--highlight {
+    background: rgba(0, 212, 255, 0.06);
+}
+.signal-timeline__step--highlight.signal-timeline__step--strait {
+    background: rgba(16, 185, 129, 0.06);
+}
+.signal-timeline__time {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--obsidian-400);
+    margin-bottom: 6px;
+    display: block;
+}
+.signal-timeline__step--highlight .signal-timeline__time {
+    color: var(--sky-primary);
+}
+.signal-timeline__step--highlight.signal-timeline__step--strait .signal-timeline__time {
+    color: var(--strait-primary);
+}
+.signal-timeline__label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--obsidian-200);
+    line-height: 1.4;
+}
+@media (max-width: 768px) {
+    .signal-timeline {
+        flex-direction: column;
+    }
+    .signal-timeline__step {
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+    }
+    .signal-timeline__step:last-child {
+        border-bottom: none;
+    }
 }

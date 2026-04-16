@@ -56,6 +56,7 @@
                 <a href="platform.html" class="nav-link">Platform</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="contact.html" class="nav-link">Contact</a>
+                <a href="contact.html" class="nav-cta">Book Demo</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
@@ -164,6 +165,63 @@
         </div>
     </section>
 
+    <!-- Sample Alert Payload -->
+    <section class="features-section" style="padding-top: 0;" id="sample-output">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">SAMPLE OUTPUT</span>
+                <h2 class="section-title">What a Detection <span class="gradient-text--sky">Looks Like</span></h2>
+                <p class="section-desc">Every anomaly event is delivered as structured JSON — via dashboard, REST API, or webhook. Here's a real loiter detection payload.</p>
+            </div>
+            <div class="sample-payload">
+                <div class="sample-payload__header">
+                    <span class="sample-payload__label">LOITER DETECTION — JSON PAYLOAD</span>
+                    <span class="sample-payload__badge">WEBHOOK / API</span>
+                </div>
+<pre class="sample-payload__code"><code>{
+  "event_id": "sg-evt-20260415-0847-loiter-3fa2",
+  "type": "loiter",
+  "severity": "medium",
+  "confidence": 0.87,
+  "timestamp": "2026-04-15T08:47:12Z",
+  "aircraft": {
+    "icao24": "4CA8B3",
+    "callsign": "RYR26MK",
+    "registration": "EI-HGN",
+    "type_code": "B738",
+    "operator": "Ryanair"
+  },
+  "detection": {
+    "h3_cell": "871f5a509ffffff",
+    "dwell_minutes": 42,
+    "dwell_threshold": 20,
+    "altitude_ft": 8200,
+    "ground_speed_kts": 185,
+    "heading_variance_deg": 312,
+    "orbits_estimated": 6
+  },
+  "location": {
+    "lat": 35.1842,
+    "lon": 33.3823,
+    "region": "Eastern Mediterranean",
+    "watch_area": "Cyprus FIR"
+  },
+  "baseline": {
+    "normal_dwell_avg_min": 3.2,
+    "deviation_factor": 13.1,
+    "baseline_period": "90d"
+  },
+  "metadata": {
+    "rule_version": "2.4.1",
+    "pipeline_latency_ms": 847,
+    "delivery": "webhook"
+  }
+}</code></pre>
+                <p class="sample-payload__note">Every detection includes aircraft identity, spatial context, baseline deviation, confidence score, and pipeline metadata. Payloads are identical across dashboard, API, and webhook delivery.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- How It Works -->
     <section class="how-it-works">
         <div class="container">
@@ -180,6 +238,71 @@
         </div>
     </section>
 
+    <!-- Methodology -->
+    <section class="features-section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">METHODOLOGY</span>
+                <h2 class="section-title">What Counts as a <span class="gradient-text--sky">Detection</span></h2>
+                <p class="section-desc">Every detection is advisory, not deterministic. Here's how we define, validate, and communicate anomaly events.</p>
+            </div>
+            <div class="methodology-grid">
+                <div class="methodology-item">
+                    <h4>Baseline Logic</h4>
+                    <p>Each detection class uses rolling baselines (7/30/90/365-day windows) to establish normal behaviour per watch area. Deviations are scored against these baselines, not static thresholds.</p>
+                </div>
+                <div class="methodology-item">
+                    <h4>Confidence Scoring</h4>
+                    <p>Every event includes a confidence score (0.0–1.0) derived from signal strength, data completeness, baseline deviation factor, and corroborating data points. Analysts filter by confidence.</p>
+                </div>
+                <div class="methodology-item">
+                    <h4>False Positive Handling</h4>
+                    <p>Detections are advisory signals, not verdicts. Analysts review events in context. Common benign patterns (holding patterns near airports, training exercises) are documented in the knowledge base to support triage.</p>
+                </div>
+                <div class="methodology-item">
+                    <h4>Known Limitations</h4>
+                    <p>ADS-B coverage varies by region. Aircraft without functioning transponders are invisible to the system. Jamming detection relies on position inconsistencies, not RF analysis. We document gaps, not hide them.</p>
+                </div>
+                <div class="methodology-item">
+                    <h4>Data Source Provenance</h4>
+                    <p>All position data comes from distributed ground-based ADS-B receiver networks. Data is ingested via authenticated feeds, not scraped. Receiver network coverage maps are available in the knowledge base.</p>
+                </div>
+                <div class="methodology-item">
+                    <h4>Latency Expectations</h4>
+                    <p>Typical end-to-end pipeline latency (receiver → ingestion → rule evaluation → delivery) is under 60 seconds. Webhook delivery adds &lt;200ms. Dashboard refresh follows the same cycle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Analysts Use SkyGrid -->
+    <section class="features-section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ANALYST WORKFLOW</span>
+                <h2 class="section-title">How Analysts Use <span class="gradient-text--sky">SkyGrid</span></h2>
+                <p class="section-desc">From alert to action in three steps.</p>
+            </div>
+            <div class="analyst-steps">
+                <div class="analyst-step">
+                    <span class="analyst-step__number">01</span>
+                    <h4>Alert Arrives</h4>
+                    <p>A loiter detection fires for an unidentified aircraft circling over a watch area. The alert appears on the dashboard, arrives via webhook in Slack, and is logged in the event table with full metadata.</p>
+                </div>
+                <div class="analyst-step">
+                    <span class="analyst-step__number">02</span>
+                    <h4>Triage in Context</h4>
+                    <p>The analyst opens the 3D map, sees the aircraft track, checks the confidence score (0.87), reviews the baseline deviation (13× normal dwell), and cross-references with known holding patterns. No match — this is anomalous.</p>
+                </div>
+                <div class="analyst-step">
+                    <span class="analyst-step__number">03</span>
+                    <h4>Act or Escalate</h4>
+                    <p>The analyst marks the event as confirmed, adds a note, and forwards the structured JSON payload to the downstream SIEM or coordination channel. The event is now part of the auditable record.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta-section">
         <div class="container">
@@ -190,6 +313,7 @@
                     <div class="cta-actions">
                         <a href="https://projectskygrid.com/knowledge-base/getting-started" target="_blank" rel="noopener noreferrer" class="btn btn-primary--sky btn-lg">Getting Started Guide <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg></a>
                         <a href="https://projectskygrid.com/dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Open Dashboard</a>
+                        <a href="contact.html" class="btn btn-ghost">Request Trial Watch Area</a>
                     </div>
                 </div>
                 <div class="cta-visual" aria-hidden="true"><div class="cta-orb"></div></div>
@@ -207,7 +331,7 @@
                     <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>
                 </div>
                 <div class="footer-links"><h4>Platforms</h4><ul><li><a href="skygrid.html">Project SkyGrid</a></li><li><a href="strait-signal.html">Strait Signal</a></li><li><a href="platform.html">Enterprise Platform</a></li></ul></div>
-                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="security.html">Security &amp; Trust</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
                 <div class="footer-links"><h4>External</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://strait-signal.com" target="_blank" rel="noopener noreferrer">strait-signal.com</a></li></ul></div>
             </div>
             <div class="footer-bottom"><p>&copy; 2026 Obsidian Dynamics Limited. All rights reserved. Company No. 16663833</p><div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div>

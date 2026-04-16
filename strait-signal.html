@@ -56,6 +56,7 @@
                 <a href="platform.html" class="nav-link">Platform</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="contact.html" class="nav-link">Contact</a>
+                <a href="contact.html" class="nav-cta">Book Demo</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
@@ -153,6 +154,65 @@
         </div>
     </section>
 
+    <!-- Sample Alert Payload -->
+    <section class="features-section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">SAMPLE OUTPUT</span>
+                <h2 class="section-title">What an Alert <span class="gradient-text--strait">Looks Like</span></h2>
+                <p class="section-desc">Every chokepoint alert is delivered as structured JSON — via dashboard, REST API, or webhook. Here's a real delay delta alert from Suez Canal monitoring.</p>
+            </div>
+            <div class="sample-payload sample-payload--strait">
+                <div class="sample-payload__header">
+                    <span class="sample-payload__label">SUEZ CANAL — DELAY DELTA ALERT</span>
+                    <span class="sample-payload__badge">WEBHOOK / API</span>
+                </div>
+<pre class="sample-payload__code"><code>{
+  "event_id": "ss-evt-20260415-0623-delay-7b1e",
+  "type": "delay_delta",
+  "severity": "high",
+  "chokepoint": "suez_canal",
+  "timestamp": "2026-04-15T06:23:44Z",
+  "metrics": {
+    "current_queue_depth": 47,
+    "baseline_queue_depth": 12,
+    "queue_delta": "+35",
+    "avg_transit_hours": 18.4,
+    "baseline_transit_hours": 11.2,
+    "delay_delta_hours": "+7.2",
+    "vessels_at_anchor": 31,
+    "queue_growth_rate_per_hour": 4.2
+  },
+  "baselines": {
+    "period": "30d",
+    "computed_at": "2026-04-15T06:00:00Z",
+    "seasonal_adjustment": true,
+    "confidence": 0.92
+  },
+  "weather": {
+    "wind_speed_kts": 22,
+    "sea_state": "moderate",
+    "visibility_nm": 6.5,
+    "weather_risk_factor": 0.3
+  },
+  "route_impact": {
+    "asia_europe_via_suez_risk": 0.78,
+    "asia_europe_via_cape_risk": 0.34,
+    "reroute_time_delta_days": "+8.5",
+    "reroute_cost_delta_usd": "+420000"
+  },
+  "metadata": {
+    "data_sources": ["terrestrial_ais", "satellite_ais"],
+    "refresh_cycle_min": 15,
+    "pipeline_latency_ms": 1243,
+    "delivery": "webhook"
+  }
+}</code></pre>
+                <p class="sample-payload__note">Every alert includes current vs. baseline metrics, weather context, route-level impact scoring, and pipeline metadata. Payloads are identical across dashboard, API, and webhook delivery.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- How It Works -->
     <section class="how-it-works">
         <div class="container">
@@ -165,6 +225,71 @@
                 <div class="step-item step-item--strait"><div class="step-number">02</div><div class="step-content"><h3>Baseline Computation</h3><p>Rolling historical baselines are computed per chokepoint for transit times, queue depths, and vessel flow rates. Baselines adapt to seasonal patterns and long-term trends.</p></div></div>
                 <div class="step-item step-item--strait"><div class="step-number">03</div><div class="step-content"><h3>Anomaly Detection</h3><p>Current conditions are compared against baselines in real time. Significant deviations trigger anomaly flags across key metrics: delay delta, queue growth rate, and weather-adjusted risk.</p></div></div>
                 <div class="step-item step-item--strait"><div class="step-number">04</div><div class="step-content"><h3>Alerts &amp; Scoring</h3><p>Breach events generate structured alerts delivered via dashboard, API, or webhook. Route risk scores aggregate chokepoint conditions into actionable corridor-level intelligence.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="features-section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">METHODOLOGY</span>
+                <h2 class="section-title">How Intelligence Is <span class="gradient-text--strait">Validated</span></h2>
+                <p class="section-desc">Every alert is grounded in observable data and measurable deviation. Here's how we produce and quality-check chokepoint intelligence.</p>
+            </div>
+            <div class="methodology-grid">
+                <div class="methodology-item">
+                    <h4>Baseline Construction</h4>
+                    <p>Rolling baselines are computed per chokepoint using 7/30/90-day historical windows. Baselines adapt to seasonal patterns, weather cycles, and long-term trade volume trends — not static averages.</p>
+                </div>
+                <div class="methodology-item">
+                    <h4>Confidence Scoring</h4>
+                    <p>Every alert includes a confidence score (0.0–1.0) based on data completeness, AIS message density, baseline stability, and corroborating weather/route data. Low-confidence alerts are flagged, not hidden.</p>
+                </div>
+                <div class="methodology-item">
+                    <h4>False Positive Handling</h4>
+                    <p>Seasonal convoy scheduling, planned maintenance closures, and weather-related slowdowns are accounted for in baselines. Known recurring patterns are documented so operators can triage with context.</p>
+                </div>
+                <div class="methodology-item">
+                    <h4>Known Limitations</h4>
+                    <p>AIS coverage depends on receiver density. Vessels with transponders disabled are invisible. Satellite AIS introduces ~15-minute latency vs. terrestrial. We document coverage gaps per chokepoint.</p>
+                </div>
+                <div class="methodology-item">
+                    <h4>Data Sources</h4>
+                    <p>AIS position data from both terrestrial and satellite receiver networks. Weather data from maritime meteorological services. All data ingested via authenticated feeds, not web-scraped.</p>
+                </div>
+                <div class="methodology-item">
+                    <h4>Refresh &amp; Latency</h4>
+                    <p>Chokepoint metrics refresh every 15 minutes. End-to-end pipeline latency (AIS ingestion → baseline comparison → alert delivery) is typically under 90 seconds. Webhook delivery adds &lt;200ms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analyst Workflow -->
+    <section class="features-section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">OPERATOR WORKFLOW</span>
+                <h2 class="section-title">How Teams Use <span class="gradient-text--strait">Strait Signal</span></h2>
+                <p class="section-desc">From alert to operational decision in three steps.</p>
+            </div>
+            <div class="analyst-steps">
+                <div class="analyst-step analyst-step--strait">
+                    <span class="analyst-step__number">01</span>
+                    <h4>Alert Fires</h4>
+                    <p>Suez Canal queue depth crosses your configured threshold — 35 vessels above the 30-day baseline. The alert arrives via webhook in your logistics platform, Slack channel, and the dashboard simultaneously.</p>
+                </div>
+                <div class="analyst-step analyst-step--strait">
+                    <span class="analyst-step__number">02</span>
+                    <h4>Assess Impact</h4>
+                    <p>The ops team checks the route risk comparison: Asia-Europe via Suez scores 0.78 risk, Cape of Good Hope scores 0.34. Estimated reroute adds 8.5 days but avoids the queue. Weather data confirms the delay isn't weather-driven.</p>
+                </div>
+                <div class="analyst-step analyst-step--strait">
+                    <span class="analyst-step__number">03</span>
+                    <h4>Decide &amp; Communicate</h4>
+                    <p>The team proactively reroutes two high-priority shipments, updates the client with a quantified delay projection, and sets a watch on the queue dissolution rate. They acted hours before the carrier sent its first advisory.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -223,7 +348,7 @@
                     <p>Maritime disruptions compound by the hour. Get chokepoint intelligence that moves at signal speed — not at the speed of email chains.</p>
                     <div class="cta-actions">
                         <a href="https://strait-signal.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary--strait btn-lg">Explore Strait Signal <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg></a>
-                        <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
+                        <a href="contact.html" class="btn btn-ghost">Request Chokepoint Trial</a>
                     </div>
                 </div>
                 <div class="cta-visual" aria-hidden="true"><div class="cta-orb cta-orb--strait"></div></div>
@@ -241,7 +366,7 @@
                     <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>
                 </div>
                 <div class="footer-links"><h4>Platforms</h4><ul><li><a href="skygrid.html">Project SkyGrid</a></li><li><a href="strait-signal.html">Strait Signal</a></li><li><a href="platform.html">Enterprise Platform</a></li></ul></div>
-                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="security.html">Security &amp; Trust</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
                 <div class="footer-links"><h4>External</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://strait-signal.com" target="_blank" rel="noopener noreferrer">strait-signal.com</a></li></ul></div>
             </div>
             <div class="footer-bottom"><p>&copy; 2026 Obsidian Dynamics Limited. All rights reserved. Company No. 16663833</p><div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div>
