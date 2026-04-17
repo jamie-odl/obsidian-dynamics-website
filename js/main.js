@@ -197,23 +197,45 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Contact Form Handler ---
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
+        const formStatus = document.getElementById('formStatus');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const btn = contactForm.querySelector('button[type="submit"]');
             const origText = btn.textContent;
             btn.textContent = 'Sending...';
             btn.disabled = true;
+            if (formStatus) {
+                formStatus.className = 'form-status';
+                formStatus.textContent = '';
+            }
             // Simulate send (replace with actual endpoint)
             setTimeout(() => {
                 btn.textContent = 'Message Sent ✓';
                 btn.style.background = 'var(--gradient-strait)';
                 contactForm.reset();
+                if (formStatus) {
+                    formStatus.className = 'form-status form-status--success';
+                    formStatus.textContent = 'Your message has been sent. We\'ll be in touch shortly.';
+                }
                 setTimeout(() => {
                     btn.textContent = origText;
                     btn.style.background = '';
                     btn.disabled = false;
+                    if (formStatus) {
+                        formStatus.className = 'form-status';
+                        formStatus.textContent = '';
+                    }
                 }, 3000);
             }, 1500);
         });
     }
+
+    // --- aria-current="page" for active nav link ---
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.setAttribute('aria-current', 'page');
+        }
+    });
 });
