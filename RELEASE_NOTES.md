@@ -1,5 +1,16 @@
 # Obsidian Dynamics Website Release Notes
 
+## v2.3.0 - 2026-04-23
+
+### Evidence, Conversion, and Performance Upgrade
+- Added evidence-backed trust strips with proof chips (`alert lead time`, `false-positive reduction`, `time-to-action`) and direct links to `methodology.html`, `trust-center.html`, and `evidence-library.html`.
+- Added Atlas ROI configurators to `platform.html` and `atlas.html` with concentration-adjusted exposure modeling.
+- Added role-specific conversion pathways in `use-cases.html` with dedicated anchors and prefilled contact intents (`operations`, `risk`, `insurance`, `integration`).
+- Added mini case snapshot panels (pain -> action -> measurable result) to deepen buyer proof.
+- Added `IMAGE_POLICY.md` to govern image sourcing, placement density, styling, and performance standards.
+- Replaced all story-strip external image links with self-hosted responsive WebP assets under `img/story/` and updated markup to use `srcset`/`sizes`.
+- Updated tracked website review version to `v2.3.0`.
+
 ## v2.1.8 - 2026-04-23
 
 ### Atlas-First UX and Pricing Cleanup

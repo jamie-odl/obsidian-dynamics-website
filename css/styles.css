@@ -2069,7 +2069,9 @@ input, textarea, select { font-family: inherit; }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s var(--ease-out-expo);
+    object-position: center center;
+    filter: saturate(0.88) contrast(1.06) brightness(0.78);
+    transition: transform 0.5s var(--ease-out-expo), filter 0.4s var(--ease-out-expo);
 }
 .visual-story-card::after {
     content: "";
@@ -2079,6 +2081,7 @@ input, textarea, select { font-family: inherit; }
 }
 .visual-story-card:hover img {
     transform: scale(1.04);
+    filter: saturate(0.96) contrast(1.08) brightness(0.84);
 }
 .visual-story-content {
     position: absolute;
@@ -2095,6 +2098,160 @@ input, textarea, select { font-family: inherit; }
 .visual-story-content p {
     font-size: 0.78rem;
     color: var(--obsidian-200);
+    line-height: 1.55;
+}
+
+/* Proof chips and KPI evidence strip */
+.proof-strip {
+    padding: 8px 0 56px;
+}
+.proof-chip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+.proof-chip {
+    padding: 18px 20px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    background: rgba(10, 10, 15, 0.78);
+    backdrop-filter: blur(8px);
+}
+.proof-chip__metric {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--obsidian-50);
+    margin-bottom: 4px;
+}
+.proof-chip__label {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--obsidian-300);
+    margin-bottom: 8px;
+}
+.proof-chip__meta {
+    font-size: 0.72rem;
+    color: var(--obsidian-400);
+}
+.proof-strip__links {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+.proof-strip__links a {
+    font-size: 0.8rem;
+    color: var(--sky-primary);
+}
+.proof-strip__links a:hover {
+    color: var(--obsidian-50);
+}
+
+/* ROI configurator */
+.roi-configurator {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    background: rgba(10, 10, 15, 0.8);
+}
+.roi-configurator__title {
+    font-size: 1.2rem;
+    color: var(--obsidian-50);
+    margin-bottom: 8px;
+}
+.roi-configurator__desc {
+    font-size: 0.92rem;
+    color: var(--obsidian-300);
+    margin-bottom: 18px;
+}
+.roi-calc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+.roi-calc-group label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--obsidian-400);
+    margin-bottom: 5px;
+}
+.roi-calc-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--obsidian-50);
+}
+.roi-calc-results {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.02);
+}
+.roi-calc-results p {
+    font-size: 0.86rem;
+    color: var(--obsidian-100);
+    margin-bottom: 6px;
+}
+.roi-calc-results p:last-child { margin-bottom: 0; }
+
+/* Mini case panels */
+.mini-case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+.mini-case-card {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 22px;
+    background: rgba(10, 10, 15, 0.78);
+}
+.mini-case-card h3 {
+    font-size: 1rem;
+    color: var(--obsidian-50);
+    margin-bottom: 10px;
+}
+.mini-case-card p {
+    font-size: 0.83rem;
+    line-height: 1.62;
+    color: var(--obsidian-200);
+    margin-bottom: 10px;
+}
+.mini-case-card p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Role CTA cards */
+.role-cta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+.role-cta-card {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    background: rgba(10, 10, 15, 0.74);
+}
+.role-cta-card h3 {
+    font-size: 0.95rem;
+    color: var(--obsidian-50);
+    margin-bottom: 6px;
+}
+.role-cta-card p {
+    font-size: 0.78rem;
+    color: var(--obsidian-300);
+    margin-bottom: 12px;
     line-height: 1.55;
 }
 
@@ -2488,6 +2645,14 @@ input, textarea, select { font-family: inherit; }
         flex-direction: column;
         text-align: center;
         padding: 32px 24px;
+    }
+    .proof-chip-grid,
+    .mini-case-grid,
+    .role-cta-grid {
+        grid-template-columns: 1fr;
+    }
+    .roi-calc-grid {
+        grid-template-columns: 1fr;
     }
     .visual-story-grid {
         grid-template-columns: 1fr;

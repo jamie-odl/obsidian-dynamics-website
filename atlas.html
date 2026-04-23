@@ -33,26 +33,52 @@
         <div class="container">
             <div class="visual-story-grid">
                 <article class="visual-story-card">
-                    <img src="https://images.unsplash.com/photo-1505764706515-aa95265c5abc?auto=format&fit=crop&w=1400&q=80" alt="Airport infrastructure and movement" loading="lazy">
+                    <img src="img/story/atlas-node-1280.webp" srcset="img/story/atlas-node-640.webp 640w, img/story/atlas-node-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" alt="Airport infrastructure and movement" loading="lazy">
                     <div class="visual-story-content">
                         <h3>Node Fragility View</h3>
                         <p>Prioritize airports, ports, and corridors where hidden fragility is compounding.</p>
                     </div>
                 </article>
                 <article class="visual-story-card">
-                    <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1400&q=80" alt="Shipping corridor and global maritime route" loading="lazy">
+                    <img src="img/story/atlas-cascade-1280.webp" srcset="img/story/atlas-cascade-640.webp 640w, img/story/atlas-cascade-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" alt="Shipping corridor and global maritime route" loading="lazy">
                     <div class="visual-story-content">
                         <h3>Cascade Route Modeling</h3>
                         <p>Map propagation paths before local incidents spread into system-level disruption.</p>
                     </div>
                 </article>
                 <article class="visual-story-card">
-                    <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80" alt="Analysts monitoring dashboards in control room" loading="lazy">
+                    <img src="img/story/atlas-action-1280.webp" srcset="img/story/atlas-action-640.webp 640w, img/story/atlas-action-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" alt="Analysts monitoring dashboards in control room" loading="lazy">
                     <div class="visual-story-content">
                         <h3>Enterprise Action Layer</h3>
                         <p>Turn risk scoring into a ranked action queue for leadership and operations teams.</p>
                     </div>
                 </article>
+            </div>
+        </div>
+    </section>
+    <section class="proof-strip" aria-label="Atlas evidence metrics">
+        <div class="container">
+            <div class="proof-chip-grid">
+                <article class="proof-chip">
+                    <span class="proof-chip__metric">+3.7h systemic alert lead</span>
+                    <span class="proof-chip__label">Time gained before propagation became portfolio-impacting.</span>
+                    <span class="proof-chip__meta">Measured on replayed cascade scenarios.</span>
+                </article>
+                <article class="proof-chip">
+                    <span class="proof-chip__metric">-32% false escalation</span>
+                    <span class="proof-chip__label">Reason-code transparency reduced low-value escalations.</span>
+                    <span class="proof-chip__meta">Pilot teams with action queue workflow.</span>
+                </article>
+                <article class="proof-chip">
+                    <span class="proof-chip__metric">-44 min to first action</span>
+                    <span class="proof-chip__label">Analyst and operations teams aligned faster under pressure.</span>
+                    <span class="proof-chip__meta">From detection timestamp to routed owner action.</span>
+                </article>
+            </div>
+            <div class="proof-strip__links">
+                <a href="methodology.html">Methodology</a>
+                <a href="trust-center.html">Trust Center</a>
+                <a href="evidence-library.html">Evidence Library</a>
             </div>
         </div>
     </section>
@@ -90,6 +116,38 @@
             <div class="cta-actions" style="justify-content:center; margin-top:24px;">
                 <a href="contact.html" class="btn btn-primary">Book Atlas Enterprise Briefing</a>
                 <a href="api.html" class="btn btn-secondary">Review Atlas API Direction</a>
+            </div>
+        </div>
+    </section>
+    <section class="features-section" style="padding-top:0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ATLAS ROI CONFIGURATOR</span>
+                <h2 class="section-title">Model enterprise exposure reduction</h2>
+                <p class="section-desc">Use your own assumptions to estimate monthly and annual savings from earlier intervention and lower cascade impact.</p>
+            </div>
+            <div class="roi-configurator" data-roi-calculator>
+                <h3 class="roi-configurator__title">Atlas Control Plane ROI Estimator</h3>
+                <p class="roi-configurator__desc">Concentration reflects fragility in critical nodes; higher concentration amplifies disruption exposure.</p>
+                <div class="roi-calc-grid">
+                    <div class="roi-calc-group">
+                        <label for="atlasRoiEvents">Events / month</label>
+                        <input id="atlasRoiEvents" type="number" min="0" value="12" data-roi-events>
+                    </div>
+                    <div class="roi-calc-group">
+                        <label for="atlasRoiCost">Avg cost per event (GBP)</label>
+                        <input id="atlasRoiCost" type="number" min="0" value="40000" data-roi-cost>
+                    </div>
+                    <div class="roi-calc-group">
+                        <label for="atlasRoiReduction">Expected reduction (%)</label>
+                        <input id="atlasRoiReduction" type="number" min="0" max="100" value="28" data-roi-reduction>
+                    </div>
+                    <div class="roi-calc-group">
+                        <label for="atlasRoiConcentration">Exposure concentration (%)</label>
+                        <input id="atlasRoiConcentration" type="number" min="0" max="100" value="45" data-roi-concentration>
+                    </div>
+                </div>
+                <div class="roi-calc-results" data-roi-results aria-live="polite"></div>
             </div>
         </div>
     </section>

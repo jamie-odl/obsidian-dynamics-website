@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.2.0';
+    const SITE_VERSION = 'v2.3.0';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
 
@@ -276,6 +276,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Contact Form Handler ---
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
+        const params = new URLSearchParams(window.location.search);
+        const roleParam = (params.get('role') || '').toLowerCase();
+        const intentParam = (params.get('intent') || '').toLowerCase();
+        const interestField = document.getElementById('interest');
+        const messageField = document.getElementById('message');
+        const roleToInterest = {
+            operations: 'platform',
+            risk: 'platform',
+            insurance: 'platform',
+            integration: 'platform'
+        };
+        if (interestField && roleToInterest[roleParam]) {
+            interestField.value = roleToInterest[roleParam];
+        }
+        if (messageField && (roleParam || intentParam) && !messageField.value.trim()) {
+            const roleLabel = roleParam ? roleParam.charAt(0).toUpperCase() + roleParam.slice(1) : 'General';
+            const intentLabel = intentParam ? intentParam.replace(/-/g, ' ') : 'briefing request';
+            messageField.value = 'Hello Obsidian team, we would like a ' + roleLabel + ' briefing regarding ' + intentLabel + '.';
+        }
+
         const formStatus = document.getElementById('formStatus');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -309,32 +329,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- ROI Calculator (Platform) ---
-    const roiEvents = document.getElementById('roiEvents');
-    const roiCost = document.getElementById('roiCost');
-    const roiReduction = document.getElementById('roiReduction');
-    const roiCalcResults = document.getElementById('roiCalcResults');
-    if (roiEvents && roiCost && roiReduction && roiCalcResults) {
+    // --- ROI Calculators (Atlas / Platform) ---
+    const roiCalculators = document.querySelectorAll('[data-roi-calculator]');
+    if (roiCalculators.length) {
         const gbp = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 });
-        const recalcRoi = () => {
-            const events = Math.max(0, parseFloat(roiEvents.value) || 0);
-            const cost = Math.max(0, parseFloat(roiCost.value) || 0);
-            const reductionPct = Math.min(100, Math.max(0, parseFloat(roiReduction.value) || 0));
-            const monthlyExposure = events * cost;
-            const monthlySavings = monthlyExposure * (reductionPct / 100);
-            const annualSavings = monthlySavings * 12;
-            const monthlyExposureP = document.createElement('p');
-            const monthlySavingsP = document.createElement('p');
-            const annualSavingsP = document.createElement('p');
+        roiCalculators.forEach((calculator) => {
+            const eventsInput = calculator.querySelector('[data-roi-events]');
+            const costInput = calculator.querySelector('[data-roi-cost]');
+            const reductionInput = calculator.querySelector('[data-roi-reduction]');
+            const concentrationInput = calculator.querySelector('[data-roi-concentration]');
+            const resultsEl = calculator.querySelector('[data-roi-results]');
+            if (!eventsInput || !costInput || !reductionInput || !concentrationInput || !resultsEl) return;
 
-            monthlyExposureP.textContent = 'Estimated monthly disruption exposure: ' + gbp.format(monthlyExposure);
-            monthlySavingsP.textContent = 'Estimated monthly savings: ' + gbp.format(monthlySavings);
-            annualSavingsP.textContent = 'Estimated annualized savings: ' + gbp.format(annualSavings);
+            const recalc = () => {
+                const events = Math.max(0, parseFloat(eventsInput.value) || 0);
+                const cost = Math.max(0, parseFloat(costInput.value) || 0);
+                const reductionPct = Math.min(100, Math.max(0, parseFloat(reductionInput.value) || 0));
+                const concentrationPct = Math.min(100, Math.max(0, parseFloat(concentrationInput.value) || 0));
+                const monthlyExposure = events * cost;
+                const weightedExposure = monthlyExposure * (1 + (concentrationPct / 100));
+                const monthlySavings = weightedExposure * (reductionPct / 100);
+                const annualSavings = monthlySavings * 12;
 
-            roiCalcResults.replaceChildren(monthlyExposureP, monthlySavingsP, annualSavingsP);
-        };
-        [roiEvents, roiCost, roiReduction].forEach((el) => el.addEventListener('input', recalcRoi));
-        recalcRoi();
+                const exposureP = document.createElement('p');
+                const weightedP = document.createElement('p');
+                const monthlyP = document.createElement('p');
+                const annualP = document.createElement('p');
+
+                exposureP.textContent = 'Baseline monthly disruption exposure: ' + gbp.format(monthlyExposure);
+                weightedP.textContent = 'Concentration-adjusted exposure: ' + gbp.format(weightedExposure);
+                monthlyP.textContent = 'Estimated monthly savings from Atlas: ' + gbp.format(monthlySavings);
+                annualP.textContent = 'Estimated annualized savings: ' + gbp.format(annualSavings);
+
+                resultsEl.replaceChildren(exposureP, weightedP, monthlyP, annualP);
+            };
+
+            [eventsInput, costInput, reductionInput, concentrationInput].forEach((el) => el.addEventListener('input', recalc));
+            recalc();
+        });
     }
 
     // --- aria-current="page" for active nav link ---

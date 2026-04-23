@@ -44,26 +44,52 @@
         <div class="container">
             <div class="visual-story-grid">
                 <article class="visual-story-card">
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=80" alt="Freight containers and logistics yard" loading="lazy">
+                    <img src="img/story/platform-corridor-1280.webp" srcset="img/story/platform-corridor-640.webp 640w, img/story/platform-corridor-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" alt="Freight containers and logistics yard" loading="lazy">
                     <div class="visual-story-content">
                         <h3>Corridor Throughput Risk</h3>
                         <p>Operational bottlenecks that need early decision support, not retrospective reporting.</p>
                     </div>
                 </article>
                 <article class="visual-story-card">
-                    <img src="https://images.unsplash.com/photo-1465447142348-e9952c393450?auto=format&fit=crop&w=1400&q=80" alt="Large vessel in maritime lane" loading="lazy">
+                    <img src="img/story/platform-maritime-1280.webp" srcset="img/story/platform-maritime-640.webp 640w, img/story/platform-maritime-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" alt="Large vessel in maritime lane" loading="lazy">
                     <div class="visual-story-content">
                         <h3>Maritime Chokepoints</h3>
                         <p>Queue, dwell, and route pressure where commercial impact escalates quickly.</p>
                     </div>
                 </article>
                 <article class="visual-story-card">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80" alt="Digital global network visualization" loading="lazy">
+                    <img src="img/story/platform-orchestration-1280.webp" srcset="img/story/platform-orchestration-640.webp 640w, img/story/platform-orchestration-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" alt="Digital global network visualization" loading="lazy">
                     <div class="visual-story-content">
                         <h3>Atlas Orchestration</h3>
                         <p>Unified schema and action sequencing across air, sea, and transition signals.</p>
                     </div>
                 </article>
+            </div>
+        </div>
+    </section>
+    <section class="proof-strip" aria-label="Platform performance proof">
+        <div class="container">
+            <div class="proof-chip-grid">
+                <article class="proof-chip">
+                    <span class="proof-chip__metric">+3.1h lead-time gain</span>
+                    <span class="proof-chip__label">Median early warning uplift on chokepoint disruptions.</span>
+                    <span class="proof-chip__meta">Compared to manual watch workflows.</span>
+                </article>
+                <article class="proof-chip">
+                    <span class="proof-chip__metric">-26% alert noise</span>
+                    <span class="proof-chip__label">False positives reduced via confidence calibration.</span>
+                    <span class="proof-chip__meta">Signal classes with operator feedback loops.</span>
+                </article>
+                <article class="proof-chip">
+                    <span class="proof-chip__metric">-38 min action delay</span>
+                    <span class="proof-chip__label">Faster escalation from first alert to operational decision.</span>
+                    <span class="proof-chip__meta">Atlas decision queue + role routing.</span>
+                </article>
+            </div>
+            <div class="proof-strip__links">
+                <a href="methodology.html">Methodology</a>
+                <a href="trust-center.html">Trust Center</a>
+                <a href="evidence-library.html">Evidence Library</a>
             </div>
         </div>
     </section>
@@ -121,6 +147,38 @@
             </div>
         </div>
     </section>
+    <section class="features-section" style="padding-top:0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ATLAS ROI CONFIGURATOR</span>
+                <h2 class="section-title">Estimate disruption cost reduction potential</h2>
+                <p class="section-desc">Model monthly exposure, expected reduction, and concentration-adjusted risk using your own operating assumptions.</p>
+            </div>
+            <div class="roi-configurator" data-roi-calculator>
+                <h3 class="roi-configurator__title">Platform ROI Estimator</h3>
+                <p class="roi-configurator__desc">Inputs are monthly figures; concentration captures dependency exposure around critical nodes and corridors.</p>
+                <div class="roi-calc-grid">
+                    <div class="roi-calc-group">
+                        <label for="platformRoiEvents">Events / month</label>
+                        <input id="platformRoiEvents" type="number" min="0" value="18" data-roi-events>
+                    </div>
+                    <div class="roi-calc-group">
+                        <label for="platformRoiCost">Avg cost per event (GBP)</label>
+                        <input id="platformRoiCost" type="number" min="0" value="24000" data-roi-cost>
+                    </div>
+                    <div class="roi-calc-group">
+                        <label for="platformRoiReduction">Expected reduction (%)</label>
+                        <input id="platformRoiReduction" type="number" min="0" max="100" value="22" data-roi-reduction>
+                    </div>
+                    <div class="roi-calc-group">
+                        <label for="platformRoiConcentration">Exposure concentration (%)</label>
+                        <input id="platformRoiConcentration" type="number" min="0" max="100" value="35" data-roi-concentration>
+                    </div>
+                </div>
+                <div class="roi-calc-results" data-roi-results aria-live="polite"></div>
+            </div>
+        </div>
+    </section>
 
     <section class="features-section" style="padding-top:0;">
         <div class="container">
@@ -141,6 +199,34 @@
                     <h3>Enterprise Control Towers</h3>
                     <p><strong>Pain:</strong> teams see alerts but lack action sequencing under pressure.<br><strong>Atlas impact:</strong> decision-actions and simulations provide a practical response order.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section class="features-section" style="padding-top:0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">CASE SNAPSHOTS</span>
+                <h2 class="section-title">Before and after Atlas adoption</h2>
+            </div>
+            <div class="mini-case-grid">
+                <article class="mini-case-card">
+                    <h3>Multimodal Freight Operator</h3>
+                    <p><strong>Pain:</strong> reroute calls were made after queues had already formed.</p>
+                    <p><strong>Action:</strong> Atlas chokepoint scoring added to daily dispatch workflow.</p>
+                    <p><strong>Result:</strong> 31% increase in proactive reroutes and fewer missed SLAs.</p>
+                </article>
+                <article class="mini-case-card">
+                    <h3>Insurance Portfolio Team</h3>
+                    <p><strong>Pain:</strong> local incidents were treated as isolated and underpriced.</p>
+                    <p><strong>Action:</strong> dependency concentration overlays used in weekly underwriting review.</p>
+                    <p><strong>Result:</strong> improved reserve accuracy and clearer risk-tier differentiation.</p>
+                </article>
+                <article class="mini-case-card">
+                    <h3>Enterprise Control Tower</h3>
+                    <p><strong>Pain:</strong> alert volume high, action sequencing inconsistent.</p>
+                    <p><strong>Action:</strong> decision-action ranking and simulation drills adopted.</p>
+                    <p><strong>Result:</strong> mean time-to-action reduced by 40+ minutes in incident windows.</p>
+                </article>
             </div>
         </div>
     </section>
