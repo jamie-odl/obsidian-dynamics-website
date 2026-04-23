@@ -1,5 +1,17 @@
 # Obsidian Dynamics Website Release Notes
 
+## v2.1.0 - 2026-04-23
+
+### Platform Page UX Simplification
+- Rebuilt `platform.html` into a concise decision-page flow:
+  - clear hero with two CTAs
+  - simple buy-path choice (single module vs unified platform)
+  - pricing cards with prominent proposal CTA
+  - simplified platform tier ranges
+  - lightweight pilot path and conversion endpoint
+- Removed dense narrative blocks to reduce cognitive load and improve readability.
+- Updated tracked website version to `v2.1.0`.
+
 ## v2.0.9 - 2026-04-23
 
 ### Site-wide UI/UX Flow Cleanup
