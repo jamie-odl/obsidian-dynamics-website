@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.1.1';
+    const SITE_VERSION = 'v2.1.7';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
 
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">Company</a></li><li><a href="trust-center.html">Trust Center</a></li><li><a href="status.html">Status</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
-            '  <p>&copy; 2026 Obsidian Dynamics Limited. Website Version <span class="site-version-inline">' + SITE_VERSION + '</span></p>' +
+            '  <p>&copy; 2026 Obsidian Dynamics Limited. Review Build <span class="site-version-inline">' + SITE_VERSION + '</span></p>' +
             '  <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>' +
             '</div>';
 
@@ -71,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const badge = document.createElement('div');
         badge.id = 'siteVersionBadge';
         badge.className = 'site-version-badge';
-        badge.textContent = 'Website ' + SITE_VERSION;
-        badge.setAttribute('aria-label', 'Website version ' + SITE_VERSION);
+        badge.textContent = 'Review Build ' + SITE_VERSION;
+        badge.setAttribute('aria-label', 'Review build version ' + SITE_VERSION);
         document.body.appendChild(badge);
     }
 

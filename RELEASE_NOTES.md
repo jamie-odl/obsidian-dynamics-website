@@ -1,5 +1,52 @@
 # Obsidian Dynamics Website Release Notes
 
+## v2.1.7 - 2026-04-23
+
+### Atlas Execution and Contract Progress
+- Advanced Atlas execution from roadmap to implementation with initial `v1/atlas` API contract delivery in the product stack (fragility scoring, simulation flow, exposure overlay).
+- Updated roadmap execution state to reflect payload-contract progress and next lock steps for pilot tenants.
+- Bumped tracked website review version to `v2.1.7`.
+
+## v2.1.6 - 2026-04-23
+
+### Atlas High-Value Adds Roadmap
+- Added `ATLAS_HIGH_VALUE_ADDS_ROADMAP.md` with prioritized feature and commercialization recommendations (P0/P1/P2).
+- Updated `atlas.html` with a dedicated high-value add section (decision actions, simulation, exposure overlay).
+- Linked Atlas control-plane spec to the new roadmap.
+
+## v2.1.5 - 2026-04-23
+
+### Atlas Positioning Clarification
+- Clarified portfolio strategy that Atlas is the Obsidian Core Enterprise aggregation layer, while SkyGrid, Strait-Signal, and RelayPoint remain active standalone products.
+- Updated enterprise control-plane and pricing strategy docs to reflect module-first adoption plus Atlas-led enterprise unification.
+
+## v2.1.4 - 2026-04-23
+
+### Atlas as Central Enterprise Layer
+- Updated core website messaging to position Atlas as the central enterprise control plane over SkyGrid, Strait-Signal, and RelayPoint.
+- Updated `api.html` to reflect Atlas-centered enterprise API framing and Atlas endpoint family references.
+- Updated `index.html` module narrative to include Atlas in the portfolio thesis.
+- Added `ATLAS_ENTERPRISE_CONTROL_PLANE.md` with implementation, entitlement, and rollout guidance.
+- Updated pricing copy deck with Atlas enterprise-layer positioning.
+
+## v2.1.3 - 2026-04-23
+
+### Atlas Strategic Layer Pivot
+- Pivoted module naming from "Fragility Atlas" to **Atlas** across active platform messaging.
+- Added dedicated `atlas.html` product page for infrastructure fragility and cascading-risk positioning.
+- Updated `products.html` metadata and module cards to include Atlas as a first-class module.
+- Updated `platform.html` pricing/module copy to reflect Atlas naming and purpose.
+- Updated `sitemap.xml` to include `/atlas`.
+
+## v2.1.2 - 2026-04-23
+
+### Portfolio Alignment Completion + Review Version Bump
+- Finalized cross-portfolio alignment extension:
+  - parent/sister documentation rollups
+  - outreach email template libraries
+  - full-system alignment audit artifact
+- Bumped tracked website review version to `v2.1.2`.
+
 ## v2.1.1 - 2026-04-23
 
 ### Platform Hero Emphasis Upgrade
