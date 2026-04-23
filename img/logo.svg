@@ -1,48 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <linearGradient id="crystalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00d4ff"/>
-      <stop offset="100%" stop-color="#7b2fff"/>
+    <linearGradient id="odCore" x1="80" y1="56" x2="426" y2="458" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8C98FF"/>
+      <stop offset="1" stop-color="#1AD0FF"/>
     </linearGradient>
-    <linearGradient id="crystalGradReverse" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#00b8d9"/>
-      <stop offset="100%" stop-color="#6a24dd"/>
+    <linearGradient id="odInner" x1="168" y1="154" x2="343" y2="352" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9ECFF"/>
+      <stop offset="1" stop-color="#8BE9FF"/>
     </linearGradient>
-    <linearGradient id="highlightGrad" x1="0%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#66e5ff"/>
-      <stop offset="100%" stop-color="#9d6aff"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
-
-  <!-- Subtle outer glow -->
-  <path d="M256 6 L486 140 L435 450 L256 502 L77 450 L26 140Z"
-        fill="url(#crystalGrad)" opacity="0.08" filter="url(#glow)"/>
-
-  <!-- Right facet (brightest - primary face) -->
-  <path d="M256 268 L486 140 L435 450 L256 502Z"
-        fill="url(#crystalGrad)"/>
-
-  <!-- Left facet (darker - shadow face) -->
-  <path d="M26 140 L256 268 L256 502 L77 450Z"
-        fill="url(#crystalGradReverse)" opacity="0.55"/>
-
-  <!-- Top facet (highlight - crown) -->
-  <path d="M256 6 L486 140 L256 268 L26 140Z"
-        fill="url(#highlightGrad)" opacity="0.75"/>
-
-  <!-- Ridge edge highlights -->
-  <line x1="256" y1="6" x2="256" y2="502" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
-  <line x1="256" y1="268" x2="26" y2="140" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-  <line x1="256" y1="268" x2="486" y2="140" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-
-  <!-- Outer edge definition -->
-  <path d="M256 6 L486 140 L435 450 L256 502 L77 450 L26 140Z"
-        fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+  <rect x="32" y="32" width="448" height="448" rx="112" stroke="url(#odCore)" stroke-opacity=".45" stroke-width="20"/>
+  <path d="M256 68L414 158V354L256 444L98 354V158L256 68Z" stroke="url(#odCore)" stroke-width="28"/>
+  <path d="M256 140L352 196V316L256 372L160 316V196L256 140Z" stroke="url(#odInner)" stroke-width="24"/>
+  <path d="M256 68V444M98 158L414 354M414 158L98 354" stroke="url(#odCore)" stroke-opacity=".35" stroke-width="14"/>
 </svg>

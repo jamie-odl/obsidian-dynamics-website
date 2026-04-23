@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-    <defs>
-        <linearGradient id="g" x1="0" y1="0" x2="40" y2="40">
-            <stop offset="0%" stop-color="#00d4ff"/>
-            <stop offset="100%" stop-color="#7b2fff"/>
-        </linearGradient>
-    </defs>
-    <path d="M20 21L38 12L34 35L20 39Z" fill="url(#g)"/>
-    <path d="M2 12L20 21L20 39L6 35Z" fill="url(#g)" opacity="0.55"/>
-    <path d="M20 1L38 12L20 21L2 12Z" fill="url(#g)" opacity="0.75"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="f1" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8C98FF"/>
+      <stop offset="1" stop-color="#1AD0FF"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 8L52 20V44L32 56L12 44V20L32 8Z" stroke="url(#f1)" stroke-width="5"/>
+  <path d="M32 18L43 24V40L32 46L21 40V24L32 18Z" stroke="url(#f1)" stroke-opacity=".75" stroke-width="4"/>
 </svg>

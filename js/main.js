@@ -3,6 +3,82 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Website Version + Global Brand Shell ---
+    const SITE_VERSION = 'v2.0.1';
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.documentElement.setAttribute('data-site-version', SITE_VERSION);
+
+    function getPrimaryLogoMarkup() {
+        return '<img src="img/logo.svg" alt="" class="logo-icon"><span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span>';
+    }
+
+    function getStandardNavMarkup(activePage) {
+        const items = [
+            { href: 'platform.html', label: 'Platform' },
+            { href: 'products.html', label: 'Products' },
+            { href: 'api.html', label: 'API' },
+            { href: 'use-cases.html', label: 'Use Cases' },
+            { href: 'intelligence.html', label: 'Intelligence' },
+            { href: 'about.html', label: 'Company' },
+            { href: 'contact.html', label: 'Contact' }
+        ];
+        return items.map((item) => {
+            const isActive = item.href === activePage || (activePage === 'index.html' && item.href === 'platform.html');
+            return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
+        }).join('') + '<a href="contact.html" class="nav-cta">Book Demo</a>';
+    }
+
+    function applyGlobalBrandShell() {
+        // Normalize all logo marks to new brand asset.
+        document.querySelectorAll('.nav-logo').forEach((logo) => {
+            logo.innerHTML = getPrimaryLogoMarkup();
+        });
+
+        // Normalize top navigation links site-wide.
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.innerHTML = getStandardNavMarkup(currentPage);
+        }
+
+        // Normalize footer, and include version for review tracking.
+        const footer = document.querySelector('.footer');
+        if (!footer) return;
+        const footerContainer = footer.querySelector('.container');
+        if (!footerContainer) return;
+
+        const footerMarkup =
+            '<div class="footer-grid">' +
+            '  <div class="footer-brand">' +
+            '    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
+            '    <p class="footer-tagline">Operational risk intelligence across air, sea, and transition networks.</p>' +
+            '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>' +
+            '  </div>' +
+            '  <div class="footer-links"><h4>Platform</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="products.html">Products</a></li><li><a href="api.html">API</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Intelligence</h4><ul><li><a href="use-cases.html">Use Cases</a></li><li><a href="intelligence.html">Intelligence</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">Company</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>' +
+            '</div>' +
+            '<div class="footer-bottom">' +
+            '  <p>&copy; 2026 Obsidian Dynamics Limited. Website Version <span class="site-version-inline">' + SITE_VERSION + '</span></p>' +
+            '  <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>' +
+            '</div>';
+
+        footerContainer.innerHTML = footerMarkup;
+    }
+
+    function addVersionBadge() {
+        const existing = document.getElementById('siteVersionBadge');
+        if (existing) return;
+        const badge = document.createElement('div');
+        badge.id = 'siteVersionBadge';
+        badge.className = 'site-version-badge';
+        badge.textContent = 'Website ' + SITE_VERSION;
+        badge.setAttribute('aria-label', 'Website version ' + SITE_VERSION);
+        document.body.appendChild(badge);
+    }
+
+    applyGlobalBrandShell();
+    addVersionBadge();
+
     // --- Particle Canvas ---
     const canvas = document.getElementById('particleCanvas');
     if (canvas) {
@@ -231,7 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- aria-current="page" for active nav link ---
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-link').forEach(link => {
         const href = link.getAttribute('href');
         if (href === currentPage || (currentPage === '' && href === 'index.html')) {

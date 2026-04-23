@@ -2030,6 +2030,31 @@ input, textarea, select { font-family: inherit; }
 }
 
 /* ============================================================
+   SITE VERSION TRACKING
+   ============================================================ */
+.site-version-badge {
+    position: fixed;
+    left: 14px;
+    bottom: 14px;
+    z-index: 1200;
+    padding: 6px 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    color: var(--obsidian-100);
+    background: rgba(5, 5, 7, 0.82);
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.site-version-inline {
+    font-family: var(--font-mono);
+    color: var(--sky-primary);
+}
+
+/* ============================================================
    FAQ SECTION
    ============================================================ */
 .faq-grid {
