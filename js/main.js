@@ -4,12 +4,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.0.1';
+    const SITE_VERSION = 'v2.0.2';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
 
     function getPrimaryLogoMarkup() {
-        return '<img src="img/logo.svg" alt="" class="logo-icon"><span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span>';
+        return '<span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span>';
     }
 
     function getStandardNavMarkup(activePage) {

@@ -1,5 +1,15 @@
 # Obsidian Dynamics Website Release Notes
 
+## v2.0.2 - 2026-04-23
+
+### Brand Presentation Update
+- Replaced graphic logo usage in site shell with a cleaner text-first wordmark across pages.
+- Refined wordmark typography for a more minimal and consistent brand presentation.
+
+### Pricing Alignment (Public vs Internal)
+- Updated public-facing platform pricing copy to stay non-specific and qualification-led.
+- Preserved value-based modular commercial narrative without exposing list pricing on public pages.
+
 ## v2.0.1 - 2026-04-23
 
 ### Content Polish and Narrative Consistency
