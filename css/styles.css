@@ -64,6 +64,9 @@
     --radius-md: 12px;
     --radius-lg: 20px;
     --radius-xl: 28px;
+    --highlight-cyan-soft: rgba(0, 212, 255, 0.09);
+    --highlight-violet-soft: rgba(123, 47, 255, 0.08);
+    --highlight-strait-soft: rgba(16, 185, 129, 0.08);
 }
 
 /* --- Reset --- */
@@ -471,29 +474,38 @@ input, textarea, select { font-family: inherit; }
 }
 .btn-primary {
     background: var(--gradient-main);
+    background-size: 140% 140%;
+    background-position: 0% 50%;
     color: #fff;
     box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
 }
 .btn-primary:hover {
     transform: translateY(-2px);
+    background-position: 100% 50%;
     box-shadow: 0 8px 32px rgba(0, 212, 255, 0.35);
 }
 .btn-primary--sky {
     background: var(--gradient-sky);
+    background-size: 140% 140%;
+    background-position: 0% 50%;
     color: #fff;
     box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
 }
 .btn-primary--sky:hover {
     transform: translateY(-2px);
+    background-position: 100% 50%;
     box-shadow: 0 8px 32px rgba(0, 212, 255, 0.35);
 }
 .btn-primary--strait {
     background: var(--gradient-strait);
+    background-size: 140% 140%;
+    background-position: 0% 50%;
     color: #fff;
     box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
 }
 .btn-primary--strait:hover {
     transform: translateY(-2px);
+    background-position: 100% 50%;
     box-shadow: 0 8px 32px rgba(16, 185, 129, 0.35);
 }
 .btn-ghost {
@@ -512,12 +524,15 @@ input, textarea, select { font-family: inherit; }
 
 .btn-secondary {
     background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+    background-size: 140% 140%;
+    background-position: 0% 50%;
     color: #fff;
     border: 1px solid rgba(139, 92, 246, 0.3);
     box-shadow: 0 4px 20px rgba(99, 102, 241, 0.22);
 }
 .btn-secondary:hover {
     transform: translateY(-2px);
+    background-position: 100% 50%;
     box-shadow: 0 8px 32px rgba(99, 102, 241, 0.36);
 }
 
@@ -629,13 +644,34 @@ input, textarea, select { font-family: inherit; }
     padding: 24px 22px;
     transition: all 0.3s var(--ease-out-expo);
     backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+.feature-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--highlight-cyan-soft) 0%, var(--highlight-violet-soft) 100%);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-out-expo);
+    pointer-events: none;
 }
 .feature-card:hover {
     border-color: var(--glass-border-hover);
     transform: translateY(-3px);
 }
+.feature-card:hover::after,
+.feature-card:focus-within::after {
+    opacity: 1;
+}
 .feature-card--sky:hover { border-color: rgba(0, 212, 255, 0.2); box-shadow: 0 8px 40px rgba(0, 212, 255, 0.08); }
 .feature-card--strait:hover { border-color: rgba(16, 185, 129, 0.2); box-shadow: 0 8px 40px rgba(16, 185, 129, 0.08); }
+.feature-card--sky::after {
+    background: linear-gradient(135deg, var(--highlight-cyan-soft) 0%, rgba(0, 153, 204, 0.06) 100%);
+}
+.feature-card--strait::after {
+    background: linear-gradient(135deg, var(--highlight-strait-soft) 0%, rgba(5, 150, 105, 0.05) 100%);
+}
 
 .feature-card--highlight {
     background: linear-gradient(145deg, rgba(10,10,15,0.8) 0%, rgba(20,20,31,0.5) 100%);
@@ -828,6 +864,15 @@ input, textarea, select { font-family: inherit; }
     position: relative;
     overflow: hidden;
 }
+.service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--highlight-cyan-soft) 0%, var(--highlight-violet-soft) 100%);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-out-expo);
+    pointer-events: none;
+}
 .service-card::before {
     content: '';
     position: absolute;
@@ -840,6 +885,8 @@ input, textarea, select { font-family: inherit; }
     transition: opacity 0.3s;
 }
 .service-card:hover::before { opacity: 1; }
+.service-card:hover::after,
+.service-card:focus-within::after { opacity: 1; }
 .service-card:hover {
     border-color: var(--glass-border-hover);
     transform: translateY(-4px);
@@ -849,6 +896,9 @@ input, textarea, select { font-family: inherit; }
 .service-card--sky::before { background: var(--gradient-sky); }
 .service-card--strait:hover { border-color: rgba(16, 185, 129, 0.15); }
 .service-card--strait::before { background: var(--gradient-strait); }
+.service-card--strait::after {
+    background: linear-gradient(135deg, var(--highlight-strait-soft) 0%, rgba(5, 150, 105, 0.05) 100%);
+}
 
 .service-card__icon {
     width: 56px;
@@ -2149,6 +2199,27 @@ input, textarea, select { font-family: inherit; }
 .site-version-inline {
     font-family: var(--font-mono);
     color: var(--sky-primary);
+}
+
+/* ============================================================
+   HIGHLIGHTED BOX GRADIENT STATE
+   ============================================================ */
+:is(.metric-card, .capability-card, .process-step, .trust-card, .case-card, .faq-item, .methodology-item, .analyst-step, .role-path-card) {
+    position: relative;
+    overflow: hidden;
+}
+:is(.metric-card, .capability-card, .process-step, .trust-card, .case-card, .faq-item, .methodology-item, .analyst-step, .role-path-card)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--highlight-cyan-soft) 0%, var(--highlight-violet-soft) 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease-out-expo);
+}
+:is(.metric-card, .capability-card, .process-step, .trust-card, .case-card, .faq-item, .methodology-item, .analyst-step, .role-path-card):hover::after,
+:is(.metric-card, .capability-card, .process-step, .trust-card, .case-card, .faq-item, .methodology-item, .analyst-step, .role-path-card):focus-within::after {
+    opacity: 1;
 }
 
 /* ============================================================

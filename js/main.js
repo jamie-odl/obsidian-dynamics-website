@@ -265,7 +265,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const addr = user + '@' + domain + '.' + tld;
             const revealedEl = document.createElement('div');
             revealedEl.className = 'email-revealed';
-            revealedEl.innerHTML = '<a href="mailto:' + addr + '">' + addr + '</a>';
+            const mailLink = document.createElement('a');
+            mailLink.href = 'mailto:' + addr;
+            mailLink.textContent = addr;
+            revealedEl.appendChild(mailLink);
             emailRevealBtn.replaceWith(revealedEl);
         });
     }
@@ -320,10 +323,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const monthlyExposure = events * cost;
             const monthlySavings = monthlyExposure * (reductionPct / 100);
             const annualSavings = monthlySavings * 12;
-            roiCalcResults.innerHTML =
-                '<p><strong>Estimated monthly disruption exposure:</strong> ' + gbp.format(monthlyExposure) + '</p>' +
-                '<p><strong>Estimated monthly savings:</strong> ' + gbp.format(monthlySavings) + '</p>' +
-                '<p><strong>Estimated annualized savings:</strong> ' + gbp.format(annualSavings) + '</p>';
+            const monthlyExposureP = document.createElement('p');
+            const monthlySavingsP = document.createElement('p');
+            const annualSavingsP = document.createElement('p');
+
+            monthlyExposureP.textContent = 'Estimated monthly disruption exposure: ' + gbp.format(monthlyExposure);
+            monthlySavingsP.textContent = 'Estimated monthly savings: ' + gbp.format(monthlySavings);
+            annualSavingsP.textContent = 'Estimated annualized savings: ' + gbp.format(annualSavings);
+
+            roiCalcResults.replaceChildren(monthlyExposureP, monthlySavingsP, annualSavingsP);
         };
         [roiEvents, roiCost, roiReduction].forEach((el) => el.addEventListener('input', recalcRoi));
         recalcRoi();
