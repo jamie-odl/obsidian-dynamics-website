@@ -701,6 +701,20 @@ input, textarea, select { font-family: inherit; }
     color: var(--obsidian-200);
     line-height: var(--line-body);
 }
+
+/* Highlight-first reading pattern for card content */
+:is(.feature-card, .service-card, .capability-card, .process-step, .trust-card, .case-card, .faq-item, .methodology-item, .analyst-step, .role-path-card) p:first-of-type {
+    color: var(--obsidian-100);
+    border-left: 2px solid rgba(0, 212, 255, 0.45);
+    padding-left: 12px;
+    margin-bottom: 12px;
+}
+:is(.feature-card--strait, .service-card--strait) p:first-of-type {
+    border-left-color: rgba(16, 185, 129, 0.45);
+}
+:is(.feature-card, .service-card, .capability-card, .process-step, .trust-card, .case-card, .faq-item, .methodology-item, .analyst-step, .role-path-card) p + p {
+    color: var(--obsidian-300);
+}
 .feature-card__link {
     display: inline-block;
     margin-top: 16px;
@@ -2031,6 +2045,60 @@ input, textarea, select { font-family: inherit; }
 }
 
 /* ============================================================
+   PREMIUM IMAGE STRIP
+   ============================================================ */
+.visual-story-strip {
+    position: relative;
+    z-index: 1;
+    padding: 24px 0 72px;
+}
+.visual-story-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+.visual-story-card {
+    position: relative;
+    min-height: 240px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    background: var(--obsidian-900);
+}
+.visual-story-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--ease-out-expo);
+}
+.visual-story-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(5, 5, 7, 0.12) 30%, rgba(5, 5, 7, 0.86) 100%);
+}
+.visual-story-card:hover img {
+    transform: scale(1.04);
+}
+.visual-story-content {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 14px;
+    z-index: 2;
+}
+.visual-story-content h3 {
+    font-size: 0.9rem;
+    color: var(--obsidian-50);
+    margin-bottom: 6px;
+}
+.visual-story-content p {
+    font-size: 0.78rem;
+    color: var(--obsidian-200);
+    line-height: 1.55;
+}
+
+/* ============================================================
    METHODOLOGY BLOCK
    ============================================================ */
 .methodology-grid {
@@ -2420,5 +2488,11 @@ input, textarea, select { font-family: inherit; }
         flex-direction: column;
         text-align: center;
         padding: 32px 24px;
+    }
+    .visual-story-grid {
+        grid-template-columns: 1fr;
+    }
+    .visual-story-card {
+        min-height: 220px;
     }
 }
