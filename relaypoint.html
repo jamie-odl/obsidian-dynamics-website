@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RelayPoint | Transition Risk Intelligence | Obsidian Dynamics</title>
-    <meta name="description" content="RelayPoint is Obsidian Dynamics transition risk intelligence module, designed to model where disruption will propagate next across handoff networks.">
+    <meta name="description" content="RelayPoint models where disruption propagates next across handoff networks, corridors, and operational dependencies.">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:title" content="RelayPoint | Transition Risk Intelligence">
@@ -22,6 +22,47 @@
 <a href="#main-content" class="skip-to-content">Skip to main content</a>
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
 <nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"><a href="platform.html" class="nav-link">Platform</a><a href="products.html" class="nav-link">Products</a><a href="api.html" class="nav-link">API</a><a href="use-cases.html" class="nav-link">Use Cases</a><a href="intelligence.html" class="nav-link">Intelligence</a><a href="about.html" class="nav-link">Company</a><a href="contact.html" class="nav-link">Contact</a></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
-<main id="main-content"><section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">TRANSITION RISK INTELLIGENCE</div><h1 class="page-hero__title">RelayPoint</h1><p class="page-hero__subtitle">RelayPoint helps you see where disruption will propagate next.</p></section>
-<section class="features-section"><div class="container"><div class="features-grid features-grid--3col"><div class="feature-card"><h3>Primary Job</h3><p>Correlate air, sea, and weather signals into propagation risk answers.</p></div><div class="feature-card"><h3>Orchestration Layer</h3><p>Premium layer for the "what happens next?" decision.</p></div><div class="feature-card"><h3>Upsell Path</h3><p>High-value expansion from Strait-Signal and SkyGrid deployment.</p></div></div></div></section></main>
+<main id="main-content">
+    <section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">TRANSITION RISK INTELLIGENCE</div><h1 class="page-hero__title">RelayPoint</h1><p class="page-hero__subtitle">RelayPoint helps you see where disruption will propagate next across multi-step handoff chains.</p></section>
+    <section class="features-section"><div class="container"><div class="features-grid features-grid--3col"><div class="feature-card"><h3>Primary Job</h3><p>Correlate air, sea, and weather signals into propagation risk answers.</p></div><div class="feature-card"><h3>Orchestration Layer</h3><p>Premium layer for the "what happens next?" decision across modules.</p></div><div class="feature-card"><h3>Upsell Path</h3><p>High-value expansion from single-module deployments to full-platform orchestration.</p></div></div></div></section>
+
+    <section class="features-section" style="padding-top:0;">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">SAMPLE OUTPUT</span><h2 class="section-title">Transition event payload</h2></div>
+            <div class="sample-payload">
+                <pre class="sample-payload__code"><code>{
+  "event_id": "rp-evt-20260423-1204-transition-55a7",
+  "type": "propagation_risk",
+  "severity": "high",
+  "confidence": 0.89,
+  "source_event": "ss-evt-20260423-1130-delay-991e",
+  "origin_node": "suez_canal",
+  "affected_nodes": ["port_rotterdam", "felixstowe", "east_midlands_air_cargo"],
+  "predicted_window_hours": [36, 72],
+  "risk_score": 0.81,
+  "drivers": ["queue_growth", "weather_drag", "handoff_dependency"],
+  "metadata": {
+    "model_version": "1.8.2",
+    "pipeline_latency_ms": 1032
+  }
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">METHODOLOGY</span><h2 class="section-title">How propagation risk is scored</h2></div>
+            <div class="features-grid features-grid--3col">
+                <div class="feature-card"><h3>Dependency Graph</h3><p>Nodes and corridors are mapped into a dependency graph used to estimate spillover pathways.</p></div>
+                <div class="feature-card"><h3>Confidence Model</h3><p>Scores combine baseline deviation, source signal confidence, and handoff criticality weighting.</p></div>
+                <div class="feature-card"><h3>False Positive Guardrails</h3><p>Time-window checks and corroboration rules suppress low-signal chain reactions.</p></div>
+            </div>
+            <div class="cta-actions" style="justify-content:center; margin-top:24px;">
+                <a href="contact.html" class="btn btn-primary">Request RelayPoint Pilot</a>
+                <a href="trust-center.html" class="btn btn-ghost">Review Trust Center</a>
+            </div>
+        </div>
+    </section>
+</main>
 <script src="js/main.js"></script></body></html>

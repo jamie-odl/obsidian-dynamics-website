@@ -1,5 +1,36 @@
 # Obsidian Dynamics Website Release Notes
 
+## v2.0.5 - 2026-04-23
+
+### Phase 1 - Trust, Methodology, and Proof
+- Added `trust-center.html` as a centralized hub for trust architecture, governance links, and procurement-readiness resources.
+- Added `status.html` for service health communication, support pathing, and reliability references.
+- Expanded `relaypoint.html` with methodology and sample transition-risk output to match proof depth of other modules.
+- Added explicit trust-center pathways on module pages:
+  - `skygrid.html`
+  - `strait-signal.html`
+  - `relaypoint.html`
+
+### Phase 2 - Conversion and Buyer Clarity
+- Expanded `platform.html` with single-module vs unified-platform comparison to make buying paths more legible.
+- Added 30-day pilot structure and success-path sections to:
+  - `platform.html`
+  - `skygrid.html`
+  - `strait-signal.html`
+- Enhanced `use-cases.html` with buyer-specific paths:
+  - Operations
+  - Risk and Insurance
+  - Integration
+
+### Phase 3 - Enterprise Readiness and Linking
+- Updated global footer shell in `js/main.js` to include:
+  - Trust Center
+  - Status
+- Updated sitemap coverage in `sitemap.xml` for:
+  - `/trust-center`
+  - `/status`
+- Bumped website tracking version to `v2.0.5`.
+
 ## v2.0.4 - 2026-04-23
 
 ### About Page Enhancement
