@@ -1,5 +1,13 @@
 # Obsidian Dynamics Website Release Notes
 
+## v2.1.8 - 2026-04-23
+
+### Atlas-First UX and Pricing Cleanup
+- Reframed `index.html`, `platform.html`, `products.html`, and `atlas.html` to position Atlas as the dominant enterprise control plane above module surfaces.
+- Replaced ambiguous Obsidian Core enterprise pricing language with Atlas-led tiering and clearer bundle paths.
+- Added buyer-valid use-case blocks with explicit pain points and outcomes to improve top-of-funnel clarity and decision confidence.
+- Bumped tracked website review version to `v2.1.8`.
+
 ## v2.1.7 - 2026-04-23
 
 ### Atlas Execution and Contract Progress
