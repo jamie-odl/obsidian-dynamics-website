@@ -1,5 +1,27 @@
 # Obsidian Dynamics Website Release Notes
 
+## v2.0.3 - 2026-04-23
+
+### Typography System Upgrade
+- Added tokenized typography scale and line-height variables in `css/styles.css`.
+- Standardized headline/body cadence, tightened navigation typography, and improved paragraph readability.
+- Increased body copy legibility and normalized tracking usage across key components.
+
+### SEO Upgrade
+- Added richer SEO metadata to core architecture pages:
+  - `index.html`
+  - `platform.html`
+  - `products.html`
+  - `api.html`
+  - `use-cases.html`
+  - `intelligence.html`
+  - `relaypoint.html`
+- Added canonical URLs, Open Graph, and Twitter metadata where missing.
+- Added structured data on key pages.
+- Added crawl/index assets:
+  - `robots.txt`
+  - `sitemap.xml`
+
 ## v2.0.2 - 2026-04-23
 
 ### Brand Presentation Update

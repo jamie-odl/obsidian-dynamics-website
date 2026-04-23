@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>API | Obsidian Dynamics</title><link rel="icon" type="image/svg+xml" href="img/favicon.svg"><link rel="stylesheet" href="css/styles.css"></head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API | Obsidian Dynamics</title>
+    <meta name="description" content="Developer documentation for the unified Obsidian Dynamics API across air, maritime, and transition risk intelligence modules.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="API | Obsidian Dynamics">
+    <meta property="og:description" content="One API, modular capability, shared schema, and consistent risk vocabulary.">
+    <meta property="og:url" content="https://obsidiandynamics.co.uk/api">
+    <meta property="og:site_name" content="Obsidian Dynamics">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="API | Obsidian Dynamics">
+    <meta name="twitter:description" content="Unified API for air, maritime, and transition risk events and scores.">
+    <link rel="canonical" href="https://obsidiandynamics.co.uk/api">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
 <body>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
-<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><img src="img/logo.svg" alt="" class="logo-icon"><span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"><a href="platform.html" class="nav-link">Platform</a><a href="products.html" class="nav-link">Products</a><a href="api.html" class="nav-link active">API</a><a href="use-cases.html" class="nav-link">Use Cases</a><a href="intelligence.html" class="nav-link">Intelligence</a><a href="about.html" class="nav-link">Company</a><a href="contact.html" class="nav-link">Contact</a></div><button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button></div></nav>
+<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"><a href="platform.html" class="nav-link">Platform</a><a href="products.html" class="nav-link">Products</a><a href="api.html" class="nav-link active">API</a><a href="use-cases.html" class="nav-link">Use Cases</a><a href="intelligence.html" class="nav-link">Intelligence</a><a href="about.html" class="nav-link">Company</a><a href="contact.html" class="nav-link">Contact</a></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 <main id="main-content"><section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">UNIFIED API</div><h1 class="page-hero__title">One API. <span class="gradient-text">Modular capability.</span></h1></section>
 <section class="features-section"><div class="container"><div class="features-grid features-grid--2col">
 <div class="feature-card"><h3>Endpoints</h3><p><code>GET /v1/air/events</code><br><code>GET /v1/maritime/events</code><br><code>GET /v1/transitions/scores</code><br><code>GET /v1/nodes/{id}/risk</code><br><code>GET /v1/watchlists</code><br><code>POST /v1/alerts</code><br><code>GET /v1/history/replay</code></p></div>
