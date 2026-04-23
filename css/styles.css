@@ -77,6 +77,10 @@ body {
     overflow-x: hidden;
     min-height: 100vh;
 }
+main {
+    position: relative;
+    z-index: 1;
+}
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
@@ -563,11 +567,14 @@ input, textarea, select { font-family: inherit; }
 .contact-section {
     position: relative;
     z-index: 1;
-    padding: 100px 0;
+    padding: 84px 0;
 }
 .section-header {
     text-align: center;
-    margin-bottom: 64px;
+    margin-bottom: 48px;
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .section-tag {
     display: inline-block;
@@ -598,7 +605,7 @@ input, textarea, select { font-family: inherit; }
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    gap: 16px;
 }
 .features-grid--2col { grid-template-columns: repeat(2, 1fr); }
 .features-grid--3col { grid-template-columns: repeat(3, 1fr); }
@@ -608,7 +615,7 @@ input, textarea, select { font-family: inherit; }
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-md);
-    padding: 32px 28px;
+    padding: 24px 22px;
     transition: all 0.3s var(--ease-out-expo);
     backdrop-filter: blur(10px);
 }
@@ -662,7 +669,7 @@ input, textarea, select { font-family: inherit; }
 /* ============================================================
    SERVICE CARDS — Index page (with visual/glow/content)
    ============================================================ */
-.services { position: relative; z-index: 1; padding: 100px 0; }
+.services { position: relative; z-index: 1; padding: 84px 0; }
 
 .service-card__icon {
     width: 48px;
@@ -750,7 +757,7 @@ input, textarea, select { font-family: inherit; }
 /* ============================================================
    CAPABILITIES — Index page
    ============================================================ */
-.capabilities { position: relative; z-index: 1; padding: 100px 0; }
+.capabilities { position: relative; z-index: 1; padding: 84px 0; }
 
 .capabilities-grid {
     display: grid;
@@ -804,7 +811,7 @@ input, textarea, select { font-family: inherit; }
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
-    padding: 48px 40px;
+    padding: 36px 30px;
     transition: all 0.4s var(--ease-out-expo);
     backdrop-filter: blur(10px);
     position: relative;
@@ -941,13 +948,13 @@ input, textarea, select { font-family: inherit; }
 .cta-section {
     position: relative;
     z-index: 1;
-    padding: 80px 0 120px;
+    padding: 64px 0 96px;
 }
 .cta-card {
     background: linear-gradient(145deg, rgba(10,10,15,0.9) 0%, rgba(20,20,40,0.6) 100%);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-xl);
-    padding: 64px;
+    padding: 44px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1419,6 +1426,32 @@ input, textarea, select { font-family: inherit; }
     border-color: rgba(0, 212, 255, 0.2);
     background: linear-gradient(180deg, rgba(0, 212, 255, 0.04) 0%, var(--glass-bg) 40%);
 }
+
+/* ROI calculator */
+.roi-calc-card {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.roi-calc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.roi-calc-results {
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.02);
+}
+.roi-calc-results p {
+    font-size: 0.9rem;
+    color: var(--obsidian-100);
+    margin-bottom: 6px;
+}
+.roi-calc-results p:last-child {
+    margin-bottom: 0;
+}
 .pricing-addons {
     margin-top: 60px;
 }
@@ -1443,7 +1476,7 @@ input, textarea, select { font-family: inherit; }
     position: relative;
     z-index: 1;
     border-top: 1px solid var(--glass-border);
-    padding: 64px 0 32px;
+    padding: 52px 0 28px;
     background: rgba(5, 5, 7, 0.6);
     backdrop-filter: blur(20px);
 }
@@ -1524,7 +1557,7 @@ input, textarea, select { font-family: inherit; }
     .contact-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
     .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
-    .cta-card { padding: 48px; }
+    .cta-card { padding: 36px; }
 }
 
 @media (max-width: 768px) {
@@ -1558,8 +1591,9 @@ input, textarea, select { font-family: inherit; }
     .capabilities-grid { grid-template-columns: 1fr; }
 
     .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .roi-calc-grid { grid-template-columns: 1fr; }
 
-    .cta-card { flex-direction: column; padding: 40px 28px; text-align: center; }
+    .cta-card { flex-direction: column; padding: 30px 22px; text-align: center; }
     .cta-content p { margin-left: auto; margin-right: auto; }
     .cta-actions { justify-content: center; }
     .cta-visual { width: 150px; height: 150px; }
@@ -1587,7 +1621,7 @@ input, textarea, select { font-family: inherit; }
     .metric-card { padding: 20px 14px; }
     .metric-value { font-size: 22px; }
     .cta-card { padding: 32px 20px; }
-    .service-card { padding: 32px 24px; }
+    .service-card { padding: 28px 20px; }
     .company-info-card { padding: 32px 24px; }
 
     .process-grid { gap: 32px; }
@@ -1600,7 +1634,7 @@ input, textarea, select { font-family: inherit; }
    HOW IT WORKS — Process Section
    ============================================================ */
 .how-it-works {
-    padding: 100px 0;
+    padding: 84px 0;
     position: relative;
     z-index: 1;
 }
@@ -1656,7 +1690,7 @@ input, textarea, select { font-family: inherit; }
    CASE STUDIES
    ============================================================ */
 .case-studies {
-    padding: 100px 0;
+    padding: 84px 0;
     position: relative;
     z-index: 1;
 }
@@ -1739,7 +1773,7 @@ input, textarea, select { font-family: inherit; }
    TRUST / SOCIAL PROOF
    ============================================================ */
 .trust-section {
-    padding: 100px 0;
+    padding: 84px 0;
     position: relative;
     z-index: 1;
 }

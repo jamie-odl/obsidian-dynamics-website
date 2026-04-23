@@ -1,5 +1,68 @@
 # Obsidian Dynamics Website Release Notes
 
+## v2.0.9 - 2026-04-23
+
+### Site-wide UI/UX Flow Cleanup
+- Applied global spacing and visual-density refinements in `css/styles.css` to reduce clutter across all pages:
+  - tighter section rhythm
+  - cleaner card density
+  - more consistent CTA spacing
+  - improved page readability hierarchy
+- Refined homepage (`index.html`) into a clearer linear journey:
+  - problem statement
+  - buyer fit
+  - module stack
+  - platform value
+  - how-to-start conversion path
+- Improved long-form platform flow in `platform.html` with in-page jump links for quicker navigation.
+- Improved supporting page flow and CTA clarity in:
+  - `api.html`
+  - `intelligence.html`
+- Updated tracked website version to `v2.0.9`.
+
+## v2.0.7 - 2026-04-23
+
+### High-Value Additions Completed
+- Added interactive ROI calculator and pilot scorecard framing to `platform.html`.
+- Added pricing purchase-clarity guidance in `platform.html`:
+  - who each tier is for
+  - typical implementation timeline
+- Added role-specific conversion CTAs in `use-cases.html`:
+  - Operations
+  - Risk / Insurance
+  - Integration
+- Added `evidence-library.html` with before/after proof snapshots and measurable outcomes.
+- Added `methodology.html` as a plain-English methodology whitepaper page.
+- Expanded `trust-center.html` with:
+  - Methodology Whitepaper link
+  - Evidence Library link
+  - DPA summary, retention matrix, and incident communication policy content
+- Added styles and behavior for ROI calculator in:
+  - `css/styles.css`
+  - `js/main.js`
+- Updated `sitemap.xml` to include:
+  - `/evidence-library`
+  - `/methodology`
+- Updated tracked website version to `v2.0.7`.
+
+## v2.0.6 - 2026-04-23
+
+### Public Pricing Published
+- Expanded `platform.html` pricing into a full public commercial framework with:
+  - core pricing principles
+  - explicit module starting prices
+  - unified platform tier ranges
+  - bundle discount guidance
+  - commercial realism and margin outlook
+- Added explicit listing for:
+  - `SkyGrid`
+  - `Strait-Signal`
+  - `RelayPoint`
+  - `Fragility Atlas`
+  - Unified platform
+  - Enterprise/OEM pricing
+- Updated tracked website version to `v2.0.6` in `js/main.js`.
+
 ## v2.0.5 - 2026-04-23
 
 ### Phase 1 - Trust, Methodology, and Proof

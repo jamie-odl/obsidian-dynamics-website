@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.0.5';
+    const SITE_VERSION = 'v2.0.9';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
 
@@ -304,6 +304,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 3000);
             }, 1500);
         });
+    }
+
+    // --- ROI Calculator (Platform) ---
+    const roiEvents = document.getElementById('roiEvents');
+    const roiCost = document.getElementById('roiCost');
+    const roiReduction = document.getElementById('roiReduction');
+    const roiCalcResults = document.getElementById('roiCalcResults');
+    if (roiEvents && roiCost && roiReduction && roiCalcResults) {
+        const gbp = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 });
+        const recalcRoi = () => {
+            const events = Math.max(0, parseFloat(roiEvents.value) || 0);
+            const cost = Math.max(0, parseFloat(roiCost.value) || 0);
+            const reductionPct = Math.min(100, Math.max(0, parseFloat(roiReduction.value) || 0));
+            const monthlyExposure = events * cost;
+            const monthlySavings = monthlyExposure * (reductionPct / 100);
+            const annualSavings = monthlySavings * 12;
+            roiCalcResults.innerHTML =
+                '<p><strong>Estimated monthly disruption exposure:</strong> ' + gbp.format(monthlyExposure) + '</p>' +
+                '<p><strong>Estimated monthly savings:</strong> ' + gbp.format(monthlySavings) + '</p>' +
+                '<p><strong>Estimated annualized savings:</strong> ' + gbp.format(annualSavings) + '</p>';
+        };
+        [roiEvents, roiCost, roiReduction].forEach((el) => el.addEventListener('input', recalcRoi));
+        recalcRoi();
     }
 
     // --- aria-current="page" for active nav link ---
