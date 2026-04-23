@@ -1468,6 +1468,35 @@ input, textarea, select { font-family: inherit; }
     background: linear-gradient(180deg, rgba(0, 212, 255, 0.03) 0%, transparent 60%),
                 linear-gradient(135deg, rgba(123, 47, 255, 0.04) 0%, transparent 50%);
 }
+.platform-hero-card {
+    width: min(920px, 100%);
+    margin: 0 auto;
+    padding: 30px 28px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(145deg, rgba(10, 10, 15, 0.9) 0%, rgba(20, 20, 31, 0.72) 100%);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+.platform-hero-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+.platform-highlight-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--obsidian-100);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+}
 
 /* ============================================================
    FOOTER
@@ -1592,6 +1621,7 @@ input, textarea, select { font-family: inherit; }
 
     .metrics-grid { grid-template-columns: repeat(2, 1fr); }
     .roi-calc-grid { grid-template-columns: 1fr; }
+    .platform-hero-card { padding: 24px 18px; }
 
     .cta-card { flex-direction: column; padding: 30px 22px; text-align: center; }
     .cta-content p { margin-left: auto; margin-right: auto; }

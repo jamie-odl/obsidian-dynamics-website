@@ -1,5 +1,16 @@
 # Obsidian Dynamics Website Release Notes
 
+## v2.1.1 - 2026-04-23
+
+### Platform Hero Emphasis Upgrade
+- Upgraded the `platform.html` hero into a stronger above-the-fold callout block with:
+  - elevated visual container
+  - sharper headline hierarchy
+  - immediate pricing callout chips
+  - clearer primary/secondary CTA pairing
+- Added supporting hero styles in `css/styles.css` for desktop and mobile consistency.
+- Updated tracked website version to `v2.1.1`.
+
 ## v2.1.0 - 2026-04-23
 
 ### Platform Page UX Simplification
