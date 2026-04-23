@@ -1,5 +1,19 @@
 # Obsidian Dynamics Website Release Notes
 
+## v2.0.4 - 2026-04-23
+
+### About Page Enhancement
+- Strengthened `about.html` with clearer master-brand narrative and strategic positioning.
+- Added a new "Why Now" section describing market urgency and operational relevance.
+- Refined founder-led messaging to focus on decision quality, reliability, and execution standards.
+
+### Project Presentation Simplification
+- Removed non-essential project visual icon treatment in the About platform cards.
+- Standardized module naming across edited pages:
+  - `SkyGrid`
+  - `Strait-Signal`
+- Updated legacy nav/footer labels in key pages to align with cleaner module branding.
+
 ## v2.0.3 - 2026-04-23
 
 ### Typography System Upgrade
