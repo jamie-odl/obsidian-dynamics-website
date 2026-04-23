@@ -5,13 +5,13 @@ Status: Execution-ready roadmap (v1)
 
 ## Goal
 
-Position Atlas as the enterprise control plane in Obsidian Core while keeping SkyGrid, Strait-Signal, and RelayPoint as active standalone products and signal feeders.
+Position Atlas as the enterprise control plane in Obsidian Dynamics while keeping SkyGrid, Strait-Signal, and RelayPoint as active standalone products and signal feeders.
 
 ## Strategic Principles
 
 - Atlas is the decision layer, not another telemetry dashboard.
 - Module products remain standalone wedges and customer entry points.
-- Live cross-domain Atlas intelligence stays Core Enterprise-governed.
+- Live cross-domain Atlas intelligence stays Atlas Strategic-governed.
 - Every Atlas score must be explainable enough for enterprise procurement and governance review.
 
 ## Scope and Non-Goals
@@ -182,7 +182,7 @@ Primary KPI:
 1. Launch connector pack v1.
 2. Launch benchmark index beta.
 3. Enable premium Atlas add-ons in billing catalog.
-4. Run expansion campaigns to Core Enterprise prospects.
+4. Run expansion campaigns to Atlas Strategic prospects.
 
 ## Workstreams and Owners (Recommended)
 
@@ -280,8 +280,8 @@ Primary KPI:
 ## Commercial Recommendations
 
 - Keep modules as standalone wedges.
-- Position Atlas as Core Enterprise mandatory layer for cross-domain decisioning.
-- Include these in Core Enterprise baseline:
+- Position Atlas as the mandatory enterprise layer for cross-domain decisioning.
+- Include these in Atlas Ops baseline:
   - decision actions
   - simulations
   - exposure overlay
@@ -302,14 +302,14 @@ Primary KPI:
 
 ## KPI Framework (Definitions)
 
-1. Core Enterprise conversion rate
-   - Module-enterprise accounts converted to Core Enterprise over period.
+1. Atlas conversion rate
+   - Module-enterprise accounts converted to Atlas bundles over period.
 2. Executive WAU
    - Weekly active executive/risk decision users in Atlas.
 3. Warning lead-time
    - Mean duration between Atlas high-risk flag and externally visible disruption signal.
 4. Atlas add-on attach rate
-   - Share of Core Enterprise accounts with at least one Atlas premium add-on.
+   - Share of Atlas Ops/Strategic accounts with at least one Atlas premium add-on.
 5. Renewal uplift
    - Renewal delta for customers using simulations + action workflows versus non-users.
 
