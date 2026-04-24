@@ -7,6 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const SITE_VERSION = 'v2.4.0';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
+    const analyticsEndpoint = '/api/analytics/event';
+
+    function sendAnalyticsEvent(eventType, extra) {
+        const payload = {
+            eventType,
+            page: currentPage,
+            referrer: document.referrer || '',
+            ...extra
+        };
+        const body = JSON.stringify(payload);
+        if (navigator.sendBeacon) {
+            const blob = new Blob([body], { type: 'application/json' });
+            navigator.sendBeacon(analyticsEndpoint, blob);
+            return;
+        }
+        fetch(analyticsEndpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            keepalive: true,
+            body
+        }).catch(() => {});
+    }
 
     function getPrimaryLogoMarkup() {
         return '<span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span>';
@@ -155,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     markMediaForPerformance();
     applyUnifiedPageShell();
     enablePremiumEntrance();
+    sendAnalyticsEvent('page_view', {});
 
     // --- Developer Portal Access Guard ---
     const protectedPages = new Set([
@@ -390,6 +413,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
+        });
+    });
+
+    // --- Click analytics for CTA and trust links ---
+    document.addEventListener('click', (event) => {
+        const target = event.target.closest('a,button');
+        if (!target) return;
+        const isTracked = target.classList.contains('btn')
+            || target.classList.contains('nav-cta')
+            || target.closest('.operational-trust-links');
+        if (!isTracked) return;
+        sendAnalyticsEvent('cta_click', {
+            target: (target.textContent || '').trim().slice(0, 120),
+            href: target.getAttribute('href') || '',
+            tier: target.dataset.tier || ''
         });
     });
 
