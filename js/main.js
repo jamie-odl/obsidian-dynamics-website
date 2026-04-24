@@ -3,8 +3,28 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Google Fonts: load on every page (even if HTML omitted) ---
+    (function ensureFontStack() {
+        if (document.querySelector('link[href*="JetBrains+Mono"]') || document.querySelector('link[href*="Inter:wght"]')) {
+            return;
+        }
+        const g = document.createElement('link');
+        g.rel = 'preconnect';
+        g.href = 'https://fonts.googleapis.com';
+        const h = document.createElement('link');
+        h.rel = 'preconnect';
+        h.href = 'https://fonts.gstatic.com';
+        h.setAttribute('crossorigin', 'anonymous');
+        const css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap';
+        document.head.prepend(h);
+        document.head.prepend(g);
+        document.head.appendChild(css);
+    })();
+
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.4.6';
+    const SITE_VERSION = 'v2.4.7';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
@@ -39,13 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
             { href: 'platform.html', label: 'Platform' },
             { href: 'products.html', label: 'Products' },
             { href: 'api.html', label: 'API' },
+            { href: 'developer-central.html', label: 'Developer Central' },
             { href: 'use-cases.html', label: 'Use Cases' },
             { href: 'intelligence.html', label: 'Intelligence' },
             { href: 'about.html', label: 'Company' },
             { href: 'contact.html', label: 'Contact' }
         ];
         return items.map((item) => {
-            const isActive = item.href === activePage || (activePage === 'index.html' && item.href === 'platform.html');
+            const isActive =
+                item.href === activePage
+                || (activePage === 'index.html' && item.href === 'platform.html');
             return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
         }).join('') + '<a href="contact.html" class="nav-cta">Contact Team</a>';
     }
@@ -71,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <p class="footer-tagline">Operational risk intelligence across air, sea, and transition networks.</p>' +
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Platform</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="products.html">Products</a></li><li><a href="api.html">API</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Platform</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="products.html">Products</a></li><li><a href="api.html">API</a></li><li><a href="developer-central.html">Developer Central</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Intelligence</h4><ul><li><a href="use-cases.html">Use Cases</a></li><li><a href="intelligence.html">Intelligence</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">Company</a></li><li><a href="trust-center.html">Trust Center</a></li><li><a href="status.html">Status</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>' +
             '</div>' +

@@ -67,6 +67,25 @@
     --highlight-cyan-soft: rgba(0, 212, 255, 0.09);
     --highlight-violet-soft: rgba(123, 47, 255, 0.08);
     --highlight-strait-soft: rgba(16, 185, 129, 0.08);
+
+    /* Strait-Signal / dashboard-aligned accent for data density (sister product parity) */
+    --signal-cyan: #00f0ff;
+    --signal-cyan-dim: rgba(0, 240, 255, 0.12);
+}
+
+/* Monospace and numeric UI (matches product-surface discipline across Obsidian) */
+code, kbd, samp, .font-data, .api-inline-endpoint {
+    font-family: var(--font-mono);
+    font-size: 0.92em;
+    letter-spacing: 0.01em;
+}
+.feature-card p code, .page-hero code {
+    color: var(--obsidian-100);
+    word-break: break-all;
+    background: var(--obsidian-850);
+    padding: 0.12em 0.4em;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--glass-border);
 }
 
 /* --- Reset --- */
