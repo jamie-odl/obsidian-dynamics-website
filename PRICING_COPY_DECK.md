@@ -5,7 +5,7 @@ Use this copy across web pages, outbound messaging, sales briefs, and proposal t
 ## Positioning Narrative
 
 Obsidian Dynamics is the parent intelligence platform.
-Project SkyGrid and Strait-Signal are standalone products that can be adopted independently, then expanded into Obsidian Core for unified cross-domain operations.
+SkyGrid and Strait-Signal are standalone products that can be adopted independently, then expanded into Obsidian Core for unified cross-domain operations.
 
 Commercial model:
 - Start with one module for immediate operational value.
@@ -16,13 +16,13 @@ Commercial model:
 ## Product-Line Taglines
 
 - **Obsidian Dynamics Core:** "Unified operational risk intelligence across air, sea, and transition networks."
-- **Project SkyGrid:** "Browser-first aircraft anomaly intelligence with operational routing workflows."
+- **SkyGrid:** "Browser-first aircraft anomaly intelligence with operational routing workflows."
 - **Strait-Signal:** "Maritime chokepoint and congestion intelligence before disruption spreads."
 - **Atlas:** "Infrastructure fragility and cascading-risk intelligence as the enterprise control layer."
 
 ## Tier Cards (Website / One-Pager)
 
-### Project SkyGrid (Standalone Air Module)
+### SkyGrid (Standalone Air Module)
 
 #### SkyGrid Starter - GBP 750/month
 Best for teams validating air-domain anomaly operations quickly.

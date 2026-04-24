@@ -7,7 +7,7 @@ Date: 2026-04-23
 Cross-portfolio audit and alignment pass across:
 
 - Obsidian Dynamics (parent)
-- Project SkyGrid (sister product)
+- SkyGrid (sister product)
 - Strait-Signal (sister product)
 
 Coverage areas:

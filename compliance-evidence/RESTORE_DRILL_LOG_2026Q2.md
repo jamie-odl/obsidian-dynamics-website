@@ -7,7 +7,7 @@ Framework mapping: SOC 2 Type II (Availability A1), GDPR Art. 32(1)(c)
 
 | Datastore | Product(s) | Backup source | Restore target | RTO target | RPO target |
 | --- | --- | --- | --- | --- | --- |
-| Managed PostgreSQL (SkyGrid) | ProjectSkygrid | DO managed backups | Isolated restore instance | 4h | 1h |
+| Managed PostgreSQL (SkyGrid) | SkyGrid | DO managed backups | Isolated restore instance | 4h | 1h |
 | Managed PostgreSQL/Timescale (Strait-Signal) | Strait-Signal | DO managed backups | Isolated restore instance | 4h | 1h |
 | Object storage snapshots | Atlas/RelayPoint/exports | DO Spaces/versioned artifacts | Isolated bucket | 4h | 24h |
 

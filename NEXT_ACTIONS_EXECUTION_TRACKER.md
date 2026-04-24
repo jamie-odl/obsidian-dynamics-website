@@ -3,7 +3,7 @@
 Date: 2026-04-23  
 Owner: Obsidian Dynamics Program
 
-This tracker converts the highest-value next actions into executable deliverables across Obsidian Dynamics, ProjectSkygrid, and Strait-Signal.
+This tracker converts the highest-value next actions into executable deliverables across Obsidian Dynamics, SkyGrid, and Strait-Signal.
 
 ## Execution Status Legend
 
@@ -51,7 +51,7 @@ This tracker converts the highest-value next actions into executable deliverable
 - IN PROGRESS: lock v1 contracts and publish strict changelog governance.
 - TODO: quarterly Fragility Index automation pipeline.
 
-### ProjectSkygrid
+### SkyGrid
 
 - DONE: pricing now aligned to Atlas bundles and SLA/entitlement baseline.
 - IN PROGRESS: sample-vs-live endpoint hardening and commercial API readiness.

@@ -1,7 +1,7 @@
 # Unified Compliance Matrix — SOC 2 Type II and GDPR
 
 Date: 2026-04-24  
-Scope: Obsidian Dynamics (Atlas), ProjectSkygrid, Strait-Signal, RelayPoint  
+Scope: Obsidian Dynamics (Atlas), SkyGrid, Strait-Signal, RelayPoint  
 Frameworks: SOC 2 Type II (Security, Availability, Confidentiality), GDPR
 
 ## Audit Alignment Statement
@@ -60,7 +60,7 @@ Note on supplier assurance:
   - formalize monthly access review and key-rotation evidence logs
   - implement subprocessor change notification workflow
 
-## ProjectSkygrid
+## SkyGrid
 
 - **In place**: extensive security implementation controls, audit logging, entitlement/rate-limit controls, DO production runbooks.
 - **Needs completion**:

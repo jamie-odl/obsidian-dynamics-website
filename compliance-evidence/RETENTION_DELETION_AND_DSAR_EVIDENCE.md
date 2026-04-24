@@ -31,7 +31,7 @@ Framework mapping: GDPR Articles 5, 15-22, 30, 32
 ## Product-Level Confirmation
 
 - [ ] Atlas/Obsidian DSAR workflow tested
-- [ ] ProjectSkygrid DSAR workflow tested
+- [ ] SkyGrid DSAR workflow tested
 - [ ] Strait-Signal DSAR workflow tested
 - [ ] RelayPoint DSAR workflow tested
 

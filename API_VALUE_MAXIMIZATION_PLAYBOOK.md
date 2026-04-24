@@ -10,7 +10,7 @@ Convert existing API infrastructure (first-party and third-party integrations) i
 
 ### 1) Core Product APIs
 
-- Project SkyGrid API surfaces (events, leaderboards, reports, watch grids, webhooks, billing, entitlements).
+- SkyGrid API surfaces (events, leaderboards, reports, watch grids, webhooks, billing, entitlements).
 - Strait-Signal API surfaces (locations, routes, alerts, analytics, API keys, webhooks, billing, export, firehose sample/live gates).
 - Parent-level entitlement and firehose policy control (Obsidian Dynamics Core enterprise scope).
 

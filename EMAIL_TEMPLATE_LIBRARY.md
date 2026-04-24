@@ -3,7 +3,7 @@
 ## Purpose
 
 This library defines parent-brand outbound email standards for Obsidian Dynamics portfolio outreach.
-It aligns parent positioning with product-specific pathways for Project SkyGrid and Strait-Signal.
+It aligns parent positioning with product-specific pathways for SkyGrid and Strait-Signal.
 
 ## Positioning Rules
 

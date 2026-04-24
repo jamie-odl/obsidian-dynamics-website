@@ -5,7 +5,7 @@
 Cross-project review of front-facing product positioning, legal/trust cohesion, and API/firehose access policy across:
 
 - Obsidian Dynamics (parent)
-- ProjectSkygrid (sister company)
+- SkyGrid (sister product under Obsidian Dynamics)
 - Strait-Signal (sister company)
 
 ## Required Portfolio Pattern

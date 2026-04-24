@@ -1,7 +1,7 @@
 # Subprocessor Register (Portfolio)
 
 Date: 2026-04-24  
-Products: Atlas, ProjectSkygrid, Strait-Signal, RelayPoint
+Products: Atlas, SkyGrid, Strait-Signal, RelayPoint
 
 ## Active Subprocessors
 
@@ -22,7 +22,7 @@ Products: Atlas, ProjectSkygrid, Strait-Signal, RelayPoint
 
 ## Decommissioned / Closing
 
-- **Render** — marked for account closure (no active production references in ProjectSkygrid codebase after cleanup).
+- **Render** — marked for account closure (no active production references in the SkyGrid codebase after cleanup).
 
 Required closure evidence:
 
