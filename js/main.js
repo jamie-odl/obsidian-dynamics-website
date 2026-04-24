@@ -213,6 +213,79 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function simplifyInformationDensity() {
+        document.body.classList.add('ui-simple-mode');
+
+        const denseGridSelectors = [
+            '.features-grid',
+            '.services-grid',
+            '.capabilities-grid',
+            '.proof-chip-grid',
+            '.mini-case-grid',
+            '.role-cta-grid',
+            '.trust-grid',
+            '.methodology-grid',
+            '.analyst-steps',
+            '.access-tier-grid',
+            '.download-option-grid'
+        ];
+
+        const cardSelectors = [
+            '.feature-card',
+            '.service-card',
+            '.capability-card',
+            '.trust-card',
+            '.case-card',
+            '.role-cta-card',
+            '.access-tier-card',
+            '.download-option',
+            '.proof-chip',
+            '.mini-case-card',
+            '.methodology-item',
+            '.analyst-step'
+        ].join(',');
+
+        denseGridSelectors.forEach((selector) => {
+            document.querySelectorAll(selector).forEach((grid) => {
+                const cards = Array.from(grid.querySelectorAll(':scope > ' + cardSelectors));
+                if (cards.length <= 3) return;
+
+                grid.classList.add('is-simplified-grid');
+                cards.forEach((card, index) => {
+                    if (index < 3) return;
+                    card.classList.add('is-collapsed-card');
+                    card.hidden = true;
+                });
+
+                if (grid.nextElementSibling && grid.nextElementSibling.classList.contains('simple-expand-btn')) return;
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'simple-expand-btn';
+                btn.textContent = 'Show more';
+                btn.setAttribute('aria-expanded', 'false');
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    cards.forEach((card, index) => {
+                        if (index < 3) return;
+                        card.hidden = expanded;
+                    });
+                    btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+                    btn.textContent = expanded ? 'Show more' : 'Show less';
+                });
+                grid.insertAdjacentElement('afterend', btn);
+            });
+        });
+
+        document.querySelectorAll('.hero-actions, .page-hero__actions, .cta-actions').forEach((group) => {
+            const buttons = Array.from(group.querySelectorAll('.btn'));
+            if (buttons.length <= 1) return;
+            buttons.forEach((btn, index) => {
+                if (index === 0) return;
+                btn.classList.add('btn-is-secondary-simple');
+            });
+        });
+    }
+
     applyGlobalBrandShell();
     addVersionBadge();
     normalizeCtaLanguage();
@@ -220,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     markMediaForPerformance();
     ensureSeoMetaDefaults();
     applyUnifiedPageShell();
+    simplifyInformationDensity();
     enablePremiumEntrance();
     sendAnalyticsEvent('page_view', {});
 
