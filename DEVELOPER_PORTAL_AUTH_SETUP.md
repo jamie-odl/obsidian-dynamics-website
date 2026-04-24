@@ -58,7 +58,7 @@ Example:
 
 ```env
 AUTH_TOKEN_SECRET=replace-with-long-random-secret
-DEVELOPER_ALLOWLIST=jamie@projectskygrid.com
+DEVELOPER_ALLOWLIST=jamie@obsidiandynamics.co.uk
 RESEND_API_KEY=re_xxx
 AUTH_EMAIL_FROM=security@obsidiandynamics.co.uk
 NODE_ENV=production

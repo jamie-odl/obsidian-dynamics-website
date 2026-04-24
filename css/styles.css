@@ -67,6 +67,25 @@
     --highlight-cyan-soft: rgba(0, 212, 255, 0.09);
     --highlight-violet-soft: rgba(123, 47, 255, 0.08);
     --highlight-strait-soft: rgba(16, 185, 129, 0.08);
+
+    /* Strait-Signal / dashboard-aligned accent for data density (sister product parity) */
+    --signal-cyan: #00f0ff;
+    --signal-cyan-dim: rgba(0, 240, 255, 0.12);
+}
+
+/* Monospace and numeric UI (matches product-surface discipline across Obsidian) */
+code, kbd, samp, .font-data, .api-inline-endpoint {
+    font-family: var(--font-mono);
+    font-size: 0.92em;
+    letter-spacing: 0.01em;
+}
+.feature-card p code, .page-hero code {
+    color: var(--obsidian-100);
+    word-break: break-all;
+    background: var(--obsidian-850);
+    padding: 0.12em 0.4em;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--glass-border);
 }
 
 /* --- Reset --- */
@@ -93,6 +112,15 @@ main {
 }
 .unified-page-shell main > section.section-frame {
     scroll-margin-top: 94px;
+}
+.ui-simple-mode .section-header {
+    margin-bottom: 28px;
+}
+.ui-simple-mode :is(.features-section, .how-it-works, .built-for-section, .about-section, .contact-section, .services, .capabilities, .trust-section, .case-studies) {
+    padding: 64px 0;
+}
+.ui-simple-mode .section-desc {
+    max-width: 62ch;
 }
 a { color: inherit; text-decoration: none; }
 a:hover { text-decoration: none; }
@@ -546,6 +574,17 @@ input, textarea, select { font-family: inherit; }
     background-position: 100% 50%;
     box-shadow: 0 8px 32px rgba(99, 102, 241, 0.36);
 }
+.btn-is-secondary-simple {
+    background: transparent !important;
+    border: 1px solid var(--glass-border) !important;
+    color: var(--obsidian-200) !important;
+    box-shadow: none !important;
+}
+.btn-is-secondary-simple:hover {
+    background: rgba(255, 255, 255, 0.04) !important;
+    color: var(--obsidian-50) !important;
+    border-color: var(--glass-border-hover) !important;
+}
 
 /* Multi-option groups: enforce clear visual differentiation */
 .btn-group--multi .btn.btn-option {
@@ -630,6 +669,48 @@ input, textarea, select { font-family: inherit; }
     font-size: 0.78rem;
     color: var(--obsidian-300);
     line-height: 1.55;
+}
+
+/* Developer portal management tabs */
+.portal-tabs {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    background: rgba(10, 10, 15, 0.8);
+}
+.portal-tablist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+.portal-tab {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--obsidian-200);
+    font-size: 0.78rem;
+    font-weight: 600;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.portal-tab:hover {
+    color: var(--obsidian-50);
+    border-color: var(--glass-border-hover);
+}
+.portal-tab.is-active {
+    color: #fff;
+    border-color: rgba(0, 212, 255, 0.35);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(123, 47, 255, 0.2));
+}
+.portal-panel {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.01);
+}
+.portal-panel[hidden] {
+    display: none;
 }
 
 /* ============================================================
@@ -777,6 +858,24 @@ input, textarea, select { font-family: inherit; }
     background: linear-gradient(145deg, rgba(10,10,15,0.8) 0%, rgba(20,20,31,0.5) 100%);
 }
 
+.feature-card--priority {
+    border-color: rgba(0, 212, 255, 0.22);
+    background:
+        linear-gradient(165deg, rgba(0, 212, 255, 0.08) 0%, rgba(123, 47, 255, 0.06) 100%),
+        rgba(10, 10, 15, 0.82);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+}
+.feature-card--priority::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background: var(--gradient-main);
+    opacity: 0.95;
+}
+
 .feature-card__icon {
     width: 48px;
     height: 48px;
@@ -786,6 +885,11 @@ input, textarea, select { font-family: inherit; }
 .feature-card__icon svg {
     width: 100%;
     height: 100%;
+}
+.feature-card--priority .feature-card__icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 16px;
 }
 .feature-card--sky .feature-card__icon { color: var(--sky-primary); }
 .feature-card--strait .feature-card__icon { color: var(--strait-primary); }
@@ -800,6 +904,32 @@ input, textarea, select { font-family: inherit; }
     font-size: var(--type-body-sm);
     color: var(--obsidian-200);
     line-height: var(--line-body);
+}
+.ui-simple-mode :is(.feature-card, .service-card, .capability-card, .trust-card, .case-card, .role-cta-card, .access-tier-card, .download-option, .proof-chip, .mini-case-card, .methodology-item, .analyst-step) {
+    padding: 18px 18px;
+    border-radius: 12px;
+}
+.ui-simple-mode :is(.feature-card, .service-card, .capability-card, .trust-card, .case-card):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+.is-simplified-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+}
+.simple-expand-btn {
+    margin-top: 10px;
+    padding: 8px 14px;
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--obsidian-200);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+.simple-expand-btn:hover {
+    border-color: var(--glass-border-hover);
+    color: var(--obsidian-50);
 }
 
 /* Highlight-first reading pattern for card content */
@@ -2244,6 +2374,20 @@ input, textarea, select { font-family: inherit; }
     font-size: 0.78rem;
     color: var(--obsidian-200);
     line-height: 1.55;
+}
+.visual-story-content .visual-story-kicker {
+    display: inline-block;
+    margin-bottom: 6px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--obsidian-100);
+    background: rgba(0, 212, 255, 0.16);
+    border: 1px solid rgba(0, 212, 255, 0.28);
 }
 
 /* Proof chips and KPI evidence strip */

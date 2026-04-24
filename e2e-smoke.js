@@ -75,7 +75,7 @@ async function apiCheck() {
   };
 
   process.env.AUTH_TOKEN_SECRET = process.env.AUTH_TOKEN_SECRET || 'local-test-secret-123';
-  process.env.DEVELOPER_ALLOWLIST = process.env.DEVELOPER_ALLOWLIST || 'jamie@projectskygrid.com';
+  process.env.DEVELOPER_ALLOWLIST = process.env.DEVELOPER_ALLOWLIST || 'jamie@obsidiandynamics.co.uk';
   process.env.NODE_ENV = process.env.NODE_ENV || 'development';
   process.env.RESEND_API_KEY = process.env.RESEND_API_KEY || 'dummy';
   process.env.AUTH_EMAIL_FROM = process.env.AUTH_EMAIL_FROM || 'security@example.com';
@@ -88,7 +88,7 @@ async function apiCheck() {
   await handlers.requestLink(reqDeny, resDeny);
 
   // 2) request-link should allow allowlisted
-  const reqAllow = { method: 'POST', body: { email: 'jamie@projectskygrid.com', next: 'developer-central.html' }, headers: { host: 'localhost:3000', 'x-forwarded-proto': 'http' }, socket: { remoteAddress: '127.0.0.1' } };
+  const reqAllow = { method: 'POST', body: { email: 'jamie@obsidiandynamics.co.uk', next: 'developer-central.html' }, headers: { host: 'localhost:3000', 'x-forwarded-proto': 'http' }, socket: { remoteAddress: '127.0.0.1' } };
   const resAllow = mkRes();
   await handlers.requestLink(reqAllow, resAllow);
 
@@ -99,7 +99,7 @@ async function apiCheck() {
 
   // 4) verify should set session cookie and redirect
   const magicToken = utils.signToken({
-    email: 'jamie@projectskygrid.com',
+    email: 'jamie@obsidiandynamics.co.uk',
     type: 'magic_link',
     next: 'developer-central.html',
     jti: 'test-jti-1',

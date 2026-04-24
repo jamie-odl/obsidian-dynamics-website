@@ -3,10 +3,52 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Google Fonts: load on every page (even if HTML omitted) ---
+    (function ensureFontStack() {
+        if (document.querySelector('link[href*="JetBrains+Mono"]') || document.querySelector('link[href*="Inter:wght"]')) {
+            return;
+        }
+        const g = document.createElement('link');
+        g.rel = 'preconnect';
+        g.href = 'https://fonts.googleapis.com';
+        const h = document.createElement('link');
+        h.rel = 'preconnect';
+        h.href = 'https://fonts.gstatic.com';
+        h.setAttribute('crossorigin', 'anonymous');
+        const css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap';
+        document.head.prepend(h);
+        document.head.prepend(g);
+        document.head.appendChild(css);
+    })();
+
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.4.0';
+    const SITE_VERSION = 'v2.4.7';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
+    const analyticsEndpoint = '/api/analytics/event';
+
+    function sendAnalyticsEvent(eventType, extra) {
+        const payload = {
+            eventType,
+            page: currentPage,
+            referrer: document.referrer || '',
+            ...extra
+        };
+        const body = JSON.stringify(payload);
+        if (navigator.sendBeacon) {
+            const blob = new Blob([body], { type: 'application/json' });
+            navigator.sendBeacon(analyticsEndpoint, blob);
+            return;
+        }
+        fetch(analyticsEndpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            keepalive: true,
+            body
+        }).catch(() => {});
+    }
 
     function getPrimaryLogoMarkup() {
         return '<span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span>';
@@ -24,7 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
             { href: 'contact.html', label: 'Contact' }
         ];
         return items.map((item) => {
-            const isActive = item.href === activePage || (activePage === 'index.html' && item.href === 'platform.html');
+            const isActive =
+                item.href === activePage
+                || (activePage === 'index.html' && item.href === 'platform.html');
             return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
         }).join('') + '<a href="contact.html" class="nav-cta">Contact Team</a>';
     }
@@ -133,6 +177,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function ensureSeoMetaDefaults() {
+        const siteOrigin = 'https://obsidiandynamics.co.uk';
+        const path = window.location.pathname || '/';
+        const absoluteUrl = siteOrigin + path;
+        const title = (document.title || 'Obsidian Dynamics').trim();
+        const descTag = document.querySelector('meta[name="description"]');
+        const description = ((descTag && descTag.getAttribute('content')) || '').trim()
+            || 'Operational risk intelligence across air, sea, and transition networks.';
+        const defaultOgImage = siteOrigin + '/img/logo.svg';
+
+        function upsertMeta(attrName, attrValue, content) {
+            let tag = document.head.querySelector('meta[' + attrName + '="' + attrValue + '"]');
+            if (!tag) {
+                tag = document.createElement('meta');
+                tag.setAttribute(attrName, attrValue);
+                document.head.appendChild(tag);
+            }
+            tag.setAttribute('content', content);
+        }
+
+        let canonical = document.head.querySelector('link[rel="canonical"]');
+        if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.setAttribute('rel', 'canonical');
+            document.head.appendChild(canonical);
+        }
+        if (!canonical.getAttribute('href')) {
+            canonical.setAttribute('href', absoluteUrl);
+        }
+
+        upsertMeta('property', 'og:type', 'website');
+        upsertMeta('property', 'og:title', title);
+        upsertMeta('property', 'og:description', description);
+        upsertMeta('property', 'og:url', canonical.getAttribute('href') || absoluteUrl);
+        upsertMeta('property', 'og:site_name', 'Obsidian Dynamics');
+        upsertMeta('property', 'og:locale', 'en_GB');
+        upsertMeta('property', 'og:image', defaultOgImage);
+
+        upsertMeta('name', 'twitter:card', 'summary_large_image');
+        upsertMeta('name', 'twitter:title', title);
+        upsertMeta('name', 'twitter:description', description);
+        upsertMeta('name', 'twitter:image', defaultOgImage);
+    }
+
     function enablePremiumEntrance() {
         document.body.classList.add('page-ready');
     }
@@ -148,13 +236,89 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function simplifyInformationDensity() {
+        document.body.classList.add('ui-simple-mode');
+
+        const denseGridSelectors = [
+            '.features-grid',
+            '.services-grid',
+            '.capabilities-grid',
+            '.proof-chip-grid',
+            '.mini-case-grid',
+            '.role-cta-grid',
+            '.trust-grid',
+            '.methodology-grid',
+            '.analyst-steps',
+            '.access-tier-grid',
+            '.download-option-grid'
+        ];
+
+        const cardSelectors = [
+            '.feature-card',
+            '.service-card',
+            '.capability-card',
+            '.trust-card',
+            '.case-card',
+            '.role-cta-card',
+            '.access-tier-card',
+            '.download-option',
+            '.proof-chip',
+            '.mini-case-card',
+            '.methodology-item',
+            '.analyst-step'
+        ].join(',');
+
+        denseGridSelectors.forEach((selector) => {
+            document.querySelectorAll(selector).forEach((grid) => {
+                const cards = Array.from(grid.querySelectorAll(':scope > ' + cardSelectors));
+                if (cards.length <= 3) return;
+
+                grid.classList.add('is-simplified-grid');
+                cards.forEach((card, index) => {
+                    if (index < 3) return;
+                    card.classList.add('is-collapsed-card');
+                    card.hidden = true;
+                });
+
+                if (grid.nextElementSibling && grid.nextElementSibling.classList.contains('simple-expand-btn')) return;
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'simple-expand-btn';
+                btn.textContent = 'Show more';
+                btn.setAttribute('aria-expanded', 'false');
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    cards.forEach((card, index) => {
+                        if (index < 3) return;
+                        card.hidden = expanded;
+                    });
+                    btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+                    btn.textContent = expanded ? 'Show more' : 'Show less';
+                });
+                grid.insertAdjacentElement('afterend', btn);
+            });
+        });
+
+        document.querySelectorAll('.hero-actions, .page-hero__actions, .cta-actions').forEach((group) => {
+            const buttons = Array.from(group.querySelectorAll('.btn'));
+            if (buttons.length <= 1) return;
+            buttons.forEach((btn, index) => {
+                if (index === 0) return;
+                btn.classList.add('btn-is-secondary-simple');
+            });
+        });
+    }
+
     applyGlobalBrandShell();
     addVersionBadge();
     normalizeCtaLanguage();
     injectOperationalTrustStrip();
     markMediaForPerformance();
+    ensureSeoMetaDefaults();
     applyUnifiedPageShell();
+    simplifyInformationDensity();
     enablePremiumEntrance();
+    sendAnalyticsEvent('page_view', {});
 
     // --- Developer Portal Access Guard ---
     const protectedPages = new Set([
@@ -165,6 +329,11 @@ document.addEventListener('DOMContentLoaded', () => {
         'onboarding-relaypoint.html',
         'onboarding-atlas.html',
         'account-operations.html'
+    ]);
+    const privateFacingPages = new Set([
+        ...protectedPages,
+        'developer-login.html',
+        'access-denied.html'
     ]);
 
     function renderDeveloperSessionControls(email) {
@@ -217,6 +386,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
     enforceDeveloperPortalAccess();
+
+    function applyPrivatePageNoIndex() {
+        if (!privateFacingPages.has(currentPage)) return;
+        let tag = document.querySelector('meta[name="robots"]');
+        if (!tag) {
+            tag = document.createElement('meta');
+            tag.setAttribute('name', 'robots');
+            document.head.appendChild(tag);
+        }
+        tag.setAttribute('content', 'noindex, nofollow, noarchive');
+    }
+    applyPrivatePageNoIndex();
 
     // --- Particle Canvas ---
     const canvas = document.getElementById('particleCanvas');
@@ -393,6 +574,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Click analytics for CTA and trust links ---
+    document.addEventListener('click', (event) => {
+        const target = event.target.closest('a,button');
+        if (!target) return;
+        const isTracked = target.classList.contains('btn')
+            || target.classList.contains('nav-cta')
+            || target.closest('.operational-trust-links');
+        if (!isTracked) return;
+        sendAnalyticsEvent('cta_click', {
+            target: (target.textContent || '').trim().slice(0, 120),
+            href: target.getAttribute('href') || '',
+            tier: target.dataset.tier || ''
+        });
+    });
+
+    // --- Developer portal tabbed management console ---
+    document.querySelectorAll('[data-portal-tabs]').forEach((tabsRoot) => {
+        const tabs = Array.from(tabsRoot.querySelectorAll('[data-tab-target]'));
+        const panels = Array.from(tabsRoot.querySelectorAll('[data-tab-panel]'));
+        if (!tabs.length || !panels.length) return;
+
+        const activate = (targetKey) => {
+            tabs.forEach((tab) => {
+                const active = tab.getAttribute('data-tab-target') === targetKey;
+                tab.classList.toggle('is-active', active);
+                tab.setAttribute('aria-selected', active ? 'true' : 'false');
+            });
+            panels.forEach((panel) => {
+                const active = panel.getAttribute('data-tab-panel') === targetKey;
+                panel.classList.toggle('is-active', active);
+                panel.hidden = !active;
+            });
+        };
+
+        tabs.forEach((tab) => {
+            tab.addEventListener('click', () => activate(tab.getAttribute('data-tab-target')));
+        });
+    });
+
     // --- Email Reveal Button ---
     const emailRevealBtn = document.getElementById('emailRevealBtn');
     if (emailRevealBtn) {
@@ -400,8 +620,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const container = emailRevealBtn.parentElement;
             // Build email from parts to avoid scraping
             const user = 'jamie';
-            const domain = 'projectskygrid';
-            const tld = 'com';
+            const domain = 'obsidiandynamics';
+            const tld = 'co.uk';
             const addr = user + '@' + domain + '.' + tld;
             const revealedEl = document.createElement('div');
             revealedEl.className = 'email-revealed';
