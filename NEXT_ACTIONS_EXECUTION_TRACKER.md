@@ -28,7 +28,7 @@ This tracker converts the highest-value next actions into executable deliverable
 
 - DONE: trust-center/evidence/methodology links wired on Atlas and platform flows.
 - IN PROGRESS: SOC2-ready evidence mapping completion (access logs, retention, incident drill records).
-- TODO: publish unified compliance matrix page across all product sites.
+- DONE: publish unified compliance baseline matrix (`UNIFIED_COMPLIANCE_MATRIX.md`) and processor register (`SUBPROCESSOR_REGISTER.md`) for cross-project alignment.
 
 ## 4) Sales Acceleration
 
@@ -176,3 +176,12 @@ This tracker converts the highest-value next actions into executable deliverable
   - `TXT send -> v=spf1 include:amazonses.com ~all`
   - `TXT _dmarc -> v=DMARC1; p=none; ...`
 - TODO: complete Resend domain verification and publish provider-specific DKIM records (requires successful Resend domain API/dashboard access).
+
+## 15) Compliance Execution Pack (SOC 2 Type II + GDPR)
+
+- DONE: created centralized evidence pack folder `compliance-evidence/` for quarterly control evidence.
+- DONE: added quarterly access review record (`QUARTERLY_ACCESS_REVIEW_2026Q2.md`) covering all systems.
+- DONE: added restore drill record (`RESTORE_DRILL_LOG_2026Q2.md`) for critical datastores.
+- DONE: added unified retention/deletion + DSAR evidence register (`RETENTION_DELETION_AND_DSAR_EVIDENCE.md`).
+- DONE: added DPA/SCC tracker for all active subprocessors (`DPA_SCC_COVERAGE_TRACKER.md`).
+- DONE: added Render decommission evidence record (`RENDER_DECOMMISSION_EVIDENCE.md`) including closure checklist and sign-off section.
