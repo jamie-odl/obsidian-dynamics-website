@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.3.0';
+    const SITE_VERSION = 'v2.4.0';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
 
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { href: 'platform.html', label: 'Platform' },
             { href: 'products.html', label: 'Products' },
             { href: 'api.html', label: 'API' },
+            { href: 'developer-central.html', label: 'Developer Central' },
             { href: 'use-cases.html', label: 'Use Cases' },
             { href: 'intelligence.html', label: 'Intelligence' },
             { href: 'about.html', label: 'Company' },
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return items.map((item) => {
             const isActive = item.href === activePage || (activePage === 'index.html' && item.href === 'platform.html');
             return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
-        }).join('') + '<a href="contact.html" class="nav-cta">Book Demo</a>';
+        }).join('') + '<a href="contact.html" class="nav-cta">Contact Team</a>';
     }
 
     function applyGlobalBrandShell() {
@@ -42,10 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Normalize footer, and include version for review tracking.
         const footer = document.querySelector('.footer');
-        if (!footer) return;
-        const footerContainer = footer.querySelector('.container');
-        if (!footerContainer) return;
-
         const footerMarkup =
             '<div class="footer-grid">' +
             '  <div class="footer-brand">' +
@@ -53,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <p class="footer-tagline">Operational risk intelligence across air, sea, and transition networks.</p>' +
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Platform</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="products.html">Products</a></li><li><a href="api.html">API</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Platform</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="products.html">Products</a></li><li><a href="api.html">API</a></li><li><a href="developer-central.html">Developer Central</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Intelligence</h4><ul><li><a href="use-cases.html">Use Cases</a></li><li><a href="intelligence.html">Intelligence</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">Company</a></li><li><a href="trust-center.html">Trust Center</a></li><li><a href="status.html">Status</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>' +
             '</div>' +
@@ -62,6 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
             '  <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>' +
             '</div>';
 
+        if (!footer) {
+            const generatedFooter = document.createElement('footer');
+            generatedFooter.className = 'footer';
+            generatedFooter.setAttribute('role', 'contentinfo');
+            generatedFooter.innerHTML = '<div class="container">' + footerMarkup + '</div>';
+            document.body.appendChild(generatedFooter);
+            return;
+        }
+        const footerContainer = footer.querySelector('.container');
+        if (!footerContainer) return;
         footerContainer.innerHTML = footerMarkup;
     }
 
@@ -76,12 +83,145 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(badge);
     }
 
+    function normalizeCtaLanguage() {
+        const ctaMap = [
+            { from: /book demo|request demo|schedule demo/gi, to: 'Discuss Scope' },
+            { from: /book a pilot scoping call|request .*pilot/gi, to: 'Discuss Operational Scope' },
+            { from: /^view pricing$/gi, to: 'View Access by Tier' },
+            { from: /^view platform and pricing$/gi, to: 'View Platform Access' },
+            { from: /start trial|get started/gi, to: 'Discuss Scope' },
+            { from: /^request onboarding support$/gi, to: 'Discuss Onboarding Scope' },
+            { from: /^request credentials$/gi, to: 'Open Credentials Request' }
+        ];
+        document.querySelectorAll('a.btn, button.btn, a.nav-cta').forEach((el) => {
+            const label = (el.textContent || '').trim();
+            if (!label) return;
+            for (const item of ctaMap) {
+                if (item.from.test(label)) {
+                    el.textContent = item.to;
+                    break;
+                }
+            }
+        });
+    }
+
+    function injectOperationalTrustStrip() {
+        const main = document.querySelector('main');
+        if (!main || document.getElementById('operationalTrustStrip')) return;
+        const strip = document.createElement('section');
+        strip.id = 'operationalTrustStrip';
+        strip.className = 'operational-trust-strip';
+        strip.setAttribute('aria-label', 'Operational trust and freshness');
+        strip.innerHTML =
+            '<div class="container">' +
+            '  <div class="operational-trust-grid">' +
+            '    <article class="operational-trust-card"><h3>Data Freshness</h3><p>Signals refresh on governed cadences. Timestamp every panel and export.</p></article>' +
+            '    <article class="operational-trust-card"><h3>Source Provenance</h3><p>Every score links to input source class, confidence, and replay context.</p></article>' +
+            '    <article class="operational-trust-card"><h3>Platform Reliability</h3><p>Track live uptime and incident communications from the status surface.</p></article>' +
+            '  </div>' +
+            '  <div class="operational-trust-links">' +
+            '    <a href="status.html">Open Status</a><a href="trust-center.html">Trust Center</a><a href="methodology.html">Methodology</a>' +
+            '  </div>' +
+            '</div>';
+        main.appendChild(strip);
+    }
+
+    function markMediaForPerformance() {
+        document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+            img.decoding = 'async';
+            img.fetchPriority = 'low';
+        });
+    }
+
+    function enablePremiumEntrance() {
+        document.body.classList.add('page-ready');
+    }
+
+    function applyUnifiedPageShell() {
+        document.body.classList.add('unified-page-shell');
+        const main = document.querySelector('main');
+        if (!main) return;
+        Array.from(main.children).forEach((section) => {
+            if (section.tagName === 'SECTION') {
+                section.classList.add('section-frame');
+            }
+        });
+    }
+
     applyGlobalBrandShell();
     addVersionBadge();
+    normalizeCtaLanguage();
+    injectOperationalTrustStrip();
+    markMediaForPerformance();
+    applyUnifiedPageShell();
+    enablePremiumEntrance();
+
+    // --- Developer Portal Access Guard ---
+    const protectedPages = new Set([
+        'developer-central.html',
+        'onboarding.html',
+        'onboarding-skygrid.html',
+        'onboarding-strait-signal.html',
+        'onboarding-relaypoint.html',
+        'onboarding-atlas.html',
+        'account-operations.html'
+    ]);
+
+    function renderDeveloperSessionControls(email) {
+        const navLinks = document.getElementById('navLinks');
+        if (!navLinks) return;
+
+        const existingChip = navLinks.querySelector('.nav-auth-chip');
+        if (!existingChip) {
+            const chip = document.createElement('span');
+            chip.className = 'nav-auth-chip';
+            chip.textContent = 'Signed in: ' + email;
+            navLinks.appendChild(chip);
+        }
+
+        const existingBtn = navLinks.querySelector('.nav-logout-btn');
+        if (!existingBtn) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'nav-cta nav-logout-btn';
+            btn.textContent = 'Logout';
+            btn.addEventListener('click', async () => {
+                try {
+                    await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' });
+                } catch (error) {
+                    // continue to force navigation even if request errors
+                }
+                window.location.href = 'developer-login.html';
+            });
+            navLinks.appendChild(btn);
+        }
+    }
+
+    function enforceDeveloperPortalAccess() {
+        if (!protectedPages.has(currentPage)) return;
+
+        fetch('/api/auth/session', { credentials: 'include' })
+            .then((res) => {
+                if (!res.ok) throw new Error('Unauthorized');
+                return res.json();
+            })
+            .then((data) => {
+                if (!data || !data.authenticated) {
+                    window.location.href = 'developer-login.html?next=' + encodeURIComponent(currentPage);
+                    return;
+                }
+                renderDeveloperSessionControls(data.email || 'developer');
+            })
+            .catch(() => {
+                window.location.href = 'developer-login.html?next=' + encodeURIComponent(currentPage);
+            });
+    }
+    enforceDeveloperPortalAccess();
 
     // --- Particle Canvas ---
     const canvas = document.getElementById('particleCanvas');
-    if (canvas) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (canvas && !prefersReducedMotion) {
         const ctx = canvas.getContext('2d');
         let particles = [];
         let mouseX = -1000;
@@ -376,4 +516,32 @@ document.addEventListener('DOMContentLoaded', () => {
             link.setAttribute('aria-current', 'page');
         }
     });
+
+    // --- Multi-option button consistency ---
+    function applyMultiOptionButtonStyles() {
+        const groupSelectors = [
+            '.role-cta-grid',
+            '.cta-actions',
+            '.hero-actions',
+            '.hero__actions',
+            '.page-hero__actions'
+        ];
+
+        groupSelectors.forEach((selector) => {
+            document.querySelectorAll(selector).forEach((group) => {
+                const buttons = Array.from(group.querySelectorAll('.btn'));
+                if (buttons.length < 3) return;
+
+                group.classList.add('btn-group--multi');
+                group.setAttribute('data-btn-count', String(buttons.length));
+
+                buttons.forEach((btn, index) => {
+                    btn.classList.add('btn-option');
+                    btn.classList.remove('btn-option--1', 'btn-option--2', 'btn-option--3', 'btn-option--4');
+                    btn.classList.add(`btn-option--${(index % 4) + 1}`);
+                });
+            });
+        });
+    }
+    applyMultiOptionButtonStyles();
 });

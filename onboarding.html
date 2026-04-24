@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding Hub | Obsidian Dynamics</title>
+    <meta name="description" content="Project-specific onboarding for Atlas, SkyGrid, Strait-Signal, and RelayPoint, including API integration steps and go-live checklist.">
+    <link rel="canonical" href="https://obsidiandynamics.co.uk/onboarding">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"><a href="platform.html" class="nav-link">Platform</a><a href="products.html" class="nav-link">Products</a><a href="api.html" class="nav-link">API</a><a href="developer-central.html" class="nav-link">Developer Central</a><a href="use-cases.html" class="nav-link">Use Cases</a><a href="intelligence.html" class="nav-link">Intelligence</a><a href="about.html" class="nav-link">Company</a><a href="contact.html" class="nav-link">Contact</a></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<main id="main-content">
+    <section class="page-hero">
+        <div class="hero-grid-overlay"></div>
+        <div class="page-hero__badge">ONBOARDING HUB</div>
+        <h1 class="page-hero__title">Smooth project onboarding from <span class="gradient-text">signup to go-live</span></h1>
+        <p class="page-hero__subtitle">Use this hub to onboard each project, configure API access, set alert routing, and validate operational readiness.</p>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">SIGNUP FLOW</span><h2 class="section-title">What happens after signup</h2></div>
+            <div class="features-grid features-grid--3col">
+                <article class="feature-card"><h3>1. Workspace Setup</h3><p>Create organization, invite team members, assign roles, and confirm account ownership.</p></article>
+                <article class="feature-card"><h3>2. Environment Access</h3><p>Generate sandbox API keys first, validate endpoint permissions, then request operational environment activation.</p></article>
+                <article class="feature-card"><h3>3. Operational Readiness</h3><p>Enable alert channels, set thresholds, confirm export limits, and run a replay validation before live routing.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">PROJECT ONBOARDING TRACKS</span><h2 class="section-title">Instructions by product surface</h2></div>
+            <div class="features-grid features-grid--2col">
+                <a class="feature-card feature-card--sky" href="onboarding-skygrid.html"><h3>SkyGrid Track</h3><p>Define watch areas, confirm anomaly thresholds, connect alert destinations, and test route-level replay results.</p></a>
+                <a class="feature-card feature-card--strait" href="onboarding-strait-signal.html"><h3>Strait-Signal Track</h3><p>Select chokepoints and corridors, configure queue stress thresholds, and validate disruption feed cadence.</p></a>
+                <a class="feature-card" href="onboarding-relaypoint.html"><h3>RelayPoint Track</h3><p>Map dependency handoffs, set propagation windows, and verify transition risk scoring outputs.</p></a>
+                <a class="feature-card" href="onboarding-atlas.html"><h3>Atlas Track</h3><p>Connect module signals into enterprise scoring, set cascade priority rules, and validate action queue quality.</p></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">API QUICKSTART</span><h2 class="section-title">Integration sequence</h2></div>
+            <div class="features-grid features-grid--3col">
+                <article class="feature-card"><h3>Auth + Keys</h3><p>Create scoped keys per environment. Rotate keys quarterly or on role change.</p></article>
+                <article class="feature-card"><h3>Endpoint Validation</h3><p>Start with `GET /v1/history/replay`, then validate live event endpoints and transition scores.</p></article>
+                <article class="feature-card"><h3>Webhook + Export</h3><p>Configure signed webhook callbacks and export jobs with entitlement-aware limits.</p></article>
+            </div>
+            <div class="cta-actions" style="justify-content:center; margin-top:24px;">
+                <a href="api.html" class="btn btn-primary">Open API Reference</a>
+                <a href="developer-central.html" class="btn btn-ghost">Back to Developer Central</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <h2>Need guided onboarding?</h2>
+                    <p>Share your target project and timeline. We can provide a focused onboarding plan with endpoint checklist, alert routing, and deployment milestones.</p>
+                    <div class="cta-actions">
+                        <a href="contact.html?intent=onboarding-support#contactForm" class="btn btn-primary">Discuss Onboarding Scope</a>
+                        <a href="account-operations.html" class="btn btn-ghost">View Account Operations</a>
+                    </div>
+                </div>
+                <div class="cta-visual" aria-hidden="true"><div class="cta-orb"></div></div>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>
