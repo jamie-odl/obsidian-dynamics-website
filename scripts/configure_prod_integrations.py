@@ -124,7 +124,7 @@ def main():
         "RESEND_API_KEY": resend_key,
         "STRIPE_SECRET_KEY": stripe_secret,
         "AUTH_TOKEN_SECRET": auth_secret,
-        "DEVELOPER_ALLOWLIST": "jamie@projectskygrid.com",
+        "DEVELOPER_ALLOWLIST": "jamie@obsidiandynamics.co.uk",
         "AUTH_EMAIL_FROM": f"security@{domain}",
         "NODE_ENV": "production",
         "BILLING_SUCCESS_URL": success_url,
