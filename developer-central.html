@@ -30,6 +30,95 @@
         <p class="page-hero__subtitle">One central point for API conventions, endpoint coverage, reliability posture, and integration workflow guidance across Atlas, SkyGrid, Strait-Signal, and RelayPoint.</p>
     </section>
 
+    <section class="features-section" style="padding-top:0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">MANAGEMENT CONSOLE</span>
+                <h2 class="section-title">Account controls in one clean workspace</h2>
+                <p class="section-desc">Use tabs to manage billing, users, tiers, access controls, integrations, and audit operations without jumping between disconnected pages.</p>
+            </div>
+            <div class="portal-tabs" data-portal-tabs>
+                <div class="portal-tablist" role="tablist" aria-label="Developer portal management tabs">
+                    <button type="button" class="portal-tab is-active" role="tab" aria-selected="true" data-tab-target="billing">Billing</button>
+                    <button type="button" class="portal-tab" role="tab" aria-selected="false" data-tab-target="users">Users</button>
+                    <button type="button" class="portal-tab" role="tab" aria-selected="false" data-tab-target="tiers">Tiers</button>
+                    <button type="button" class="portal-tab" role="tab" aria-selected="false" data-tab-target="access">Access</button>
+                    <button type="button" class="portal-tab" role="tab" aria-selected="false" data-tab-target="integrations">Integrations</button>
+                    <button type="button" class="portal-tab" role="tab" aria-selected="false" data-tab-target="audit">Audit</button>
+                </div>
+
+                <div class="portal-panel is-active" role="tabpanel" data-tab-panel="billing">
+                    <div class="features-grid features-grid--3col">
+                        <article class="feature-card"><h3>Plan and Invoices</h3><p>Open Stripe billing, review invoices, and track spend by project surface.</p></article>
+                        <article class="feature-card"><h3>Usage Thresholds</h3><p>Monitor usage and alert at 70%, 85%, and 95% before limits are hit.</p></article>
+                        <article class="feature-card"><h3>Renewal Controls</h3><p>Change billing cycle and add module entitlements from one billing lane.</p></article>
+                    </div>
+                    <div class="cta-actions" style="margin-top:16px;">
+                        <a href="billing.html" class="btn btn-primary">Open Billing Console</a>
+                        <a href="account-operations.html" class="btn btn-ghost">Open Account Operations</a>
+                    </div>
+                </div>
+
+                <div class="portal-panel" role="tabpanel" data-tab-panel="users" hidden>
+                    <div class="features-grid features-grid--3col">
+                        <article class="feature-card"><h3>Team Members</h3><p>Add, remove, and review active users by project workspace.</p></article>
+                        <article class="feature-card"><h3>Role Governance</h3><p>Assign owner, analyst, integration, and read-only roles cleanly.</p></article>
+                        <article class="feature-card"><h3>Session Controls</h3><p>Force logout and revoke access when user status changes.</p></article>
+                    </div>
+                    <div class="cta-actions" style="margin-top:16px;">
+                        <a href="account-operations.html" class="btn btn-primary">Manage Users</a>
+                    </div>
+                </div>
+
+                <div class="portal-panel" role="tabpanel" data-tab-panel="tiers" hidden>
+                    <div class="features-grid features-grid--3col">
+                        <article class="feature-card"><h3>Tier Matrix</h3><p>Review product-tier scope for Atlas, SkyGrid, Strait-Signal, and RelayPoint.</p></article>
+                        <article class="feature-card"><h3>Export Entitlements</h3><p>Control public, limited, and full export rights by account tier.</p></article>
+                        <article class="feature-card"><h3>Upgrade Path</h3><p>Move from module-only to Atlas orchestration without disruption.</p></article>
+                    </div>
+                    <div class="cta-actions" style="margin-top:16px;">
+                        <a href="platform.html" class="btn btn-primary">Review Tier Access</a>
+                    </div>
+                </div>
+
+                <div class="portal-panel" role="tabpanel" data-tab-panel="access" hidden>
+                    <div class="features-grid features-grid--3col">
+                        <article class="feature-card"><h3>Allowlist Gate</h3><p>Developer portal access is restricted to approved accounts only.</p></article>
+                        <article class="feature-card"><h3>Email-link 2FA</h3><p>Every login requires one-time email verification before session issue.</p></article>
+                        <article class="feature-card"><h3>Recovery Policy</h3><p>Lockout and recovery workflows are centralized and auditable.</p></article>
+                    </div>
+                    <div class="cta-actions" style="margin-top:16px;">
+                        <a href="developer-login.html" class="btn btn-primary">Open Developer Login</a>
+                    </div>
+                </div>
+
+                <div class="portal-panel" role="tabpanel" data-tab-panel="integrations" hidden>
+                    <div class="features-grid features-grid--3col">
+                        <article class="feature-card"><h3>API Keys</h3><p>Issue sandbox and operational keys with scoped controls.</p></article>
+                        <article class="feature-card"><h3>Webhooks + Replay</h3><p>Configure delivery endpoints and test replay safely before go-live.</p></article>
+                        <article class="feature-card"><h3>Status + Reliability</h3><p>Watch ingestion health, incidents, and response timelines.</p></article>
+                    </div>
+                    <div class="cta-actions" style="margin-top:16px;">
+                        <a href="api.html" class="btn btn-primary">Open API Reference</a>
+                        <a href="status.html" class="btn btn-ghost">Open Status</a>
+                    </div>
+                </div>
+
+                <div class="portal-panel" role="tabpanel" data-tab-panel="audit" hidden>
+                    <div class="features-grid features-grid--3col">
+                        <article class="feature-card"><h3>Auth Events</h3><p>Track login, verification, and logout events for account oversight.</p></article>
+                        <article class="feature-card"><h3>Export Audit</h3><p>Capture who requested which export type and when.</p></article>
+                        <article class="feature-card"><h3>Change Log</h3><p>Keep release notes and migration notices visible to portal users.</p></article>
+                    </div>
+                    <div class="cta-actions" style="margin-top:16px;">
+                        <a href="RELEASE_NOTES.md" class="btn btn-primary">Open Release Notes</a>
+                        <a href="trust-center.html" class="btn btn-ghost">Open Trust Center</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="features-section">
         <div class="container">
             <div class="section-header">

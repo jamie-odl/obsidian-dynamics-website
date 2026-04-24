@@ -632,6 +632,48 @@ input, textarea, select { font-family: inherit; }
     line-height: 1.55;
 }
 
+/* Developer portal management tabs */
+.portal-tabs {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    background: rgba(10, 10, 15, 0.8);
+}
+.portal-tablist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+.portal-tab {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--obsidian-200);
+    font-size: 0.78rem;
+    font-weight: 600;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.portal-tab:hover {
+    color: var(--obsidian-50);
+    border-color: var(--glass-border-hover);
+}
+.portal-tab.is-active {
+    color: #fff;
+    border-color: rgba(0, 212, 255, 0.35);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(123, 47, 255, 0.2));
+}
+.portal-panel {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.01);
+}
+.portal-panel[hidden] {
+    display: none;
+}
+
 /* ============================================================
    METRICS BAR
    ============================================================ */

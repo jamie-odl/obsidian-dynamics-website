@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { href: 'platform.html', label: 'Platform' },
             { href: 'products.html', label: 'Products' },
             { href: 'api.html', label: 'API' },
-            { href: 'developer-central.html', label: 'Developer Central' },
             { href: 'use-cases.html', label: 'Use Cases' },
             { href: 'intelligence.html', label: 'Intelligence' },
             { href: 'about.html', label: 'Company' },
@@ -72,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <p class="footer-tagline">Operational risk intelligence across air, sea, and transition networks.</p>' +
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Platform</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="products.html">Products</a></li><li><a href="api.html">API</a></li><li><a href="developer-central.html">Developer Central</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Platform</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="products.html">Products</a></li><li><a href="api.html">API</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Intelligence</h4><ul><li><a href="use-cases.html">Use Cases</a></li><li><a href="intelligence.html">Intelligence</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">Company</a></li><li><a href="trust-center.html">Trust Center</a></li><li><a href="status.html">Status</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>' +
             '</div>' +
@@ -189,6 +188,11 @@ document.addEventListener('DOMContentLoaded', () => {
         'onboarding-atlas.html',
         'account-operations.html'
     ]);
+    const privateFacingPages = new Set([
+        ...protectedPages,
+        'developer-login.html',
+        'access-denied.html'
+    ]);
 
     function renderDeveloperSessionControls(email) {
         const navLinks = document.getElementById('navLinks');
@@ -240,6 +244,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
     enforceDeveloperPortalAccess();
+
+    function applyPrivatePageNoIndex() {
+        if (!privateFacingPages.has(currentPage)) return;
+        let tag = document.querySelector('meta[name="robots"]');
+        if (!tag) {
+            tag = document.createElement('meta');
+            tag.setAttribute('name', 'robots');
+            document.head.appendChild(tag);
+        }
+        tag.setAttribute('content', 'noindex, nofollow, noarchive');
+    }
+    applyPrivatePageNoIndex();
 
     // --- Particle Canvas ---
     const canvas = document.getElementById('particleCanvas');
@@ -428,6 +444,30 @@ document.addEventListener('DOMContentLoaded', () => {
             target: (target.textContent || '').trim().slice(0, 120),
             href: target.getAttribute('href') || '',
             tier: target.dataset.tier || ''
+        });
+    });
+
+    // --- Developer portal tabbed management console ---
+    document.querySelectorAll('[data-portal-tabs]').forEach((tabsRoot) => {
+        const tabs = Array.from(tabsRoot.querySelectorAll('[data-tab-target]'));
+        const panels = Array.from(tabsRoot.querySelectorAll('[data-tab-panel]'));
+        if (!tabs.length || !panels.length) return;
+
+        const activate = (targetKey) => {
+            tabs.forEach((tab) => {
+                const active = tab.getAttribute('data-tab-target') === targetKey;
+                tab.classList.toggle('is-active', active);
+                tab.setAttribute('aria-selected', active ? 'true' : 'false');
+            });
+            panels.forEach((panel) => {
+                const active = panel.getAttribute('data-tab-panel') === targetKey;
+                panel.classList.toggle('is-active', active);
+                panel.hidden = !active;
+            });
+        };
+
+        tabs.forEach((tab) => {
+            tab.addEventListener('click', () => activate(tab.getAttribute('data-tab-target')));
         });
     });
 
