@@ -154,6 +154,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function ensureSeoMetaDefaults() {
+        const siteOrigin = 'https://obsidiandynamics.co.uk';
+        const path = window.location.pathname || '/';
+        const absoluteUrl = siteOrigin + path;
+        const title = (document.title || 'Obsidian Dynamics').trim();
+        const descTag = document.querySelector('meta[name="description"]');
+        const description = ((descTag && descTag.getAttribute('content')) || '').trim()
+            || 'Operational risk intelligence across air, sea, and transition networks.';
+        const defaultOgImage = siteOrigin + '/img/logo.svg';
+
+        function upsertMeta(attrName, attrValue, content) {
+            let tag = document.head.querySelector('meta[' + attrName + '="' + attrValue + '"]');
+            if (!tag) {
+                tag = document.createElement('meta');
+                tag.setAttribute(attrName, attrValue);
+                document.head.appendChild(tag);
+            }
+            tag.setAttribute('content', content);
+        }
+
+        let canonical = document.head.querySelector('link[rel="canonical"]');
+        if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.setAttribute('rel', 'canonical');
+            document.head.appendChild(canonical);
+        }
+        if (!canonical.getAttribute('href')) {
+            canonical.setAttribute('href', absoluteUrl);
+        }
+
+        upsertMeta('property', 'og:type', 'website');
+        upsertMeta('property', 'og:title', title);
+        upsertMeta('property', 'og:description', description);
+        upsertMeta('property', 'og:url', canonical.getAttribute('href') || absoluteUrl);
+        upsertMeta('property', 'og:site_name', 'Obsidian Dynamics');
+        upsertMeta('property', 'og:locale', 'en_GB');
+        upsertMeta('property', 'og:image', defaultOgImage);
+
+        upsertMeta('name', 'twitter:card', 'summary_large_image');
+        upsertMeta('name', 'twitter:title', title);
+        upsertMeta('name', 'twitter:description', description);
+        upsertMeta('name', 'twitter:image', defaultOgImage);
+    }
+
     function enablePremiumEntrance() {
         document.body.classList.add('page-ready');
     }
@@ -174,6 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     normalizeCtaLanguage();
     injectOperationalTrustStrip();
     markMediaForPerformance();
+    ensureSeoMetaDefaults();
     applyUnifiedPageShell();
     enablePremiumEntrance();
     sendAnalyticsEvent('page_view', {});
@@ -478,8 +523,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const container = emailRevealBtn.parentElement;
             // Build email from parts to avoid scraping
             const user = 'jamie';
-            const domain = 'projectskygrid';
-            const tld = 'com';
+            const domain = 'obsidiandynamics';
+            const tld = 'co.uk';
             const addr = user + '@' + domain + '.' + tld;
             const revealedEl = document.createElement('div');
             revealedEl.className = 'email-revealed';
