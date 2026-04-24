@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
 
+# Private authenticated surfaces (not for search indexing)
+Disallow: /developer-central
+Disallow: /developer-central.html
+Disallow: /developer-login
+Disallow: /developer-login.html
+Disallow: /onboarding
+Disallow: /onboarding-skygrid
+Disallow: /onboarding-strait-signal
+Disallow: /onboarding-relaypoint
+Disallow: /onboarding-atlas
+Disallow: /account-operations
+Disallow: /access-denied
+Disallow: /access-denied.html
+
 Sitemap: https://obsidiandynamics.co.uk/sitemap.xml

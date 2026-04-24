@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.4.7';
+    const SITE_VERSION = 'v2.4.8';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { href: 'platform.html', label: 'Platform' },
             { href: 'products.html', label: 'Products' },
             { href: 'api.html', label: 'API' },
-            { href: 'developer-central.html', label: 'Developer Central' },
             { href: 'use-cases.html', label: 'Use Cases' },
             { href: 'intelligence.html', label: 'Intelligence' },
             { href: 'about.html', label: 'Company' },
@@ -94,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <p class="footer-tagline">Operational risk intelligence across air, sea, and transition networks.</p>' +
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Platform</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="products.html">Products</a></li><li><a href="api.html">API</a></li><li><a href="developer-central.html">Developer Central</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Platform</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="products.html">Products</a></li><li><a href="api.html">API</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Intelligence</h4><ul><li><a href="use-cases.html">Use Cases</a></li><li><a href="intelligence.html">Intelligence</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">Company</a></li><li><a href="trust-center.html">Trust Center</a></li><li><a href="status.html">Status</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>' +
             '</div>' +
@@ -178,6 +177,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function ensureSeoMetaDefaults() {
+        const privateSeoBlock = new Set([
+            'developer-central.html',
+            'developer-login.html',
+            'access-denied.html',
+            'onboarding.html',
+            'onboarding-skygrid.html',
+            'onboarding-strait-signal.html',
+            'onboarding-relaypoint.html',
+            'onboarding-atlas.html',
+            'account-operations.html'
+        ]);
+        if (privateSeoBlock.has(currentPage)) {
+            return;
+        }
         const siteOrigin = 'https://obsidiandynamics.co.uk';
         const path = window.location.pathname || '/';
         const absoluteUrl = siteOrigin + path;
