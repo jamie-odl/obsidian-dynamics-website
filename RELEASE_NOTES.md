@@ -1,5 +1,15 @@
 # Obsidian Dynamics Website Release Notes
 
+## v2.6.0 - 2026-04-25
+
+### Portfolio Execution Completion (Low-Density UX)
+- Completed cross-portfolio execution rollout without adding high-density card clutter to marketing pages.
+- Added portfolio and product-level 30-day execution trackers:
+  - `EXECUTION_30D.md` (website command-layer plan)
+  - corresponding execution artifacts in SkyGrid, Strait-Signal, and RelayPoint repositories.
+- Standardized focus on concise proof and action-oriented narrative outputs while preserving hero-first page structure.
+- Updated tracked website version to `v2.6.0` in `js/main.js`.
+
 ## v2.3.0 - 2026-04-23
 
 ### Evidence, Conversion, and Performance Upgrade
