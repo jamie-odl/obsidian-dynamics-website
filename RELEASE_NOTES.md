@@ -1,5 +1,13 @@
 # Obsidian Dynamics Website Release Notes
 
+## v2.7.0 - 2026-04-25
+
+### Global Pricing and Trial Alignment
+- Completed full pricing alignment to USD notation across website pricing and billing surfaces.
+- Standardized pilot/trial messaging to 14-day language across active customer-facing pages and templates.
+- Updated Atlas and platform ROI labels to use USD assumptions.
+- Updated tracked website version to `v2.7.0` in `js/main.js`.
+
 ## v2.6.0 - 2026-04-25
 
 ### Portfolio Execution Completion (Low-Density UX)
@@ -175,7 +183,7 @@
 
 ### Phase 2 - Conversion and Buyer Clarity
 - Expanded `platform.html` with single-module vs unified-platform comparison to make buying paths more legible.
-- Added 30-day pilot structure and success-path sections to:
+- Added 14-day pilot structure and success-path sections to:
   - `platform.html`
   - `skygrid.html`
   - `strait-signal.html`

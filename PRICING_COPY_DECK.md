@@ -24,7 +24,7 @@ Commercial model:
 
 ### SkyGrid (Standalone Air Module)
 
-#### SkyGrid Starter - GBP 750/month
+#### SkyGrid Starter - USD 750/month
 Best for teams validating air-domain anomaly operations quickly.
 Key bullets:
 - Live aircraft anomaly monitoring with core dashboard views
@@ -32,7 +32,7 @@ Key bullets:
 - Starter onboarding and operational playbook
 CTA: **Start SkyGrid starter**
 
-#### SkyGrid Professional - GBP 1,750/month
+#### SkyGrid Professional - USD 1,750/month
 Best for operational teams scaling analyst and workflow capacity.
 Key bullets:
 - All Starter capabilities
@@ -40,7 +40,7 @@ Key bullets:
 - Expanded team collaboration support
 CTA: **Start SkyGrid professional**
 
-#### SkyGrid Enterprise - from GBP 4,000/month
+#### SkyGrid Enterprise - from USD 4,000/month
 Best for advanced organizations with strict governance requirements.
 Key bullets:
 - All Professional capabilities
@@ -50,7 +50,7 @@ CTA: **Talk to SkyGrid enterprise**
 
 ### Strait-Signal (Standalone Maritime Module)
 
-#### Strait-Signal Starter - GBP 1,000/month
+#### Strait-Signal Starter - USD 1,000/month
 Best for focused maritime chokepoint visibility and alerting.
 Key bullets:
 - Maritime queue and stress intelligence
@@ -58,7 +58,7 @@ Key bullets:
 - Starter onboarding coverage
 CTA: **Start Strait-Signal starter**
 
-#### Strait-Signal Professional - GBP 2,250/month
+#### Strait-Signal Professional - USD 2,250/month
 Best for teams running broader maritime operational coverage.
 Key bullets:
 - All Starter capabilities
@@ -66,7 +66,7 @@ Key bullets:
 - Professional support coverage
 CTA: **Start Strait-Signal professional**
 
-#### Strait-Signal Enterprise - from GBP 5,000/month
+#### Strait-Signal Enterprise - from USD 5,000/month
 Best for top-tier maritime programs before parent-level unification.
 Key bullets:
 - All Professional capabilities
@@ -81,7 +81,7 @@ Atlas positioning note:
 - Core Enterprise bundles Atlas dependency and cascade intelligence with live parent-governed firehose scope.
 - SkyGrid and Strait-Signal standalone tiers continue as primary wedge offers; Atlas unlocks full enterprise synthesis at Core level.
 
-#### Core Starter - GBP 2,500/month
+#### Core Starter - USD 2,500/month
 Best for single-domain programs requiring parent governance baseline.
 Key bullets:
 - Parent-level governance and entitlement foundation
@@ -89,7 +89,7 @@ Key bullets:
 - Upgrade path to cross-domain operations
 CTA: **Start Core starter**
 
-#### Core Professional - GBP 5,500/month
+#### Core Professional - USD 5,500/month
 Best for multi-module operations under one command layer.
 Key bullets:
 - Unified cross-product API and governance
@@ -97,7 +97,7 @@ Key bullets:
 - Multi-domain workflow orchestration baseline
 CTA: **Upgrade to Core professional**
 
-#### Core Enterprise - from GBP 10,000/month
+#### Core Enterprise - from USD 10,000/month
 Best for organizations needing full live cross-domain capability.
 Key bullets:
 - Live enterprise firehose access at parent scope
@@ -106,7 +106,7 @@ Key bullets:
 - Premium enterprise support and deployment governance
 CTA: **Talk to Core enterprise**
 
-#### OEM / Strategic - from GBP 25,000/month
+#### OEM / Strategic - from USD 25,000/month
 Best for embedded, white-label, or strategic platform partnerships.
 Key bullets:
 - Embedded intelligence deployment models
@@ -117,11 +117,11 @@ CTA: **Discuss strategic partnership**
 ## Pilot Copy
 
 ### Pilot Headline
-"Prove value in 30 days, then scale with confidence."
+"Prove value in 14 days, then scale with confidence."
 
 ### Pilot Terms
-- SkyGrid pilot: GBP 1,500 one-time, credited against annual contract
-- Strait-Signal pilot: GBP 2,000 one-time, credited against annual contract
+- SkyGrid pilot: USD 1,500 one-time, credited against annual contract
+- Strait-Signal pilot: USD 2,000 one-time, credited against annual contract
 - Scope: one focused operational problem, clear success criteria, rollout recommendation
 
 ### Pilot CTA
