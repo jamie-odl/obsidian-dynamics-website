@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vela | Live Regional State</title>
-  <meta name="description" content="Dev-mode operational Vela surface for live regional state.">
+  <meta name="description" content="Vela — Obsidian Dynamics fusion-backed operational intelligence: live terminal, UK map, and explainable regional state.">
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <style>
     :root {
@@ -81,6 +81,21 @@
     .sparkline span { width: 8px; border-radius: 2px 2px 0 0; background: #82a7d6; display: inline-block; }
     .dev-note { margin-top: 1rem; font-size: .85rem; color: var(--muted); }
     .hidden { display: none; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: .85rem; align-items: center; }
+    .cta {
+      display: inline-block;
+      padding: .55rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--bg-soft);
+      color: var(--text);
+      font-size: .9rem;
+      text-decoration: none;
+    }
+    .cta:hover { border-color: #3d6a9e; text-decoration: none; color: var(--text); }
+    .cta-strong { background: #152c48; border-color: #355a82; }
+    .vela-live-iframe { width: 100%; min-height: 520px; border: 0; display: block; background: #0a0f18; }
+    .mono-sm { font-family: ui-monospace, monospace; font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; }
     @media (max-width: 960px) {
       .grid-hero, .grid-mid, .grid-low { grid-template-columns: 1fr; }
     }
@@ -88,15 +103,29 @@
 </head>
 <body>
   <main class="wrap">
-    <div id="prodFallback" class="panel hidden">
-      <h1>Vela</h1>
-      <p class="muted" style="margin-top:.8rem;">
-        The operational terminal experience is enabled in dev mode.
-      </p>
-      <p class="muted" style="margin-top:.5rem;">
-        Open with <code>?dev=1</code> or run on localhost.
-      </p>
-      <p style="margin-top:1rem;"><a href="products.html">Back to Products</a></p>
+    <div id="prodExperience" class="hidden">
+      <section class="panel">
+        <p class="mono-sm muted">Obsidian Dynamics × Vela</p>
+        <h1 style="margin-top:.35rem;">Vela</h1>
+        <p class="muted" style="margin-top:.75rem;">
+          Fusion-backed operational intelligence: fused feeds, explainable scoring, continuity, and auditable evidence — London baseline on the live stack.
+        </p>
+        <div class="cta-row">
+          <a id="prodLiveBtn" class="cta cta-strong" href="#" target="_blank" rel="noopener">Open live terminal</a>
+          <a id="prodMapBtn" class="cta" href="#" target="_blank" rel="noopener">UK map</a>
+          <a id="prodApiBtn" class="cta" href="#" target="_blank" rel="noopener">API reference (Redoc)</a>
+          <a class="cta" href="/products">Back to products</a>
+        </div>
+        <p class="muted" style="margin-top:.85rem;font-size:.82rem;">
+          If the preview below stays blank, open the terminal in a new tab — some browsers block cross-origin frames unless the host opts in (this preview uses Vela’s embed endpoint).
+        </p>
+        <p class="muted" style="margin-top:.5rem;font-size:.82rem;">
+          Developers: full dashboard with local API via <code>?dev=1</code> or localhost.
+        </p>
+      </section>
+      <section class="panel" style="margin-top:1rem;padding:0;overflow:hidden;border-radius:10px;">
+        <iframe id="velaLiveFrame" title="Vela regional snapshot (London)" class="vela-live-iframe" src="about:blank" loading="lazy"></iframe>
+      </section>
     </div>
 
     <div id="devApp" class="hidden">
@@ -176,10 +205,17 @@
       const apiBase = params.get("apiBase") || "http://localhost:4000";
       const regionId = "london";
 
-      const prodFallback = document.getElementById("prodFallback");
+      const VELA_ORIGIN_DEFAULT = "https://vela-platform-4gbb3.ondigitalocean.app";
+      const velaOrigin = (params.get("velaOrigin") || VELA_ORIGIN_DEFAULT).replace(/\/$/, "");
+
+      const prodExperience = document.getElementById("prodExperience");
       const devApp = document.getElementById("devApp");
       if (!isDev) {
-        prodFallback.classList.remove("hidden");
+        prodExperience.classList.remove("hidden");
+        document.getElementById("prodLiveBtn").href = velaOrigin + "/live";
+        document.getElementById("prodMapBtn").href = velaOrigin + "/map";
+        document.getElementById("prodApiBtn").href = velaOrigin + "/api/redoc";
+        document.getElementById("velaLiveFrame").src = velaOrigin + "/embed/region/london";
         return;
       }
       devApp.classList.remove("hidden");
