@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.9.3';
+    const SITE_VERSION = 'v2.9.4';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '<div class="footer-grid">' +
             '  <div class="footer-brand">' +
             '    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
-            '    <p class="footer-tagline">Air-domain intelligence (SkyGrid) and Linux fleet security (Blackglass).</p>' +
+            '    <p class="footer-tagline">Air-domain intelligence (SkyGrid) and LINUX integrity (BLACKGLASS).</p>' +
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>' +
             '  </div>' +
             '  <div class="footer-links"><h4>Products</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Overview</a></li><li><a href="platform.html">Platform &amp; access</a></li></ul></div>' +
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = (document.title || 'Obsidian Dynamics').trim();
         const descTag = document.querySelector('meta[name="description"]');
         const description = ((descTag && descTag.getAttribute('content')) || '').trim()
-            || 'Obsidian Dynamics: Project SkyGrid for air-domain intelligence; Blackglass for Linux drift, SSH posture, and fleet hardening.';
+            || 'BLACKGLASS: operational integrity for Linux hosts — drift triage and evidence exports. SkyGrid: air-domain intelligence from Obsidian Dynamics.';
         const defaultOgImage = siteOrigin + '/img/logo.svg';
 
         function upsertMeta(attrName, attrValue, content) {
