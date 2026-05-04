@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '<div class="footer-grid">' +
             '  <div class="footer-brand">' +
             '    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
-            '    <p class="footer-tagline">Air-domain intelligence (SkyGrid) and LINUX integrity (BLACKGLASS).</p>' +
+            '    <p class="footer-tagline">Air-domain intelligence (SkyGrid) and Linux integrity (BLACKGLASS).</p>' +
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>' +
             '  </div>' +
             '  <div class="footer-links"><h4>Products</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Overview</a></li><li><a href="platform.html">Platform &amp; access</a></li></ul></div>' +
