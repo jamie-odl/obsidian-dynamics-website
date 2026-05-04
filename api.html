@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API | Obsidian Dynamics</title>
-    <meta name="description" content="Developer documentation for the Obsidian Dynamics API for air-domain intelligence; Blackglass HTTP access is scoped per customer deployment.">
+    <meta name="description" content="Developer documentation for the Obsidian Dynamics API for air-domain intelligence; Blackglass (Linux/SSH drift) HTTP access is scoped per customer deployment.">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:title" content="API | Obsidian Dynamics">
@@ -22,7 +22,7 @@
 <a href="#main-content" class="skip-to-content">Skip to main content</a>
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
 <nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"><a href="platform.html" class="nav-link">Platform</a><a href="products.html" class="nav-link">Products</a><a href="api.html" class="nav-link active">API</a><a href="use-cases.html" class="nav-link">Use Cases</a><a href="intelligence.html" class="nav-link">Intelligence</a><a href="about.html" class="nav-link">Company</a><a href="contact.html" class="nav-link">Contact</a></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
-<main id="main-content"><section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">UNIFIED API</div><h1 class="page-hero__title">One API. <span class="gradient-text">Clear surfaces.</span></h1><p class="page-hero__subtitle">SkyGrid and the Blackglass console share operational conventions where the parent platform exposes risk events; customer-specific console routes and schemas are provided under engagement. Blackglass is scoped to security posture and governance — not flight operations UIs.</p></section>
+<main id="main-content"><section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">UNIFIED API</div><h1 class="page-hero__title">One API. <span class="gradient-text">Clear surfaces.</span></h1><p class="page-hero__subtitle">SkyGrid and the Blackglass console share operational conventions where the parent platform exposes risk events; customer-specific console routes and schemas are provided under engagement. Blackglass focuses on Linux fleet SSH posture and configuration drift — not flight operations UIs.</p></section>
 <section class="features-section"><div class="container"><div class="features-grid features-grid--2col">
 <div class="feature-card"><h3>Endpoints</h3><p><code>GET /v1/air/events</code><br><code>GET /v1/maritime/events</code><br><code>GET /v1/nodes/{id}/risk</code><br><code>GET /v1/history/replay</code></p><p>Blackglass REST shapes and auth are documented for customers alongside their deployment — not published on this page.</p></div>
 <div class="feature-card"><h3>Common Conventions</h3><p>Same auth, pagination, timestamp format, severity and confidence vocabulary, and billing model across all modules.</p></div>
