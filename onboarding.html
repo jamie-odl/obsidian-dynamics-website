@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onboarding Hub | Obsidian Dynamics</title>
-    <meta name="description" content="Project-specific onboarding for Atlas, SkyGrid, and Strait-Signal, including API integration steps and go-live checklist.">
+    <meta name="description" content="Project-specific onboarding for SkyGrid and Blackglass, including API integration steps and go-live checklist.">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/onboarding">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="stylesheet" href="css/styles.css">
@@ -37,8 +37,7 @@
             <div class="section-header"><span class="section-tag">PROJECT ONBOARDING TRACKS</span><h2 class="section-title">Instructions by product surface</h2></div>
             <div class="features-grid features-grid--2col">
                 <a class="feature-card feature-card--sky" href="onboarding-skygrid.html"><h3>SkyGrid Track</h3><p>Define watch areas, confirm anomaly thresholds, connect alert destinations, and test route-level replay results.</p></a>
-                <a class="feature-card feature-card--strait" href="onboarding-strait-signal.html"><h3>Strait-Signal Track</h3><p>Select chokepoints and corridors, configure queue stress thresholds, and validate disruption feed cadence.</p></a>
-                <a class="feature-card" href="onboarding-atlas.html"><h3>Atlas Track</h3><p>Connect module signals into enterprise scoring, set cascade priority rules, and validate action queue quality.</p></a>
+                <a class="feature-card feature-card--priority" href="onboarding-blackglass.html"><h3>Blackglass Track</h3><p>Clone the fleet console, configure Clerk, database, and Stripe from upstream docs, then run verify gates before production.</p></a>
             </div>
         </div>
     </section>
@@ -48,7 +47,7 @@
             <div class="section-header"><span class="section-tag">API QUICKSTART</span><h2 class="section-title">Integration sequence</h2></div>
             <div class="features-grid features-grid--3col">
                 <article class="feature-card"><h3>Auth + Keys</h3><p>Create scoped keys per environment. Rotate keys quarterly or on role change.</p></article>
-                <article class="feature-card"><h3>Endpoint Validation</h3><p>Start with `GET /v1/history/replay`, then validate live event endpoints and transition scores.</p></article>
+                <article class="feature-card"><h3>Endpoint Validation</h3><p>Start with <code>GET /v1/history/replay</code>, then validate live air event endpoints.</p></article>
                 <article class="feature-card"><h3>Webhook + Export</h3><p>Configure signed webhook callbacks and export jobs with entitlement-aware limits.</p></article>
             </div>
             <div class="cta-actions" style="justify-content:center; margin-top:24px;">

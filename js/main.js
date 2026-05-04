@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.7.0';
+    const SITE_VERSION = 'v2.8.0';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
@@ -183,9 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'access-denied.html',
             'onboarding.html',
             'onboarding-skygrid.html',
-            'onboarding-strait-signal.html',
-            'onboarding-relaypoint.html',
-            'onboarding-atlas.html',
+            'onboarding-blackglass.html',
             'account-operations.html'
         ]);
         if (privateSeoBlock.has(currentPage)) {
@@ -337,9 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'developer-central.html',
         'onboarding.html',
         'onboarding-skygrid.html',
-        'onboarding-strait-signal.html',
-        'onboarding-relaypoint.html',
-        'onboarding-atlas.html',
+        'onboarding-blackglass.html',
         'account-operations.html'
     ]);
     const privateFacingPages = new Set([
@@ -682,7 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Simulate send (replace with actual endpoint)
             setTimeout(() => {
                 btn.textContent = 'Message Sent ✓';
-                btn.style.background = 'var(--gradient-strait)';
+                btn.style.background = 'var(--gradient-main)';
                 contactForm.reset();
                 if (formStatus) {
                     formStatus.className = 'form-status form-status--success';
@@ -701,7 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- ROI Calculators (Atlas / Platform) ---
+    // --- ROI Calculators (platform pages) ---
     const roiCalculators = document.querySelectorAll('[data-roi-calculator]');
     if (roiCalculators.length) {
         const gbp = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 });

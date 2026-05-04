@@ -2107,10 +2107,10 @@ input, textarea, select { font-family: inherit; }
     color: var(--strait-primary);
     border: 1px solid rgba(16, 185, 129, 0.2);
 }
-.case-card__tag--sky {
-    background: var(--sky-glow);
-    color: var(--sky-primary);
-    border: 1px solid rgba(0, 212, 255, 0.2);
+.case-card__tag--blackglass {
+    background: rgba(123, 47, 255, 0.12);
+    color: #c4b5fd;
+    border: 1px solid rgba(123, 47, 255, 0.25);
 }
 .case-card__title {
     font-size: 1.4rem;

@@ -10,14 +10,6 @@ PLANS = [
     ("PRICE_SKYGRID_STARTER", "SkyGrid Starter", 75000),
     ("PRICE_SKYGRID_PROFESSIONAL", "SkyGrid Professional", 175000),
     ("PRICE_SKYGRID_ENTERPRISE", "SkyGrid Enterprise", 400000),
-    ("PRICE_STRAIT_STARTER", "Strait-Signal Starter", 100000),
-    ("PRICE_STRAIT_PROFESSIONAL", "Strait-Signal Professional", 225000),
-    ("PRICE_STRAIT_ENTERPRISE", "Strait-Signal Enterprise", 500000),
-    ("PRICE_RELAYPOINT_STANDARD", "RelayPoint Standard", 350000),
-    ("PRICE_ATLAS_ANALYST", "Atlas Analyst", 300000),
-    ("PRICE_ATLAS_OPERATIONS", "Atlas Operations", 750000),
-    ("PRICE_ATLAS_ENTERPRISE", "Atlas Enterprise", 1500000),
-    ("PRICE_ATLAS_OEM", "Atlas OEM", 2500000),
 ]
 
 

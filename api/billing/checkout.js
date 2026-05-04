@@ -1,15 +1,7 @@
 const PLAN_TO_PRICE_ENV = {
     skygrid_starter: 'PRICE_SKYGRID_STARTER',
     skygrid_professional: 'PRICE_SKYGRID_PROFESSIONAL',
-    skygrid_enterprise: 'PRICE_SKYGRID_ENTERPRISE',
-    strait_starter: 'PRICE_STRAIT_STARTER',
-    strait_professional: 'PRICE_STRAIT_PROFESSIONAL',
-    strait_enterprise: 'PRICE_STRAIT_ENTERPRISE',
-    relaypoint_standard: 'PRICE_RELAYPOINT_STANDARD',
-    atlas_analyst: 'PRICE_ATLAS_ANALYST',
-    atlas_operations: 'PRICE_ATLAS_OPERATIONS',
-    atlas_enterprise: 'PRICE_ATLAS_ENTERPRISE',
-    atlas_oem: 'PRICE_ATLAS_OEM'
+    skygrid_enterprise: 'PRICE_SKYGRID_ENTERPRISE'
 };
 
 async function createCheckoutSession({ priceId, origin }) {

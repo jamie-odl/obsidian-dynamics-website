@@ -18,7 +18,7 @@
         <div class="hero-grid-overlay"></div>
         <div class="page-hero__badge">DEVELOPER CENTRAL</div>
         <h1 class="page-hero__title">Implementation hub for <span class="gradient-text">engineering teams</span></h1>
-        <p class="page-hero__subtitle">One central point for API conventions, endpoint coverage, reliability posture, and integration workflow guidance across Obsidian parent services, Atlas, SkyGrid, and Strait-Signal.</p>
+        <p class="page-hero__subtitle">One central point for API conventions, endpoint coverage, reliability posture, and integration workflow guidance across SkyGrid and Blackglass.</p>
     </section>
 
     <section class="features-section" style="padding-top:0;">
@@ -63,9 +63,9 @@
 
                 <div class="portal-panel" role="tabpanel" data-tab-panel="tiers" hidden>
                     <div class="features-grid features-grid--3col">
-                        <article class="feature-card"><h3>Tier Matrix</h3><p>Review product-tier scope for Atlas, SkyGrid, and Strait-Signal.</p></article>
+                        <article class="feature-card"><h3>Tier Matrix</h3><p>Review product-tier scope for SkyGrid and Blackglass (seat and plan limits for Blackglass live in the console codebase).</p></article>
                         <article class="feature-card"><h3>Export Entitlements</h3><p>Control public, limited, and full export rights by account tier.</p></article>
-                        <article class="feature-card"><h3>Upgrade Path</h3><p>Move from module-only to Atlas orchestration without disruption.</p></article>
+                        <article class="feature-card"><h3>Upgrade Path</h3><p>Add Blackglass when fleet SaaS controls, baselines, and Stripe-backed entitlements are required alongside SkyGrid.</p></article>
                     </div>
                     <div class="cta-actions" style="margin-top:16px;">
                         <a href="platform.html" class="btn btn-primary">Review Tier Access</a>
@@ -120,7 +120,7 @@
                 <a class="feature-card" href="api.html"><h3>Unified API Reference</h3><p>Endpoints, schema conventions, and response structure patterns.</p></a>
                 <a class="feature-card" href="onboarding.html"><h3>Onboarding Hub</h3><p>Project-specific implementation tracks and API setup sequence from signup to go-live.</p></a>
                 <a class="feature-card" href="status.html"><h3>Service Status</h3><p>Current health for core APIs, signal pipelines, and alert delivery.</p></a>
-                <a class="feature-card" href="billing.html"><h3>Central Billing</h3><p>Stripe checkout and billing portal for all module and Atlas tiers.</p></a>
+                <a class="feature-card" href="billing.html"><h3>Central Billing</h3><p>Stripe checkout and billing portal for SkyGrid tiers on this site; Blackglass billing remains inside each deployed fleet console.</p></a>
                 <a class="feature-card" href="trust-center.html"><h3>Trust and Security</h3><p>Governance, security controls, and due-diligence references.</p></a>
                 <a class="feature-card" href="account-operations.html"><h3>Account Operations</h3><p>Billing, lockout handling, access recovery, and operational support pathways.</p></a>
                 <a class="feature-card" href="methodology.html"><h3>Methodology</h3><p>How signals are scored, validated, and routed into operational outputs.</p></a>
@@ -158,13 +158,11 @@
             </div>
             <div class="features-grid features-grid--2col">
                 <a class="feature-card feature-card--sky" href="skygrid.html"><div class="feature-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="15"/><path d="M24 9V24L34 30"/></svg></div><h3>SkyGrid Surface</h3><p>Air anomaly coverage, watch area logic, and route-level operational context.</p></a>
-                <a class="feature-card feature-card--strait" href="strait-signal.html"><div class="feature-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 30L20 22L30 26L40 16"/><circle cx="20" cy="22" r="2.5"/><circle cx="30" cy="26" r="2.5"/></svg></div><h3>Strait-Signal Surface</h3><p>Chokepoint indicators, queue stress metrics, and corridor risk flow.</p></a>
-                <a class="feature-card feature-card--priority" href="atlas.html"><div class="feature-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="10" width="32" height="28" rx="4"/><path d="M16 20H32M16 28H26"/></svg></div><h3>Atlas Surface</h3><p>Cross-domain fragility scoring, cascade analysis, and enterprise control routing.</p></a>
+                <a class="feature-card feature-card--priority" href="blackglass.html"><div class="feature-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="10" width="32" height="28" rx="4"/><path d="M16 20H32M16 28H26"/></svg></div><h3>Blackglass Surface</h3><p>Fleet baselines, drift, evidence exports, Clerk tenancy, and Stripe-backed controls — source on GitHub.</p></a>
             </div>
             <div class="cta-actions" style="justify-content:center; margin-top:24px;">
                 <a href="onboarding-skygrid.html" class="btn btn-primary--sky">SkyGrid Onboarding</a>
-                <a href="onboarding-strait-signal.html" class="btn btn-primary--strait">Strait-Signal Onboarding</a>
-                <a href="onboarding-atlas.html" class="btn btn-secondary">Atlas Onboarding</a>
+                <a href="onboarding-blackglass.html" class="btn btn-primary">Blackglass Onboarding</a>
             </div>
         </div>
     </section>
@@ -199,7 +197,7 @@
             <div class="features-grid features-grid--3col">
                 <article class="feature-card"><h3>Clip Type</h3><p>6-12 second silent captures: map transitions, alert queue flow, replay timeline movement, and route comparison states.</p></article>
                 <article class="feature-card"><h3>Performance Guardrails</h3><p>Serve WebM/MP4 with poster fallback, lazy-load below the fold, and preserve reduced-motion support.</p></article>
-                <article class="feature-card"><h3>Placement</h3><p>Use motion in 2-3 high-value blocks only: homepage context strip, Atlas decision panel, and SkyGrid signal panel.</p></article>
+                <article class="feature-card"><h3>Placement</h3><p>Use motion in 2-3 high-value blocks only: homepage context strip, Blackglass fleet snapshot, and SkyGrid signal panel.</p></article>
             </div>
             <div class="cta-actions" style="justify-content:center; margin-top:24px;">
                 <a href="contact.html" class="btn btn-primary">Discuss Media Rollout Plan</a>

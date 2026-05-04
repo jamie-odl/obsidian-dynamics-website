@@ -14,7 +14,7 @@ import datetime as dt
 import json
 from pathlib import Path
 
-PRODUCTS = ["atlas", "skygrid", "strait-signal", "relaypoint"]
+PRODUCTS = ["skygrid", "blackglass"]
 
 
 def render_pdf_placeholder(product: str, generated_at: str) -> bytes:
