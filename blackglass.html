@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackglass | Fleet operations console — Obsidian Dynamics</title>
-    <meta name="description" content="Blackglass is a Next.js fleet console for baselines, drift, evidence exports, and Stripe-integrated SaaS billing. Source and docs on GitHub.">
+    <meta name="description" content="Blackglass is Obsidian Dynamics’ fleet-grade console for baselines, drift visibility, evidence exports, and subscription-aware SaaS delivery.">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Blackglass | Fleet operations console">
-    <meta property="og:description" content="Multi-tenant fleet console: baselines, drift, evidence exports, Clerk auth, PostgreSQL, Stripe billing.">
+    <meta property="og:description" content="Tenant-scoped fleet console: baselines, drift, evidence exports, and operational billing in one surface.">
     <meta property="og:url" content="https://obsidiandynamics.co.uk/blackglass">
     <meta property="og:site_name" content="Obsidian Dynamics">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Blackglass | Fleet operations console">
-    <meta name="twitter:description" content="Open-source Blackglass console aligned with obsidiandynamics.co.uk.">
+    <meta name="twitter:description" content="Fleet operations console from Obsidian Dynamics for baselines, drift, and evidence.">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/blackglass">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="stylesheet" href="css/styles.css">
@@ -23,11 +23,39 @@
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
 <nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"><a href="platform.html" class="nav-link">Platform</a><a href="products.html" class="nav-link">Products</a><a href="api.html" class="nav-link">API</a><a href="use-cases.html" class="nav-link">Use Cases</a><a href="intelligence.html" class="nav-link">Intelligence</a><a href="about.html" class="nav-link">Company</a><a href="contact.html" class="nav-link">Contact</a></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 <main id="main-content">
-    <section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">FLEET CONSOLE</div><h1 class="page-hero__title">Black<span class="gradient-text">glass</span></h1><p class="page-hero__subtitle">A Next.js 16 multi-tenant fleet console for baselines, drift, evidence exports, and Stripe billing hooks — with Clerk auth, Drizzle ORM and PostgreSQL, and DigitalOcean-ready deployment. The canonical product repository is public on GitHub.</p><div class="page-hero__actions" style="margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:12px;"><a href="https://github.com/thevenomv/blackglass-console" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on GitHub</a><a href="onboarding-blackglass.html" class="btn btn-secondary">Setup overview</a><a href="contact.html" class="btn btn-ghost">Discuss deployment</a></div></section>
+    <section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">FLEET CONSOLE</div><h1 class="page-hero__title">Black<span class="gradient-text">glass</span></h1><p class="page-hero__subtitle">A multi-tenant operations console for fleet inventory: define baselines, watch drift, export evidence for audit and reviews, and run subscription-backed access — without exposing your internal tools on the public web.</p><div class="page-hero__actions" style="margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:12px;"><a href="contact.html" class="btn btn-primary">Discuss Blackglass</a><a href="onboarding-blackglass.html" class="btn btn-secondary">Onboarding overview</a><a href="products.html" class="btn btn-ghost">All products</a></div></section>
 
-    <section class="features-section"><div class="container"><div class="section-header"><span class="section-tag">REPOSITORY</span><h2 class="section-title">Align your deployment with upstream</h2><p class="section-desc">Use the same source tree for local development, CI (<code>verify:stage0</code>), and production builds as described in the project README.</p></div><div class="features-grid features-grid--2col"><div class="feature-card feature-card--priority"><h3>Clone</h3><p><code>git clone https://github.com/thevenomv/blackglass-console.git</code></p></div><div class="feature-card"><h3>Requirements</h3><p>Node.js 22.x and npm 10+. Copy <code>.env.example</code> to <code>.env.local</code> and follow operator docs in the repo for Clerk, database, and Stripe.</p></div></div></div></section>
+    <section class="visual-story-strip" aria-label="Blackglass in context">
+        <div class="container">
+            <div class="visual-story-grid">
+                <article class="visual-story-card">
+                    <img src="img/story/skygrid-airspace-1280.webp" srcset="img/story/skygrid-airspace-640.webp 640w, img/story/skygrid-airspace-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" alt="Aircraft cruising above cloud layer" loading="lazy">
+                    <div class="visual-story-content">
+                        <h3>Project SkyGrid</h3>
+                        <p>Air-domain inputs and anomaly context that often sit upstream of fleet baselines and exports.</p>
+                    </div>
+                </article>
+                <article class="visual-story-card">
+                    <img src="img/story/platform-orchestration-1280.webp" srcset="img/story/platform-orchestration-640.webp 640w, img/story/platform-orchestration-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" alt="Network operations visualisation" loading="lazy">
+                    <div class="visual-story-content">
+                        <h3>Unified picture</h3>
+                        <p>Breadth across regions and tenants, aligned to how analysts work incidents in one console.</p>
+                    </div>
+                </article>
+                <article class="visual-story-card">
+                    <img src="img/story/skygrid-ops-1280.webp" srcset="img/story/skygrid-ops-640.webp 640w, img/story/skygrid-ops-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" alt="Operations team monitoring live air traffic screens" loading="lazy">
+                    <div class="visual-story-content">
+                        <h3>Handoff to action</h3>
+                        <p>Operator-ready outputs that pair Project SkyGrid signal depth with Blackglass fleet governance.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-    <section class="features-section" style="padding-top:0;"><div class="container"><div class="features-grid features-grid--3col"><div class="feature-card"><h3>Baselines and drift</h3><p>Govern baseline posture and drift visibility across fleet inventory from the authenticated dashboard.</p></div><div class="feature-card"><h3>Evidence exports</h3><p>Export-grade artefacts and audit-friendly flows aligned with tenant isolation (RLS) in the application database.</p></div><div class="feature-card"><h3>Billing</h3><p>Stripe checkout, webhooks, and plan limits (<code>plans.ts</code>) stay in sync with subscription state idempotently.</p></div></div><div class="cta-actions" style="justify-content:center; margin-top:24px;"><a href="https://github.com/thevenomv/blackglass-console/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Read README</a><a href="api.html" class="btn btn-ghost">Parent API surface</a></div></div></section>
+    <section class="features-section"><div class="container"><div class="section-header"><span class="section-tag">CAPABILITIES</span><h2 class="section-title">What Blackglass is for</h2><p class="section-desc">Marketing pages stay lightweight; your deployment, credentials, and integrations stay private. We describe outcomes here — implementation detail is shared under NDA or contract.</p></div><div class="features-grid features-grid--3col"><div class="feature-card"><h3>Baselines and drift</h3><p>Establish expected posture for fleets and catch meaningful deviation early — before spreadsheets and tickets disagree.</p></div><div class="feature-card"><h3>Evidence exports</h3><p>Produce review-ready packs for security, audit, and internal governance without ad-hoc screen grabs.</p></div><div class="feature-card"><h3>Seat-aware delivery</h3><p>Entitlements and billing reflect who can act in the console, scoped to your organisation’s commercial terms.</p></div></div></div></section>
+
+    <section class="features-section" style="padding-top:0;"><div class="container"><div class="cta-actions" style="justify-content:center; margin-top:8px;"><a href="api.html" class="btn btn-secondary">Parent API</a><a href="trust-center.html" class="btn btn-ghost">Trust Center</a></div></div></section>
 </main>
 
 <footer class="footer" role="contentinfo"><div class="container"></div></footer>

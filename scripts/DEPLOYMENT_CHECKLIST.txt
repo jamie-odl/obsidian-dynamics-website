@@ -1,0 +1,18 @@
+Deployment and search checklist (obsidiandynamics.co.uk)
+============================================================
+
+After each production deploy:
+- Open the homepage with a hard refresh; confirm Review Build version in the footer matches the expected git/deploy.
+- Click through: Home, SkyGrid, Blackglass, Platform, Contact; confirm no console errors.
+- Submit the cookie banner (Essential only and Accept analytics) once in a clean browser profile if testing analytics.
+
+Search engines (manual, requires your accounts):
+- Google Search Console: add or verify the property for https://obsidiandynamics.co.uk, submit sitemap https://obsidiandynamics.co.uk/sitemap.xml
+- Bing Webmaster Tools: same sitemap URL
+
+Infrastructure notes:
+- Vercel: enable “Auto-assign custom domain” alignment (apex vs www) in project settings; this repo uses clean URLs (no .html in canonicals).
+- intelligence URL permanently redirects to /products in vercel.json.
+
+Local verification before push:
+- Run: npm test

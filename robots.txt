@@ -12,5 +12,7 @@ Disallow: /onboarding-blackglass
 Disallow: /account-operations
 Disallow: /access-denied
 Disallow: /access-denied.html
+Disallow: /intelligence
+Disallow: /intelligence.html
 
 Sitemap: https://obsidiandynamics.co.uk/sitemap.xml

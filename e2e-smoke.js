@@ -34,6 +34,41 @@ function linkCheck() {
   };
 }
 
+function sitemapCheck() {
+  const smPath = path.join(root, 'sitemap.xml');
+  if (!fs.existsSync(smPath)) {
+    return { ok: false, error: 'missing sitemap.xml', missingFiles: [] };
+  }
+  const xml = fs.readFileSync(smPath, 'utf8');
+  const locRe = /<loc>([^<]+)<\/loc>/g;
+  const locs = [];
+  let m;
+  while ((m = locRe.exec(xml))) {
+    locs.push(m[1].trim());
+  }
+  const missingFiles = [];
+  for (const absUrl of locs) {
+    let pathname;
+    try {
+      pathname = new URL(absUrl).pathname;
+    } catch {
+      missingFiles.push({ url: absUrl, reason: 'bad URL' });
+      continue;
+    }
+    const slug = pathname === '/' ? 'index' : pathname.replace(/^\//, '').replace(/\.html$/, '');
+    const htmlName = slug === 'index' ? 'index.html' : `${slug}.html`;
+    const filePath = path.join(root, htmlName);
+    if (!fs.existsSync(filePath)) {
+      missingFiles.push({ url: absUrl, expected: htmlName });
+    }
+  }
+  return {
+    ok: missingFiles.length === 0,
+    urlCount: locs.length,
+    missingFiles: missingFiles.slice(0, 30),
+  };
+}
+
 async function apiCheck() {
   const utils = require('./api/auth/_utils');
   const handlers = {
@@ -143,9 +178,16 @@ async function apiCheck() {
 }
 
 (async () => {
+  const sm = sitemapCheck();
   const output = {
     linkCheck: linkCheck(),
+    sitemapCheck: sm,
     apiCheck: await apiCheck(),
   };
+  const exitBadLinks = output.linkCheck.missingCount > 0;
+  const exitBadSitemap = !sm.ok;
   console.log(JSON.stringify(output, null, 2));
+  if (exitBadLinks || exitBadSitemap) {
+    process.exitCode = 1;
+  }
 })();

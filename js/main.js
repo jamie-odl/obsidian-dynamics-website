@@ -24,12 +24,34 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.8.0';
+    const SITE_VERSION = 'v2.9.0';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
 
+    const CONSENT_STORAGE_KEY = 'od_analytics_consent';
+
+    function getAnalyticsConsent() {
+        try {
+            const v = localStorage.getItem(CONSENT_STORAGE_KEY);
+            if (v === 'granted') return true;
+            if (v === 'denied') return false;
+            return null;
+        } catch {
+            return null;
+        }
+    }
+
+    function setAnalyticsConsent(granted) {
+        try {
+            localStorage.setItem(CONSENT_STORAGE_KEY, granted ? 'granted' : 'denied');
+        } catch {
+            // ignore quota / private mode
+        }
+    }
+
     function sendAnalyticsEvent(eventType, extra) {
+        if (getAnalyticsConsent() !== true) return;
         const payload = {
             eventType,
             page: currentPage,
@@ -56,20 +78,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getStandardNavMarkup(activePage) {
         const items = [
+            { href: 'index.html', label: 'Home' },
+            { href: 'skygrid.html', label: 'SkyGrid' },
+            { href: 'blackglass.html', label: 'Blackglass' },
             { href: 'platform.html', label: 'Platform' },
-            { href: 'products.html', label: 'Products' },
-            { href: 'api.html', label: 'API' },
-            { href: 'use-cases.html', label: 'Use Cases' },
-            { href: 'intelligence.html', label: 'Intelligence' },
-            { href: 'about.html', label: 'Company' },
+            { href: 'about.html', label: 'About' },
             { href: 'contact.html', label: 'Contact' }
         ];
         return items.map((item) => {
-            const isActive =
-                item.href === activePage
-                || (activePage === 'index.html' && item.href === 'platform.html');
+            const isActive = item.href === activePage;
             return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
         }).join('') + '<a href="contact.html" class="nav-cta">Contact Team</a>';
+    }
+
+    function injectCookieConsentBar() {
+        if (document.getElementById('cookieConsentBar')) return;
+        if (getAnalyticsConsent() !== null) return;
+        const skipPages = new Set([
+            'developer-central.html',
+            'developer-login.html',
+            'access-denied.html',
+            'onboarding.html',
+            'onboarding-skygrid.html',
+            'onboarding-blackglass.html',
+            'account-operations.html',
+            '404.html'
+        ]);
+        if (skipPages.has(currentPage)) return;
+
+        const bar = document.createElement('div');
+        bar.id = 'cookieConsentBar';
+        bar.className = 'cookie-consent-bar';
+        bar.setAttribute('role', 'dialog');
+        bar.setAttribute('aria-live', 'polite');
+        bar.setAttribute('aria-label', 'Cookies and analytics');
+        bar.innerHTML =
+            '<div class="cookie-consent-bar__inner">' +
+            '  <p class="cookie-consent-bar__text">We use essential cookies to run this site. Optional analytics help us improve pages. See our <a href="privacy.html#cookies">Privacy Policy</a>.</p>' +
+            '  <div class="cookie-consent-bar__actions">' +
+            '    <button type="button" class="btn btn-ghost" data-cookie-choice="essential">Essential only</button>' +
+            '    <button type="button" class="btn btn-primary" data-cookie-choice="analytics">Accept analytics</button>' +
+            '  </div>' +
+            '</div>';
+
+        bar.addEventListener('click', (ev) => {
+            const btn = ev.target.closest('[data-cookie-choice]');
+            if (!btn) return;
+            const choice = btn.getAttribute('data-cookie-choice');
+            if (choice === 'analytics') {
+                setAnalyticsConsent(true);
+                sendAnalyticsEvent('page_view', {});
+            } else {
+                setAnalyticsConsent(false);
+            }
+            bar.remove();
+            document.body.classList.remove('has-cookie-consent');
+        });
+
+        document.body.appendChild(bar);
+        document.body.classList.add('has-cookie-consent');
     }
 
     function applyGlobalBrandShell() {
@@ -90,12 +157,12 @@ document.addEventListener('DOMContentLoaded', () => {
             '<div class="footer-grid">' +
             '  <div class="footer-brand">' +
             '    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
-            '    <p class="footer-tagline">Operational risk intelligence across air, sea, and transition networks.</p>' +
+            '    <p class="footer-tagline">Operational intelligence for Project SkyGrid and Blackglass.</p>' +
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Platform</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="products.html">Products</a></li><li><a href="api.html">API</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Intelligence</h4><ul><li><a href="use-cases.html">Use Cases</a></li><li><a href="intelligence.html">Intelligence</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">Company</a></li><li><a href="trust-center.html">Trust Center</a></li><li><a href="status.html">Status</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Products</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Overview</a></li><li><a href="platform.html">Platform &amp; access</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Resources</h4><ul><li><a href="api.html">API</a></li><li><a href="methodology.html">Methodology</a></li><li><a href="evidence-library.html">Evidence</a></li><li><a href="use-cases.html">Use cases</a></li><li><a href="trust-center.html">Trust Center</a></li><li><a href="status.html">Status</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
             '  <p>&copy; 2026 Obsidian Dynamics Limited. Review Build <span class="site-version-inline">' + SITE_VERSION + '</span></p>' +
@@ -163,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <article class="operational-trust-card"><h3>Platform Reliability</h3><p>Track live uptime and incident communications from the status surface.</p></article>' +
             '  </div>' +
             '  <div class="operational-trust-links">' +
-            '    <a href="status.html">Open Status</a><a href="trust-center.html">Trust Center</a><a href="methodology.html">Methodology</a>' +
+            '    <a href="skygrid.html">Project SkyGrid</a><a href="blackglass.html">Blackglass</a><a href="status.html">Open Status</a><a href="trust-center.html">Trust Center</a><a href="methodology.html">Methodology</a>' +
             '  </div>' +
             '</div>';
         main.appendChild(strip);
@@ -184,7 +251,8 @@ document.addEventListener('DOMContentLoaded', () => {
             'onboarding.html',
             'onboarding-skygrid.html',
             'onboarding-blackglass.html',
-            'account-operations.html'
+            'account-operations.html',
+            '404.html'
         ]);
         if (privateSeoBlock.has(currentPage)) {
             return;
@@ -195,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = (document.title || 'Obsidian Dynamics').trim();
         const descTag = document.querySelector('meta[name="description"]');
         const description = ((descTag && descTag.getAttribute('content')) || '').trim()
-            || 'Operational risk intelligence across air, sea, and transition networks.';
+            || 'Operational intelligence for Project SkyGrid and Blackglass.';
         const defaultOgImage = siteOrigin + '/img/logo.svg';
 
         function upsertMeta(attrName, attrValue, content) {
@@ -216,6 +284,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (!canonical.getAttribute('href')) {
             canonical.setAttribute('href', absoluteUrl);
+        }
+
+        const rawCanon = canonical.getAttribute('href') || '';
+        if (rawCanon.startsWith(siteOrigin)) {
+            let p = rawCanon.slice(siteOrigin.length) || '/';
+            if (p.endsWith('.html')) {
+                p = p.slice(0, -5);
+                if (p === '' || p === '/index') p = '/';
+            }
+            if (!p.startsWith('/')) p = '/' + p;
+            canonical.setAttribute('href', siteOrigin + (p === '/' ? '/' : p));
         }
 
         upsertMeta('property', 'og:type', 'website');
@@ -328,7 +407,10 @@ document.addEventListener('DOMContentLoaded', () => {
     applyUnifiedPageShell();
     simplifyInformationDensity();
     enablePremiumEntrance();
-    sendAnalyticsEvent('page_view', {});
+    injectCookieConsentBar();
+    if (getAnalyticsConsent() === true) {
+        sendAnalyticsEvent('page_view', {});
+    }
 
     // --- Developer Portal Access Guard ---
     const protectedPages = new Set([
@@ -341,7 +423,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const privateFacingPages = new Set([
         ...protectedPages,
         'developer-login.html',
-        'access-denied.html'
+        'access-denied.html',
+        '404.html'
     ]);
 
     function renderDeveloperSessionControls(email) {
@@ -467,6 +550,8 @@ document.addEventListener('DOMContentLoaded', () => {
             particles.push(new Particle());
         }
 
+        let particleRafId = 0;
+
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach(p => { p.update(); p.draw(); });
@@ -485,9 +570,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
-            requestAnimationFrame(animate);
+            particleRafId = requestAnimationFrame(animate);
         }
-        animate();
+        particleRafId = requestAnimationFrame(animate);
+
+        const reduceMotionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+        function stopParticleLoop() {
+            if (particleRafId) {
+                cancelAnimationFrame(particleRafId);
+                particleRafId = 0;
+            }
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        reduceMotionMq.addEventListener('change', () => {
+            if (reduceMotionMq.matches) stopParticleLoop();
+        });
     }
 
     // --- Navbar Scroll ---
@@ -726,7 +823,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 exposureP.textContent = 'Baseline monthly disruption exposure: ' + gbp.format(monthlyExposure);
                 weightedP.textContent = 'Concentration-adjusted exposure: ' + gbp.format(weightedExposure);
-                monthlyP.textContent = 'Estimated monthly savings from Atlas: ' + gbp.format(monthlySavings);
+                monthlyP.textContent = 'Estimated monthly savings from improved response: ' + gbp.format(monthlySavings);
                 annualP.textContent = 'Estimated annualized savings: ' + gbp.format(annualSavings);
 
                 resultsEl.replaceChildren(exposureP, weightedP, monthlyP, annualP);

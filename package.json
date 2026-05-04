@@ -1,0 +1,11 @@
+{
+  "name": "obsidian-dynamics-website",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node e2e-smoke.js",
+    "smoke": "node e2e-smoke.js"
+  }
+}
