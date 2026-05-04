@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.9.0';
+    const SITE_VERSION = 'v2.9.1';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>' +
             '  </div>' +
             '  <div class="footer-links"><h4>Products</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Overview</a></li><li><a href="platform.html">Platform &amp; access</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Resources</h4><ul><li><a href="api.html">API</a></li><li><a href="methodology.html">Methodology</a></li><li><a href="evidence-library.html">Evidence</a></li><li><a href="use-cases.html">Use cases</a></li><li><a href="trust-center.html">Trust Center</a></li><li><a href="status.html">Status</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Resources</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="api.html">API</a></li><li><a href="methodology.html">Methodology</a></li><li><a href="evidence-library.html">Evidence</a></li><li><a href="use-cases.html">Use cases</a></li><li><a href="trust-center.html">Trust Center</a></li><li><a href="status.html">Status</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <article class="operational-trust-card"><h3>Platform Reliability</h3><p>Track live uptime and incident communications from the status surface.</p></article>' +
             '  </div>' +
             '  <div class="operational-trust-links">' +
-            '    <a href="skygrid.html">Project SkyGrid</a><a href="blackglass.html">Blackglass</a><a href="status.html">Open Status</a><a href="trust-center.html">Trust Center</a><a href="methodology.html">Methodology</a>' +
+            '    <a href="skygrid.html">Project SkyGrid</a><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a><a href="blackglass.html">Blackglass</a><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a><a href="status.html">Open Status</a><a href="trust-center.html">Trust Center</a><a href="methodology.html">Methodology</a>' +
             '  </div>' +
             '</div>';
         main.appendChild(strip);
