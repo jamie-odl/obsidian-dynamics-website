@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.11.1';
+    const SITE_VERSION = 'v2.12.0';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
@@ -83,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { href: 'index.html', label: 'Home' },
             { href: 'skygrid.html', label: 'SkyGrid' },
             { href: 'blackglass.html', label: 'Blackglass' },
-            { href: 'platform.html', label: 'Platform' },
             { href: 'tools.html', label: 'Tools' },
             { href: 'contact.html', label: 'Contact' }
         ];
@@ -162,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <p class="footer-tagline">SkyGrid · Blackglass · fewer moving parts.</p>' +
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833<br><span class="footer-address">Lytchett House<br>13 Freeland Park, Wareham Road<br>Poole · Dorset · BH16 6FA · United Kingdom</span></p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Work</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Compare</a></li><li><a href="tools.html">Tools</a></li><li><a href="platform.html">Platform</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Work</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Compare</a></li><li><a href="tools.html">Tools</a></li><li><a href="billing.html">Billing</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="trust-center.html">Trust</a></li><li><a href="status.html">Status</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="security.html">Security</a></li><li><a href="terms.html">Terms</a></li></ul></div>' +
             '</div>' +
