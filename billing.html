@@ -16,28 +16,27 @@
 <main id="main-content">
     <section class="page-hero">
         <div class="hero-grid-overlay"></div>
-        <div class="page-hero__badge">CENTRAL BILLING</div>
-        <h1 class="page-hero__title">Stripe checkout for all <span class="gradient-text">product tiers</span></h1>
-        <p class="page-hero__subtitle">Use this page for SkyGrid subscription checkout on the parent site. Blackglass billing runs inside your dedicated console deployment under your commercial agreement.</p>
+        <div class="page-hero__badge">BILLING</div>
+        <h1 class="page-hero__title">SkyGrid <span class="gradient-text">checkout</span></h1>
+        <p class="page-hero__subtitle">Stripe for SkyGrid tiers here. BLACKGLASS bills in your console — see <a href="blackglass.html">product</a> or <a href="contact.html">contact</a>.</p>
     </section>
 
     <section class="features-section" style="padding-top:0;">
         <div class="container">
-            <div class="section-header"><span class="section-tag">SELECT A PLAN</span><h2 class="section-title">SkyGrid checkout</h2></div>
+            <div class="section-header"><span class="section-tag">SKYGRID</span><h2 class="section-title">Plans</h2></div>
             <div class="features-grid features-grid--3col">
                 <article class="feature-card feature-card--sky"><h3>SkyGrid Starter</h3><p><strong>$750/month</strong><br>Operational visibility starter tier.</p><button class="btn btn-primary--sky billing-buy-btn" data-plan="skygrid_starter">Checkout</button></article>
                 <article class="feature-card feature-card--sky"><h3>SkyGrid Professional</h3><p><strong>$1,750/month</strong><br>Expanded watch areas and integrations.</p><button class="btn btn-primary--sky billing-buy-btn" data-plan="skygrid_professional">Checkout</button></article>
                 <article class="feature-card feature-card--sky"><h3>SkyGrid Enterprise</h3><p><strong>From $4,000/month</strong><br>Enterprise scale and controls.</p><button class="btn btn-primary--sky billing-buy-btn" data-plan="skygrid_enterprise">Checkout</button></article>
             </div>
-            <div class="section-header" style="margin-top:28px;"><span class="section-tag">BLACKGLASS</span><h2 class="section-title">Fleet console billing</h2></div>
-            <p class="section-desc" style="max-width:42rem;margin:0 auto 20px;text-align:center;">Seat limits, trials, and checkout for Blackglass are configured in your environment. Start from the <a href="blackglass.html">Blackglass product page</a> or <a href="contact.html">contact</a> for packaging and access.</p>
+            <p class="section-desc" style="max-width:36rem;margin:1.5rem auto 0;text-align:center;">BLACKGLASS: trials and seats live on <a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a> for your tenant.</p>
             <div id="billingStatus" class="form-status" role="status" aria-live="polite"></div>
         </div>
     </section>
 
     <section class="features-section" style="padding-top:0;">
         <div class="container container--narrow">
-            <div class="section-header"><span class="section-tag">EXISTING CUSTOMERS</span><h2 class="section-title">Open Stripe billing portal</h2></div>
+            <div class="section-header"><span class="section-tag">PORTAL</span><h2 class="section-title">Existing subscription</h2></div>
             <form id="billingPortalForm" class="contact-form" novalidate>
                 <div class="form-group">
                     <label class="form-label" for="billingEmail">Billing account email</label>

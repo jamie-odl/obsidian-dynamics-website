@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obsidian Dynamics | Operational Risk Intelligence</title>
-    <meta name="description" content="Obsidian Dynamics: Project SkyGrid for air-domain intelligence. BLACKGLASS (blackglasssec.com) audits SSH posture, tracks Linux baseline changes, and gives ops and security teams a workflow to harden their fleet.">
-    <meta property="og:description" content="Project SkyGrid for air-domain intelligence and Blackglass for Linux drift and SSH posture — from Obsidian Dynamics.">
+    <title>Obsidian Dynamics | SkyGrid &amp; BLACKGLASS</title>
+    <meta name="description" content="Obsidian Dynamics: Project SkyGrid (air-domain intelligence) and BLACKGLASS (Linux integrity). Plus free tools. Less noise, clear scope.">
+    <meta property="og:description" content="SkyGrid and BLACKGLASS — two products, one company. Free utilities on Tools.">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Obsidian Dynamics | Operational Risk Intelligence">
+    <meta property="og:title" content="Obsidian Dynamics | SkyGrid &amp; BLACKGLASS">
     <meta property="og:url" content="https://obsidiandynamics.co.uk/">
     <meta property="og:site_name" content="Obsidian Dynamics">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Obsidian Dynamics | Operational Risk Intelligence">
-    <meta name="twitter:description" content="SkyGrid for air-domain risk; Blackglass for Linux drift and SSH posture — Obsidian Dynamics.">
+    <meta name="twitter:title" content="Obsidian Dynamics | SkyGrid &amp; BLACKGLASS">
+    <meta name="twitter:description" content="Air-domain intelligence and Linux integrity — plus free tools.">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,11 +26,21 @@
       "@type": "Organization",
       "name": "Obsidian Dynamics Limited",
       "url": "https://obsidiandynamics.co.uk/",
-      "description": "Project SkyGrid for air-domain risk; BLACKGLASS for Linux operational integrity — baselines, drift triage, evidence exports (blackglasssec.com).",
+      "description": "Project SkyGrid for air-domain risk; BLACKGLASS for Linux operational integrity. Free tools available on this site.",
       "sameAs": [
         "https://projectskygrid.com",
-        "https://blackglasssec.com"
-      ]
+        "https://blackglasssec.com",
+        "https://github.com/thevenomv/blackglass-console",
+        "https://github.com/thevenomv/ProjectSkygrid"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Lytchett House, 13 Freeland Park, Wareham Road",
+        "addressLocality": "Poole",
+        "addressRegion": "Dorset",
+        "postalCode": "BH16 6FA",
+        "addressCountry": "GB"
+      }
     }
     </script>
 </head>
@@ -49,9 +59,8 @@
                 <a href="skygrid.html" class="nav-link">SkyGrid</a>
                 <a href="blackglass.html" class="nav-link">Blackglass</a>
                 <a href="platform.html" class="nav-link">Platform</a>
-                <a href="about.html" class="nav-link">About</a>
+                <a href="tools.html" class="nav-link">Tools</a>
                 <a href="contact.html" class="nav-link">Contact</a>
-                <a href="contact.html" class="nav-cta">Contact Team</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
@@ -61,82 +70,35 @@
         <section class="hero" aria-labelledby="hero-heading">
             <div class="hero-grid-overlay" aria-hidden="true"></div>
             <div class="hero-content">
-                <div class="hero-badge">OBSIDIAN DYNAMICS</div>
-                <h1 class="hero-title" id="hero-heading">See disruption sooner. <span class="gradient-text">Decide faster.</span></h1>
-                <p class="hero-subtitle">Project SkyGrid monitors airspace for anomalies. BLACKGLASS tracks Linux baseline drift and SSH posture. Two focused products, one company, clear scope.</p>
+                <h1 class="hero-title" id="hero-heading">Less noise. <span class="gradient-text">Clear scope.</span></h1>
+                <p class="hero-subtitle"><strong>SkyGrid</strong> — air-domain anomaly intelligence at <a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a>. <strong>BLACKGLASS</strong> — Linux fleet integrity at <a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a>. <strong>Tools</strong> — free utilities, no account.</p>
                 <div class="hero-actions">
-                    <a href="skygrid.html" class="btn btn-primary">Project SkyGrid</a>
+                    <a href="skygrid.html" class="btn btn-primary">SkyGrid</a>
                     <a href="blackglass.html" class="btn btn-secondary">Blackglass</a>
+                    <a href="tools.html" class="btn btn-ghost">Tools</a>
                     <a href="contact.html" class="btn btn-ghost">Contact</a>
                 </div>
             </div>
         </section>
 
-        <section class="features-section" style="padding-top:0;" aria-labelledby="what-is-obsidian-heading">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">WHAT IS OBSIDIAN</span>
-                    <h2 class="section-title" id="what-is-obsidian-heading">Two products. One company. Clear scope.</h2>
-                    <p class="section-desc"><strong>SkyGrid</strong> detects aircraft anomalies in the browser — loiter, ghost tracks, squawk codes, GPS jamming, and more. <strong>BLACKGLASS</strong> audits Linux SSH posture, freezes baselines, and surfaces configuration drift with severity before it becomes an incident.</p>
-                </div>
-                <div class="features-grid features-grid--3col">
-                    <div class="feature-card"><h3>Who</h3><p>Operations teams, risk teams, and engineers who need faster decisions with less noise.</p></div>
-                    <div class="feature-card"><h3>What</h3><p>Aircraft anomaly intelligence and Linux fleet integrity — structured signals, not raw data dumps.</p></div>
-                    <div class="feature-card"><h3>Why</h3><p>Lead time matters. Both products are built around surfacing risk before it compounds.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="features-section" id="module-stack" style="padding-top:0;" aria-labelledby="products-heading">
+        <section class="features-section" style="padding-top:0;" aria-labelledby="products-heading">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">PRODUCTS</span>
-                    <h2 class="section-title" id="products-heading">Clearly defined products and scope.</h2>
+                    <h2 class="section-title" id="products-heading">Two shipped lines</h2>
+                    <p class="section-desc">Everything else — methodology, evidence, platform tiers — is linked from the footer when you need it.</p>
                 </div>
                 <div class="features-grid features-grid--2col">
                     <a href="skygrid.html" class="feature-card feature-card--sky">
                         <h3>SkyGrid</h3>
-                        <p>Browser-first aircraft anomaly monitoring. Eight detection classes covering loiter, squawk codes, ghost tracks, GPS jamming, ICAO spoofing, and more.</p>
+                        <p>Browser-first monitoring: watch areas, advisory detections, structured delivery to your workflow.</p>
                     </a>
                     <a href="blackglass.html" class="feature-card feature-card--priority">
                         <h3>BLACKGLASS</h3>
-                        <p>Linux integrity monitoring — SSH posture, agentless baselines, drift detection with severity, and audit-ready evidence exports.</p>
+                        <p>Linux integrity: SSH posture, baselines, drift with severity, audit-ready exports.</p>
                     </a>
                 </div>
-            </div>
-        </section>
-
-        <section class="features-section" style="padding-top:0;" aria-labelledby="use-cases-heading">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">USE CASES</span>
-                    <h2 class="section-title" id="use-cases-heading">Problem, solution, outcome.</h2>
-                </div>
-                <div class="features-grid features-grid--3col">
-                    <div class="feature-card"><h3>Missed anomalies</h3><p>SkyGrid surfaces loiter, squawk, and ghost track events the moment they cross thresholds — before the situation is obvious to anyone watching manually.</p></div>
-                    <div class="feature-card"><h3>Fragmented posture</h3><p>BLACKGLASS gives SSH and configuration drift a single workflow: connect, baseline, detect, remediate, export evidence. No CMDB project required.</p></div>
-                    <div class="feature-card"><h3>Integration overhead</h3><p>Both products use the same API conventions — consistent schema, auth, and replay so teams wire it in once and extend it without rewrites.</p></div>
-                </div>
-                <div class="cta-actions" style="justify-content:center; margin-top:24px;">
-                    <a href="platform.html" class="btn btn-primary">Platform &amp; access</a>
-                    <a href="contact.html" class="btn btn-secondary">Discuss your workflow</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-card">
-                    <div class="cta-content">
-                        <h2>Built by operators, for operators</h2>
-                        <p>Obsidian Dynamics is founder-led, UK-registered, and ships both products in-house. No third-party resale, no opaque black boxes.</p>
-                        <div class="cta-actions">
-                            <a href="about.html" class="btn btn-primary">About Company</a>
-                            <a href="contact.html" class="btn btn-ghost">Simple Contact</a>
-                        </div>
-                    </div>
-                    <div class="cta-visual" aria-hidden="true"><div class="cta-orb"></div></div>
-                </div>
+                <p class="section-desc" style="text-align:center; margin-top:1.5rem; max-width:36rem; margin-left:auto; margin-right:auto;"><a href="tools.html">Free tools</a> · <a href="platform.html">Platform &amp; access</a> · <a href="about.html">About</a></p>
             </div>
         </section>
     </main>
@@ -149,11 +111,12 @@
                         <img src="img/logo.svg" alt="" class="logo-icon">
                         <span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span>
                     </a>
-                    <p class="footer-tagline">Operational intelligence for Project SkyGrid and Blackglass.</p>
+                    <p class="footer-tagline">SkyGrid · Blackglass · fewer moving parts.</p>
+                    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833<br><span class="footer-address">Lytchett House<br>13 Freeland Park, Wareham Road<br>Poole · Dorset · BH16 6FA · United Kingdom</span></p>
                 </div>
-                <div class="footer-links"><h4>Products</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Overview</a></li><li><a href="platform.html">Platform</a></li></ul></div>
-                <div class="footer-links"><h4>Resources</h4><ul><li><a href="api.html">API</a></li><li><a href="methodology.html">Methodology</a></li><li><a href="evidence-library.html">Evidence</a></li><li><a href="use-cases.html">Use cases</a></li><li><a href="trust-center.html">Trust Center</a></li><li><a href="status.html">Status</a></li></ul></div>
-                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="security.html">Security</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+                <div class="footer-links"><h4>Work</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Compare</a></li><li><a href="tools.html">Tools</a></li><li><a href="platform.html">Platform</a></li></ul></div>
+                <div class="footer-links"><h4>Live</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="trust-center.html">Trust</a></li><li><a href="status.html">Status</a></li></ul></div>
+                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="security.html">Security</a></li><li><a href="terms.html">Terms</a></li></ul></div>
             </div>
         </div>
     </footer>

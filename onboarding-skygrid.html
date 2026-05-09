@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyGrid Onboarding | Obsidian Dynamics</title>
-    <meta name="description" content="SkyGrid onboarding steps for setup, API usage, alert routing, and go-live validation—sister product under Obsidian Dynamics.">
+    <title>SkyGrid onboarding | Obsidian Dynamics</title>
+    <meta name="description" content="Short SkyGrid onboarding map — live docs on projectskygrid.com.">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/onboarding-skygrid">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="stylesheet" href="css/styles.css">
@@ -12,20 +12,14 @@
 <body>
 <a href="#main-content" class="skip-to-content">Skip to main content</a>
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
-<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"><a href="platform.html" class="nav-link">Platform</a><a href="products.html" class="nav-link">Products</a><a href="api.html" class="nav-link">API</a><a href="use-cases.html" class="nav-link">Use Cases</a><a href="intelligence.html" class="nav-link">Intelligence</a><a href="about.html" class="nav-link">Company</a><a href="contact.html" class="nav-link">Contact</a></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 <main id="main-content">
-    <section class="page-hero page-hero--skygrid"><div class="hero-grid-overlay"></div><div class="page-hero__badge">SKYGRID ONBOARDING</div><h1 class="page-hero__title">SkyGrid setup from <span class="gradient-text--sky">first key to live watch area</span></h1><p class="page-hero__subtitle">Use this guide to configure your SkyGrid workspace, alert logic, and integration endpoints—aligned to Obsidian Dynamics parent governance, same as the live product at projectskygrid.com.</p></section>
-    <section class="features-section"><div class="container"><div class="features-grid features-grid--3col">
-        <article class="feature-card feature-card--sky"><h3>1. Workspace and Roles</h3><p>Create your org workspace, assign owner/analyst roles, and enable MFA for privileged users.</p></article>
-        <article class="feature-card feature-card--sky"><h3>2. Watch Area Setup</h3><p>Define airspace watch zones and tune thresholds for loiter, ghost, squawk, and jamming events.</p></article>
-        <article class="feature-card feature-card--sky"><h3>3. Go-Live Validation</h3><p>Run replay checks, confirm webhook delivery, and verify dashboard-to-export consistency.</p></article>
-    </div></div></section>
-    <section class="features-section" style="padding-top:0;"><div class="container"><div class="section-header"><span class="section-tag">API STEPS</span><h2 class="section-title">SkyGrid integration sequence</h2></div><div class="features-grid features-grid--2col">
-        <article class="feature-card"><h3>Endpoints</h3><p><code>GET /v1/air/events</code><br><code>GET /v1/history/replay</code></p></article>
-        <article class="feature-card"><h3>Webhooks</h3><p>Create signed callbacks for anomaly events and validate retries in sandbox before production activation.</p></article>
-    </div><div class="cta-actions" style="justify-content:center; margin-top:24px;"><a href="api.html" class="btn btn-primary--sky">Open API Reference</a><a href="onboarding.html" class="btn btn-ghost">Back to Onboarding Hub</a></div></div></section>
+<section class="page-hero page-hero--skygrid"><div class="hero-grid-overlay"></div><div class="page-hero__badge">SKYGRID</div><h1 class="page-hero__title">Onboarding <span class="gradient-text--sky">map</span></h1><p class="page-hero__subtitle">Org → watch areas → webhooks/replay → go-live. Canonical docs: <a href="https://projectskygrid.com/knowledge-base" target="_blank" rel="noopener noreferrer">Knowledge base</a>.</p></section>
+<section class="features-section" style="padding-top:0;"><div class="container container--narrow">
+<p class="section-desc" style="max-width:none;">API patterns: <code class="font-mono">GET /v1/air/events</code>, <code class="font-mono">GET /v1/history/replay</code> — keys and limits come with your workspace.</p>
+<div class="cta-actions" style="justify-content:center; margin-top:1.25rem;"><a href="api.html" class="btn btn-primary--sky">API</a><a href="onboarding.html" class="btn btn-ghost">Hub</a></div>
+</div></section>
 </main>
-
 <footer class="footer" role="contentinfo"><div class="container"></div></footer>
 <script src="js/main.js"></script>
 </body>

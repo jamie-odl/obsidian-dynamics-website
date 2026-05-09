@@ -32,7 +32,15 @@
             "https://obsidiandynamics.co.uk/",
             "https://projectskygrid.com",
             "https://blackglasssec.com"
-        ]
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Lytchett House, 13 Freeland Park, Wareham Road",
+            "addressLocality": "Poole",
+            "addressRegion": "Dorset",
+            "postalCode": "BH16 6FA",
+            "addressCountry": "GB"
+        }
     }
     </script>
 </head>
@@ -63,10 +71,10 @@
     <!-- Hero -->
     <section class="page-hero page-hero--about">
         <div class="hero-grid-overlay" aria-hidden="true"></div>
-        <div class="page-hero__badge">ABOUT US</div>
+        <div class="page-hero__badge">ABOUT</div>
         <h1 class="page-hero__title">Obsidian <span class="gradient-text">Dynamics</span></h1>
         <p class="page-hero__subtitle">
-            We build operational risk intelligence systems for the physical world, helping teams detect disruption early, assess impact clearly, and act before delays cascade.
+            UK company, two product lines — SkyGrid and BLACKGLASS — plus <a href="tools.html">free tools</a>. We ship in-house; depth lives on the live products.
         </p>
     </section>
 
@@ -75,9 +83,8 @@
             <div class="about-grid">
                 <div class="about-content">
                     <span class="section-tag">WHO WE ARE</span>
-                    <h2 class="section-title">A focused operational risk intelligence company.</h2>
-                    <p>Obsidian Dynamics ships <a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer" style="color: var(--sky-primary);">Project SkyGrid</a> for air-domain intelligence and <a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer" style="color: var(--purple-primary);">BLACKGLASS</a> (<a href="blackglass.html">overview</a>) — operational integrity for Linux hosts: SSH posture, baselines, drift triage, audit-ready exports, matching blackglasssec.com.</p>
-                    <p>We help teams detect disruption earlier, understand likely impact faster, and execute better decisions with less noise.</p>
+                    <h2 class="section-title">Focused on two problems.</h2>
+                    <p><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer" style="color: var(--sky-primary);">SkyGrid</a> for air-domain signals. <a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer" style="color: var(--purple-primary);">BLACKGLASS</a> for Linux integrity. No resale, no extra product lines.</p>
                 </div>
                 <div class="about-visual" aria-hidden="true">
                     <div class="about-visual__hex">
@@ -90,70 +97,21 @@
         </div>
     </section>
 
-    <section class="features-section" style="padding-top: 0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">WHAT WE DO</span>
-                <h2 class="section-title">From signal ingestion to decision support</h2>
-            </div>
-            <div class="features-grid features-grid--3col">
-                <div class="feature-card">
-                    <h3>Detect</h3>
-                    <p>Ingest operational telemetry, compute baselines, and flag meaningful anomalies.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Score</h3>
-                    <p>Apply confidence and dependency context so teams can prioritize real risk quickly.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Act</h3>
-                    <p>Deliver workflow-ready alerts, replay, and API outputs that support operational decisions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Platforms -->
     <section class="features-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">OUR PRODUCTS</span>
-                <h2 class="section-title">Core surfaces. <span class="gradient-text">One thesis.</span></h2>
-                <p class="section-desc">Project SkyGrid in the browser; BLACKGLASS on blackglasssec.com for Linux integrity — agentless SSH, baseline freezes, drift with severity — one API vocabulary where we expose parent platform endpoints.</p>
+                <span class="section-tag">PRODUCTS</span>
+                <h2 class="section-title">SkyGrid · BLACKGLASS</h2>
             </div>
             <div class="features-grid features-grid--2col">
                 <div class="feature-card feature-card--sky feature-card--highlight">
-                    <h3>Project SkyGrid</h3>
-                    <p>Browser-first aircraft anomaly monitoring (SkyGrid). Eight detection classes — loiter, ghost, squawk, rapid descent, ICAO spoof, GPS jamming, formation flight, callsign duplicate — powered by global ADS-B data with 3D Cesium visualisation.</p>
-                    <a href="skygrid.html" class="feature-card__link">Learn more about SkyGrid →</a>
+                    <h3>SkyGrid</h3>
+                    <p>Air-domain anomaly intelligence — <a href="skygrid.html">Overview</a> · <a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">Live product</a></p>
                 </div>
                 <div class="feature-card feature-card--priority feature-card--highlight">
                     <h3>BLACKGLASS</h3>
-                    <p>Linux integrity monitoring — SSH posture, drift, exports, and tenancy — as published on blackglasssec.com.</p>
-                    <a href="blackglass.html" class="feature-card__link">Learn more about Blackglass →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-section" style="padding-top: 0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">PRINCIPLES</span>
-                <h2 class="section-title">How we build</h2>
-            </div>
-            <div class="features-grid features-grid--3col">
-                <div class="feature-card">
-                    <h3>Evidence First</h3>
-                    <p>Signals are based on observable telemetry and transparent context, not opaque scoring narratives.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Operator-Centric</h3>
-                    <p>Outputs are advisory and workflow-ready, designed to support human judgement under time pressure.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>API-Led</h3>
-                    <p>Products are built around structured delivery so teams can integrate quickly and scale reliably.</p>
+                    <p>Linux fleet console — <a href="blackglass.html">Overview</a> · <a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">Live product</a></p>
                 </div>
             </div>
         </div>
@@ -169,23 +127,17 @@
                     <div class="company-detail"><span class="company-detail__label">Company Number</span><span class="company-detail__value">16663833</span></div>
                     <div class="company-detail"><span class="company-detail__label">Jurisdiction</span><span class="company-detail__value">England &amp; Wales</span></div>
                     <div class="company-detail"><span class="company-detail__label">Register</span><span class="company-detail__value">Companies House</span></div>
+                    <div class="company-detail"><span class="company-detail__label">Registered office</span><span class="company-detail__value">Lytchett House, 13 Freeland Park, Wareham Road, Poole, Dorset BH16 6FA, United Kingdom</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-card">
-                <div class="cta-content">
-                    <h2>Get in touch</h2>
-                    <p>If SkyGrid air-domain intelligence or BLACKGLASS Linux fleet hardening sounds relevant to your team, we'd like to hear about your use case.</p>
-                    <div class="cta-actions">
-                        <a href="contact.html" class="btn btn-primary btn-lg">Contact us</a>
-                    </div>
-                </div>
-                <div class="cta-visual" aria-hidden="true"><div class="cta-orb"></div></div>
+    <section class="features-section" style="padding-top:0;">
+        <div class="container container--narrow">
+            <div class="cta-actions" style="justify-content:center;">
+                <a href="contact.html" class="btn btn-primary">Contact</a>
+                <a href="tools.html" class="btn btn-ghost">Tools</a>
             </div>
         </div>
     </section>
@@ -198,14 +150,14 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home"><svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 1L38 12L20 21L2 12Z" fill="url(#logoGrad2)" opacity="0.75"/><path d="M2 12L20 21L20 39L6 35Z" fill="url(#logoGrad2)" opacity="0.55"/><path d="M20 21L38 12L34 35L20 39Z" fill="url(#logoGrad2)"/><defs><linearGradient id="logoGrad2" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient></defs></svg><span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span></a>
-                    <p class="footer-tagline">Project SkyGrid · aircraft anomaly intelligence. BLACKGLASS · Linux operational integrity.</p>
-                    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>
+                    <p class="footer-tagline">SkyGrid · Blackglass · fewer moving parts.</p>
+                    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833<br><span class="footer-address">Lytchett House<br>13 Freeland Park, Wareham Road<br>Poole · Dorset · BH16 6FA · United Kingdom</span></p>
                 </div>
-                <div class="footer-links"><h4>Platforms</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="platform.html">Enterprise Platform</a></li></ul></div>
-                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="security.html">Security &amp; Trust</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
-                <div class="footer-links"><h4>External</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="https://reddit.com/r/ObsidianDynamics" target="_blank" rel="noopener noreferrer">Reddit</a></li><li><a href="https://discord.gg/obsidiandynamics" target="_blank" rel="noopener noreferrer">Discord</a></li></ul></div>
+                <div class="footer-links"><h4>Work</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Compare</a></li><li><a href="tools.html">Tools</a></li><li><a href="platform.html">Platform</a></li></ul></div>
+                <div class="footer-links"><h4>Live</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="trust-center.html">Trust</a></li><li><a href="status.html">Status</a></li></ul></div>
+                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="security.html">Security</a></li><li><a href="terms.html">Terms</a></li></ul></div>
             </div>
-            <div class="footer-bottom"><p>&copy; 2026 Obsidian Dynamics Limited. All rights reserved. Company No. 16663833</p><div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div>
+            <div class="footer-bottom"><p>&copy; 2026 Obsidian Dynamics Limited</p><div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
         </div>
     </footer>
     <script src="js/main.js"></script>

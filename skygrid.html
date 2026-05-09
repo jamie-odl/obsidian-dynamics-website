@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyGrid | Aircraft Anomaly Monitoring — Obsidian Dynamics</title>
-    <meta name="description" content="SkyGrid is a browser-first aircraft anomaly monitoring DaaS service. Detect loiter patterns, ghost tracks, GPS jamming, squawk codes, and ICAO spoofing in real time.">
-    <meta name="keywords" content="aircraft anomaly detection, flight monitoring, ADS-B, loiter detection, ghost track, squawk code, GPS jamming, ICAO spoofing, airspace monitoring, SkyGrid">
-    <meta name="author" content="Obsidian Dynamics Limited">
+    <title>SkyGrid | Obsidian Dynamics</title>
+    <meta name="description" content="Project SkyGrid — browser-first aircraft anomaly monitoring. Live product at projectskygrid.com; details in the knowledge base.">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#050507">
     <meta property="og:type" content="product">
-    <meta property="og:title" content="SkyGrid | Aircraft Anomaly Monitoring">
-    <meta property="og:description" content="Browser-first airspace monitoring. Detect and review aircraft anomalies — loiter, ghost, squawk, GPS jamming, rapid descent, formation flight, callsign duplicates, and ICAO spoofing.">
+    <meta property="og:title" content="SkyGrid | Obsidian Dynamics">
+    <meta property="og:description" content="Air-domain anomaly intelligence. Dashboard and documentation on projectskygrid.com.">
     <meta property="og:url" content="https://obsidiandynamics.co.uk/skygrid.html">
     <meta property="og:site_name" content="Obsidian Dynamics">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/skygrid">
@@ -27,7 +25,7 @@
         "name": "SkyGrid",
         "applicationCategory": "SecurityApplication",
         "operatingSystem": "Web Browser",
-        "description": "Browser-first aircraft anomaly monitoring DaaS service with 8 detection classes including loiter, ghost, squawk, GPS jamming, and ICAO spoofing.",
+        "description": "Browser-first aircraft anomaly monitoring with multiple advisory detection classes.",
         "url": "https://projectskygrid.com",
         "provider": {
             "@type": "Organization",
@@ -44,363 +42,41 @@
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">
-                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 1L38 12L20 21L2 12Z" fill="url(#logoGrad)" opacity="0.75"/><path d="M2 12L20 21L20 39L6 35Z" fill="url(#logoGrad)" opacity="0.55"/><path d="M20 21L38 12L34 35L20 39Z" fill="url(#logoGrad)"/><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient></defs></svg>
                 <span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span>
             </a>
-            <div class="nav-links" id="navLinks">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="skygrid.html" class="nav-link active">SkyGrid</a>
-                <a href="blackglass.html" class="nav-link">Blackglass</a>
-                <a href="platform.html" class="nav-link">Platform</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="contact.html" class="nav-cta">Contact Team</a>
-            </div>
+            <div class="nav-links" id="navLinks"></div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
     </nav>
 
     <main id="main-content">
-    <!-- Hero -->
-    <section class="page-hero page-hero--skygrid">
-        <div class="hero-grid-overlay" aria-hidden="true"></div>
-        <div class="page-hero__badge">PROJECT SKYGRID</div>
-        <h1 class="page-hero__title"><span class="gradient-text--sky">SkyGrid</span></h1>
-        <p class="page-hero__subtitle">
-            Browser-first airspace monitoring. Detect and review aircraft anomalies without leaving the browser.
-            Monitor live traffic, triage suspicious patterns, and forward validated events into downstream workflows with structured data.
-        </p>
-        <div class="page-hero__actions">
-            <a href="https://projectskygrid.com/dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-primary--sky">
-                Open Dashboard
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-            </a>
-            <a href="https://projectskygrid.com/knowledge-base" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Knowledge Base</a>
-        </div>
-    </section>
+        <section class="page-hero page-hero--skygrid">
+            <div class="hero-grid-overlay" aria-hidden="true"></div>
+            <div class="page-hero__badge">PROJECT SKYGRID</div>
+            <h1 class="page-hero__title"><span class="gradient-text--sky">SkyGrid</span></h1>
+            <p class="page-hero__subtitle">
+                Advisory air-domain detections in the browser — watch areas, triage, then route structured events to your stack. Depth lives on the live product, not on this page.
+                <span class="hero-repo-note">Reference: <a href="https://github.com/thevenomv/ProjectSkygrid" target="_blank" rel="noopener noreferrer">ProjectSkygrid on GitHub</a>.</span>
+            </p>
+            <div class="page-hero__actions">
+                <a href="https://projectskygrid.com/dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-primary--sky">Open dashboard</a>
+                <a href="https://projectskygrid.com/knowledge-base" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Knowledge base</a>
+                <a href="contact.html" class="btn btn-ghost">Contact</a>
+            </div>
+        </section>
 
-    <section class="visual-story-strip" aria-label="SkyGrid visual context">
-        <div class="container">
-            <div class="visual-story-grid">
-                <article class="visual-story-card">
-                    <img src="img/story/skygrid-airspace-1280.webp" srcset="img/story/skygrid-airspace-640.webp 640w, img/story/skygrid-airspace-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" alt="Aircraft cruising above cloud layer" loading="lazy">
-                    <div class="visual-story-content">
-                        <span class="visual-story-kicker">Monitor</span>
-                        <h3>Live Airspace Monitor</h3>
-                        <p>Track active aircraft and unusual movement patterns in one continuously updated operational view.</p>
-                    </div>
-                </article>
-                <article class="visual-story-card">
-                    <img src="img/story/skygrid-ops-1280.webp" srcset="img/story/skygrid-ops-640.webp 640w, img/story/skygrid-ops-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" alt="Operations team monitoring live air traffic screens" loading="lazy">
-                    <div class="visual-story-content">
-                        <span class="visual-story-kicker">Triage</span>
-                        <h3>Analyst Triage Workflow</h3>
-                        <p>Move from raw detections to validated anomaly events with clear evidence context.</p>
-                    </div>
-                </article>
-                <article class="visual-story-card">
-                    <img src="img/story/skygrid-surveillance-1280.webp" srcset="img/story/skygrid-surveillance-640.webp 640w, img/story/skygrid-surveillance-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 33vw" alt="Airfield runway and surveillance context" loading="lazy">
-                    <div class="visual-story-content">
-                        <span class="visual-story-kicker">Coordinate</span>
-                        <h3>Signal-to-Action Routing</h3>
-                        <p>Coordinate validated events to downstream operational and security systems through stable delivery paths.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Metrics -->
-    <section class="metrics-bar" aria-label="Platform statistics">
-        <div class="container">
-            <div class="metrics-grid">
-                <div class="metric-card metric-card--sky"><div class="metric-value">9,785</div><div class="metric-label">Aircraft Tracked Live</div></div>
-                <div class="metric-card metric-card--sky"><div class="metric-value">8/8</div><div class="metric-label">Rule Coverage</div></div>
-                <div class="metric-card metric-card--sky"><div class="metric-value">24/7</div><div class="metric-label">Global Monitoring</div></div>
-                <div class="metric-card metric-card--sky"><div class="metric-value">99.9%</div><div class="metric-label">Uptime SLA</div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Three Pillars -->
-    <section class="features-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">WORKFLOW</span>
-                <h2 class="section-title"><span class="gradient-text--sky">Monitor. Triage. Coordinate.</span></h2>
-                <p class="section-desc">Three operational modes, one seamless workflow.</p>
-            </div>
-            <div class="features-grid features-grid--3col">
-                <div class="feature-card feature-card--sky feature-card--highlight">
-                    <div class="feature-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="20"/><circle cx="24" cy="24" r="12"/><circle cx="24" cy="24" r="4" fill="currentColor" opacity="0.3"/><path d="M24 4V12M24 36V44M4 24H12M36 24H44"/></svg></div>
-                    <h3>Monitor</h3>
-                    <p>See active aircraft, anomaly markers, and watch-area overlays in one operational 3D map view powered by Cesium.</p>
-                </div>
-                <div class="feature-card feature-card--sky feature-card--highlight">
-                    <div class="feature-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="4"/><path d="M6 18H42"/><path d="M14 28H34M14 34H26"/></svg></div>
-                    <h3>Triage</h3>
-                    <p>Review anomaly events across all eight detection types with timestamps, location context, and configurable filter controls.</p>
-                </div>
-                <div class="feature-card feature-card--sky feature-card--highlight">
-                    <div class="feature-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 24H20L24 16L28 32L32 24H36"/><circle cx="8" cy="24" r="4"/><circle cx="40" cy="24" r="4"/></svg></div>
-                    <h3>Coordinate</h3>
-                    <p>Route validated events to downstream systems through stable API and webhook delivery paths. Structured JSON payloads, ready for integration.</p>
+        <section class="features-section" style="padding-top:0;">
+            <div class="container container--narrow">
+                <p class="section-desc" style="max-width:none; text-align:center;">Eight detection classes (loiter, ghost, squawk, rapid descent, ICAO spoof, GPS jamming, formation, callsign duplicate) — each advisory, timestamped, and documented where operators work day to day.</p>
+                <div class="cta-actions" style="justify-content:center; margin-top:1.5rem;">
+                    <a href="https://projectskygrid.com/knowledge-base/getting-started" target="_blank" rel="noopener noreferrer" class="btn btn-primary--sky">Getting started</a>
+                    <a href="index.html" class="btn btn-ghost">Obsidian home</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Detection Classes -->
-    <section class="features-section" style="padding-top: 0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">DETECTION CLASSES</span>
-                <h2 class="section-title">Eight Anomaly Types. <span class="gradient-text--sky">Full Coverage.</span></h2>
-                <p class="section-desc">Every detection is advisory, timestamped, and structured for analyst review — not a final determination.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card feature-card--sky">
-                    <h3>Loiter</h3>
-                    <p>Aircraft remains in the same H3 cell beyond the configured dwell threshold. Flags circling, holding, or surveillance behaviour.</p>
-                </div>
-                <div class="feature-card feature-card--sky">
-                    <h3>Ghost</h3>
-                    <p>Missing callsign with non-zero position and airborne altitude profile. Identifies aircraft transmitting position but no identification.</p>
-                </div>
-                <div class="feature-card feature-card--sky">
-                    <h3>Squawk</h3>
-                    <p>Emergency transponder codes — 7500 (hijack), 7600 (radio failure), 7700 (general emergency). Immediate priority events.</p>
-                </div>
-                <div class="feature-card feature-card--sky">
-                    <h3>Rapid Descent</h3>
-                    <p>Abnormal vertical speed exceeding safe descent parameters. Identifies potential emergencies or unusual operations.</p>
-                </div>
-                <div class="feature-card feature-card--sky">
-                    <h3>ICAO Spoof</h3>
-                    <p>Aircraft transmitting a Mode-S address that doesn't match expected registration. Flags potential identity manipulation.</p>
-                </div>
-                <div class="feature-card feature-card--sky">
-                    <h3>GPS Jamming</h3>
-                    <p>Position data inconsistencies suggesting GPS interference or spoofing. Cross-references multiple data points for validation.</p>
-                </div>
-                <div class="feature-card feature-card--sky">
-                    <h3>Formation Flight</h3>
-                    <p>Multiple aircraft maintaining unusually close proximity and coordinated movement patterns outside of published formation routes.</p>
-                </div>
-                <div class="feature-card feature-card--sky">
-                    <h3>Callsign Duplicate</h3>
-                    <p>Same callsign appearing simultaneously on multiple transponders. Indicates configuration errors or potential spoofing.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sample Alert Payload -->
-    <section class="features-section" style="padding-top: 0;" id="sample-output">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">SAMPLE OUTPUT</span>
-                <h2 class="section-title">What a Detection <span class="gradient-text--sky">Looks Like</span></h2>
-                <p class="section-desc">Every anomaly event is delivered as structured JSON — via dashboard, REST API, or webhook. Here's a real loiter detection payload.</p>
-            </div>
-            <div class="sample-payload">
-                <div class="sample-payload__header">
-                    <span class="sample-payload__label">LOITER DETECTION — JSON PAYLOAD</span>
-                    <span class="sample-payload__badge">WEBHOOK / API</span>
-                </div>
-<pre class="sample-payload__code"><code>{
-  "event_id": "sg-evt-20260415-0847-loiter-3fa2",
-  "type": "loiter",
-  "severity": "medium",
-  "confidence": 0.87,
-  "timestamp": "2026-04-15T08:47:12Z",
-  "aircraft": {
-    "icao24": "4CA8B3",
-    "callsign": "RYR26MK",
-    "registration": "EI-HGN",
-    "type_code": "B738",
-    "operator": "Ryanair"
-  },
-  "detection": {
-    "h3_cell": "871f5a509ffffff",
-    "dwell_minutes": 42,
-    "dwell_threshold": 20,
-    "altitude_ft": 8200,
-    "ground_speed_kts": 185,
-    "heading_variance_deg": 312,
-    "orbits_estimated": 6
-  },
-  "location": {
-    "lat": 35.1842,
-    "lon": 33.3823,
-    "region": "Eastern Mediterranean",
-    "watch_area": "Cyprus FIR"
-  },
-  "baseline": {
-    "normal_dwell_avg_min": 3.2,
-    "deviation_factor": 13.1,
-    "baseline_period": "90d"
-  },
-  "metadata": {
-    "rule_version": "2.4.1",
-    "pipeline_latency_ms": 847,
-    "delivery": "webhook"
-  }
-}</code></pre>
-                <p class="sample-payload__note">Every detection includes aircraft identity, spatial context, baseline deviation, confidence score, and pipeline metadata. Payloads are identical across dashboard, API, and webhook delivery.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Demo CTA -->
-    <section class="demo-cta-banner demo-cta-banner--sky">
-        <div class="container">
-            <div class="cta-card--inline">
-                <div>
-                    <h3>See SkyGrid detections with your own watch areas</h3>
-                    <p>Schedule a 30-minute operational walkthrough with live data. We'll configure a watch area relevant to your use case and show real detections in the dashboard.</p>
-                </div>
-                <a href="contact.html" class="btn btn-primary--sky btn-lg">Discuss Access <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">TRUST AND METHOD</span>
-                <h2 class="section-title">How Detections Are <span class="gradient-text--sky">Produced</span></h2>
-            </div>
-            <div class="steps-container">
-                <div class="step-item step-item--sky"><div class="step-number">01</div><div class="step-content"><h3>Live Data Ingestion</h3><p>SkyGrid continuously ingests global ADS-B and Mode-S data from distributed receiver networks, providing real-time position and metadata for thousands of aircraft simultaneously.</p></div></div>
-                <div class="step-item step-item--sky"><div class="step-number">02</div><div class="step-content"><h3>Watch Area Filtering</h3><p>Analysts define geographic watch areas. Only aircraft inside active watch zones are processed for anomaly evaluation, keeping signal-to-noise ratio high and compute focused.</p></div></div>
-                <div class="step-item step-item--sky"><div class="step-number">03</div><div class="step-content"><h3>Rule Evaluation</h3><p>Eight detection classes run in parallel against filtered traffic. Loiter dwell thresholds, ghost callsign checks, squawk code monitoring, rapid descent, GPS consistency, and more.</p></div></div>
-                <div class="step-item step-item--sky"><div class="step-number">04</div><div class="step-content"><h3>Event Delivery</h3><p>Matched anomalies are classified, timestamped, and delivered via the dashboard, REST API, or webhook endpoints. Structured JSON payloads ready for downstream triage and integration.</p></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Methodology -->
-    <section class="features-section" style="padding-top: 0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">METHODOLOGY</span>
-                <h2 class="section-title">What Counts as a <span class="gradient-text--sky">Detection</span></h2>
-                <p class="section-desc">Every detection is advisory, not deterministic. Here's how we define, validate, and communicate anomaly events.</p>
-            </div>
-            <div class="methodology-grid">
-                <div class="methodology-item">
-                    <h4>Baseline Logic</h4>
-                    <p>Each detection class uses rolling baselines (7/30/90/365-day windows) to establish normal behaviour per watch area. Deviations are scored against these baselines, not static thresholds.</p>
-                </div>
-                <div class="methodology-item">
-                    <h4>Confidence Scoring</h4>
-                    <p>Every event includes a confidence score (0.0–1.0) derived from signal strength, data completeness, baseline deviation factor, and corroborating data points. Analysts filter by confidence.</p>
-                </div>
-                <div class="methodology-item">
-                    <h4>False Positive Handling</h4>
-                    <p>Detections are advisory signals, not verdicts. Analysts review events in context. Common benign patterns (holding patterns near airports, training exercises) are documented in the knowledge base to support triage.</p>
-                </div>
-                <div class="methodology-item">
-                    <h4>Known Limitations</h4>
-                    <p>ADS-B coverage varies by region. Aircraft without functioning transponders are invisible to the system. Jamming detection relies on position inconsistencies, not RF analysis. We document gaps, not hide them.</p>
-                </div>
-                <div class="methodology-item">
-                    <h4>Data Source Provenance</h4>
-                    <p>All position data comes from distributed ground-based ADS-B receiver networks. Data is ingested via authenticated feeds, not scraped. Receiver network coverage maps are available in the knowledge base.</p>
-                </div>
-                <div class="methodology-item">
-                    <h4>Latency Expectations</h4>
-                    <p>Typical end-to-end pipeline latency (receiver → ingestion → rule evaluation → delivery) is under 60 seconds. Webhook delivery adds &lt;200ms. Dashboard refresh follows the same cycle.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How Analysts Use SkyGrid -->
-    <section class="features-section" style="padding-top: 0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">ANALYST WORKFLOW</span>
-                <h2 class="section-title">How Analysts Use <span class="gradient-text--sky">SkyGrid</span></h2>
-                <p class="section-desc">From alert to action in three steps.</p>
-            </div>
-            <div class="analyst-steps">
-                <div class="analyst-step">
-                    <span class="analyst-step__number">01</span>
-                    <h4>Alert Arrives</h4>
-                    <p>A loiter detection fires for an unidentified aircraft circling over a watch area. The alert appears on the dashboard, arrives via webhook in Slack, and is logged in the event table with full metadata.</p>
-                </div>
-                <div class="analyst-step">
-                    <span class="analyst-step__number">02</span>
-                    <h4>Triage in Context</h4>
-                    <p>The analyst opens the 3D map, sees the aircraft track, checks the confidence score (0.87), reviews the baseline deviation (13× normal dwell), and cross-references with known holding patterns. No match — this is anomalous.</p>
-                </div>
-                <div class="analyst-step">
-                    <span class="analyst-step__number">03</span>
-                    <h4>Act or Escalate</h4>
-                    <p>The analyst marks the event as confirmed, adds a note, and forwards the structured JSON payload to the downstream SIEM or coordination channel. The event is now part of the auditable record.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-section" style="padding-top: 0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">PILOT PLAN</span>
-                <h2 class="section-title">14-day pilot implementation with success criteria</h2>
-            </div>
-            <div class="features-grid features-grid--3col">
-                <div class="feature-card feature-card--sky"><h3>Scope</h3><p>Define one watch area, one analyst workflow, and one downstream integration endpoint.</p></div>
-                <div class="feature-card feature-card--sky"><h3>Validate</h3><p>Measure detection relevance, confidence distribution, and triage speed improvement.</p></div>
-                <div class="feature-card feature-card--sky"><h3>Decide</h3><p>Review outcomes and scale coverage or move to cross-domain platform rollout.</p></div>
-            </div>
-            <div class="cta-actions" style="justify-content:center; margin-top:24px;">
-                <a href="contact.html" class="btn btn-primary--sky">Discuss Operational Plan</a>
-                <a href="onboarding-skygrid.html" class="btn btn-secondary">Open SkyGrid Onboarding</a>
-                <a href="trust-center.html" class="btn btn-ghost">Review Trust Center</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-card">
-                <div class="cta-content">
-                    <h2>Start with one watch area.</h2>
-                    <p>Tune a focused rule set, validate event delivery, then scale coverage. The getting started guide walks you through the first 15 minutes.</p>
-                    <div class="cta-actions">
-                        <a href="https://projectskygrid.com/knowledge-base/getting-started" target="_blank" rel="noopener noreferrer" class="btn btn-primary--sky btn-lg">Getting Started Guide <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg></a>
-                        <a href="https://projectskygrid.com/dashboard" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Open Dashboard</a>
-                        <a href="contact.html" class="btn btn-ghost">Discuss Watch Area Scope</a>
-                    </div>
-                </div>
-                <div class="cta-visual" aria-hidden="true"><div class="cta-orb"></div></div>
-            </div>
-        </div>
-    </section>
-
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home"><svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 1L38 12L20 21L2 12Z" fill="url(#logoGrad2)" opacity="0.75"/><path d="M2 12L20 21L20 39L6 35Z" fill="url(#logoGrad2)" opacity="0.55"/><path d="M20 21L38 12L34 35L20 39Z" fill="url(#logoGrad2)"/><defs><linearGradient id="logoGrad2" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient></defs></svg><span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span></a>
-                    <p class="footer-tagline">Project SkyGrid · aircraft anomaly intelligence. BLACKGLASS · Linux operational integrity.</p>
-                    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>
-                </div>
-                <div class="footer-links"><h4>Platforms</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="platform.html">Enterprise Platform</a></li></ul></div>
-                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="security.html">Security &amp; Trust</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
-                <div class="footer-links"><h4>External</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="https://reddit.com/r/ObsidianDynamics" target="_blank" rel="noopener noreferrer">Reddit</a></li><li><a href="https://discord.gg/obsidiandynamics" target="_blank" rel="noopener noreferrer">Discord</a></li></ul></div>
-            </div>
-            <div class="footer-bottom"><p>&copy; 2026 Obsidian Dynamics Limited. All rights reserved. Company No. 16663833</p><div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div>
-        </div>
-    </footer>
+    <footer class="footer" role="contentinfo"><div class="container"></div></footer>
     <script src="js/main.js"></script>
 </body>
 </html>

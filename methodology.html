@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Methodology Whitepaper | Obsidian Dynamics</title>
-    <meta name="description" content="How Obsidian Dynamics generates confidence-scored risk signals, handles false positives, and communicates known limitations.">
+    <title>Methodology | Obsidian Dynamics</title>
+    <meta name="description" content="How Obsidian scores signals, documents limitations, and treats outputs as advisory — for SkyGrid and BLACKGLASS.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/methodology">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
@@ -13,28 +13,21 @@
 <body>
 <a href="#main-content" class="skip-to-content">Skip to main content</a>
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
-<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"><a href="platform.html" class="nav-link">Platform</a><a href="products.html" class="nav-link">Products</a><a href="api.html" class="nav-link">API</a><a href="use-cases.html" class="nav-link">Use Cases</a><a href="intelligence.html" class="nav-link">Intelligence</a><a href="about.html" class="nav-link">Company</a><a href="contact.html" class="nav-link">Contact</a></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 <main id="main-content">
-    <section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">METHODOLOGY WHITEPAPER</div><h1 class="page-hero__title">How we turn telemetry into operational risk signals</h1><p class="page-hero__subtitle">A plain-English methodology for data provenance, confidence scoring, false-positive handling, and known system limitations.</p></section>
-    <section class="features-section">
-        <div class="container">
-            <p class="section-desc" style="max-width:40rem; margin:0 auto 20px; text-align:center;">Applies to <a href="skygrid.html">Project SkyGrid</a> (air-domain) and <a href="blackglass.html">BLACKGLASS</a> on blackglasssec.com — operational integrity for Linux hosts, fleet baselines, drift triage, evidence exports.</p>
-            <div class="methodology-grid">
-                <div class="methodology-item"><h4>Data Provenance</h4><p>Inputs are ingested from authenticated sources, normalized into one schema, and timestamped for auditable processing lineage.</p></div>
-                <div class="methodology-item"><h4>Confidence Scoring</h4><p>Each event includes confidence derived from signal completeness, baseline deviation, corroborating context, and source quality.</p></div>
-                <div class="methodology-item"><h4>False Positive Handling</h4><p>Known benign patterns are documented; low-confidence events are surfaced with flags; operator feedback feeds threshold tuning.</p></div>
-                <div class="methodology-item"><h4>Known Limitations</h4><p>Coverage gaps, source latency constraints, and non-observable conditions are explicitly documented in every module workflow.</p></div>
-                <div class="methodology-item"><h4>Governance Posture</h4><p>Signals are advisory decision support outputs, not deterministic truth claims, and are intended to be interpreted by trained operators.</p></div>
-                <div class="methodology-item"><h4>Update Cadence</h4><p>Rule and model updates are versioned; significant changes are communicated with impact notes and rollout windows.</p></div>
-            </div>
-            <div class="cta-actions" style="justify-content:center; margin-top:24px;">
-                <a href="trust-center.html" class="btn btn-primary">Open Trust Center</a>
-                <a href="contact.html" class="btn btn-ghost">Discuss Technical Walkthrough</a>
+    <section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">METHODOLOGY</div><h1 class="page-hero__title">Signals, not <span class="gradient-text">verdicts</span></h1><p class="page-hero__subtitle">Provenance, confidence, known gaps, and versioning — applied to <a href="skygrid.html">SkyGrid</a> and <a href="blackglass.html">BLACKGLASS</a>. Outputs stay advisory; operators decide.</p></section>
+    <section class="features-section" style="padding-top:0;">
+        <div class="container container--narrow">
+            <p class="section-desc" style="max-width:none;">We ingest from authenticated or customer-approved sources, normalise to one schema, timestamp everything, and attach confidence from completeness and baseline deviation. Benign patterns and limitations are documented per product surface. Rule changes are versioned with notice where they affect contracts.</p>
+            <div class="cta-actions" style="justify-content:center; margin-top:1.5rem; flex-wrap:wrap;">
+                <a href="trust-center.html" class="btn btn-primary">Trust</a>
+                <a href="https://projectskygrid.com/knowledge-base" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">SkyGrid KB</a>
+                <a href="https://blackglasssec.com/security" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">BLACKGLASS security</a>
             </div>
         </div>
     </section>
 </main>
-<footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 Obsidian Dynamics Limited</p></div></div></footer>
+<footer class="footer" role="contentinfo"><div class="container"></div></footer>
 <script src="js/main.js"></script>
 </body>
 </html>

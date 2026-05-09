@@ -32,25 +32,18 @@
         <h1 class="page-hero__title" style="margin-top:0.75rem;">Detect Linux configuration drift before it becomes an incident.</h1>
         <p class="page-hero__subtitle">SSH posture auditing and configuration drift detection for Linux fleets. Agentless collection, baseline snapshots, and audit-ready evidence exports.</p>
         <div class="page-hero__actions">
-            <a href="https://blackglasssec.com/demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore demo</a>
-            <a href="https://blackglasssec.com/sign-up" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Start free trial</a>
-            <a href="contact.html" class="btn btn-ghost">Discuss with us</a>
+            <a href="https://blackglasssec.com/demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Demo</a>
+            <a href="https://blackglasssec.com/sign-up" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Trial</a>
+            <a href="contact.html" class="btn btn-ghost">Contact</a>
         </div>
-        <p class="footer-company-info" style="margin-top:1rem;text-align:center;max-width:none;">No credit card for trial · Unlimited viewers on paid plans · Built for ops &amp; security teams</p>
     </section>
 
     <section class="features-section" id="why-drift" aria-labelledby="why-drift-heading">
-        <div class="container">
+        <div class="container container--narrow">
             <div class="section-header">
-                <span class="section-tag">WHY DRIFT MATTERS</span>
-                <h2 class="section-title" id="why-drift-heading">Why drift matters</h2>
-                <p class="section-desc" style="max-width:42rem;">Firewall rules change. Packages update. Someone toggles <code class="font-mono" style="color:var(--sky-primary);">PermitRootLogin</code>. Manual spreadsheets and quarterly scans miss the window where risk actually changes. Small teams need the same signal clarity as multi-region fleets — without another heavyweight CMDB project.</p>
-            </div>
-            <div class="features-grid features-grid--2col">
-                <div class="feature-card"><p>Config drift you only notice when something breaks — or when an auditor asks.</p></div>
-                <div class="feature-card"><p>Scattered SSH keys and inconsistent hardening across hosts make blast radius hard to scope.</p></div>
-                <div class="feature-card"><p>Ad-hoc emergency fixes leave snowflake hosts nobody can explain or reproduce.</p></div>
-                <div class="feature-card"><p>No clear evidence trail for security reviews — screenshots in Slack threads do not scale.</p></div>
+                <span class="section-tag">WHY IT EXISTS</span>
+                <h2 class="section-title" id="why-drift-heading">Drift shows up late</h2>
+                <p class="section-desc" style="max-width:none;">Packages, sshd, listeners, and access patterns change continuously. BLACKGLASS gives that delta a single workflow — baseline, compare, export — without a CMDB programme.</p>
             </div>
         </div>
     </section>
@@ -71,17 +64,18 @@
     </section>
 
     <section class="features-section" style="padding-top:0;">
+        <div class="container container--narrow">
+            <p class="section-desc" style="max-width:none; text-align:center;">Tenant isolation, agentless SSH collection, and an audit trail for material actions — summarised on <a href="https://blackglasssec.com/security" target="_blank" rel="noopener noreferrer">blackglasssec.com/security</a>.</p>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="codebase-heading">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">SECURITY &amp; TRUST</span>
-                <h2 class="section-title">Security &amp; trust</h2>
+                <span class="section-tag">CODEBASE</span>
+                <h2 class="section-title" id="codebase-heading">Same product, visible source</h2>
+                <p class="section-desc" style="max-width:40rem;">The hosted console is the Next.js application in <a href="https://github.com/thevenomv/blackglass-console" target="_blank" rel="noopener noreferrer">blackglass-console</a>: fleet baselines, configuration findings, evidence exports, and SaaS operations — aligned with what ships at <a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a>.</p>
             </div>
-            <div class="features-grid features-grid--2col">
-                <div class="feature-card"><p>Full tenant isolation — workspace data is never shared across accounts. Access roles enforced server-side.</p></div>
-                <div class="feature-card"><p>Agentless by default — the collector reads metadata over SSH only. No env vars, keys, or secrets are stored in BLACKGLASS.</p></div>
-                <div class="feature-card" style="grid-column:1/-1;max-width:100%;"><p>Audit trail for every state-changing action: scans, baseline changes, invites, and billing events.</p></div>
-            </div>
-            <p class="section-desc" style="text-align:center;margin-top:1rem;"><a href="https://blackglasssec.com/security" target="_blank" rel="noopener noreferrer">Read security overview on blackglasssec.com →</a></p>
         </div>
     </section>
 
@@ -93,9 +87,8 @@
                 <p class="section-desc" style="max-width:36rem;">The full product site has use cases, pricing, CIS benchmark coverage, and SSH audit guides. Start with the interactive demo — no account needed.</p>
             </div>
             <div class="cta-actions" style="justify-content:center;">
-                <a href="https://blackglasssec.com/demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Interactive demo</a>
+                <a href="https://blackglasssec.com/demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Demo</a>
                 <a href="https://blackglasssec.com/pricing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Pricing</a>
-                <a href="trust-center.html" class="btn btn-ghost">Trust Center</a>
             </div>
         </div>
     </section>

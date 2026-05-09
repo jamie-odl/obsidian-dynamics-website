@@ -73,6 +73,41 @@
     --signal-cyan-dim: rgba(0, 240, 255, 0.12);
 }
 
+/* --- Global minimal theme (“less is more”) --- */
+html.theme-less #particleCanvas {
+    display: none !important;
+}
+html.theme-less .hero-grid-overlay,
+html.theme-less .page-hero .hero-grid-overlay {
+    opacity: 0.35;
+}
+html.theme-less .hero-badge,
+html.theme-less .page-hero__badge {
+    opacity: 0.9;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    padding: 6px 16px;
+    margin-bottom: 24px;
+}
+html.theme-less .hero-title,
+html.theme-less .page-hero__title {
+    font-weight: 700;
+}
+html.theme-less .cta-section .cta-orb,
+html.theme-less .cta-visual .cta-orb {
+    opacity: 0.2;
+    transform: scale(0.92);
+}
+html.theme-less .site-version-badge {
+    display: none !important;
+}
+html.theme-less .ui-simple-mode :is(.features-section, .how-it-works, .built-for-section, .about-section, .contact-section, .services, .capabilities, .trust-section, .case-studies) {
+    padding: 56px 0 72px;
+}
+html.theme-less .navbar:not(.scrolled) {
+    background: transparent;
+}
+
 /* Monospace and numeric UI (matches product-surface discipline across Obsidian) */
 code, kbd, samp, .font-data, .api-inline-endpoint {
     font-family: var(--font-mono);
@@ -487,6 +522,12 @@ input, textarea, select { font-family: inherit; }
     color: var(--obsidian-200);
     max-width: 72ch;
     line-height: var(--line-body);
+}
+.page-hero__subtitle .hero-repo-note {
+    display: block;
+    margin-top: 0.65rem;
+    font-size: 0.88em;
+    opacity: 0.88;
 }
 .page-hero__actions {
     display: flex;
@@ -1874,6 +1915,14 @@ input, textarea, select { font-family: inherit; }
     color: var(--obsidian-500);
     margin-top: 8px;
     font-weight: 500;
+    line-height: 1.55;
+    max-width: 280px;
+}
+.footer-address {
+    display: block;
+    margin-top: 6px;
+    font-weight: 400;
+    color: var(--obsidian-400);
 }
 .footer-links h4 {
     font-size: 12px;

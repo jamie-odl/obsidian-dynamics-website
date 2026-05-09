@@ -3,6 +3,8 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.classList.add('theme-less');
+
     // --- Google Fonts: load on every page (even if HTML omitted) ---
     (function ensureFontStack() {
         if (document.querySelector('link[href*="JetBrains+Mono"]') || document.querySelector('link[href*="Inter:wght"]')) {
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.9.4';
+    const SITE_VERSION = 'v2.11.1';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
@@ -82,13 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
             { href: 'skygrid.html', label: 'SkyGrid' },
             { href: 'blackglass.html', label: 'Blackglass' },
             { href: 'platform.html', label: 'Platform' },
-            { href: 'about.html', label: 'About' },
+            { href: 'tools.html', label: 'Tools' },
             { href: 'contact.html', label: 'Contact' }
         ];
         return items.map((item) => {
             const isActive = item.href === activePage;
             return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
-        }).join('') + '<a href="contact.html" class="nav-cta">Contact Team</a>';
+        }).join('');
     }
 
     function injectCookieConsentBar() {
@@ -157,15 +159,15 @@ document.addEventListener('DOMContentLoaded', () => {
             '<div class="footer-grid">' +
             '  <div class="footer-brand">' +
             '    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
-            '    <p class="footer-tagline">Air-domain intelligence (SkyGrid) and Linux integrity (BLACKGLASS).</p>' +
-            '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>' +
+            '    <p class="footer-tagline">SkyGrid · Blackglass · fewer moving parts.</p>' +
+            '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833<br><span class="footer-address">Lytchett House<br>13 Freeland Park, Wareham Road<br>Poole · Dorset · BH16 6FA · United Kingdom</span></p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Products</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Overview</a></li><li><a href="platform.html">Platform &amp; access</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Resources</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="api.html">API</a></li><li><a href="methodology.html">Methodology</a></li><li><a href="evidence-library.html">Evidence</a></li><li><a href="use-cases.html">Use cases</a></li><li><a href="trust-center.html">Trust Center</a></li><li><a href="status.html">Status</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="security.html">Security</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Work</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Compare</a></li><li><a href="tools.html">Tools</a></li><li><a href="platform.html">Platform</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="trust-center.html">Trust</a></li><li><a href="status.html">Status</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="security.html">Security</a></li><li><a href="terms.html">Terms</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
-            '  <p>&copy; 2026 Obsidian Dynamics Limited. Review Build <span class="site-version-inline">' + SITE_VERSION + '</span></p>' +
+            '  <p>&copy; 2026 Obsidian Dynamics Limited</p>' +
             '  <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>' +
             '</div>';
 
@@ -180,17 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const footerContainer = footer.querySelector('.container');
         if (!footerContainer) return;
         footerContainer.innerHTML = footerMarkup;
-    }
-
-    function addVersionBadge() {
-        const existing = document.getElementById('siteVersionBadge');
-        if (existing) return;
-        const badge = document.createElement('div');
-        badge.id = 'siteVersionBadge';
-        badge.className = 'site-version-badge';
-        badge.textContent = 'Review Build ' + SITE_VERSION;
-        badge.setAttribute('aria-label', 'Review build version ' + SITE_VERSION);
-        document.body.appendChild(badge);
     }
 
     function normalizeCtaLanguage() {
@@ -400,7 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     applyGlobalBrandShell();
-    addVersionBadge();
     normalizeCtaLanguage();
     markMediaForPerformance();
     ensureSeoMetaDefaults();
@@ -493,7 +483,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Particle Canvas ---
     const canvas = document.getElementById('particleCanvas');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (canvas && !prefersReducedMotion) {
+    const minimalChrome = document.documentElement.classList.contains('theme-less');
+    if (canvas && !prefersReducedMotion && !minimalChrome) {
         const ctx = canvas.getContext('2d');
         let particles = [];
         let mouseX = -1000;

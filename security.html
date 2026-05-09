@@ -3,250 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security & Trust — Obsidian Dynamics</title>
-    <meta name="description" content="Obsidian Dynamics security posture, infrastructure architecture, and data handling practices. Operational safeguards for intelligence delivery with high availability targets.">
-    <meta name="keywords" content="security, compliance, data security, trust, uptime, Obsidian Dynamics, enterprise security">
-    <meta name="author" content="Obsidian Dynamics Limited">
+    <title>Security | Obsidian Dynamics</title>
+    <meta name="description" content="Security posture summary for Obsidian Dynamics — encryption, access, data handling. Detail for procurement on request.">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#050507">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Security & Trust — Obsidian Dynamics">
-    <meta property="og:description" content="Our security posture, compliance standards, and trust architecture.">
-    <meta property="og:url" content="https://obsidiandynamics.co.uk/security.html">
-    <meta property="og:site_name" content="Obsidian Dynamics">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/security">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Skip to main content</a>
-    <canvas id="particleCanvas" aria-hidden="true"></canvas>
-
-    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">
-                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 1L38 12L20 21L2 12Z" fill="url(#logoGrad)" opacity="0.75"/><path d="M2 12L20 21L20 39L6 35Z" fill="url(#logoGrad)" opacity="0.55"/><path d="M20 21L38 12L34 35L20 39Z" fill="url(#logoGrad)"/><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient></defs></svg>
-                <span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span>
-            </a>
-            <div class="nav-links" id="navLinks">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="skygrid.html" class="nav-link">SkyGrid</a>
-                <a href="blackglass.html" class="nav-link">Blackglass</a>
-                <a href="platform.html" class="nav-link">Platform</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="contact.html" class="nav-cta">Contact Team</a>
-            </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
-        </div>
-    </nav>
-
-    <main id="main-content">
-    <!-- Hero -->
-    <section class="page-hero">
-        <div class="hero-grid-overlay" aria-hidden="true"></div>
-        <div class="page-hero__badge">SECURITY &amp; TRUST</div>
-        <h1 class="page-hero__title">How We Protect <span class="gradient-text">Your Data</span></h1>
-        <p class="page-hero__subtitle">
-            Operational intelligence demands operational security. Here's how Obsidian Dynamics protects the data we ingest, 
-            the intelligence we produce, and the systems our customers depend on.
-        </p>
-    </section>
-
-    <!-- Compliance Overview -->
-    <section class="features-section" aria-labelledby="compliance-heading">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">COMPLIANCE</span>
-                <h2 class="section-title" id="compliance-heading">Standards &amp; <span class="gradient-text">Certification</span></h2>
-            </div>
-            <div class="features-grid features-grid--3col">
-                <div class="feature-card feature-card--highlight">
-                    <h3>Secure cloud hosting</h3>
-                    <p>We rely on established cloud providers with strong physical security, network isolation, access controls, and monitoring for the layers that host SkyGrid, Blackglass deployments, and related APIs. We implement application-level safeguards consistent with our threat model and customer commitments — without claiming third-party certification on your behalf.</p>
-                </div>
-                <div class="feature-card feature-card--highlight">
-                    <h3>UK GDPR &amp; Data Protection Act 2018</h3>
-                    <p>Obsidian Dynamics Limited is a UK-registered data controller. We process data in accordance with the UK General Data Protection Regulation and the Data Protection Act 2018. Our privacy policy details what we collect, how we use it, and your rights as a data subject.</p>
-                </div>
-                <div class="feature-card feature-card--highlight">
-                    <h3>99.9% Uptime SLA</h3>
-                    <p>All production platform services — dashboards, APIs, webhook delivery, and SSE streaming — are covered by a 99.9% uptime service level agreement. Uptime is measured at the application layer, not just infrastructure. Planned maintenance windows are communicated 72 hours in advance.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Infrastructure Architecture -->
-    <section class="features-section" style="padding-top: 0;" aria-labelledby="infra-heading">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">INFRASTRUCTURE</span>
-                <h2 class="section-title" id="infra-heading">Architecture &amp; <span class="gradient-text">Data Residency</span></h2>
-            </div>
-            <div class="company-info-card">
-                <div class="company-details">
-                    <div class="company-detail">
-                        <span class="company-detail__label">Hosting</span>
-                        <span class="company-detail__value">Production workloads run on major cloud infrastructure in UK and EU regions, with residency choices documented during procurement.</span>
-                    </div>
-                    <div class="company-detail">
-                        <span class="company-detail__label">Data Residency</span>
-                        <span class="company-detail__value">All customer data, event streams, and intelligence outputs are processed and stored within UK/EU infrastructure. No data leaves these jurisdictions.</span>
-                    </div>
-                    <div class="company-detail">
-                        <span class="company-detail__label">Encryption in Transit</span>
-                        <span class="company-detail__value">All connections use TLS 1.2+ encryption. API endpoints, webhook delivery, SSE streams, and dashboard access are encrypted end-to-end.</span>
-                    </div>
-                    <div class="company-detail">
-                        <span class="company-detail__label">Encryption at Rest</span>
-                        <span class="company-detail__value">All persistent data — event stores, baselines, configuration, and logs — is encrypted at rest using AES-256.</span>
-                    </div>
-                    <div class="company-detail">
-                        <span class="company-detail__label">Network Isolation</span>
-                        <span class="company-detail__value">Production systems are network-isolated with private subnets. External access is restricted to authenticated API endpoints only.</span>
-                    </div>
-                    <div class="company-detail">
-                        <span class="company-detail__label">Monitoring &amp; Logging</span>
-                        <span class="company-detail__value">Centralised logging, anomaly detection on access patterns, and real-time alerting on infrastructure health. Audit logs retained for compliance.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Authentication & Access -->
-    <section class="features-section" style="padding-top: 0;" aria-labelledby="auth-heading">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">ACCESS CONTROL</span>
-                <h2 class="section-title" id="auth-heading">Authentication &amp; <span class="gradient-text">Authorisation</span></h2>
-            </div>
-            <div class="features-grid features-grid--2col">
-                <div class="feature-card">
-                    <h3>API Authentication</h3>
-                    <p>All API access requires an API key plus HMAC request signing. Keys are scoped to specific data streams and rate-limited per contract. IP allowlisting is available on request for enterprise customers.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Dashboard Access</h3>
-                    <p>Dashboard authentication uses secure session management with HTTPS-only cookies. Session timeouts and re-authentication are enforced. Multi-factor authentication is available for enterprise accounts.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Webhook Delivery</h3>
-                    <p>Outbound webhooks include HMAC signature headers so receiving systems can verify payload authenticity. Delivery retries use exponential backoff. Failed deliveries are logged and accessible via API.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Access Reviews</h3>
-                    <p>API credentials are issued after use-case qualification. Active keys are reviewed periodically. Credentials can be rotated or revoked at any time without service interruption.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Data Handling -->
-    <section class="features-section" style="padding-top: 0;" aria-labelledby="data-heading">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">DATA HANDLING</span>
-                <h2 class="section-title" id="data-heading">What We Ingest, Store, and <span class="gradient-text">Deliver</span></h2>
-            </div>
-            <div class="methodology-grid">
-                <div class="methodology-item">
-                    <h4>Input Data</h4>
-                    <p>ADS-B transponder feeds from authenticated receiver networks for SkyGrid air-domain intelligence. For BLACKGLASS: SSH metadata collected agentlessly from customer Linux hosts — no secrets, environment variables, or keys are stored. No personally identifiable information is processed as part of intelligence production.</p>
-                </div>
-                <div class="methodology-item">
-                    <h4>Intelligence Outputs</h4>
-                    <p>Structured JSON events — SkyGrid anomaly detections, risk scores, and BLACKGLASS baseline drift metrics. Outputs are advisory and designed for analyst review, not automated decision-making.</p>
-                </div>
-                <div class="methodology-item">
-                    <h4>Retention</h4>
-                    <p>Event data is retained for the duration of the customer contract plus a reasonable wind-down period. Contact form submissions are retained for 24 months. Customers can request data deletion at any time.</p>
-                </div>
-                <div class="methodology-item">
-                    <h4>Third-Party Sharing</h4>
-                    <p>Customer data is never sold. Data is shared only with infrastructure service providers (bound by data processing agreements) and where required by law. No advertising, no analytics resale.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Company Details -->
-    <section class="features-section" style="padding-top: 0;" aria-labelledby="company-heading">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">COMPANY</span>
-                <h2 class="section-title" id="company-heading">Corporate <span class="gradient-text">Identity</span></h2>
-            </div>
-            <div class="company-info-card">
-                <div class="company-details">
-                    <div class="company-detail">
-                        <span class="company-detail__label">Registered Name</span>
-                        <span class="company-detail__value">Obsidian Dynamics Limited</span>
-                    </div>
-                    <div class="company-detail">
-                        <span class="company-detail__label">Company Number</span>
-                        <span class="company-detail__value">16663833</span>
-                    </div>
-                    <div class="company-detail">
-                        <span class="company-detail__label">Jurisdiction</span>
-                        <span class="company-detail__value">England &amp; Wales</span>
-                    </div>
-                    <div class="company-detail">
-                        <span class="company-detail__label">Register</span>
-                        <span class="company-detail__value">Companies House — Active Status</span>
-                    </div>
-                    <div class="company-detail">
-                        <span class="company-detail__label">Founder</span>
-                        <span class="company-detail__value">Technical founder-led. Both platforms designed and built in-house.</span>
-                    </div>
-                    <div class="company-detail">
-                        <span class="company-detail__label">Contact</span>
-                        <span class="company-detail__value"><a href="contact.html" style="color: var(--sky-primary);">Contact form</a> or email via the contact page.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-card">
-                <div class="cta-content">
-                    <h2>Questions about our security posture?</h2>
-                    <p>If you need more detail for procurement, compliance review, or technical due diligence, get in touch. We're happy to walk through our security architecture in more depth.</p>
-                    <div class="cta-actions">
-                        <a href="contact.html" class="btn btn-primary btn-lg">Get in Touch <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                        <a href="platform.html" class="btn btn-ghost btn-lg">View Platform Details</a>
-                    </div>
-                </div>
-                <div class="cta-visual" aria-hidden="true"><div class="cta-orb"></div></div>
-            </div>
-        </div>
-    </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home"><svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 1L38 12L20 21L2 12Z" fill="url(#logoGrad2)" opacity="0.75"/><path d="M2 12L20 21L20 39L6 35Z" fill="url(#logoGrad2)" opacity="0.55"/><path d="M20 21L38 12L34 35L20 39Z" fill="url(#logoGrad2)"/><defs><linearGradient id="logoGrad2" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient></defs></svg><span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span></a>
-                    <p class="footer-tagline">Project SkyGrid · aircraft anomaly intelligence. BLACKGLASS · Linux operational integrity.</p>
-                    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833</p>
-                </div>
-                <div class="footer-links"><h4>Platforms</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="platform.html">Enterprise Platform</a></li></ul></div>
-                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="security.html">Security &amp; Trust</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
-                <div class="footer-links"><h4>External</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="https://reddit.com/r/ObsidianDynamics" target="_blank" rel="noopener noreferrer">Reddit</a></li><li><a href="https://discord.gg/obsidiandynamics" target="_blank" rel="noopener noreferrer">Discord</a></li></ul></div>
-            </div>
-            <div class="footer-bottom"><p>&copy; 2026 Obsidian Dynamics Limited. All rights reserved. Company No. 16663833</p><div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div>
-        </div>
-    </footer>
-    <script src="js/main.js"></script>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<main id="main-content">
+    <section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">SECURITY</div><h1 class="page-hero__title">Operational <span class="gradient-text">discipline</span></h1><p class="page-hero__subtitle">UK-registered controller (Obsidian Dynamics Limited, Co. 16663833). Full review packs are shared under engagement — this page is the short form.</p></section>
+    <section class="features-section" style="padding-top:0;"><div class="container container--narrow">
+        <p class="section-desc" style="max-width:none;">Production workloads run on major cloud providers in <strong>UK/EU</strong> regions where agreed. <strong>TLS</strong> for transport; <strong>encryption at rest</strong> for persisted data. API access is <strong>keyed and scoped</strong>; webhooks are <strong>signed</strong>. BLACKGLASS collection is <strong>agentless SSH metadata</strong> — no customer secrets stored in our console copy per product design.</p>
+        <p class="section-desc" style="max-width:none; margin-top:1rem;">UK GDPR / DPA 2018 — see <a href="privacy.html">Privacy</a>. Product-specific security pages: <a href="https://blackglasssec.com/security" target="_blank" rel="noopener noreferrer">blackglasssec.com/security</a>.</p>
+        <div class="cta-actions" style="justify-content:center; margin-top:1.5rem;"><a href="contact.html" class="btn btn-primary">Security contact</a><a href="trust-center.html" class="btn btn-ghost">Trust</a></div>
+    </div></section>
+</main>
+<footer class="footer" role="contentinfo"><div class="container"></div></footer>
+<script src="js/main.js"></script>
 </body>
 </html>

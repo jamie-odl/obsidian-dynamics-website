@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer portal (private) | Obsidian Dynamics</title>
-    <meta name="description" content="Private internal workspace. Not indexed.">
+    <title>Developer central (private) | Obsidian Dynamics</title>
+    <meta name="description" content="Private hub — billing, API, onboarding, account operations.">
     <meta name="robots" content="noindex, nofollow, noarchive">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="stylesheet" href="css/styles.css">
@@ -12,250 +12,29 @@
 <body>
 <a href="#main-content" class="skip-to-content">Skip to main content</a>
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
-<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"><a href="platform.html" class="nav-link">Platform</a><a href="products.html" class="nav-link">Products</a><a href="api.html" class="nav-link">API</a><a href="use-cases.html" class="nav-link">Use Cases</a><a href="intelligence.html" class="nav-link">Intelligence</a><a href="about.html" class="nav-link">Company</a><a href="contact.html" class="nav-link">Contact</a></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 <main id="main-content">
     <section class="page-hero">
         <div class="hero-grid-overlay"></div>
-        <div class="page-hero__badge">DEVELOPER CENTRAL</div>
-        <h1 class="page-hero__title">Implementation hub for <span class="gradient-text">engineering teams</span></h1>
-        <p class="page-hero__subtitle">One central point for API conventions, endpoint coverage, reliability posture, and integration workflow guidance across SkyGrid and Blackglass.</p>
+        <div class="page-hero__badge">DEVELOPER</div>
+        <h1 class="page-hero__title">Implementation <span class="gradient-text">hub</span></h1>
+        <p class="page-hero__subtitle">Allowlisted access. Changelog reference: <a href="https://github.com/thevenomv/blackglass-console/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">BLACKGLASS upstream CHANGELOG</a> (example); customer-specific notes ship by channel.</p>
     </section>
-
     <section class="features-section" style="padding-top:0;">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">MANAGEMENT CONSOLE</span>
-                <h2 class="section-title">Account controls in one clean workspace</h2>
-                <p class="section-desc">Use tabs to manage billing, users, tiers, access controls, integrations, and audit operations without jumping between disconnected pages.</p>
-            </div>
-            <div class="portal-tabs" data-portal-tabs>
-                <div class="portal-tablist" role="tablist" aria-label="Developer portal management tabs">
-                    <button type="button" class="portal-tab is-active" role="tab" aria-selected="true" data-tab-target="billing">Billing</button>
-                    <button type="button" class="portal-tab" role="tab" aria-selected="false" data-tab-target="users">Users</button>
-                    <button type="button" class="portal-tab" role="tab" aria-selected="false" data-tab-target="tiers">Tiers</button>
-                    <button type="button" class="portal-tab" role="tab" aria-selected="false" data-tab-target="access">Access</button>
-                    <button type="button" class="portal-tab" role="tab" aria-selected="false" data-tab-target="integrations">Integrations</button>
-                    <button type="button" class="portal-tab" role="tab" aria-selected="false" data-tab-target="audit">Audit</button>
-                </div>
-
-                <div class="portal-panel is-active" role="tabpanel" data-tab-panel="billing">
-                    <div class="features-grid features-grid--3col">
-                        <article class="feature-card"><h3>Plan and Invoices</h3><p>Open Stripe billing, review invoices, and track spend by project surface.</p></article>
-                        <article class="feature-card"><h3>Usage Thresholds</h3><p>Monitor usage and alert at 70%, 85%, and 95% before limits are hit.</p></article>
-                        <article class="feature-card"><h3>Renewal Controls</h3><p>Change billing cycle and add module entitlements from one billing lane.</p></article>
-                    </div>
-                    <div class="cta-actions" style="margin-top:16px;">
-                        <a href="billing.html" class="btn btn-primary">Open Billing Console</a>
-                        <a href="account-operations.html" class="btn btn-ghost">Open Account Operations</a>
-                    </div>
-                </div>
-
-                <div class="portal-panel" role="tabpanel" data-tab-panel="users" hidden>
-                    <div class="features-grid features-grid--3col">
-                        <article class="feature-card"><h3>Team Members</h3><p>Add, remove, and review active users by project workspace.</p></article>
-                        <article class="feature-card"><h3>Role Governance</h3><p>Assign owner, analyst, integration, and read-only roles cleanly.</p></article>
-                        <article class="feature-card"><h3>Session Controls</h3><p>Force logout and revoke access when user status changes.</p></article>
-                    </div>
-                    <div class="cta-actions" style="margin-top:16px;">
-                        <a href="account-operations.html" class="btn btn-primary">Manage Users</a>
-                    </div>
-                </div>
-
-                <div class="portal-panel" role="tabpanel" data-tab-panel="tiers" hidden>
-                    <div class="features-grid features-grid--3col">
-                        <article class="feature-card"><h3>Tier Matrix</h3><p>Review product-tier scope for SkyGrid and Blackglass; seat and plan limits for Blackglass follow your commercial agreement and console configuration.</p></article>
-                        <article class="feature-card"><h3>Export Entitlements</h3><p>Control public, limited, and full export rights by account tier.</p></article>
-                        <article class="feature-card"><h3>Upgrade Path</h3><p>Add Blackglass when fleet SaaS controls, baselines, and subscription-backed entitlements are required alongside SkyGrid.</p></article>
-                    </div>
-                    <div class="cta-actions" style="margin-top:16px;">
-                        <a href="platform.html" class="btn btn-primary">Review Tier Access</a>
-                    </div>
-                </div>
-
-                <div class="portal-panel" role="tabpanel" data-tab-panel="access" hidden>
-                    <div class="features-grid features-grid--3col">
-                        <article class="feature-card"><h3>Allowlist Gate</h3><p>Developer portal access is restricted to approved accounts only.</p></article>
-                        <article class="feature-card"><h3>Email-link 2FA</h3><p>Every login requires one-time email verification before session issue.</p></article>
-                        <article class="feature-card"><h3>Recovery Policy</h3><p>Lockout and recovery workflows are centralized and auditable.</p></article>
-                    </div>
-                    <div class="cta-actions" style="margin-top:16px;">
-                        <a href="developer-login.html" class="btn btn-primary">Open Developer Login</a>
-                    </div>
-                </div>
-
-                <div class="portal-panel" role="tabpanel" data-tab-panel="integrations" hidden>
-                    <div class="features-grid features-grid--3col">
-                        <article class="feature-card feature-card--priority"><div class="feature-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="18" cy="24" r="8"/><path d="M26 24H42"/><path d="M34 20V28"/></svg></div><h3>API Keys</h3><p>Issue sandbox and operational keys with scoped controls.</p></article>
-                        <article class="feature-card"><h3>Webhooks + Replay</h3><p>Configure delivery endpoints and test replay safely before go-live.</p></article>
-                        <article class="feature-card feature-card--priority"><div class="feature-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 26H14L20 14L28 34L34 22H42"/><circle cx="6" cy="26" r="2"/><circle cx="42" cy="22" r="2"/></svg></div><h3>Status + Reliability</h3><p>Watch ingestion health, incidents, and response timelines.</p></article>
-                    </div>
-                    <div class="cta-actions" style="margin-top:16px;">
-                        <a href="api.html" class="btn btn-primary">Open API Reference</a>
-                        <a href="status.html" class="btn btn-ghost">Open Status</a>
-                    </div>
-                </div>
-
-                <div class="portal-panel" role="tabpanel" data-tab-panel="audit" hidden>
-                    <div class="features-grid features-grid--3col">
-                        <article class="feature-card"><h3>Auth Events</h3><p>Track login, verification, and logout events for account oversight.</p></article>
-                        <article class="feature-card"><h3>Export Audit</h3><p>Capture who requested which export type and when.</p></article>
-                        <article class="feature-card"><h3>Change Log</h3><p>Keep release notes and migration notices visible to portal users.</p></article>
-                    </div>
-                    <div class="cta-actions" style="margin-top:16px;">
-                        <a href="RELEASE_NOTES.md" class="btn btn-primary">Open Release Notes</a>
-                        <a href="trust-center.html" class="btn btn-ghost">Open Trust Center</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">CORE RESOURCES</span>
-                <h2 class="section-title">Start integration from one control surface</h2>
-            </div>
             <div class="features-grid features-grid--2col">
-                <a class="feature-card" href="api.html"><h3>Unified API Reference</h3><p>Endpoints, schema conventions, and response structure patterns.</p></a>
-                <a class="feature-card" href="onboarding.html"><h3>Onboarding Hub</h3><p>Project-specific implementation tracks and API setup sequence from signup to go-live.</p></a>
-                <a class="feature-card" href="status.html"><h3>Service Status</h3><p>Current health for core APIs, signal pipelines, and alert delivery.</p></a>
-                <a class="feature-card" href="billing.html"><h3>Central Billing</h3><p>Billing portal for SkyGrid tiers on this site; Blackglass commercial controls are managed inside your dedicated fleet console.</p></a>
-                <a class="feature-card" href="trust-center.html"><h3>Trust and Security</h3><p>Governance, security controls, and due-diligence references.</p></a>
-                <a class="feature-card" href="account-operations.html"><h3>Account Operations</h3><p>Billing, lockout handling, access recovery, and operational support pathways.</p></a>
-                <a class="feature-card" href="methodology.html"><h3>Methodology</h3><p>How signals are scored, validated, and routed into operational outputs.</p></a>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-section" style="padding-top:0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">WORKSPACE HUB</span>
-                <h2 class="section-title">Accounts, billing, environments, and guidance</h2>
-                <p class="section-desc">Developer Central acts as the operational portal for every product surface, not just a documentation page.</p>
-            </div>
-            <div class="features-grid features-grid--3col">
-                <article class="feature-card"><h3>Account Workspace</h3><p>Team access, roles, API key ownership, and audit controls from one workspace profile.</p></article>
-                <article class="feature-card"><h3>Billing and Usage</h3><p>Usage metering, export consumption, billing cycles, and invoice visibility across all module usage.</p></article>
-                <article class="feature-card"><h3>Project Environments</h3><p>Separate sandbox and operational environments with endpoint compatibility and change tracking.</p></article>
-                <article class="feature-card"><h3>Integration Controls</h3><p>Webhook management, replay jobs, endpoint entitlements, and token lifecycle management.</p></article>
-                <article class="feature-card"><h3>Reliability and Incidents</h3><p>Status updates, maintenance windows, and response guidance tied to your active integrations.</p></article>
-                <article class="feature-card"><h3>Recommendations</h3><p>Suggested next integrations, data coverage improvements, and export optimization based on current usage patterns.</p></article>
-            </div>
-            <div class="section-header" style="margin-top:28px; margin-bottom:20px;">
-                <span class="section-tag">ACCESS SECURITY BASELINE</span>
-                <p class="section-desc">Developer portal access enforces allowlisted account control and mandatory two-factor verification via one-time email link.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-section" style="padding-top:0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">PRODUCT LINKS</span>
-                <h2 class="section-title">Connected surfaces across all projects</h2>
-            </div>
-            <div class="features-grid features-grid--2col">
-                <a class="feature-card feature-card--sky" href="skygrid.html"><div class="feature-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="15"/><path d="M24 9V24L34 30"/></svg></div><h3>SkyGrid Surface</h3><p>Air anomaly coverage, watch area logic, and route-level operational context.</p></a>
-                <a class="feature-card feature-card--priority" href="blackglass.html"><div class="feature-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="10" width="32" height="28" rx="4"/><path d="M16 20H32M16 28H26"/></svg></div><h3>Blackglass Surface</h3><p>Fleet baselines, drift, evidence exports, and governed tenancy with subscription-backed controls — see the product page for scope.</p></a>
-            </div>
-            <div class="cta-actions" style="justify-content:center; margin-top:24px;">
-                <a href="onboarding-skygrid.html" class="btn btn-primary--sky">SkyGrid Onboarding</a>
-                <a href="onboarding-blackglass.html" class="btn btn-primary">Blackglass Onboarding</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-section" style="padding-top:0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">ACCESS + DOWNLOADS</span>
-                <h2 class="section-title">Tier-relative access model</h2>
-                <p class="section-desc">Overview panels remain visible publicly, with progressive data depth and export scope by tier.</p>
-            </div>
-            <div class="access-tier-grid">
-                <article class="access-tier-card"><h3>Public</h3><p>Delayed snapshots and watermarked PDF summaries.</p></article>
-                <article class="access-tier-card"><h3>Registered</h3><p>Limited live windows with capped export ranges.</p></article>
-                <article class="access-tier-card"><h3>Operational</h3><p>Full history, alert streams, and entitlement-governed exports/API usage.</p></article>
-            </div>
-            <div class="download-option-grid">
-                <article class="download-option"><h4>Snapshot</h4><p>Public PDF with timestamp and source context.</p></article>
-                <article class="download-option"><h4>Limited Export</h4><p>CSV/PDF with row and date caps for registered access.</p></article>
-                <article class="download-option"><h4>Full Export</h4><p>Entitlement-bound CSV/PDF/API with audit controls.</p></article>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-section" style="padding-top:0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">MEDIA APPROACH</span>
-                <h2 class="section-title">Dynamic visuals with product-authentic clips</h2>
-                <p class="section-desc">Avoid generic stock footage as the primary brand signal. Use short real product captures so motion supports trust and operational clarity.</p>
-            </div>
-            <div class="features-grid features-grid--3col">
-                <article class="feature-card"><h3>Clip Type</h3><p>6-12 second silent captures: map transitions, alert queue flow, replay timeline movement, and route comparison states.</p></article>
-                <article class="feature-card"><h3>Performance Guardrails</h3><p>Serve WebM/MP4 with poster fallback, lazy-load below the fold, and preserve reduced-motion support.</p></article>
-                <article class="feature-card"><h3>Placement</h3><p>Use motion in 2-3 high-value blocks only: homepage context strip, Blackglass fleet snapshot, and SkyGrid signal panel.</p></article>
-            </div>
-            <div class="cta-actions" style="justify-content:center; margin-top:24px;">
-                <a href="contact.html" class="btn btn-primary">Discuss Media Rollout Plan</a>
-                <a href="evidence-library.html" class="btn btn-ghost">View Evidence References</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-section" style="padding-top:0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">DOCS GOVERNANCE</span>
-                <h2 class="section-title">Versioning, changelog, and migration policy</h2>
-            </div>
-            <div class="features-grid features-grid--3col">
-                <article class="feature-card"><h3>Current Contract Version</h3><p><strong>v1.0</strong><br>Active across core event and replay endpoints with stable field naming policy.</p></article>
-                <article class="feature-card"><h3>Deprecation Window</h3><p><strong>90 days minimum</strong><br>Deprecated fields/endpoints are announced with migration notes and removal timeline.</p></article>
-                <article class="feature-card"><h3>Change Channel</h3><p>Publish release deltas and migration advisories in <a href="RELEASE_NOTES.md">release notes</a> and developer notifications.</p></article>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-section" style="padding-top:0;">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">SANDBOX + REPLAY</span>
-                <h2 class="section-title">Credentials workflow and webhook replay guidance</h2>
-            </div>
-            <div class="features-grid features-grid--2col">
-                <article class="feature-card"><h3>Sandbox Credentials</h3><p>Open sandbox API scope via account operations. Sandbox keys remain isolated from operational routing and billing impact.</p></article>
-                <article class="feature-card"><h3>Operational Activation</h3><p>Production keys are issued after endpoint validation, webhook verification, and replay sign-off.</p></article>
-                <article class="feature-card"><h3>Webhook Replay Pattern</h3><p>Use <code>GET /v1/history/replay</code> with your source event window, then replay delivery to staging endpoints before go-live.</p></article>
-                <article class="feature-card"><h3>Idempotency Rule</h3><p>Replay handlers must key by <code>event_id</code> and ignore duplicates to support retry/replay safely.</p></article>
-            </div>
-            <div class="cta-actions" style="justify-content:center; margin-top:24px;">
-                <a href="onboarding.html" class="btn btn-primary">Open Onboarding Hub</a>
-                <a href="account-operations.html" class="btn btn-ghost">Open Credentials Request</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-card">
-                <div class="cta-content">
-                    <h2>Need implementation guidance?</h2>
-                    <p>Share your stack and operational workflow. We can map endpoint fit, alert routing, and export requirements in a concise technical session.</p>
-                    <div class="cta-actions">
-                        <a href="contact.html" class="btn btn-primary">Discuss Integration Scope</a>
-                        <a href="evidence-library.html" class="btn btn-ghost">Open Evidence Library</a>
-                    </div>
-                </div>
-                <div class="cta-visual" aria-hidden="true"><div class="cta-orb"></div></div>
+                <a class="feature-card" href="billing.html"><h3>Billing</h3><p>SkyGrid Stripe checkout and portal.</p></a>
+                <a class="feature-card" href="api.html"><h3>API</h3><p>Conventions and access path.</p></a>
+                <a class="feature-card" href="onboarding.html"><h3>Onboarding</h3><p>SkyGrid and BLACKGLASS tracks.</p></a>
+                <a class="feature-card" href="account-operations.html"><h3>Account ops</h3><p>Recovery and commercial questions.</p></a>
+                <a class="feature-card" href="status.html"><h3>Status</h3><p>Health snapshot.</p></a>
+                <a class="feature-card" href="trust-center.html"><h3>Trust</h3><p>Security, privacy, terms.</p></a>
+                <a class="feature-card" href="developer-login.html"><h3>Login</h3><p>Email-link session.</p></a>
+                <a class="feature-card" href="tools.html"><h3>Tools</h3><p>Free utilities.</p></a>
             </div>
         </div>
     </section>
 </main>
-
 <footer class="footer" role="contentinfo"><div class="container"></div></footer>
 <script src="js/main.js"></script>
 </body>

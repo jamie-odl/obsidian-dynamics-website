@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onboarding Hub | Obsidian Dynamics</title>
-    <meta name="description" content="Project-specific onboarding for SkyGrid and Blackglass, including API integration steps and go-live checklist.">
+    <title>Onboarding | Obsidian Dynamics</title>
+    <meta name="description" content="Onboarding tracks for SkyGrid and BLACKGLASS — hub for authenticated developer flows.">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/onboarding">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="stylesheet" href="css/styles.css">
@@ -12,68 +12,20 @@
 <body>
 <a href="#main-content" class="skip-to-content">Skip to main content</a>
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
-<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"><a href="platform.html" class="nav-link">Platform</a><a href="products.html" class="nav-link">Products</a><a href="api.html" class="nav-link">API</a><a href="use-cases.html" class="nav-link">Use Cases</a><a href="intelligence.html" class="nav-link">Intelligence</a><a href="about.html" class="nav-link">Company</a><a href="contact.html" class="nav-link">Contact</a></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 <main id="main-content">
-    <section class="page-hero">
-        <div class="hero-grid-overlay"></div>
-        <div class="page-hero__badge">ONBOARDING HUB</div>
-        <h1 class="page-hero__title">Smooth project onboarding from <span class="gradient-text">signup to go-live</span></h1>
-        <p class="page-hero__subtitle">Use this hub to onboard each project, configure API access, set alert routing, and validate operational readiness.</p>
-    </section>
-
-    <section class="features-section">
-        <div class="container">
-            <div class="section-header"><span class="section-tag">SIGNUP FLOW</span><h2 class="section-title">What happens after signup</h2></div>
-            <div class="features-grid features-grid--3col">
-                <article class="feature-card"><h3>1. Workspace Setup</h3><p>Create organization, invite team members, assign roles, and confirm account ownership.</p></article>
-                <article class="feature-card"><h3>2. Environment Access</h3><p>Generate sandbox API keys first, validate endpoint permissions, then request operational environment activation.</p></article>
-                <article class="feature-card"><h3>3. Operational Readiness</h3><p>Enable alert channels, set thresholds, confirm export limits, and run a replay validation before live routing.</p></article>
-            </div>
+    <section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">ONBOARDING</div><h1 class="page-hero__title">Pick a <span class="gradient-text">track</span></h1><p class="page-hero__subtitle">Workspace setup, keys, and go-live checks — detailed steps ship with your project. API shape: <a href="api.html">API</a>.</p></section>
+    <section class="features-section" style="padding-top:0;"><div class="container">
+        <div class="features-grid features-grid--2col">
+            <a class="feature-card feature-card--sky" href="onboarding-skygrid.html"><h3>SkyGrid</h3><p>Watch areas, alerts, validation.</p></a>
+            <a class="feature-card feature-card--priority" href="onboarding-blackglass.html"><h3>BLACKGLASS</h3><p>Fleet scope, tenancy, cutover.</p></a>
         </div>
-    </section>
-
-    <section class="features-section" style="padding-top:0;">
-        <div class="container">
-            <div class="section-header"><span class="section-tag">PROJECT ONBOARDING TRACKS</span><h2 class="section-title">Instructions by product surface</h2></div>
-            <div class="features-grid features-grid--2col">
-                <a class="feature-card feature-card--sky" href="onboarding-skygrid.html"><h3>SkyGrid Track</h3><p>Define watch areas, confirm anomaly thresholds, connect alert destinations, and test route-level replay results.</p></a>
-                <a class="feature-card feature-card--priority" href="onboarding-blackglass.html"><h3>Blackglass Track</h3><p>Scope Linux fleet coverage, complete secure handoff, validate SSH and baseline drift signals, then cut over on your agreed timeline.</p></a>
-            </div>
+        <div class="cta-actions" style="justify-content:center; margin-top:1.5rem;">
+            <a href="developer-central.html" class="btn btn-primary">Developer central</a>
+            <a href="contact.html" class="btn btn-ghost">Help</a>
         </div>
-    </section>
-
-    <section class="features-section" style="padding-top:0;">
-        <div class="container">
-            <div class="section-header"><span class="section-tag">API QUICKSTART</span><h2 class="section-title">Integration sequence</h2></div>
-            <div class="features-grid features-grid--3col">
-                <article class="feature-card"><h3>Auth + Keys</h3><p>Create scoped keys per environment. Rotate keys quarterly or on role change.</p></article>
-                <article class="feature-card"><h3>Endpoint Validation</h3><p>Start with <code>GET /v1/history/replay</code>, then validate live air event endpoints.</p></article>
-                <article class="feature-card"><h3>Webhook + Export</h3><p>Configure signed webhook callbacks and export jobs with entitlement-aware limits.</p></article>
-            </div>
-            <div class="cta-actions" style="justify-content:center; margin-top:24px;">
-                <a href="api.html" class="btn btn-primary">Open API Reference</a>
-                <a href="developer-central.html" class="btn btn-ghost">Back to Developer Central</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-card">
-                <div class="cta-content">
-                    <h2>Need guided onboarding?</h2>
-                    <p>Share your target project and timeline. We can provide a focused onboarding plan with endpoint checklist, alert routing, and deployment milestones.</p>
-                    <div class="cta-actions">
-                        <a href="contact.html?intent=onboarding-support#contactForm" class="btn btn-primary">Discuss Onboarding Scope</a>
-                        <a href="account-operations.html" class="btn btn-ghost">View Account Operations</a>
-                    </div>
-                </div>
-                <div class="cta-visual" aria-hidden="true"><div class="cta-orb"></div></div>
-            </div>
-        </div>
-    </section>
+    </div></section>
 </main>
-
 <footer class="footer" role="contentinfo"><div class="container"></div></footer>
 <script src="js/main.js"></script>
 </body>
