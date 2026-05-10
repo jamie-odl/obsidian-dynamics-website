@@ -8,8 +8,8 @@ async function createCheckoutSession({ priceId, origin }) {
     const stripeKey = process.env.STRIPE_SECRET_KEY;
     if (!stripeKey) throw new Error('STRIPE_SECRET_KEY is not configured');
 
-    const successUrl = process.env.BILLING_SUCCESS_URL || `${origin}/billing.html?status=success`;
-    const cancelUrl = process.env.BILLING_CANCEL_URL || `${origin}/billing.html?status=cancel`;
+    const successUrl = process.env.BILLING_SUCCESS_URL || `${origin}/contact.html?billing=success`;
+    const cancelUrl = process.env.BILLING_CANCEL_URL || `${origin}/contact.html?billing=cancel`;
 
     const body = new URLSearchParams();
     body.append('mode', 'subscription');

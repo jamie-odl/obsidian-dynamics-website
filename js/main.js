@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.13.0';
+    const SITE_VERSION = 'v2.14.0';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
@@ -190,8 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <p class="footer-tagline">SkyGrid · Blackglass · fewer moving parts.</p>' +
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833<br><span class="footer-address">Lytchett House<br>13 Freeland Park, Wareham Road<br>Poole · Dorset · BH16 6FA · United Kingdom</span></p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Work</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Compare</a></li><li><a href="tools.html">Tools</a></li><li><a href="billing.html">Billing</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="trust-center.html">Trust</a></li><li><a href="status.html">Status</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Work</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Compare</a></li><li><a href="tools.html">Tools</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="trust-center.html">Trust</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="security.html">Security</a></li><li><a href="terms.html">Terms</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <article class="operational-trust-card"><h3>Platform Reliability</h3><p>Track live uptime and incident communications from the status surface.</p></article>' +
             '  </div>' +
             '  <div class="operational-trust-links">' +
-            '    <a href="skygrid.html">Project SkyGrid</a><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a><a href="blackglass.html">Blackglass</a><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a><a href="status.html">Open Status</a><a href="trust-center.html">Trust Center</a><a href="methodology.html">Methodology</a>' +
+            '    <a href="skygrid.html">Project SkyGrid</a><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a><a href="blackglass.html">Blackglass</a><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a><a href="trust-center.html">Trust Center</a><a href="security.html">Security</a>' +
             '  </div>' +
             '</div>';
         main.appendChild(strip);
