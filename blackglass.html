@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLACKGLASS — Linux configuration drift detection &amp; SSH posture auditing | Obsidian Dynamics</title>
-    <meta name="description" content="Blackglass audits SSH posture, tracks baseline changes on your Linux servers, and gives ops and security teams a clear workflow to harden their fleet.">
+    <title>Blackglass — Linux operational integrity | Obsidian Dynamics</title>
+    <meta name="description" content="Operational integrity for Linux hosts — fleet baselines, finding triage, and evidence exports. Blackglass helps you understand what changed, how serious it is, and what to do next.">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="BLACKGLASS — Linux configuration drift detection &amp; SSH posture auditing">
-    <meta property="og:description" content="Blackglass audits SSH posture, tracks baseline changes on your Linux servers, and gives ops and security teams a clear workflow to harden their fleet.">
+    <meta property="og:title" content="Blackglass">
+    <meta property="og:description" content="Operational integrity for Linux hosts — fleet baselines, finding triage, and evidence exports.">
     <meta property="og:url" content="https://obsidiandynamics.co.uk/blackglass">
     <meta property="og:site_name" content="Obsidian Dynamics">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BLACKGLASS — Linux configuration drift detection &amp; SSH posture auditing">
-    <meta name="twitter:description" content="Blackglass audits SSH posture, tracks baseline changes on your Linux servers, and gives ops and security teams a clear workflow to harden their fleet.">
+    <meta name="twitter:title" content="Blackglass">
+    <meta name="twitter:description" content="Spot unwanted server changes early — before they become emergencies. Built for teams who care about security and reliability.">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/blackglass">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="stylesheet" href="css/styles.css">
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebSite","name":"BLACKGLASS","description":"Operational integrity for Linux hosts — fleet baselines, drift triage, and evidence exports.","url":"https://blackglasssec.com/"}
+    {"@context":"https://schema.org","@type":"WebSite","name":"Blackglass","description":"Operational integrity for Linux hosts — fleet baselines, finding triage, and evidence exports.","url":"https://blackglasssec.com/"}
     </script>
 </head>
 <body>
@@ -28,22 +28,29 @@
 <main id="main-content">
     <section class="page-hero">
         <div class="hero-grid-overlay"></div>
-        <p class="page-hero__badge" style="letter-spacing:0.12em;font-size:0.72rem;">Linux server integrity</p>
-        <h1 class="page-hero__title" style="margin-top:0.75rem;">Detect Linux configuration drift before it becomes an incident.</h1>
-        <p class="page-hero__subtitle">SSH posture auditing and configuration drift detection for Linux fleets. Agentless collection, baseline snapshots, and audit-ready evidence exports.</p>
+        <p class="page-hero__badge" style="letter-spacing:0.14em;font-size:0.72rem;">Clarity for Linux teams</p>
+        <h1 class="page-hero__title" style="margin-top:0.75rem;">Spot unwanted server changes early — before they become emergencies.</h1>
+        <p class="page-hero__subtitle">Blackglass helps you understand what changed on your Linux systems, how serious it is, and what to do next. Built for people who care about security and reliability — whether or not they live on the command line.</p>
         <div class="page-hero__actions">
-            <a href="https://blackglasssec.com/demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Demo</a>
-            <a href="https://blackglasssec.com/sign-up" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Trial</a>
+            <a href="https://blackglasssec.com/sign-up" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Start free trial</a>
+            <a href="https://blackglasssec.com/demo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Explore demo workspace</a>
             <a href="contact.html" class="btn btn-ghost">Contact</a>
         </div>
+        <p class="page-hero__subtitle hero-repo-note" style="margin-top:1.25rem;font-size:0.92rem;color:var(--obsidian-400);">Free Lab tier for homelabs · 14-day trial of any paid plan · no credit card · SSH-first · optional one-line push agent · each customer&apos;s data stays separate end to end</p>
     </section>
 
-    <section class="features-section" id="why-drift" aria-labelledby="why-drift-heading">
-        <div class="container container--narrow">
+    <section class="features-section" id="problem" aria-labelledby="problem-heading">
+        <div class="container">
             <div class="section-header">
-                <span class="section-tag">WHY IT EXISTS</span>
-                <h2 class="section-title" id="why-drift-heading">Drift shows up late</h2>
-                <p class="section-desc" style="max-width:none;">Packages, sshd, listeners, and access patterns change continuously. BLACKGLASS gives that delta a single workflow — baseline, compare, export — without a CMDB programme.</p>
+                <span class="section-tag">WHY IT MATTERS</span>
+                <h2 class="section-title" id="problem-heading">Why small changes add up</h2>
+                <p class="section-desc" style="max-width:48rem;">Rules change. Software updates. Someone adjusts remote login settings. Spreadsheets and occasional audits often miss the period when risk actually moves. Blackglass gives you a steady, easy-to-read picture — whether you run a handful of servers or many.</p>
+            </div>
+            <div class="features-grid features-grid--2col">
+                <div class="feature-card"><h3>Silent drift</h3><p>You only hear about drift when something breaks — or when an auditor asks.</p></div>
+                <div class="feature-card"><h3>Uneven lockdown</h3><p>Inconsistent hardening across machines makes it hard to see how far a problem could spread.</p></div>
+                <div class="feature-card"><h3>One-off fixes</h3><p>Emergency fixes can leave servers no one fully understands.</p></div>
+                <div class="feature-card"><h3>Evidence gaps</h3><p>Security reviews need a paper trail — not screenshots lost in chat.</p></div>
             </div>
         </div>
     </section>
@@ -55,10 +62,20 @@
                 <h2 class="section-title" id="how-heading">How it works</h2>
             </div>
             <div class="features-grid features-grid--2col">
-                <div class="feature-card"><span class="section-tag" style="display:inline-block;margin-bottom:8px;">01</span><h3>Connect hosts</h3><p>Agentless SSH collection scoped to metadata you approve — no secret exfiltration. Push-agent installer script available for restricted environments.</p></div>
-                <div class="feature-card"><span class="section-tag" style="display:inline-block;margin-bottom:8px;">02</span><h3>Freeze baselines</h3><p>Pin known-good snapshots after change freezes or releases. Run scans on demand or on schedule.</p></div>
-                <div class="feature-card"><span class="section-tag" style="display:inline-block;margin-bottom:8px;">03</span><h3>Detect drift</h3><p>Surface sshd, sysctl, user/listener deltas with severity — not noisy noise. OCSF-formatted events for downstream tooling.</p></div>
-                <div class="feature-card"><span class="section-tag" style="display:inline-block;margin-bottom:8px;">04</span><h3>Remediate &amp; prove</h3><p>Track acknowledgement, ownership, and export audit-ready bundles. The remediator workflow drives resolution from detection to closed evidence.</p></div>
+                <div class="feature-card"><span class="section-tag" style="display:inline-block;margin-bottom:8px;">01</span><h3>Connect your servers</h3><p>Link Linux hosts with a light-touch setup you control — nothing shipped to us beyond what you choose to share.</p></div>
+                <div class="feature-card"><span class="section-tag" style="display:inline-block;margin-bottom:8px;">02</span><h3>Save a trusted snapshot</h3><p>After a release or hardening pass, pin an approved picture of each system so you have something to compare against.</p></div>
+                <div class="feature-card"><span class="section-tag" style="display:inline-block;margin-bottom:8px;">03</span><h3>See what changed</h3><p>Regular checks highlight differences in remote access, accounts, scheduled tasks, software, and more — ranked so the important items stand out.</p></div>
+                <div class="feature-card"><span class="section-tag" style="display:inline-block;margin-bottom:8px;">04</span><h3>Respond with confidence</h3><p>Track who is handling each item, add notes, and export neat summaries for leadership or compliance partners.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="charon-heading">
+        <div class="container container--narrow">
+            <div class="section-header">
+                <span class="section-tag">ADD-ON</span>
+                <h2 class="section-title" id="charon-heading">Optional: Charon for cloud sprawl</h2>
+                <p class="section-desc" style="max-width:none;">When you enable the Charon add-on, you can link read-scoped credentials for DigitalOcean, AWS, or Google Cloud. Blackglass inventories resources, highlights likely idle candidates, and keeps cleanup behind explicit approval — the same careful posture as the rest of the product.</p>
             </div>
         </div>
     </section>
@@ -87,7 +104,7 @@
                 <p class="section-desc" style="max-width:36rem;">The full product site has use cases, pricing, CIS benchmark coverage, and SSH audit guides. Start with the interactive demo — no account needed.</p>
             </div>
             <div class="cta-actions" style="justify-content:center;">
-                <a href="https://blackglasssec.com/demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Demo</a>
+                <a href="https://blackglasssec.com/demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open interactive demo</a>
                 <a href="https://blackglasssec.com/pricing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Pricing</a>
             </div>
         </div>
