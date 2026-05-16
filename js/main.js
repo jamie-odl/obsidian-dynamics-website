@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833<br><span class="footer-address">Lytchett House<br>13 Freeland Park, Wareham Road<br>Poole · Dorset · BH16 6FA · United Kingdom</span></p>' +
             '  </div>' +
             '  <div class="footer-links"><h4>Work</h4><ul><li><a href="/blackglass.html">Blackglass</a></li><li><a href="/charongate.html">Charon Gate</a></li><li><a href="/products.html">Compare</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/tools.html">Tools</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="https://charongate.com" target="_blank" rel="noopener noreferrer">charongate.com</a></li><li><a href="/trust-center.html">Trust</a></li><li><a href="/changelog.html">Changelog</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="https://charongate.com" target="_blank" rel="noopener noreferrer">charongate.com</a></li><li><a href="/trust-center.html">Trust</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/writing.html">Writing</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/security.html">Security</a></li><li><a href="/terms.html">Terms</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
