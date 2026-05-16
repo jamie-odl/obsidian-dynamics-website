@@ -22,10 +22,14 @@
     <meta name="twitter:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
     <meta name="twitter:image:alt" content="Blackglass — Linux operational integrity by Obsidian Dynamics">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/blackglass">
-    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#f8f6f3">
+    <link rel="preload" href="/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/outfit-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/styles.css">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Product","name":"Blackglass","description":"Operational integrity for Linux hosts — fleet baselines, SSH posture, drift detection with severity, and audit-ready evidence exports.","brand":{"@type":"Brand","name":"Obsidian Dynamics"},"url":"https://obsidiandynamics.co.uk/blackglass","sameAs":["https://blackglasssec.com/"],"category":"Linux operational integrity","audience":{"@type":"Audience","audienceType":"Platform engineering, SRE, security and compliance teams"}}
@@ -35,6 +39,16 @@
       {"@type":"ListItem","position":1,"name":"Home","item":"https://obsidiandynamics.co.uk/"},
       {"@type":"ListItem","position":2,"name":"Products","item":"https://obsidiandynamics.co.uk/products"},
       {"@type":"ListItem","position":3,"name":"Blackglass","item":"https://obsidiandynamics.co.uk/blackglass"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Is Blackglass agent-based or agentless?","acceptedAnswer":{"@type":"Answer","text":"Agentless. Collection runs over SSH with read-scoped credentials. There is nothing to install on each host, and nothing acts on a host without a separately approved playbook."}},
+      {"@type":"Question","name":"Which Linux distributions are supported?","acceptedAnswer":{"@type":"Answer","text":"Debian and Ubuntu LTS, RHEL/CentOS/Rocky/Alma, Amazon Linux, and SUSE. CIS Benchmark coverage targets the same set. Bespoke baselines for other distributions are supported on enterprise plans."}},
+      {"@type":"Question","name":"How does Blackglass detect drift?","acceptedAnswer":{"@type":"Answer","text":"Each fleet has a baseline captured at onboarding or from a golden host. Subsequent collections diff against the baseline, classify findings by severity, and produce evidence-grade exports for change reviews and audits."}},
+      {"@type":"Question","name":"Does Blackglass change anything on my servers?","acceptedAnswer":{"@type":"Answer","text":"By default, no. Collection is read-only. Any remediation playbook is gated behind explicit approval and dry-run preview, and is logged with operator identity for the audit trail."}},
+      {"@type":"Question","name":"Where is the data hosted?","acceptedAnswer":{"@type":"Answer","text":"The hosted console runs on UK and EU infrastructure with tenant isolation, encryption in transit and at rest, and customer-scoped data residency on enterprise plans."}},
+      {"@type":"Question","name":"How does Blackglass compare with Charon Gate?","acceptedAnswer":{"@type":"Answer","text":"They solve different problems. Charon Gate is webhook reliability with durable ingest, retries, DLQ, and replay. Blackglass is Linux operational integrity with baselines, drift detection, and audit evidence. Teams typically run both."}}
     ]}
     </script>
 </head>
@@ -50,7 +64,7 @@
         <div class="page-hero__actions">
             <a href="https://blackglasssec.com/sign-up" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Start free trial</a>
             <a href="https://blackglasssec.com/demo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Explore demo workspace</a>
-            <a href="contact.html" class="btn btn-ghost">Contact</a>
+            <a href="contact.html?intent=demo&amp;product=blackglass" class="btn btn-ghost">Book a 20-min walkthrough</a>
         </div>
         <p class="page-hero__subtitle hero-repo-note">Free Lab tier for homelabs · 14-day trial of any paid plan · no credit card · SSH-first · optional one-line push agent · each customer&apos;s data stays separate end to end</p>
     </section>
@@ -112,6 +126,42 @@
         </div>
     </section>
 
+    <section class="features-section" style="padding-top:0;" aria-labelledby="blackglass-faq-heading">
+        <div class="container container--narrow">
+            <div class="section-header">
+                <span class="section-tag">QUESTIONS</span>
+                <h2 class="section-title" id="blackglass-faq-heading">Common questions</h2>
+            </div>
+            <div class="faq">
+                <details class="faq-item">
+                    <summary>Is Blackglass agent-based or agentless?</summary>
+                    <p>Agentless. Collection runs over SSH with read-scoped credentials. There's nothing to install on each host, and nothing acts on a host without a separately approved playbook.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Which Linux distributions are supported?</summary>
+                    <p>The major server distributions out of the box: Debian and Ubuntu LTS, RHEL/CentOS/Rocky/Alma, Amazon Linux, and SUSE. CIS Benchmark coverage targets the same set. Bespoke baselines for other distributions are supported on enterprise plans.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How does Blackglass detect drift?</summary>
+                    <p>Each fleet has a baseline captured at onboarding (or from a golden host). Subsequent collections diff against the baseline, classify findings by severity, and produce evidence-grade exports for change reviews and audits.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Does Blackglass change anything on my servers?</summary>
+                    <p>By default, no. Collection is read-only. Any remediation playbook (e.g. hardening, removing a stale SSH key) is gated behind explicit approval and dry-run preview — and is logged with operator identity for the audit trail.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Where is the data hosted?</summary>
+                    <p>The hosted console runs on UK / EU infrastructure with tenant isolation, encryption in transit and at rest, and customer-scoped data residency available on enterprise plans. Full procurement detail lives under <a href="trust-center.html">Trust</a> and <a href="https://blackglasssec.com/security" target="_blank" rel="noopener noreferrer">blackglasssec.com/security</a>.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How does Blackglass compare with Charon Gate?</summary>
+                    <p>They solve different problems. <a href="charongate.html">Charon Gate</a> is webhook reliability — durable ingest, retries, DLQ, replay. Blackglass is Linux operational integrity — baselines, drift, audit evidence. Teams typically run both.</p>
+                </details>
+            </div>
+            <p class="section-desc" style="max-width:none; margin-top:24px; color:var(--slate-muted);">Further reading: <a href="writing/linux-fleet-baselines-explained.html">Linux fleet baselines, explained without jargon</a>.</p>
+        </div>
+    </section>
+
     <section class="features-section" style="padding-top:0;" aria-labelledby="pair-heading">
         <div class="container container--narrow">
             <div class="section-header">
@@ -142,5 +192,7 @@
 
 <footer class="footer" role="contentinfo"><div class="container"></div></footer>
 <script src="js/main.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
