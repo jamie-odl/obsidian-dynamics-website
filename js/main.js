@@ -2,6 +2,71 @@
    OBSIDIAN DYNAMICS — Main JavaScript
    ============================================================ */
 
+/* ----- Client-side error sink (registered before DOMContentLoaded) ----- */
+(function attachErrorSink() {
+    if (typeof window === 'undefined') return;
+    if (window.__obsidianErrorSinkAttached) return;
+    window.__obsidianErrorSinkAttached = true;
+
+    let sent = 0;
+    const MAX_PER_PAGE = 5;
+    const seen = new Set();
+
+    function fingerprint(payload) {
+        return (payload.message || '') + '|' + (payload.source || '') + '|' + (payload.line || 0);
+    }
+
+    function send(payload) {
+        if (sent >= MAX_PER_PAGE) return;
+        const key = fingerprint(payload);
+        if (seen.has(key)) return;
+        seen.add(key);
+        sent += 1;
+
+        const body = JSON.stringify(payload);
+        try {
+            if (navigator.sendBeacon) {
+                const blob = new Blob([body], { type: 'application/json' });
+                if (navigator.sendBeacon('/api/log-error', blob)) return;
+            }
+        } catch (_) {}
+        try {
+            fetch('/api/log-error', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body,
+                keepalive: true
+            }).catch(() => {});
+        } catch (_) {}
+    }
+
+    window.addEventListener('error', function (event) {
+        send({
+            kind: 'error',
+            message: event && event.message,
+            source: event && event.filename,
+            line: event && event.lineno,
+            col: event && event.colno,
+            stack: event && event.error && event.error.stack,
+            page: window.location.pathname,
+            ua: navigator.userAgent,
+            referrer: document.referrer || ''
+        });
+    });
+
+    window.addEventListener('unhandledrejection', function (event) {
+        const reason = event && event.reason;
+        send({
+            kind: 'unhandledrejection',
+            message: reason && (reason.message || String(reason)),
+            stack: reason && reason.stack,
+            page: window.location.pathname,
+            ua: navigator.userAgent,
+            referrer: document.referrer || ''
+        });
+    });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     // Typography loads via @import in css/styles.css (IBM Plex — matches blackglass-console).
 
