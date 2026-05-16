@@ -7,6 +7,9 @@
     <meta name="description" content="Private hub — API, onboarding, account operations, trust links.">
     <meta name="robots" content="noindex, nofollow, noarchive">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -15,9 +18,8 @@
 <nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 <main id="main-content">
     <section class="page-hero">
-        <div class="hero-grid-overlay"></div>
-        <div class="page-hero__badge">DEVELOPER</div>
-        <h1 class="page-hero__title">Implementation <span class="gradient-text">hub</span></h1>
+        <p class="page-hero__badge">DEVELOPER</p>
+        <h1 class="page-hero__title">Implementation hub.</h1>
         <p class="page-hero__subtitle">Allowlisted access. Changelog reference: <a href="https://github.com/thevenomv/blackglass-console/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">Blackglass upstream CHANGELOG</a> (example); customer-specific notes ship by channel.</p>
     </section>
     <section class="features-section" style="padding-top:0;">
@@ -25,7 +27,7 @@
             <div class="features-grid features-grid--2col">
                 <a class="feature-card" href="contact.html"><h3>Commercial</h3><p>Access, Stripe checkout, and billing enquiries.</p></a>
                 <a class="feature-card" href="api.html"><h3>API</h3><p>Conventions and access path.</p></a>
-                <a class="feature-card" href="onboarding.html"><h3>Onboarding</h3><p>SkyGrid and Blackglass tracks.</p></a>
+                <a class="feature-card" href="onboarding.html"><h3>Onboarding</h3><p>Blackglass and Charon Gate tracks.</p></a>
                 <a class="feature-card" href="account-operations.html"><h3>Account ops</h3><p>Recovery and commercial questions.</p></a>
                 <a class="feature-card" href="trust-center.html"><h3>Trust</h3><p>Security, privacy, terms.</p></a>
                 <a class="feature-card" href="developer-login.html"><h3>Login</h3><p>Email-link session.</p></a>
@@ -35,6 +37,6 @@
     </section>
 </main>
 <footer class="footer" role="contentinfo"><div class="container"></div></footer>
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>

@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obsidian Dynamics | SkyGrid &amp; Blackglass</title>
-    <meta name="description" content="Obsidian Dynamics: Project SkyGrid (air-domain intelligence) and Blackglass (Linux operational integrity — fleet baselines, finding triage, evidence exports). Plus free tools. Less noise, clear scope.">
-    <meta property="og:description" content="SkyGrid and Blackglass — two products, one company. Free utilities on Tools.">
+    <title>Obsidian Dynamics | Blackglass &amp; Charon Gate</title>
+    <meta name="description" content="Obsidian Dynamics builds Blackglass (Linux operational integrity — fleet baselines, finding triage, evidence exports) and Charon Gate (webhook reliability — DLQ and replay). Less noise, clear scope.">
+    <meta property="og:description" content="Two products, one company: Blackglass and Charon Gate. Free utilities on Tools.">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Obsidian Dynamics | SkyGrid &amp; Blackglass">
+    <meta property="og:title" content="Obsidian Dynamics | Blackglass &amp; Charon Gate">
     <meta property="og:url" content="https://obsidiandynamics.co.uk/">
     <meta property="og:site_name" content="Obsidian Dynamics">
+    <meta property="og:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Obsidian Dynamics — Blackglass and Charon Gate">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Obsidian Dynamics | SkyGrid &amp; Blackglass">
-    <meta name="twitter:description" content="Air-domain intelligence and Blackglass for Linux hosts — plus free tools.">
+    <meta name="twitter:title" content="Obsidian Dynamics | Blackglass &amp; Charon Gate">
+    <meta name="twitter:description" content="Linux integrity with Blackglass; webhook reliability with Charon Gate.">
+    <meta name="twitter:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
+    <meta name="twitter:image:alt" content="Obsidian Dynamics — Blackglass and Charon Gate">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="css/styles.css">
     <script type="application/ld+json">
     {
@@ -23,12 +33,12 @@
       "@type": "Organization",
       "name": "Obsidian Dynamics Limited",
       "url": "https://obsidiandynamics.co.uk/",
-      "description": "Project SkyGrid for air-domain risk; Blackglass for Linux operational integrity — fleet baselines, finding triage, evidence exports. Free tools available on this site.",
+      "description": "Blackglass for Linux operational integrity and Charon Gate for webhook reliability — built by Obsidian Dynamics.",
       "sameAs": [
-        "https://projectskygrid.com",
         "https://blackglasssec.com",
+        "https://charongate.io",
         "https://github.com/thevenomv/blackglass-console",
-        "https://github.com/thevenomv/ProjectSkygrid"
+        "https://github.com/thevenomv/charongate"
       ],
       "address": {
         "@type": "PostalAddress",
@@ -48,36 +58,61 @@
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">
-                <img src="img/logo.svg" alt="" class="logo-icon">
-                <span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span>
+                <span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span>
             </a>
-            <div class="nav-links" id="navLinks">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="skygrid.html" class="nav-link">SkyGrid</a>
-                <a href="blackglass.html" class="nav-link">Blackglass</a>
-                <a href="tools.html" class="nav-link">Tools</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </div>
+            <div class="nav-links" id="navLinks"></div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
     </nav>
 
     <main id="main-content">
         <section class="hero" aria-labelledby="hero-heading">
-            <div class="hero-grid-overlay" aria-hidden="true"></div>
-            <div class="hero-content">
-                <h1 class="hero-title" id="hero-heading">Less noise. <span class="gradient-text">Clear scope.</span></h1>
-                <p class="hero-subtitle hero-subtitle--stacked">
-                    <span class="hero-subtitle__line"><strong>SkyGrid</strong> — air-domain anomaly intelligence at <a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a>.</span>
-                    <span class="hero-subtitle__line"><strong>Blackglass</strong> — clarity for Linux teams at <a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a>.</span>
-                    <span class="hero-subtitle__line"><strong>Tools</strong> — free utilities, no account.</span>
-                </p>
-                <div class="hero-actions">
-                    <a href="skygrid.html" class="btn btn-primary">SkyGrid</a>
-                    <a href="blackglass.html" class="btn btn-secondary">Blackglass</a>
-                    <a href="tools.html" class="btn btn-ghost">Tools</a>
-                    <a href="contact.html" class="btn btn-ghost">Contact</a>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <p class="hero-badge">OBSIDIAN DYNAMICS LIMITED</p>
+                    <h1 class="hero-title" id="hero-heading">Less noise. Clear scope.</h1>
+                    <p class="hero-subtitle">
+                        Two products, one company. We ship the integrity layer for Linux teams and the reliability layer for inbound webhooks — nothing else on the side.
+                    </p>
+                    <ul class="hero-subtitle hero-subtitle--stacked" style="margin-bottom:32px;">
+                        <li class="hero-subtitle__line"><strong>Blackglass</strong> — fleet baselines, finding triage, evidence exports for Linux hosts.</li>
+                        <li class="hero-subtitle__line"><strong>Charon Gate</strong> — durable ingest, DLQ, and replay for inbound webhooks.</li>
+                    </ul>
+                    <div class="hero-actions">
+                        <a href="blackglass.html" class="btn btn-primary">Blackglass</a>
+                        <a href="charongate.html" class="btn btn-secondary">Charon Gate</a>
+                        <a href="contact.html" class="btn btn-ghost">Contact</a>
+                    </div>
                 </div>
+                <aside class="hero-visual" aria-hidden="true">
+                    <article class="hero-mockup hero-mockup--top">
+                        <header class="hero-mockup__bar">
+                            <span class="hero-mockup__dot hero-mockup__dot--g"></span>
+                            <span class="hero-mockup__dot hero-mockup__dot--y"></span>
+                            <span class="hero-mockup__dot hero-mockup__dot--r"></span>
+                            <span class="hero-mockup__title">blackglass · fleet drift</span>
+                        </header>
+                        <ul class="hero-fleet">
+                            <li><span class="hero-fleet__host">web-01</span><span class="hero-fleet__badge hero-fleet__badge--ok">HARDENED</span></li>
+                            <li><span class="hero-fleet__host">api-02</span><span class="hero-fleet__badge hero-fleet__badge--med">MEDIUM</span></li>
+                            <li><span class="hero-fleet__host">db-03</span><span class="hero-fleet__badge hero-fleet__badge--ok">HARDENED</span></li>
+                            <li><span class="hero-fleet__host">worker-1</span><span class="hero-fleet__badge hero-fleet__badge--high">HIGH</span></li>
+                            <li><span class="hero-fleet__host">jump-01</span><span class="hero-fleet__badge hero-fleet__badge--ok">HARDENED</span></li>
+                        </ul>
+                    </article>
+                    <article class="hero-mockup hero-mockup--bottom">
+                        <header class="hero-mockup__bar">
+                            <span class="hero-mockup__title">charon gate · delivery</span>
+                        </header>
+                        <ol class="hero-flow">
+                            <li class="hero-flow__step"><span class="hero-flow__node"></span><span class="hero-flow__label">INGEST</span></li>
+                            <li class="hero-flow__step"><span class="hero-flow__node"></span><span class="hero-flow__label">RETRY</span></li>
+                            <li class="hero-flow__step"><span class="hero-flow__node"></span><span class="hero-flow__label">DLQ</span></li>
+                            <li class="hero-flow__step"><span class="hero-flow__node"></span><span class="hero-flow__label">REPLAY</span></li>
+                        </ol>
+                        <p class="hero-flow__code">POST&nbsp;/ingest&nbsp;→&nbsp;<strong>202&nbsp;Accepted</strong></p>
+                    </article>
+                </aside>
             </div>
         </section>
 
@@ -85,41 +120,29 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">PRODUCTS</span>
-                    <h2 class="section-title" id="products-heading">Two shipped lines</h2>
-                    <p class="section-desc">Legal, security, and trust links live under Trust in the footer when you need them.</p>
+                    <h2 class="section-title" id="products-heading">Two shipped lines.</h2>
+                    <p class="section-desc">Every claim ties back to something running. Legal, security, and trust links live under <a href="trust-center.html">Trust</a>.</p>
                 </div>
                 <div class="features-grid features-grid--2col">
-                    <a href="skygrid.html" class="feature-card feature-card--sky">
-                        <h3>SkyGrid</h3>
-                        <p>Browser-first monitoring: watch areas, advisory detections, structured delivery to your workflow.</p>
-                    </a>
                     <a href="blackglass.html" class="feature-card feature-card--priority">
                         <h3>Blackglass</h3>
                         <p>Spot unwanted server changes early — SSH posture, baselines, drift with severity, audit-ready exports.</p>
+                        <p><span class="feature-card__link feature-card__link--strait">Read more →</span></p>
+                    </a>
+                    <a href="charongate.html" class="feature-card">
+                        <h3>Charon Gate</h3>
+                        <p>Webhook reliability: stable ingest URLs, fast acknowledgements, exponential retries, DLQ, manual replay.</p>
+                        <p><span class="feature-card__link">Read more →</span></p>
                     </a>
                 </div>
-                <p class="section-desc" style="text-align:center; margin-top:1.5rem; max-width:36rem; margin-left:auto; margin-right:auto;"><a href="tools.html">Free tools</a> · <a href="trust-center.html">Trust</a> · <a href="about.html">About</a></p>
+                <p class="section-desc" style="margin-top:1.5rem;"><a href="tools.html">Free tools</a> · <a href="trust-center.html">Trust</a> · <a href="about.html">About</a></p>
             </div>
         </section>
     </main>
 
     <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">
-                        <img src="img/logo.svg" alt="" class="logo-icon">
-                        <span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span>
-                    </a>
-                    <p class="footer-tagline">SkyGrid · Blackglass · fewer moving parts.</p>
-                    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833<br><span class="footer-address">Lytchett House<br>13 Freeland Park, Wareham Road<br>Poole · Dorset · BH16 6FA · United Kingdom</span></p>
-                </div>
-                <div class="footer-links"><h4>Work</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Compare</a></li><li><a href="tools.html">Tools</a></li></ul></div>
-                <div class="footer-links"><h4>Live</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="trust-center.html">Trust</a></li></ul></div>
-                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="security.html">Security</a></li><li><a href="terms.html">Terms</a></li></ul></div>
-            </div>
-        </div>
+        <div class="container"></div>
     </footer>
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>

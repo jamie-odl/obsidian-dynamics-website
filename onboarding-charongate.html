@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onboarding | Obsidian Dynamics</title>
-    <meta name="description" content="Onboarding tracks for Blackglass and Charon Gate — hub for authenticated developer flows.">
-    <link rel="canonical" href="https://obsidiandynamics.co.uk/onboarding">
+    <title>Charon Gate onboarding | Obsidian Dynamics</title>
+    <meta name="description" content="Short Charon Gate onboarding map — endpoint registration, signing secrets, replay.">
+    <link rel="canonical" href="https://obsidiandynamics.co.uk/onboarding-charongate">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,17 +17,11 @@
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
 <nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 <main id="main-content">
-    <section class="page-hero"><p class="page-hero__badge">ONBOARDING</p><h1 class="page-hero__title">Pick a track.</h1><p class="page-hero__subtitle">Workspace setup, keys, and go-live checks — detailed steps ship with your project. API shape: <a href="api.html">API</a>.</p></section>
-    <section class="features-section" style="padding-top:0;"><div class="container">
-        <div class="features-grid features-grid--2col">
-            <a class="feature-card feature-card--priority" href="onboarding-blackglass.html"><h3>Blackglass</h3><p>Fleet scope, tenancy, cutover.</p></a>
-            <a class="feature-card" href="onboarding-charongate.html"><h3>Charon Gate</h3><p>Endpoint registration, signing secrets, replay.</p></a>
-        </div>
-        <div class="cta-actions" style="margin-top:1.5rem;">
-            <a href="developer-central.html" class="btn btn-primary">Developer central</a>
-            <a href="contact.html" class="btn btn-ghost">Help</a>
-        </div>
-    </div></section>
+<section class="page-hero"><p class="page-hero__badge">CHARON GATE</p><h1 class="page-hero__title">Onboarding map.</h1><p class="page-hero__subtitle">Workspace → endpoint registration → signing secret → first replay → go-live. Detail ships with your project.</p></section>
+<section class="features-section" style="padding-top:0;"><div class="container container--narrow">
+<p class="section-desc" style="max-width:none;">Core route: <code class="font-mono">POST /ingest/{publicId}</code> returns <strong>202 Accepted</strong> with <code class="font-mono">x-charon-event-id</code>. Retries use exponential backoff with jitter; exhausted attempts land in DLQ for manual replay. Keys, limits, and per-endpoint policy come with your workspace.</p>
+<div class="cta-actions" style="margin-top:1.25rem;"><a href="api.html" class="btn btn-primary">API</a><a href="onboarding.html" class="btn btn-ghost">Hub</a></div>
+</div></section>
 </main>
 <footer class="footer" role="contentinfo"><div class="container"></div></footer>
 <script src="js/main.js" defer></script>

@@ -1,7 +1,10 @@
 const PLAN_TO_PRICE_ENV = {
-    skygrid_starter: 'PRICE_SKYGRID_STARTER',
-    skygrid_professional: 'PRICE_SKYGRID_PROFESSIONAL',
-    skygrid_enterprise: 'PRICE_SKYGRID_ENTERPRISE'
+    blackglass_starter: 'PRICE_BLACKGLASS_STARTER',
+    blackglass_professional: 'PRICE_BLACKGLASS_PROFESSIONAL',
+    blackglass_enterprise: 'PRICE_BLACKGLASS_ENTERPRISE',
+    charongate_starter: 'PRICE_CHARONGATE_STARTER',
+    charongate_pro: 'PRICE_CHARONGATE_PRO',
+    charongate_team: 'PRICE_CHARONGATE_TEAM'
 };
 
 async function createCheckoutSession({ priceId, origin }) {
