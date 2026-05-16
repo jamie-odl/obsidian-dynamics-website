@@ -4,40 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | Obsidian Dynamics</title>
-    <meta name="description" content="Explore Obsidian Dynamics products: SkyGrid and Blackglass with clear scope by workflow.">
+    <meta name="description" content="Explore Obsidian Dynamics products: Blackglass for Linux operational integrity and Charon Gate for webhook reliability.">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Products | Obsidian Dynamics">
-    <meta property="og:description" content="Clear product scope across SkyGrid and Blackglass.">
+    <meta property="og:description" content="Clear product scope across Blackglass and Charon Gate.">
     <meta property="og:url" content="https://obsidiandynamics.co.uk/products">
     <meta property="og:site_name" content="Obsidian Dynamics">
+    <meta property="og:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Obsidian Dynamics — Blackglass and Charon Gate">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Products | Obsidian Dynamics">
-    <meta name="twitter:description" content="Compare SkyGrid and Blackglass by use case.">
+    <meta name="twitter:description" content="Compare Blackglass and Charon Gate by use case.">
+    <meta name="twitter:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
+    <meta name="twitter:image:alt" content="Obsidian Dynamics — Blackglass and Charon Gate">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/products">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="css/styles.css">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"ItemList","name":"Obsidian Dynamics products","itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Project SkyGrid","url":"https://obsidiandynamics.co.uk/skygrid"},
-      {"@type":"ListItem","position":2,"name":"Blackglass","url":"https://blackglasssec.com/"}
+      {"@type":"ListItem","position":1,"name":"Blackglass","url":"https://blackglasssec.com/"},
+      {"@type":"ListItem","position":2,"name":"Charon Gate","url":"https://obsidiandynamics.co.uk/charongate"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Should I start with Blackglass or Charon Gate?","acceptedAnswer":{"@type":"Answer","text":"Start with Blackglass if the gap is Linux fleet drift, SSH posture, and audit evidence. Start with Charon Gate if the gap is inbound webhooks — providers that retry inconsistently, deploys that drop events, or DLQ-and-replay that is missing."}},
+      {"@type":"Question","name":"What does Blackglass do?","acceptedAnswer":{"@type":"Answer","text":"Blackglass delivers Linux operational integrity: SSH posture, fleet baselines, drift detection with severity, and audit-ready evidence exports. Live at blackglasssec.com."}},
+      {"@type":"Question","name":"What does Charon Gate do?","acceptedAnswer":{"@type":"Answer","text":"Charon Gate is a webhook reliability layer: durable ingest, exponential retries with jitter, a dead-letter queue, and manual replay with lineage tracked end-to-end."}},
+      {"@type":"Question","name":"How do I get access?","acceptedAnswer":{"@type":"Answer","text":"Commercial access and packaging are handled via the contact form. Onboarding tracks are available for each product."}}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://obsidiandynamics.co.uk/"},
+      {"@type":"ListItem","position":2,"name":"Products","item":"https://obsidiandynamics.co.uk/products"}
     ]}
     </script>
 </head>
 <body>
 <a href="#main-content" class="skip-to-content">Skip to main content</a>
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
-<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"><a href="products.html" class="nav-link active">Products</a><a href="api.html" class="nav-link">API</a><a href="use-cases.html" class="nav-link">Use Cases</a><a href="intelligence.html" class="nav-link">Intelligence</a><a href="about.html" class="nav-link">Company</a><a href="contact.html" class="nav-link">Contact</a></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 <main id="main-content">
-<section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">PRODUCTS</div><h1 class="page-hero__title">Two lines. <span class="gradient-text">No extras.</span></h1><p class="page-hero__subtitle">SkyGrid for airspace · Blackglass for Linux · <a href="tools.html">Tools</a> for free utilities.</p></section>
+<section class="page-hero">
+    <p class="page-hero__badge">PRODUCTS</p>
+    <h1 class="page-hero__title">Two lines. No extras.</h1>
+    <p class="page-hero__subtitle">Blackglass for Linux operational integrity. Charon Gate for webhook reliability. <a href="tools.html">Tools</a> for free utilities.</p>
+</section>
 
-<section class="features-section">
+<section class="features-section" style="padding-top:24px;">
     <div class="container">
         <div class="features-grid features-grid--2col">
-            <a class="feature-card feature-card--sky" href="skygrid.html"><h3>SkyGrid</h3><p>Advisory aircraft anomaly intelligence — live at projectskygrid.com.</p></a>
-            <a class="feature-card feature-card--priority" href="blackglass.html"><h3>Blackglass</h3><p>Linux operational integrity — SSH posture, baselines, drift, exports at blackglasssec.com.</p></a>
+            <a class="feature-card feature-card--priority" href="blackglass.html">
+                <h3>Blackglass</h3>
+                <p>Linux operational integrity — SSH posture, fleet baselines, drift with severity, audit-ready exports. Live at <strong>blackglasssec.com</strong>.</p>
+            </a>
+            <a class="feature-card" href="charongate.html">
+                <h3>Charon Gate</h3>
+                <p>Webhook reliability — durable ingest, exponential retries with jitter, dead-letter queue, manual replay with lineage.</p>
+            </a>
         </div>
-        <div class="cta-actions" style="justify-content:center; margin-top:24px;">
+        <div class="cta-actions" style="margin-top:24px;">
             <a href="contact.html" class="btn btn-primary">Contact</a>
             <a href="trust-center.html" class="btn btn-secondary">Trust</a>
         </div>
@@ -46,11 +80,31 @@
 
 <section class="features-section" style="padding-top:0;" aria-labelledby="faq-heading">
     <div class="container container--narrow">
-        <div class="section-header"><span class="section-tag">CHOICE</span><h2 class="section-title" id="faq-heading">Which first?</h2></div>
-        <p class="section-desc" style="max-width:none;">Start with SkyGrid if the gap is <strong>air-domain</strong> monitoring. Start with Blackglass if the gap is <strong>Linux fleet</strong> drift and evidence. Commercial access and packaging are handled via <a href="contact.html">contact</a>. Live dashboards: <a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a> · <a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a>.</p>
+        <div class="section-header">
+            <span class="section-tag">CHOICE</span>
+            <h2 class="section-title" id="faq-heading">Which first?</h2>
+        </div>
+        <div class="faq">
+            <details class="faq-item">
+                <summary>Should I start with Blackglass or Charon Gate?</summary>
+                <p>Start with <strong>Blackglass</strong> if the gap is Linux fleet drift, SSH posture, and audit evidence. Start with <strong>Charon Gate</strong> if the gap is inbound webhooks — providers that retry inconsistently, deploys that drop events, or DLQ-and-replay that is missing.</p>
+            </details>
+            <details class="faq-item">
+                <summary>What does Blackglass do?</summary>
+                <p>Blackglass delivers Linux operational integrity: SSH posture, fleet baselines, drift detection with severity, and audit-ready evidence exports. Live at <a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a>.</p>
+            </details>
+            <details class="faq-item">
+                <summary>What does Charon Gate do?</summary>
+                <p>Charon Gate is a webhook reliability layer: durable ingest, exponential retries with jitter, a dead-letter queue, and manual replay with lineage tracked end-to-end. Live at <a href="https://charongate.com" target="_blank" rel="noopener noreferrer">charongate.com</a>.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How do I get access?</summary>
+                <p>Commercial access and packaging are handled via the <a href="contact.html">contact form</a>. Onboarding tracks are available for <a href="onboarding-blackglass.html">Blackglass</a> and <a href="onboarding-charongate.html">Charon Gate</a>.</p>
+            </details>
+        </div>
     </div>
 </section>
 </main>
 
 <footer class="footer" role="contentinfo"><div class="container"></div></footer>
-<script src="js/main.js"></script></body></html>
+<script src="js/main.js" defer></script></body></html>

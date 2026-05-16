@@ -110,8 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function getStandardNavMarkup(activePage) {
         const items = [
             { href: 'index.html', label: 'Home' },
-            { href: 'skygrid.html', label: 'SkyGrid' },
             { href: 'blackglass.html', label: 'Blackglass' },
+            { href: 'charongate.html', label: 'Charon Gate' },
             { href: 'tools.html', label: 'Tools' },
             { href: 'contact.html', label: 'Contact' }
         ];
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'developer-login.html',
             'access-denied.html',
             'onboarding.html',
-            'onboarding-skygrid.html',
+            'onboarding-charongate.html',
             'onboarding-blackglass.html',
             'account-operations.html',
             '404.html'
@@ -187,11 +187,11 @@ document.addEventListener('DOMContentLoaded', () => {
             '<div class="footer-grid">' +
             '  <div class="footer-brand">' +
             '    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
-            '    <p class="footer-tagline">SkyGrid · Blackglass · fewer moving parts.</p>' +
+            '    <p class="footer-tagline">Blackglass · Charon Gate · fewer moving parts.</p>' +
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833<br><span class="footer-address">Lytchett House<br>13 Freeland Park, Wareham Road<br>Poole · Dorset · BH16 6FA · United Kingdom</span></p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Work</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Compare</a></li><li><a href="tools.html">Tools</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="trust-center.html">Trust</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Work</h4><ul><li><a href="blackglass.html">Blackglass</a></li><li><a href="charongate.html">Charon Gate</a></li><li><a href="products.html">Compare</a></li><li><a href="tools.html">Tools</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="https://charongate.com" target="_blank" rel="noopener noreferrer">charongate.com</a></li><li><a href="trust-center.html">Trust</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="security.html">Security</a></li><li><a href="terms.html">Terms</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
@@ -244,12 +244,12 @@ document.addEventListener('DOMContentLoaded', () => {
         strip.innerHTML =
             '<div class="container">' +
             '  <div class="operational-trust-grid">' +
-            '    <article class="operational-trust-card"><h3>Data Freshness</h3><p>Signals refresh on governed cadences. Timestamp every panel and export.</p></article>' +
-            '    <article class="operational-trust-card"><h3>Source Provenance</h3><p>Every score links to input source class, confidence, and replay context.</p></article>' +
-            '    <article class="operational-trust-card"><h3>Platform Reliability</h3><p>Track live uptime and incident communications from the status surface.</p></article>' +
+            '    <article class="operational-trust-card"><h3>Tenant isolation</h3><p>Every query is scoped. Exports and replays stay inside the workspace boundary.</p></article>' +
+            '    <article class="operational-trust-card"><h3>Honest semantics</h3><p>At-least-once delivery, advisory findings, plain language on what ships.</p></article>' +
+            '    <article class="operational-trust-card"><h3>Evidence trail</h3><p>Timestamps, signed deliveries, and exports your auditor can act on.</p></article>' +
             '  </div>' +
             '  <div class="operational-trust-links">' +
-            '    <a href="skygrid.html">Project SkyGrid</a><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a><a href="blackglass.html">Blackglass</a><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a><a href="trust-center.html">Trust Center</a><a href="security.html">Security</a>' +
+            '    <a href="blackglass.html">Blackglass</a><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a><a href="charongate.html">Charon Gate</a><a href="trust-center.html">Trust Center</a><a href="security.html">Security</a>' +
             '  </div>' +
             '</div>';
         main.appendChild(strip);
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'developer-login.html',
             'access-denied.html',
             'onboarding.html',
-            'onboarding-skygrid.html',
+            'onboarding-charongate.html',
             'onboarding-blackglass.html',
             'account-operations.html',
             '404.html'
@@ -282,8 +282,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = (document.title || 'Obsidian Dynamics').trim();
         const descTag = document.querySelector('meta[name="description"]');
         const description = ((descTag && descTag.getAttribute('content')) || '').trim()
-            || 'Blackglass: operational integrity for Linux hosts — fleet baselines, finding triage, and evidence exports. SkyGrid: air-domain intelligence from Obsidian Dynamics.';
-        const defaultOgImage = siteOrigin + '/img/logo.svg';
+            || 'Blackglass: operational integrity for Linux hosts — fleet baselines, finding triage, evidence exports. Charon Gate: webhook reliability with DLQ and replay.';
+        const defaultOgImage = siteOrigin + '/img/og-image.jpg';
 
         function upsertMeta(attrName, attrValue, content) {
             let tag = document.head.querySelector('meta[' + attrName + '="' + attrValue + '"]');
@@ -323,11 +323,18 @@ document.addEventListener('DOMContentLoaded', () => {
         upsertMeta('property', 'og:site_name', 'Obsidian Dynamics');
         upsertMeta('property', 'og:locale', 'en_GB');
         upsertMeta('property', 'og:image', defaultOgImage);
+        upsertMeta('property', 'og:image:width', '1200');
+        upsertMeta('property', 'og:image:height', '630');
+        upsertMeta('property', 'og:image:type', 'image/jpeg');
+        upsertMeta('property', 'og:image:alt', 'Obsidian Dynamics — Blackglass and Charon Gate');
 
         upsertMeta('name', 'twitter:card', 'summary_large_image');
         upsertMeta('name', 'twitter:title', title);
         upsertMeta('name', 'twitter:description', description);
         upsertMeta('name', 'twitter:image', defaultOgImage);
+        upsertMeta('name', 'twitter:image:alt', 'Obsidian Dynamics — Blackglass and Charon Gate');
+
+        upsertMeta('name', 'theme-color', '#f8f6f3');
     }
 
     function enablePremiumEntrance() {
@@ -434,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const protectedPages = new Set([
         'developer-central.html',
         'onboarding.html',
-        'onboarding-skygrid.html',
+        'onboarding-charongate.html',
         'onboarding-blackglass.html',
         'account-operations.html'
     ]);
@@ -925,7 +932,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Simulate send (replace with actual endpoint)
             setTimeout(() => {
                 btn.textContent = 'Message Sent ✓';
-                btn.style.background = 'var(--gradient-main)';
+                btn.style.background = 'var(--muted-green)';
                 contactForm.reset();
                 if (formStatus) {
                     formStatus.className = 'form-status form-status--success';

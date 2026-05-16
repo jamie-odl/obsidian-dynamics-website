@@ -4,25 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Security | Obsidian Dynamics</title>
-    <meta name="description" content="Security posture summary for Obsidian Dynamics — encryption, access, data handling. Detail for procurement on request.">
+    <meta name="description" content="Security posture for Obsidian Dynamics — encryption in transit and at rest, access controls, signed webhooks, tenant isolation. Procurement detail on request.">
     <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Security | Obsidian Dynamics">
+    <meta property="og:description" content="Encryption, access, tenant isolation, signed webhooks. Procurement detail on request.">
+    <meta property="og:url" content="https://obsidiandynamics.co.uk/security">
+    <meta property="og:site_name" content="Obsidian Dynamics">
+    <meta property="og:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Obsidian Dynamics — Blackglass and Charon Gate">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Security | Obsidian Dynamics">
+    <meta name="twitter:description" content="Encryption, access, tenant isolation, signed webhooks.">
+    <meta name="twitter:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
+    <meta name="twitter:image:alt" content="Obsidian Dynamics — Blackglass and Charon Gate">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/security">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://obsidiandynamics.co.uk/"},
+      {"@type":"ListItem","position":2,"name":"Security","item":"https://obsidiandynamics.co.uk/security"}
+    ]}
+    </script>
 </head>
 <body>
 <a href="#main-content" class="skip-to-content">Skip to main content</a>
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
 <nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 <main id="main-content">
-    <section class="page-hero"><div class="hero-grid-overlay"></div><div class="page-hero__badge">SECURITY</div><h1 class="page-hero__title">Operational <span class="gradient-text">discipline</span></h1><p class="page-hero__subtitle">UK-registered controller (Obsidian Dynamics Limited, Co. 16663833). Full review packs are shared under engagement — this page is the short form.</p></section>
+    <section class="page-hero"><p class="page-hero__badge">SECURITY</p><h1 class="page-hero__title">Operational discipline.</h1><p class="page-hero__subtitle">UK-registered controller (Obsidian Dynamics Limited, Co. 16663833). Full review packs are shared under engagement — this page is the short form.</p></section>
     <section class="features-section" style="padding-top:0;"><div class="container container--narrow">
-        <p class="section-desc" style="max-width:none;">Production workloads run on major cloud providers in <strong>UK/EU</strong> regions where agreed. <strong>TLS</strong> for transport; <strong>encryption at rest</strong> for persisted data. API access is <strong>keyed and scoped</strong>; webhooks are <strong>signed</strong>. Blackglass collection is <strong>agentless SSH metadata</strong> — no customer secrets stored in our console copy per product design.</p>
+        <p class="section-desc" style="max-width:none;">Production workloads run on major cloud providers in <strong>UK/EU</strong> regions where agreed. <strong>TLS</strong> for transport; <strong>encryption at rest</strong> for persisted data. API access is <strong>keyed and scoped</strong>. <strong>Blackglass</strong> collection is agentless SSH metadata — no customer secrets stored in our console copy. <strong>Charon Gate</strong> verifies inbound signatures (HMAC / Stripe / GitHub) with constant-time comparisons, encrypts destination auth at rest, and isolates every tenant.</p>
         <p class="section-desc" style="max-width:none; margin-top:1rem;">UK GDPR / DPA 2018 — see <a href="privacy.html">Privacy</a>. Product-specific security pages: <a href="https://blackglasssec.com/security" target="_blank" rel="noopener noreferrer">blackglasssec.com/security</a>.</p>
-        <div class="cta-actions" style="justify-content:center; margin-top:1.5rem;"><a href="contact.html" class="btn btn-primary">Security contact</a><a href="trust-center.html" class="btn btn-ghost">Trust</a></div>
+        <div class="cta-actions" style="margin-top:1.5rem;"><a href="contact.html" class="btn btn-primary">Security contact</a><a href="trust-center.html" class="btn btn-ghost">Trust</a></div>
     </div></section>
 </main>
 <footer class="footer" role="contentinfo"><div class="container"></div></footer>
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>

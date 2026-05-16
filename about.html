@@ -4,18 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About — Obsidian Dynamics</title>
-    <meta name="description" content="Obsidian Dynamics Limited builds operational intelligence through Project SkyGrid and Blackglass. Company No. 16663833.">
-    <meta name="keywords" content="Obsidian Dynamics, Project SkyGrid, Blackglass, operational intelligence, aviation, about us">
+    <meta name="description" content="Obsidian Dynamics Limited builds Blackglass and Charon Gate. UK company. Company No. 16663833.">
+    <meta name="keywords" content="Obsidian Dynamics, Blackglass, Charon Gate, Linux integrity, webhook reliability, about us">
     <meta name="author" content="Obsidian Dynamics Limited">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#050507">
     <meta property="og:type" content="website">
     <meta property="og:title" content="About Obsidian Dynamics">
-    <meta property="og:description" content="Operational risk intelligence via SkyGrid and Blackglass Linux fleet security.">
-    <meta property="og:url" content="https://obsidiandynamics.co.uk/about.html">
+    <meta property="og:description" content="Blackglass for Linux integrity. Charon Gate for webhook reliability.">
+    <meta property="og:url" content="https://obsidiandynamics.co.uk/about">
     <meta property="og:site_name" content="Obsidian Dynamics">
+    <meta property="og:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Obsidian Dynamics — Blackglass and Charon Gate">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Obsidian Dynamics">
+    <meta name="twitter:description" content="Blackglass for Linux integrity. Charon Gate for webhook reliability.">
+    <meta name="twitter:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
+    <meta name="twitter:image:alt" content="Obsidian Dynamics — Blackglass and Charon Gate">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/about">
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="css/styles.css">
     <script type="application/ld+json">
     {
@@ -23,12 +35,12 @@
         "@type": "Organization",
         "name": "Obsidian Dynamics Limited",
         "url": "https://obsidiandynamics.co.uk",
-        "description": "Operational intelligence via Project SkyGrid and Blackglass (Linux integrity: SSH posture, drift, evidence) on blackglasssec.com.",
+        "description": "Blackglass for Linux operational integrity and Charon Gate for webhook reliability.",
         "foundingLocation": "United Kingdom",
         "sameAs": [
             "https://obsidiandynamics.co.uk/",
-            "https://projectskygrid.com",
-            "https://blackglasssec.com"
+            "https://blackglasssec.com",
+            "https://charongate.com"
         ],
         "address": {
             "@type": "PostalAddress",
@@ -40,6 +52,12 @@
         }
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://obsidiandynamics.co.uk/"},
+      {"@type":"ListItem","position":2,"name":"About","item":"https://obsidiandynamics.co.uk/about"}
+    ]}
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
@@ -48,29 +66,19 @@
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">
-                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 1L38 12L20 21L2 12Z" fill="url(#logoGrad)" opacity="0.75"/><path d="M2 12L20 21L20 39L6 35Z" fill="url(#logoGrad)" opacity="0.55"/><path d="M20 21L38 12L34 35L20 39Z" fill="url(#logoGrad)"/><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient></defs></svg>
-                <span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span>
+                <span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span>
             </a>
-            <div class="nav-links" id="navLinks">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="skygrid.html" class="nav-link">SkyGrid</a>
-                <a href="blackglass.html" class="nav-link">Blackglass</a>
-                <a href="about.html" class="nav-link active">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="contact.html" class="nav-cta">Contact Team</a>
-            </div>
+            <div class="nav-links" id="navLinks"></div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
     </nav>
 
     <main id="main-content">
-    <!-- Hero -->
     <section class="page-hero page-hero--about">
-        <div class="hero-grid-overlay" aria-hidden="true"></div>
-        <div class="page-hero__badge">ABOUT</div>
-        <h1 class="page-hero__title">Obsidian <span class="gradient-text">Dynamics</span></h1>
+        <p class="page-hero__badge">ABOUT</p>
+        <h1 class="page-hero__title">Obsidian Dynamics</h1>
         <p class="page-hero__subtitle">
-            UK company, two product lines — SkyGrid and Blackglass — plus <a href="tools.html">free tools</a>. We ship in-house; depth lives on the live products.
+            UK company, two product lines — Blackglass and Charon Gate — plus <a href="tools.html">free tools</a>. We ship in-house; depth lives on the live products.
         </p>
     </section>
 
@@ -80,47 +88,38 @@
                 <div class="about-content">
                     <span class="section-tag">WHO WE ARE</span>
                     <h2 class="section-title">Focused on two problems.</h2>
-                    <p><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer" style="color: var(--sky-primary);">SkyGrid</a> for air-domain signals. <a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer" style="color: var(--strait-primary);">Blackglass</a> for Linux integrity. No resale, no extra product lines.</p>
-                </div>
-                <div class="about-visual" aria-hidden="true">
-                    <div class="about-visual__hex">
-                        <div class="hex-ring hex-ring--1"></div>
-                        <div class="hex-ring hex-ring--2"></div>
-                        <div class="hex-ring hex-ring--3"></div>
-                    </div>
+                    <p><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">Blackglass</a> for Linux integrity. <a href="charongate.html">Charon Gate</a> for webhook reliability. No resale, no extra product lines.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Platforms -->
     <section class="features-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">PRODUCTS</span>
-                <h2 class="section-title">SkyGrid · Blackglass</h2>
+                <h2 class="section-title">Blackglass · Charon Gate</h2>
             </div>
             <div class="features-grid features-grid--2col">
-                <div class="feature-card feature-card--sky feature-card--highlight">
-                    <h3>SkyGrid</h3>
-                    <p>Air-domain anomaly intelligence — <a href="skygrid.html">Overview</a> · <a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">Live product</a></p>
-                </div>
-                <div class="feature-card feature-card--priority feature-card--highlight">
+                <div class="feature-card feature-card--priority">
                     <h3>Blackglass</h3>
                     <p>Linux fleet console — <a href="blackglass.html">Overview</a> · <a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">Live product</a></p>
+                </div>
+                <div class="feature-card">
+                    <h3>Charon Gate</h3>
+                    <p>Webhook reliability — <a href="charongate.html">Overview</a> · <a href="https://charongate.com" target="_blank" rel="noopener noreferrer">Live product</a></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Company Info -->
     <section class="about-company">
         <div class="container">
             <div class="company-info-card">
-                <h2>Company Information</h2>
+                <h2>Company information</h2>
                 <div class="company-details">
-                    <div class="company-detail"><span class="company-detail__label">Registered Name</span><span class="company-detail__value">Obsidian Dynamics Limited</span></div>
-                    <div class="company-detail"><span class="company-detail__label">Company Number</span><span class="company-detail__value">16663833</span></div>
+                    <div class="company-detail"><span class="company-detail__label">Registered name</span><span class="company-detail__value">Obsidian Dynamics Limited</span></div>
+                    <div class="company-detail"><span class="company-detail__label">Company number</span><span class="company-detail__value">16663833</span></div>
                     <div class="company-detail"><span class="company-detail__label">Jurisdiction</span><span class="company-detail__value">England &amp; Wales</span></div>
                     <div class="company-detail"><span class="company-detail__label">Register</span><span class="company-detail__value">Companies House</span></div>
                     <div class="company-detail"><span class="company-detail__label">Registered office</span><span class="company-detail__value">Lytchett House, 13 Freeland Park, Wareham Road, Poole, Dorset BH16 6FA, United Kingdom</span></div>
@@ -131,7 +130,7 @@
 
     <section class="features-section" style="padding-top:0;">
         <div class="container container--narrow">
-            <div class="cta-actions" style="justify-content:center;">
+            <div class="cta-actions">
                 <a href="contact.html" class="btn btn-primary">Contact</a>
                 <a href="tools.html" class="btn btn-ghost">Tools</a>
             </div>
@@ -140,22 +139,7 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home"><svg class="logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 1L38 12L20 21L2 12Z" fill="url(#logoGrad2)" opacity="0.75"/><path d="M2 12L20 21L20 39L6 35Z" fill="url(#logoGrad2)" opacity="0.55"/><path d="M20 21L38 12L34 35L20 39Z" fill="url(#logoGrad2)"/><defs><linearGradient id="logoGrad2" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7b2fff"/></linearGradient></defs></svg><span class="logo-text">OBSIDIAN<span class="logo-accent">DYNAMICS</span></span></a>
-                    <p class="footer-tagline">SkyGrid · Blackglass · fewer moving parts.</p>
-                    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833<br><span class="footer-address">Lytchett House<br>13 Freeland Park, Wareham Road<br>Poole · Dorset · BH16 6FA · United Kingdom</span></p>
-                </div>
-                <div class="footer-links"><h4>Work</h4><ul><li><a href="skygrid.html">SkyGrid</a></li><li><a href="blackglass.html">Blackglass</a></li><li><a href="products.html">Compare</a></li><li><a href="tools.html">Tools</a></li></ul></div>
-                <div class="footer-links"><h4>Live</h4><ul><li><a href="https://projectskygrid.com" target="_blank" rel="noopener noreferrer">projectskygrid.com</a></li><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="trust-center.html">Trust</a></li></ul></div>
-                <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="security.html">Security</a></li><li><a href="terms.html">Terms</a></li></ul></div>
-            </div>
-            <div class="footer-bottom"><p>&copy; 2026 Obsidian Dynamics Limited</p><div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
-        </div>
-    </footer>
-    <script src="js/main.js"></script>
+    <footer class="footer" role="contentinfo"><div class="container"></div></footer>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
