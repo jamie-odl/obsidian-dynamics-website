@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why we built Charon Gate | Obsidian Dynamics</title>
+    <meta name="description" content="Every webhook integration eventually goes wrong in the same five ways. We built Charon Gate so teams stop gluing the same retry-and-DLQ stack into every service.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-05-16">
+    <meta property="article:author" content="Obsidian Dynamics">
+    <meta property="og:title" content="Why we built Charon Gate">
+    <meta property="og:description" content="Every webhook integration eventually goes wrong in the same five ways. We built Charon Gate so teams stop gluing the same retry-and-DLQ stack into every service.">
+    <meta property="og:url" content="https://obsidiandynamics.co.uk/writing/why-we-built-charon-gate">
+    <meta property="og:site_name" content="Obsidian Dynamics">
+    <meta property="og:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Obsidian Dynamics — Blackglass and Charon Gate">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why we built Charon Gate">
+    <meta name="twitter:description" content="Every webhook integration eventually goes wrong in the same five ways.">
+    <meta name="twitter:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
+    <meta name="twitter:image:alt" content="Obsidian Dynamics — Blackglass and Charon Gate">
+    <link rel="canonical" href="https://obsidiandynamics.co.uk/writing/why-we-built-charon-gate">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#f8f6f3">
+    <link rel="preload" href="/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/outfit-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Why we built Charon Gate","description":"Every webhook integration eventually goes wrong in the same five ways. We built Charon Gate so teams stop gluing the same retry-and-DLQ stack into every service.","datePublished":"2026-05-16","author":{"@type":"Organization","name":"Obsidian Dynamics","url":"https://obsidiandynamics.co.uk"},"publisher":{"@type":"Organization","name":"Obsidian Dynamics Limited","url":"https://obsidiandynamics.co.uk","logo":{"@type":"ImageObject","url":"https://obsidiandynamics.co.uk/img/icon-512.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://obsidiandynamics.co.uk/writing/why-we-built-charon-gate"},"image":"https://obsidiandynamics.co.uk/img/og-image.jpg"}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://obsidiandynamics.co.uk/"},
+      {"@type":"ListItem","position":2,"name":"Writing","item":"https://obsidiandynamics.co.uk/writing"},
+      {"@type":"ListItem","position":3,"name":"Why we built Charon Gate","item":"https://obsidiandynamics.co.uk/writing/why-we-built-charon-gate"}
+    ]}
+    </script>
+</head>
+<body>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+<nav class="navbar" id="navbar"><div class="nav-container"><a href="/index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<main id="main-content">
+    <article class="legal-content">
+        <div class="container container--narrow">
+            <p style="margin-bottom:24px;"><a href="/writing.html" style="color:var(--slate-muted); font-size:0.88rem;">&larr; Writing</a></p>
+            <header style="margin-bottom:32px;">
+                <p class="page-hero__badge" style="margin-bottom:12px;">WRITING &middot; <time datetime="2026-05-16">2026-05-16</time></p>
+                <h1 class="page-hero__title" style="margin-top:0;">Why we built Charon Gate</h1>
+                <p class="page-hero__subtitle">Every webhook integration eventually goes wrong in the same five ways. Charon Gate exists so engineering teams stop building the same retry-and-DLQ stack from scratch every time a new provider gets wired up.</p>
+            </header>
+
+            <p>We didn't set out to build a webhook product. We set out to ship a different thing entirely, and ran into the same problem three times in a row. The third time, we wrote it down.</p>
+
+            <h2>The five failure modes</h2>
+
+            <p>If you've integrated more than a handful of webhook providers, this list is probably already in your head:</p>
+            <ol>
+                <li><strong>The 5-second ACK trap.</strong> Stripe will retry if you don't reply within a small window. GitHub will too. So will most well-behaved providers. That means whatever your handler does &mdash; database writes, downstream HTTP calls, side effects &mdash; has to fit inside the ACK budget, or you have to split it. Most teams discover this the hard way during a launch.</li>
+                <li><strong>Retry storms.</strong> Provider retries inconsistently. Sometimes it's exponential. Sometimes it's constant-interval. Sometimes a single failure causes ten retries inside ninety seconds and you're now thundering against your own database. Whoever owns the on-call rota learns to recognise the shape on a Grafana panel.</li>
+                <li><strong>Silent drops.</strong> A deploy goes out. The new code throws on a payload shape it didn't see in staging. The provider retries a few times, gives up, marks the event as "delivered" because it got a 2xx eventually, and now there's a customer record nobody owns. You only find out when finance asks a question three weeks later.</li>
+                <li><strong>No replay button.</strong> Something is wrong. You need to re-run the last six hours of webhooks against the new handler. The provider doesn't offer replay, or only offers it through a support ticket. So you write a one-off script. So does everyone.</li>
+                <li><strong>HMAC drift.</strong> The provider rotates a signing secret. Your verifier keeps using the old one because nobody updated the env var. Now you're either rejecting valid events or, worse, accepting forged ones.</li>
+            </ol>
+
+            <p>None of these is novel. None of them is hard to fix in isolation. The problem is that every team fixes them &mdash; partially &mdash; in their own way, in their own service, with their own observability story, and the surface area of "things that need to keep working" grows linearly with every provider.</p>
+
+            <h2>The thing we kept rebuilding</h2>
+
+            <p>The pattern we ended up writing three times went like this. Receive the request. Verify HMAC with a timestamp window. Persist the raw body and headers to durable storage. Return 202 Accepted immediately. Asynchronously, forward to the downstream handler with bounded exponential backoff. If the retry budget exhausts, move the row to a dead-letter queue with the full lineage of attempts. Expose a UI that lets an operator inspect the DLQ row and replay it &mdash; into the same handler, into a different one, or into a debug endpoint &mdash; with a correlation ID that ties the new attempt back to the original event.</p>
+
+            <p>That's it. Five primitives: <em>verify</em>, <em>persist</em>, <em>ack</em>, <em>forward-with-retry</em>, <em>DLQ-and-replay</em>. The first two are cheap. The other three are where every team's implementation diverges, and where the bugs live.</p>
+
+            <h2>What we decided not to build</h2>
+
+            <p>The temptation, having identified a problem, is to expand the scope. We could have made Charon Gate a queueing platform. We could have added eventing semantics, fan-out, transformations, a DSL. We didn't, and we won't.</p>
+
+            <p>Charon Gate is a webhook reliability layer. It receives events, forwards them, and lets you replay them when something goes wrong. It is intentionally bounded:</p>
+
+            <ul>
+                <li><strong>It does not transform payloads.</strong> Your handler is still your handler. We pass what arrived, plus a small set of Charon headers (delivery ID, attempt number, original timestamp). If you want to enrich the payload, do it in your handler &mdash; that's where business logic belongs.</li>
+                <li><strong>It does not run business workflows.</strong> No DAGs, no scheduling, no fan-out. If you need a workflow engine, you already have one (or you should). Charon Gate hands an event off and gets out of the way.</li>
+                <li><strong>It is not exactly-once.</strong> It's at-least-once, and it tells you so loudly. Your handler is idempotent. Dedupe on the provider event ID or the Charon delivery header. We err on the side of "deliver again" rather than "drop silently".</li>
+            </ul>
+
+            <p>The reason for the narrow scope is the same reason we built it in the first place: every team writes some version of the five primitives, every team's version is slightly different, and every team's version is the most boring code in their codebase. Charon Gate replaces that boring code with one well-tested thing. Anything beyond that is a different product.</p>
+
+            <h2>Where it sits with Blackglass</h2>
+
+            <p>Blackglass and Charon Gate are deliberately separate products. They share a parent company and a design philosophy &mdash; <em>fewer moving parts, evidence over alerts, narrow scope</em> &mdash; but they solve different problems. Blackglass is about what changed on your Linux servers. Charon Gate is about whether the webhook actually arrived. We considered combining them, decided that would be worse for both products, and shipped them as separate things you can adopt independently.</p>
+
+            <p>If you've nodded along to the five failure modes above, <a href="/charongate.html">read the Charon Gate page</a>. If you'd rather see it running, <a href="https://charongate.com" target="_blank" rel="noopener noreferrer">the product site is at charongate.com</a>.</p>
+
+            <p style="margin-top:48px; color:var(--slate-muted); font-size:0.92rem;">If you'd like to push back on any of the above &mdash; especially if you think we're wrong about scope &mdash; <a href="/contact.html?intent=feedback">email us</a>. We read replies.</p>
+        </div>
+    </article>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="related-heading">
+        <div class="container container--narrow">
+            <div class="section-header">
+                <span class="section-tag">RELATED</span>
+                <h2 class="section-title" id="related-heading">Keep reading</h2>
+            </div>
+            <ul class="hero-subtitle hero-subtitle--stacked">
+                <li class="hero-subtitle__line"><a href="/writing/webhook-reliability-primer.html">A short webhook reliability primer</a> &mdash; the five primitives in more detail.</li>
+                <li class="hero-subtitle__line"><a href="/writing/linux-fleet-baselines-explained.html">Linux fleet baselines, explained without jargon</a> &mdash; the sister problem on the Blackglass side.</li>
+            </ul>
+        </div>
+    </section>
+</main>
+<footer class="footer" role="contentinfo"><div class="container"></div></footer>
+<script src="/js/main.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

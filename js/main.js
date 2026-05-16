@@ -174,14 +174,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getStandardNavMarkup(activePage) {
         const items = [
-            { href: 'index.html', label: 'Home' },
-            { href: 'blackglass.html', label: 'Blackglass' },
-            { href: 'charongate.html', label: 'Charon Gate' },
-            { href: 'tools.html', label: 'Tools' },
-            { href: 'contact.html', label: 'Contact' }
+            { href: '/index.html', label: 'Home' },
+            { href: '/blackglass.html', label: 'Blackglass' },
+            { href: '/charongate.html', label: 'Charon Gate' },
+            { href: '/pricing.html', label: 'Pricing' },
+            { href: '/writing.html', label: 'Writing' },
+            { href: '/contact.html', label: 'Contact' }
         ];
+        // Treat any post under /writing/ as the Writing tab being active.
+        const path = (typeof window !== 'undefined' && window.location && window.location.pathname) || '';
+        const inWritingDir = /^\/writing\//.test(path);
         return items.map((item) => {
-            const isActive = item.href === activePage;
+            const bare = item.href.replace(/^\//, '');
+            const isActive = bare === activePage || (item.href === '/writing.html' && inWritingDir);
             return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
         }).join('');
     }
@@ -251,17 +256,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const footerMarkup =
             '<div class="footer-grid">' +
             '  <div class="footer-brand">' +
-            '    <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
+            '    <a href="/index.html" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
             '    <p class="footer-tagline">Blackglass · Charon Gate · fewer moving parts.</p>' +
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833<br><span class="footer-address">Lytchett House<br>13 Freeland Park, Wareham Road<br>Poole · Dorset · BH16 6FA · United Kingdom</span></p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Work</h4><ul><li><a href="blackglass.html">Blackglass</a></li><li><a href="charongate.html">Charon Gate</a></li><li><a href="products.html">Compare</a></li><li><a href="tools.html">Tools</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="https://charongate.com" target="_blank" rel="noopener noreferrer">charongate.com</a></li><li><a href="trust-center.html">Trust</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="security.html">Security</a></li><li><a href="terms.html">Terms</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Work</h4><ul><li><a href="/blackglass.html">Blackglass</a></li><li><a href="/charongate.html">Charon Gate</a></li><li><a href="/products.html">Compare</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/tools.html">Tools</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="https://charongate.com" target="_blank" rel="noopener noreferrer">charongate.com</a></li><li><a href="/trust-center.html">Trust</a></li><li><a href="/changelog.html">Changelog</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/writing.html">Writing</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/security.html">Security</a></li><li><a href="/terms.html">Terms</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
             '  <p>&copy; 2026 Obsidian Dynamics Limited</p>' +
-            '  <div class="footer-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>' +
+            '  <div class="footer-legal"><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a></div>' +
             '</div>';
 
         if (!footer) {
@@ -966,6 +971,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
         const roleParam = (params.get('role') || '').toLowerCase();
         const intentParam = (params.get('intent') || '').toLowerCase();
+        const productParam = (params.get('product') || '').toLowerCase();
         const interestField = document.getElementById('interest');
         const messageField = document.getElementById('message');
         const roleToInterest = {
@@ -977,10 +983,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (interestField && roleToInterest[roleParam]) {
             interestField.value = roleToInterest[roleParam];
         }
+        // Direct product mapping (e.g. /contact?intent=demo&product=blackglass).
+        if (interestField && (productParam === 'blackglass' || productParam === 'charongate')) {
+            interestField.value = productParam;
+        }
         if (messageField && (roleParam || intentParam) && !messageField.value.trim()) {
             const roleLabel = roleParam ? roleParam.charAt(0).toUpperCase() + roleParam.slice(1) : 'General';
             const intentLabel = intentParam ? intentParam.replace(/-/g, ' ') : 'briefing request';
-            messageField.value = 'Hello Obsidian team, we would like a ' + roleLabel + ' briefing regarding ' + intentLabel + '.';
+            const productSuffix = productParam ? ' for ' + productParam.charAt(0).toUpperCase() + productParam.slice(1) : '';
+            messageField.value = 'Hello Obsidian team, we would like a ' + roleLabel + ' ' + intentLabel + productSuffix + '. ';
         }
 
         const formStatus = document.getElementById('formStatus');
@@ -1057,9 +1068,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- aria-current="page" for active nav link ---
+    const inWritingSection = /^\/writing\//.test(window.location.pathname || '');
     document.querySelectorAll('.nav-link').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        const href = (link.getAttribute('href') || '').replace(/^\//, '');
+        const matchesPage = href === currentPage || (currentPage === '' && href === 'index.html');
+        const matchesWritingSection = href === 'writing.html' && inWritingSection;
+        if (matchesPage || matchesWritingSection) {
             link.setAttribute('aria-current', 'page');
         }
     });
