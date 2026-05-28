@@ -28,7 +28,8 @@
     { "source": "/charongate.html", "destination": "/charongate", "permanent": true },
     { "source": "/acheronvault.html", "destination": "/acheronvault", "permanent": true },
     { "source": "/writing/what-a-real-backup-test-looks-like.html", "destination": "/writing/what-a-real-backup-test-looks-like", "permanent": true },
-    { "source": "/writing/cron-is-not-a-verification-strategy.html", "destination": "/writing/cron-is-not-a-verification-strategy", "permanent": true }
+    { "source": "/writing/cron-is-not-a-verification-strategy.html", "destination": "/writing/cron-is-not-a-verification-strategy", "permanent": true },
+    { "source": "/writing/what-drift-looks-like-in-practice.html", "destination": "/writing/what-drift-looks-like-in-practice", "permanent": true }
   ],
   "headers": [
     {

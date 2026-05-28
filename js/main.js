@@ -601,7 +601,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Particle Canvas ---
     const canvas = document.getElementById('particleCanvas');
     const prefersReducedMotion = prefersReducedMotionMq.matches;
-    if (canvas && !prefersReducedMotion) {
+    const enableParticles = canvas && !prefersReducedMotion && window.innerWidth >= 768;
+    if (enableParticles) {
         const ctx = canvas.getContext('2d');
         let particles = [];
         let mouseX = -1000;
@@ -759,6 +760,8 @@ document.addEventListener('DOMContentLoaded', () => {
         prefersReducedMotionMq.addEventListener('change', () => {
             if (prefersReducedMotionMq.matches) stopParticleLoop();
         });
+    } else if (canvas) {
+        canvas.style.display = 'none';
     }
 
     // --- Navbar Scroll ---
@@ -927,12 +930,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!target) return;
         const isTracked = target.classList.contains('btn')
             || target.classList.contains('nav-cta')
-            || target.closest('.operational-trust-links');
+            || target.closest('.operational-trust-links')
+            || target.closest('[data-track-section]');
         if (!isTracked) return;
         sendAnalyticsEvent('cta_click', {
             target: (target.textContent || '').trim().slice(0, 120),
             href: target.getAttribute('href') || '',
-            tier: target.dataset.tier || ''
+            tier: target.dataset.tier || '',
+            section: target.dataset.trackSection || (target.closest('[data-track-section]') && target.closest('[data-track-section]').getAttribute('data-track-section')) || ''
         });
     });
 
@@ -998,19 +1003,40 @@ document.addEventListener('DOMContentLoaded', () => {
         if (interestField && roleToInterest[roleParam]) {
             interestField.value = roleToInterest[roleParam];
         }
-        // Direct product mapping (e.g. /contact?intent=demo&product=blackglass).
-        if (interestField && (productParam === 'blackglass' || productParam === 'charongate')) {
-            interestField.value = productParam;
+        const productToInterest = {
+            acheronvault: 'acheronvault',
+            blackglass: 'blackglass',
+            charongate: 'charongate'
+        };
+        if (interestField && productToInterest[productParam]) {
+            interestField.value = productToInterest[productParam];
         }
-        if (messageField && (roleParam || intentParam) && !messageField.value.trim()) {
-            const roleLabel = roleParam ? roleParam.charAt(0).toUpperCase() + roleParam.slice(1) : 'General';
-            const intentLabel = intentParam ? intentParam.replace(/-/g, ' ') : 'briefing request';
-            const productSuffix = productParam ? ' for ' + productParam.charAt(0).toUpperCase() + productParam.slice(1) : '';
-            messageField.value = 'Hello Obsidian team, we would like a ' + roleLabel + ' ' + intentLabel + productSuffix + '. ';
+        if (messageField && (roleParam || intentParam || productParam) && !messageField.value.trim()) {
+            const roleLabel = roleParam ? roleParam.charAt(0).toUpperCase() + roleParam.slice(1) : '';
+            const intentLabel = intentParam ? intentParam.replace(/-/g, ' ') : 'briefing';
+            const productNames = {
+                acheronvault: 'Acheron Vault',
+                blackglass: 'Blackglass',
+                charongate: 'Charon Gate'
+            };
+            const productLabel = productNames[productParam] || '';
+            let opener = 'Hello Obsidian team, ';
+            if (intentParam === 'beta' && productLabel) {
+                opener += 'we would like to join the ' + productLabel + ' beta. ';
+            } else if (intentParam && productLabel) {
+                opener += 'we would like a ' + intentLabel + ' for ' + productLabel + '. ';
+            } else if (productLabel) {
+                opener += 'we are evaluating ' + productLabel + '. ';
+            } else if (roleLabel) {
+                opener += 'we would like a ' + roleLabel + ' ' + intentLabel + '. ';
+            } else {
+                opener += 'we would like to discuss scope. ';
+            }
+            messageField.value = opener;
         }
 
         const formStatus = document.getElementById('formStatus');
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = contactForm.querySelector('button[type="submit"]');
             const origText = btn.textContent;
@@ -1020,25 +1046,55 @@ document.addEventListener('DOMContentLoaded', () => {
                 formStatus.className = 'form-status';
                 formStatus.textContent = '';
             }
-            // Simulate send (replace with actual endpoint)
-            setTimeout(() => {
-                btn.textContent = 'Message Sent ✓';
+
+            const honeypot = contactForm.querySelector('[name="company_website"]');
+            const payload = {
+                name: (document.getElementById('name') && document.getElementById('name').value) || '',
+                email: (document.getElementById('email') && document.getElementById('email').value) || '',
+                interest: (document.getElementById('interest') && document.getElementById('interest').value) || '',
+                message: (document.getElementById('message') && document.getElementById('message').value) || '',
+                company_website: honeypot ? honeypot.value : '',
+                page: window.location.pathname + window.location.search,
+                intent: intentParam || ''
+            };
+
+            try {
+                const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok) {
+                    throw new Error((data && data.error) || 'Unable to send message');
+                }
+                btn.textContent = 'Message sent';
                 btn.style.background = 'var(--muted-green)';
                 contactForm.reset();
                 if (formStatus) {
                     formStatus.className = 'form-status form-status--success';
                     formStatus.textContent = 'Your message has been sent. We\'ll be in touch shortly.';
                 }
-                setTimeout(() => {
-                    btn.textContent = origText;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                    if (formStatus) {
-                        formStatus.className = 'form-status';
-                        formStatus.textContent = '';
-                    }
-                }, 3000);
-            }, 1500);
+                sendAnalyticsEvent('contact_submit', { interest: payload.interest, intent: payload.intent });
+            } catch (err) {
+                btn.textContent = origText;
+                btn.disabled = false;
+                if (formStatus) {
+                    formStatus.className = 'form-status form-status--error';
+                    formStatus.textContent = (err && err.message) || 'Unable to send. Email jamie@obsidiandynamics.co.uk directly.';
+                }
+                return;
+            }
+
+            setTimeout(() => {
+                btn.textContent = origText;
+                btn.style.background = '';
+                btn.disabled = false;
+                if (formStatus) {
+                    formStatus.className = 'form-status';
+                    formStatus.textContent = '';
+                }
+            }, 4000);
         });
     }
 

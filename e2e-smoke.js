@@ -56,10 +56,15 @@ function sitemapCheck() {
       continue;
     }
     const slug = pathname === '/' ? 'index' : pathname.replace(/^\//, '').replace(/\.html$/, '');
-    const htmlName = slug === 'index' ? 'index.html' : `${slug}.html`;
-    const filePath = path.join(root, htmlName);
+    let filePath;
+    if (slug.includes('/')) {
+      filePath = path.join(root, slug + '.html');
+    } else {
+      const htmlName = slug === 'index' ? 'index.html' : `${slug}.html`;
+      filePath = path.join(root, htmlName);
+    }
     if (!fs.existsSync(filePath)) {
-      missingFiles.push({ url: absUrl, expected: htmlName });
+      missingFiles.push({ url: absUrl, expected: path.relative(root, filePath) });
     }
   }
   return {

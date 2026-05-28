@@ -6,6 +6,7 @@
   },
   "scripts": {
     "test": "node e2e-smoke.js",
-    "smoke": "node e2e-smoke.js"
+    "smoke": "node e2e-smoke.js",
+    "generate:og": "node scripts/generate-og-images.js"
   }
 }

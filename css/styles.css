@@ -852,6 +852,90 @@ code, kbd, samp, .font-mono {
     max-width: 52ch;
 }
 
+.page-hero__best-for {
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    max-width: 56ch;
+    margin: 0 0 10px;
+    line-height: var(--line-body);
+}
+.page-hero__best-for strong { color: var(--obsidian); font-weight: 600; }
+.page-hero__pain {
+    font-size: 0.92rem;
+    color: var(--slate-muted);
+    max-width: 56ch;
+    margin: 0 0 20px;
+    line-height: var(--line-loose);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.product-compare {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+.product-compare th,
+.product-compare td {
+    padding: 14px 16px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border-subtle);
+}
+.product-compare th {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--harbor-teal-mid);
+    background: var(--porcelain-soft);
+}
+.product-compare tr:last-child td { border-bottom: none; }
+.product-compare td:first-child { font-weight: 600; color: var(--obsidian); }
+.product-compare a { font-weight: 600; }
+
+.article-product-cta .cta-card { margin-top: 8px; }
+.article-product-cta .feature-card__tag { color: rgba(255, 255, 255, 0.72); margin-bottom: 6px; }
+
+@media (max-width: 768px) {
+    .product-compare thead { display: none; }
+    .product-compare tr {
+        display: block;
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 12px 0;
+    }
+    .product-compare td {
+        display: block;
+        border: none;
+        padding: 4px 16px;
+    }
+    .product-compare td::before {
+        content: attr(data-label);
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--harbor-teal-mid);
+        margin-bottom: 4px;
+    }
+}
+
 .is-simplified-grid {
     grid-template-columns: 1fr !important;
     gap: 10px !important;
