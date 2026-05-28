@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '  <div class="footer-brand">' +
             '    <a href="/index.html" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
             '    <p class="footer-tagline">Acheron Vault · Blackglass · Charon Gate · fewer moving parts.</p>' +
-            '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833<br><span class="footer-address">Lytchett House<br>13 Freeland Park, Wareham Road<br>Poole · Dorset · BH16 6FA · United Kingdom</span></p>' +
+            '    <p class="footer-company-info"><a href="/about.html#company-details">Company details</a></p>' +
             '  </div>' +
             '  <div class="footer-links"><h4>Work</h4><ul><li><a href="/acheronvault.html">Acheron Vault</a></li><li><a href="/blackglass.html">Blackglass</a></li><li><a href="/charongate.html">Charon Gate</a></li><li><a href="/products.html">Compare</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/tools.html">Tools</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="https://charongate.com" target="_blank" rel="noopener noreferrer">charongate.com</a></li><li><a href="/trust-center.html">Trust</a></li></ul></div>' +
