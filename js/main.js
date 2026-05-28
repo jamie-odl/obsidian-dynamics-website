@@ -174,19 +174,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getStandardNavMarkup(activePage) {
         const items = [
-            { href: '/index.html', label: 'Home' },
-            { href: '/blackglass.html', label: 'Blackglass' },
-            { href: '/charongate.html', label: 'Charon Gate' },
+            { href: '/products.html', label: 'Products' },
             { href: '/pricing.html', label: 'Pricing' },
             { href: '/writing.html', label: 'Writing' },
+            { href: '/trust-center.html', label: 'Trust' },
             { href: '/contact.html', label: 'Contact' }
         ];
-        // Treat any post under /writing/ as the Writing tab being active.
         const path = (typeof window !== 'undefined' && window.location && window.location.pathname) || '';
         const inWritingDir = /^\/writing\//.test(path);
+        const productPages = new Set([
+            'products.html',
+            'acheronvault.html',
+            'blackglass.html',
+            'charongate.html'
+        ]);
+        const trustPages = new Set([
+            'trust-center.html',
+            'security.html',
+            'privacy.html',
+            'terms.html'
+        ]);
         return items.map((item) => {
             const bare = item.href.replace(/^\//, '');
-            const isActive = bare === activePage || (item.href === '/writing.html' && inWritingDir);
+            const isActive = bare === activePage
+                || (item.href === '/writing.html' && inWritingDir)
+                || (item.href === '/products.html' && productPages.has(activePage))
+                || (item.href === '/trust-center.html' && trustPages.has(activePage));
             return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
         }).join('');
     }
@@ -257,10 +270,10 @@ document.addEventListener('DOMContentLoaded', () => {
             '<div class="footer-grid">' +
             '  <div class="footer-brand">' +
             '    <a href="/index.html" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
-            '    <p class="footer-tagline">Blackglass · Charon Gate · fewer moving parts.</p>' +
+            '    <p class="footer-tagline">Acheron Vault · Blackglass · Charon Gate · fewer moving parts.</p>' +
             '    <p class="footer-company-info">Obsidian Dynamics Limited · Company No. 16663833<br><span class="footer-address">Lytchett House<br>13 Freeland Park, Wareham Road<br>Poole · Dorset · BH16 6FA · United Kingdom</span></p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Work</h4><ul><li><a href="/blackglass.html">Blackglass</a></li><li><a href="/charongate.html">Charon Gate</a></li><li><a href="/products.html">Compare</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/tools.html">Tools</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Work</h4><ul><li><a href="/acheronvault.html">Acheron Vault</a></li><li><a href="/blackglass.html">Blackglass</a></li><li><a href="/charongate.html">Charon Gate</a></li><li><a href="/products.html">Compare</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/tools.html">Tools</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="https://charongate.com" target="_blank" rel="noopener noreferrer">charongate.com</a></li><li><a href="/trust-center.html">Trust</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/writing.html">Writing</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/security.html">Security</a></li><li><a href="/terms.html">Terms</a></li></ul></div>' +
             '</div>' +
@@ -880,7 +893,9 @@ document.addEventListener('DOMContentLoaded', () => {
         '.case-card',
         '.trust-card',
         '.section-header',
-        '.operational-trust-card'
+        '.operational-trust-card',
+        '.proof-chip',
+        '.role-cta-card'
     ];
     document.querySelectorAll(fadeSelectors.join(', ')).forEach((el) => {
         el.classList.add('fade-in');
@@ -1069,11 +1084,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- aria-current="page" for active nav link ---
     const inWritingSection = /^\/writing\//.test(window.location.pathname || '');
+    const productPages = new Set([
+        'products.html',
+        'acheronvault.html',
+        'blackglass.html',
+        'charongate.html'
+    ]);
+    const trustPages = new Set([
+        'trust-center.html',
+        'security.html',
+        'privacy.html',
+        'terms.html'
+    ]);
     document.querySelectorAll('.nav-link').forEach(link => {
         const href = (link.getAttribute('href') || '').replace(/^\//, '');
         const matchesPage = href === currentPage || (currentPage === '' && href === 'index.html');
         const matchesWritingSection = href === 'writing.html' && inWritingSection;
-        if (matchesPage || matchesWritingSection) {
+        const matchesProductSection = href === 'products.html' && productPages.has(currentPage);
+        const matchesTrustSection = href === 'trust-center.html' && trustPages.has(currentPage);
+        if (matchesPage || matchesWritingSection || matchesProductSection || matchesTrustSection) {
             link.setAttribute('aria-current', 'page');
         }
     });

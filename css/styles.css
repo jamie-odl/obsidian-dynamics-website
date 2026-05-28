@@ -793,6 +793,65 @@ code, kbd, samp, .font-mono {
 .feature-card__link--strait { color: var(--muted-green); }
 .feature-card__link--strait:hover { color: #1f4f3a; }
 
+.feature-card__tag {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--harbor-teal-mid);
+    margin-bottom: 10px;
+}
+.feature-card__status {
+    display: inline-block;
+    margin-left: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted-green);
+    vertical-align: middle;
+}
+.feature-card__best-for {
+    font-size: 0.88rem;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+}
+.feature-card__best-for strong {
+    font-weight: 600;
+    color: var(--obsidian);
+}
+.feature-card__pain {
+    font-size: 0.88rem;
+    color: var(--slate-muted);
+    line-height: var(--line-body);
+}
+.feature-card--product .feature-card__pain { margin-bottom: 4px; }
+.feature-card--writing h3 { font-size: 1rem; }
+
+.home-trust-bar { padding-top: 0; padding-bottom: 48px; }
+.home-trust-bar .proof-chip-grid { margin-top: 0; }
+.home-products-footnote { margin-top: 1.5rem; font-size: 0.92rem; }
+.home-final-cta { padding-bottom: 72px; }
+
+.cta-card__content { flex: 1; min-width: 0; }
+.cta-card__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+.cta-card__desc {
+    font-size: 0.95rem;
+    line-height: var(--line-loose);
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 52ch;
+}
+
 .is-simplified-grid {
     grid-template-columns: 1fr !important;
     gap: 10px !important;

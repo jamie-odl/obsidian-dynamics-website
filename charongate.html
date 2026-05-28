@@ -202,12 +202,23 @@
     <section class="features-section" style="padding-top:0;" aria-labelledby="pair-heading">
         <div class="container container--narrow">
             <div class="section-header">
-                <span class="section-tag">PAIR WITH</span>
-                <h2 class="section-title" id="pair-heading">Blackglass — operational integrity for Linux</h2>
-                <p class="section-desc" style="max-width:none;">Running production on Linux? <a href="blackglass.html">Blackglass</a> covers what Charon Gate doesn't: SSH posture, fleet baselines, drift detection with severity, and audit-ready evidence exports.</p>
+                <span class="section-tag">CONNECTED STACK</span>
+                <h2 class="section-title" id="pair-heading">Charon Gate is the connective tissue.</h2>
+                <p class="section-desc" style="max-width:none;">Charon Gate routes events between the other two products in the stack — making it possible to respond to infrastructure signals automatically, without manual intervention in the critical path.</p>
             </div>
-            <div class="cta-actions">
-                <a href="blackglass.html" class="btn btn-secondary">View Blackglass</a>
+            <div class="faq">
+                <details class="faq-item" open>
+                    <summary>Acheron Vault — event-driven backup verification</summary>
+                    <p><a href="acheronvault.html">Acheron Vault</a> verifies that your backups actually restore. Instead of relying on fixed cron schedules, Charon Gate lets you trigger an Acheron Vault verification run immediately after a database migration, a deployment pipeline, or any other infrastructure event that warrants a fresh recoverability check. If the verification fails, Charon Gate queues the alert and guarantees delivery to your team regardless of downstream availability.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Blackglass — alert routing and closed-loop response</summary>
+                    <p>When <a href="blackglass.html">Blackglass</a> classifies a high-severity drift finding on a Linux host, it fires a signed webhook to Charon Gate. Charon Gate delivers the alert to your team and simultaneously triggers Acheron Vault to run a backup health check on the affected target — so detection, alerting, and data safety verification all happen in a single automated chain.</p>
+                </details>
+            </div>
+            <div class="cta-actions" style="margin-top:24px;">
+                <a href="acheronvault.html" class="btn btn-secondary">Acheron Vault</a>
+                <a href="blackglass.html" class="btn btn-ghost">Blackglass</a>
             </div>
         </div>
     </section>

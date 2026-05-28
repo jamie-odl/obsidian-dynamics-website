@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Writing | Obsidian Dynamics</title>
-    <meta name="description" content="Notes from the team behind Blackglass and Charon Gate. Webhook reliability, Linux operational integrity, and the philosophy of fewer moving parts.">
+    <meta name="description" content="Notes from the team behind Acheron Vault, Blackglass, and Charon Gate. Backup readiness, webhook reliability, Linux operational integrity, and the philosophy of fewer moving parts.">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Writing | Obsidian Dynamics">
@@ -49,39 +49,76 @@
     <section class="page-hero" aria-labelledby="writing-heading">
         <p class="page-hero__badge">WRITING</p>
         <h1 class="page-hero__title" id="writing-heading">Notes from the team.</h1>
-        <p class="page-hero__subtitle">Why we built what we built, and how we think about reliability when nobody's watching.</p>
+        <p class="page-hero__subtitle">Why we built what we built, how we think about reliability when nobody's watching, and the technical ideas behind <a href="acheronvault.html">Acheron Vault</a>, <a href="blackglass.html">Blackglass</a>, and <a href="charongate.html">Charon Gate</a>.</p>
     </section>
 
     <section class="features-section" style="padding-top:0;">
         <div class="container container--narrow">
-            <article class="faq-item" style="margin-bottom:16px;">
+
+            <div class="section-header" style="margin-bottom:20px;">
+                <span class="section-tag">ACHERON VAULT · BACKUP</span>
+                <h2 class="section-title" style="font-size:1.35rem;">Recoverability &amp; verification</h2>
+                <p class="section-desc" style="max-width:none;">Essays on backup testing, restore evidence, and why scheduled jobs are not verification. <a href="acheronvault.html">Acheron Vault →</a></p>
+            </div>
+
+            <article class="faq-item writing-article" style="margin-bottom:24px; padding-bottom:24px; border-bottom:1px solid var(--border-subtle, rgba(0,0,0,0.07));">
                 <header style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:8px; flex-wrap:wrap;">
-                    <a href="writing/why-we-built-charon-gate.html" style="text-decoration:none;"><h2 class="section-title" style="font-size:1.15rem; margin:0;">Why we built Charon Gate</h2></a>
-                    <time datetime="2026-05-16" class="font-mono" style="font-size:0.78rem; color:var(--slate-muted); letter-spacing:0.08em;">2026-05-16</time>
+                    <a href="writing/what-a-real-backup-test-looks-like.html" style="text-decoration:none;"><h3 class="section-title" style="font-size:1.15rem; margin:0;">What a real backup test looks like</h3></a>
+                    <time datetime="2026-05-19" class="font-mono" style="font-size:0.78rem; color:var(--slate-muted); letter-spacing:0.08em; white-space:nowrap;">2026-05-19</time>
+                </header>
+                <p class="section-desc" style="max-width:none; margin:0;">Running <code>pg_dump</code> on a schedule is not a backup test — it is a backup creation process. A real test performs an actual restore against the backup file, checks integrity, records timing, and produces evidence. Most teams have never done one outside a crisis.</p>
+                <p style="margin-top:10px;"><a href="writing/what-a-real-backup-test-looks-like.html">Read &rarr;</a> · <a href="acheronvault.html">Acheron Vault</a></p>
+            </article>
+
+            <article class="faq-item writing-article" style="margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid var(--border-subtle, rgba(0,0,0,0.07));">
+                <header style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:8px; flex-wrap:wrap;">
+                    <a href="writing/cron-is-not-a-verification-strategy.html" style="text-decoration:none;"><h3 class="section-title" style="font-size:1.15rem; margin:0;">Cron is not a verification strategy</h3></a>
+                    <time datetime="2026-05-19" class="font-mono" style="font-size:0.78rem; color:var(--slate-muted); letter-spacing:0.08em; white-space:nowrap;">2026-05-19</time>
+                </header>
+                <p class="section-desc" style="max-width:none; margin:0;">Scheduled checks run at the wrong time. Your highest-risk windows open immediately after something changes &mdash; a migration, a deployment, a configuration update. Clocks don't know when those happen. Events do.</p>
+                <p style="margin-top:10px;"><a href="writing/cron-is-not-a-verification-strategy.html">Read &rarr;</a> · <a href="acheronvault.html">Acheron Vault</a></p>
+            </article>
+
+            <div class="section-header" style="margin-bottom:20px;">
+                <span class="section-tag">CHARON GATE · WEBHOOKS</span>
+                <h2 class="section-title" style="font-size:1.35rem;">Delivery &amp; reliability</h2>
+                <p class="section-desc" style="max-width:none;">How inbound webhooks fail in production, and what durable ingest actually requires. <a href="charongate.html">Charon Gate →</a></p>
+            </div>
+
+            <article class="faq-item writing-article" style="margin-bottom:24px; padding-bottom:24px; border-bottom:1px solid var(--border-subtle, rgba(0,0,0,0.07));">
+                <header style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:8px; flex-wrap:wrap;">
+                    <a href="writing/why-we-built-charon-gate.html" style="text-decoration:none;"><h3 class="section-title" style="font-size:1.15rem; margin:0;">Why we built Charon Gate</h3></a>
+                    <time datetime="2026-05-16" class="font-mono" style="font-size:0.78rem; color:var(--slate-muted); letter-spacing:0.08em; white-space:nowrap;">2026-05-16</time>
                 </header>
                 <p class="section-desc" style="max-width:none; margin:0;">Every webhook integration eventually goes wrong in the same five ways. We built Charon Gate because gluing the same retry-and-DLQ stack into every service stopped being a reasonable use of an engineering team's time.</p>
-                <p style="margin-top:8px;"><a href="writing/why-we-built-charon-gate.html">Read &rarr;</a></p>
+                <p style="margin-top:10px;"><a href="writing/why-we-built-charon-gate.html">Read &rarr;</a> · <a href="charongate.html">Charon Gate</a></p>
             </article>
 
-            <article class="faq-item" style="margin-bottom:16px;">
+            <article class="faq-item writing-article" style="margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid var(--border-subtle, rgba(0,0,0,0.07));">
                 <header style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:8px; flex-wrap:wrap;">
-                    <a href="writing/webhook-reliability-primer.html" style="text-decoration:none;"><h2 class="section-title" style="font-size:1.15rem; margin:0;">A short webhook reliability primer</h2></a>
-                    <time datetime="2026-05-16" class="font-mono" style="font-size:0.78rem; color:var(--slate-muted); letter-spacing:0.08em;">2026-05-16</time>
+                    <a href="writing/webhook-reliability-primer.html" style="text-decoration:none;"><h3 class="section-title" style="font-size:1.15rem; margin:0;">A short webhook reliability primer</h3></a>
+                    <time datetime="2026-05-16" class="font-mono" style="font-size:0.78rem; color:var(--slate-muted); letter-spacing:0.08em; white-space:nowrap;">2026-05-16</time>
                 </header>
                 <p class="section-desc" style="max-width:none; margin:0;">HMAC, immediate ACK, jittered backoff, dead-letter queue, replay. The five primitives that decide whether your webhook handler is a production system or a quietly-failing background task.</p>
-                <p style="margin-top:8px;"><a href="writing/webhook-reliability-primer.html">Read &rarr;</a></p>
+                <p style="margin-top:10px;"><a href="writing/webhook-reliability-primer.html">Read &rarr;</a> · <a href="charongate.html">Charon Gate</a></p>
             </article>
 
-            <article class="faq-item" style="margin-bottom:16px;">
+            <div class="section-header" style="margin-bottom:20px;">
+                <span class="section-tag">BLACKGLASS · LINUX</span>
+                <h2 class="section-title" style="font-size:1.35rem;">Fleet integrity &amp; posture</h2>
+                <p class="section-desc" style="max-width:none;">Baselines, drift, and the operational picture Linux teams actually need. <a href="blackglass.html">Blackglass →</a></p>
+            </div>
+
+            <article class="faq-item writing-article" style="margin-bottom:24px;">
                 <header style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:8px; flex-wrap:wrap;">
-                    <a href="writing/linux-fleet-baselines-explained.html" style="text-decoration:none;"><h2 class="section-title" style="font-size:1.15rem; margin:0;">Linux fleet baselines, explained without jargon</h2></a>
-                    <time datetime="2026-05-16" class="font-mono" style="font-size:0.78rem; color:var(--slate-muted); letter-spacing:0.08em;">2026-05-16</time>
+                    <a href="writing/linux-fleet-baselines-explained.html" style="text-decoration:none;"><h3 class="section-title" style="font-size:1.15rem; margin:0;">Linux fleet baselines, explained without jargon</h3></a>
+                    <time datetime="2026-05-16" class="font-mono" style="font-size:0.78rem; color:var(--slate-muted); letter-spacing:0.08em; white-space:nowrap;">2026-05-16</time>
                 </header>
                 <p class="section-desc" style="max-width:none; margin:0;">A baseline is "the picture of this server we agreed was fine". Everything Blackglass does, including the things that look fancy in a screenshot, is downstream of that idea.</p>
-                <p style="margin-top:8px;"><a href="writing/linux-fleet-baselines-explained.html">Read &rarr;</a></p>
+                <p style="margin-top:10px;"><a href="writing/linux-fleet-baselines-explained.html">Read &rarr;</a> · <a href="blackglass.html">Blackglass</a></p>
             </article>
 
-            <p class="section-desc" style="max-width:none; margin-top:32px; text-align:center; color:var(--slate-muted);">More posts as we ship things worth writing about. We don't run a content calendar.</p>
+            <p class="section-desc" style="max-width:none; margin-top:32px; padding-top:24px; border-top:1px solid var(--border-subtle, rgba(0,0,0,0.07)); text-align:center; color:var(--slate-muted);">More posts as we ship things worth writing about. No content calendar.</p>
         </div>
     </section>
 </main>

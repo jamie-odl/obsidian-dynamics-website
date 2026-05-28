@@ -188,6 +188,30 @@
             </div>
         </div>
     </section>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="bg-loop-heading">
+        <div class="container container--narrow">
+            <div class="section-header">
+                <span class="section-tag">CONNECTED STACK</span>
+                <h2 class="section-title" id="bg-loop-heading">Detection to response — without manual steps.</h2>
+                <p class="section-desc" style="max-width:none;">Blackglass closes the loop with the other two products in the stack. When drift is detected, the response is automatic.</p>
+            </div>
+            <div class="faq">
+                <details class="faq-item" open>
+                    <summary>Blackglass detects drift → Charon Gate routes the alert</summary>
+                    <p>Blackglass can fire a signed webhook when it classifies a finding as high severity. <a href="charongate.html">Charon Gate</a> ingests the event durably — so even if your alerting destination (Slack, PagerDuty, your own endpoint) is temporarily unavailable, the event is queued and delivered when the destination recovers. No lost alerts in the critical path.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Charon Gate routes the alert → Acheron Vault runs a backup health check</summary>
+                    <p>Simultaneously, Charon Gate can trigger <a href="acheronvault.html">Acheron Vault</a> to run a backup readiness verification on the affected target. When an unauthorized configuration change lands on a database host, the question of whether the latest backup is recoverable becomes immediately relevant — Acheron Vault answers it automatically, so your team has a fresh recoverability report at the same moment as the incident alert.</p>
+                </details>
+            </div>
+            <div class="cta-actions" style="margin-top:24px;">
+                <a href="charongate.html" class="btn btn-secondary">Charon Gate</a>
+                <a href="acheronvault.html" class="btn btn-ghost">Acheron Vault</a>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer class="footer" role="contentinfo"><div class="container"></div></footer>

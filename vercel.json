@@ -25,7 +25,10 @@
     { "source": "/skygrid.html", "destination": "/products", "permanent": true },
     { "source": "/onboarding-skygrid", "destination": "/onboarding", "permanent": true },
     { "source": "/onboarding-skygrid.html", "destination": "/onboarding", "permanent": true },
-    { "source": "/charongate.html", "destination": "/charongate", "permanent": true }
+    { "source": "/charongate.html", "destination": "/charongate", "permanent": true },
+    { "source": "/acheronvault.html", "destination": "/acheronvault", "permanent": true },
+    { "source": "/writing/what-a-real-backup-test-looks-like.html", "destination": "/writing/what-a-real-backup-test-looks-like", "permanent": true },
+    { "source": "/writing/cron-is-not-a-verification-strategy.html", "destination": "/writing/cron-is-not-a-verification-strategy", "permanent": true }
   ],
   "headers": [
     {
