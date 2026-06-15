@@ -175,25 +175,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function getStandardNavMarkup(activePage) {
         const items = [
             { href: '/node.html', label: 'The Node' },
-            { href: '/products.html', label: 'Platform' },
-            { href: '/use-cases.html', label: 'Use cases' },
+            { href: '/pricing.html', label: 'Pricing' },
             { href: '/trust-center.html', label: 'Trust' },
             { href: '/contact.html', label: 'Contact' }
         ];
-        const path = (typeof window !== 'undefined' && window.location && window.location.pathname) || '';
-        const inWritingDir = /^\/writing\//.test(path);
         const nodePages = new Set([
             'node.html'
         ]);
-        const platformPages = new Set([
-            'products.html',
-            'pricing.html',
-            'api.html',
-            'tools.html'
-        ]);
         const trustPages = new Set([
             'trust-center.html',
-            'security.html',
             'privacy.html',
             'terms.html'
         ]);
@@ -201,7 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const bare = item.href.replace(/^\//, '');
             const isActive = bare === activePage
                 || (item.href === '/node.html' && nodePages.has(activePage))
-                || (item.href === '/products.html' && platformPages.has(activePage))
                 || (item.href === '/trust-center.html' && trustPages.has(activePage));
             return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
         }).join('');
@@ -274,9 +263,8 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <p class="footer-tagline">Rugged edge intelligence for critical infrastructure. Power, compute &amp; sensing in one node.</p>' +
             '    <p class="footer-company-info"><a href="/about.html#company-details">Company details</a></p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Product</h4><ul><li><a href="/node.html">The Mk.II Node</a></li><li><a href="/products.html">Platform</a></li><li><a href="/use-cases.html">Use cases</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/api.html">API &amp; integrations</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Resources</h4><ul><li><a href="/writing.html">Writing</a></li><li><a href="/tools.html">Tools</a></li><li><a href="/trust-center.html">Trust Center</a></li><li><a href="/security.html">Security</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Product</h4><ul><li><a href="/node.html">The Mk.II Node</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/contact.html">Contact</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/about.html">About</a></li><li><a href="/trust-center.html">Trust</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
             '  <p>&copy; 2026 Obsidian Dynamics Limited</p>' +
@@ -296,28 +284,6 @@ document.addEventListener('DOMContentLoaded', () => {
         footerContainer.innerHTML = footerMarkup;
     }
 
-    function normalizeCtaLanguage() {
-        const ctaMap = [
-            { from: /book demo|request demo|schedule demo/gi, to: 'Discuss Scope' },
-            { from: /book a pilot scoping call|request .*pilot/gi, to: 'Discuss Operational Scope' },
-            { from: /^view pricing$/gi, to: 'View Access by Tier' },
-            { from: /^view platform and pricing$/gi, to: 'View Platform Access' },
-            { from: /start trial|get started/gi, to: 'Discuss Scope' },
-            { from: /^request onboarding support$/gi, to: 'Discuss Onboarding Scope' },
-            { from: /^request credentials$/gi, to: 'Open Credentials Request' }
-        ];
-        document.querySelectorAll('a.btn, button.btn, a.nav-cta').forEach((el) => {
-            const label = (el.textContent || '').trim();
-            if (!label) return;
-            for (const item of ctaMap) {
-                if (item.from.test(label)) {
-                    el.textContent = item.to;
-                    break;
-                }
-            }
-        });
-    }
-
     function injectOperationalTrustStrip() {
         const main = document.querySelector('main');
         if (!main || document.getElementById('operationalTrustStrip')) return;
@@ -333,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <article class="operational-trust-card"><h3>Evidence trail</h3><p>Timestamps, signed deliveries, and exports your auditor can act on.</p></article>' +
             '  </div>' +
             '  <div class="operational-trust-links">' +
-            '    <a href="node.html">The Node</a><a href="products.html">Platform</a><a href="trust-center.html">Trust Center</a><a href="security.html">Security</a>' +
+            '    <a href="node.html">The Node</a><a href="pricing.html">Pricing</a><a href="trust-center.html">Trust</a><a href="contact.html">Contact</a>' +
             '  </div>' +
             '</div>';
         main.appendChild(strip);
@@ -508,7 +474,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     applyGlobalBrandShell();
-    normalizeCtaLanguage();
     markMediaForPerformance();
     ensureSeoMetaDefaults();
     applyUnifiedPageShell();
@@ -1138,19 +1103,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- aria-current="page" for active nav link ---
-    const inWritingSection = /^\/writing\//.test(window.location.pathname || '');
     const nodePages = new Set([
         'node.html'
     ]);
-    const platformPages = new Set([
-        'products.html',
-        'pricing.html',
-        'api.html',
-        'tools.html'
-    ]);
     const trustPages = new Set([
         'trust-center.html',
-        'security.html',
         'privacy.html',
         'terms.html'
     ]);
@@ -1158,10 +1115,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const href = (link.getAttribute('href') || '').replace(/^\//, '');
         const matchesPage = href === currentPage || (currentPage === '' && href === 'index.html');
         const matchesNodeSection = href === 'node.html' && nodePages.has(currentPage);
-        const matchesPlatformSection = href === 'products.html' && platformPages.has(currentPage);
-        const matchesUseCases = href === 'use-cases.html' && (currentPage === 'use-cases.html' || inWritingSection);
         const matchesTrustSection = href === 'trust-center.html' && trustPages.has(currentPage);
-        if (matchesPage || matchesNodeSection || matchesPlatformSection || matchesUseCases || matchesTrustSection) {
+        if (matchesPage || matchesNodeSection || matchesTrustSection) {
             link.setAttribute('aria-current', 'page');
         }
     });
