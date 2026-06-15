@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API | Obsidian Dynamics</title>
-    <meta name="description" content="Obsidian Dynamics API conventions — Charon Gate webhook ingest, retry, and replay routes; Blackglass REST scoped per customer deployment. Auth, errors, idempotency.">
+    <title>API &amp; integrations | Obsidian Dynamics</title>
+    <meta name="description" content="Obsidian Dynamics API conventions — node ingest and heartbeat, command queue, OTA updates, Prometheus metrics, and portal exports. Keyed, scoped and tenant-isolated.">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="API | Obsidian Dynamics">
-    <meta property="og:description" content="API conventions for Charon Gate (ingest, retry, replay) and Blackglass (REST scoped per deployment).">
+    <meta property="og:title" content="API &amp; integrations | Obsidian Dynamics">
+    <meta property="og:description" content="Node ingest and heartbeat, command queue, OTA updates, Prometheus metrics, and portal exports.">
     <meta property="og:url" content="https://obsidiandynamics.co.uk/api">
     <meta property="og:site_name" content="Obsidian Dynamics">
-    <meta property="og:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:alt" content="Obsidian Dynamics — Blackglass and Charon Gate">
+    <meta property="og:image" content="https://obsidiandynamics.co.uk/img/node-hero.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="683">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Obsidian Dynamics Mk.II Node">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="API | Obsidian Dynamics">
-    <meta name="twitter:description" content="Charon Gate and Blackglass API conventions.">
-    <meta name="twitter:image" content="https://obsidiandynamics.co.uk/img/og-image.jpg">
-    <meta name="twitter:image:alt" content="Obsidian Dynamics — Blackglass and Charon Gate">
+    <meta name="twitter:title" content="API &amp; integrations | Obsidian Dynamics">
+    <meta name="twitter:description" content="Node ingest, command queue, OTA, metrics and portal exports.">
+    <meta name="twitter:image" content="https://obsidiandynamics.co.uk/img/node-hero.png">
+    <meta name="twitter:image:alt" content="Obsidian Dynamics Mk.II Node">
     <link rel="canonical" href="https://obsidiandynamics.co.uk/api">
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
@@ -43,10 +43,10 @@
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
 <nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
 <main id="main-content">
-<section class="page-hero"><p class="page-hero__badge">API</p><h1 class="page-hero__title">One vocabulary. Scoped access.</h1><p class="page-hero__subtitle">Blackglass HTTP shapes and keys ship with your tenancy. Charon Gate exposes a stable ingest URL and an operator API — full reference is bundled with onboarding, not on this page.</p></section>
+<section class="page-hero"><p class="page-hero__badge">API &amp; INTEGRATIONS</p><h1 class="page-hero__title">One vocabulary. Scoped access.</h1><p class="page-hero__subtitle">Nodes talk to the platform over a small, stable HTTP surface. Operators get a keyed API and metrics; auditors get exports. Full reference and keys ship with onboarding.</p></section>
 <section class="features-section" style="padding-top:0;"><div class="container container--narrow">
-<p class="section-desc" style="max-width:none;">Example routes for Charon Gate: <code class="font-mono">POST /ingest/{publicId}</code> (returns <strong>202</strong> with <code class="font-mono">x-charon-event-id</code>), <code class="font-mono">GET /events</code>, <code class="font-mono">POST /events/{id}/replay</code>. Auth, pagination, and severity labels stay consistent across products. Full reference and keys: <a href="contact.html">contact</a> or your onboarding pack.</p>
-<div class="cta-actions" style="margin-top:1.25rem;"><a href="contact.html" class="btn btn-primary">Access</a><a href="trust-center.html" class="btn btn-ghost">Trust</a></div>
+<p class="section-desc" style="max-width:none;">Representative routes: <code class="font-mono">POST /api/ingest</code> (batched readings, returns <strong>202</strong>), <code class="font-mono">POST /api/heartbeat</code> (status, battery, GPS), <code class="font-mono">GET /api/nodes/{id}/commands</code> (command queue), <code class="font-mono">GET /api/updates</code> (OTA firmware), and <code class="font-mono">GET /api/metrics</code> (Prometheus). Compliance exports come from the portal as signed PDF and CSV. Ingest is keyed, scoped and rate-limited; every call is tenant-isolated.</p>
+<div class="cta-actions" style="margin-top:1.25rem;"><a href="contact.html?intent=scope&product=platform" class="btn btn-primary">Request access</a><a href="trust-center.html" class="btn btn-ghost">Trust</a></div>
 </div></section>
 </main>
 <footer class="footer" role="contentinfo"><div class="container"></div></footer>

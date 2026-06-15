@@ -8,9 +8,8 @@ const LIMIT = 8;
 const WINDOW = 60;
 
 const VALID_INTEREST = new Set([
-    'acheronvault',
-    'blackglass',
-    'charongate',
+    'node',
+    'deployment',
     'platform',
     'onboarding',
     'account-operations',
@@ -51,9 +50,8 @@ function escapeHtml(value) {
 
 function interestLabel(value) {
     const map = {
-        acheronvault: 'Acheron Vault',
-        blackglass: 'Blackglass',
-        charongate: 'Charon Gate',
+        node: 'The Mk.II Node',
+        deployment: 'Site deployment',
         platform: 'Platform / API',
         onboarding: 'Onboarding',
         'account-operations': 'Account operations',

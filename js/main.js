@@ -68,7 +68,7 @@
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Typography loads via @import in css/styles.css (IBM Plex — matches blackglass-console).
+    // Typography loads via @import in css/styles.css (IBM Plex).
 
     const prefersReducedMotionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.14.0';
+    const SITE_VERSION = 'v3.0.0';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
@@ -174,19 +174,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getStandardNavMarkup(activePage) {
         const items = [
-            { href: '/products.html', label: 'Products' },
-            { href: '/pricing.html', label: 'Pricing' },
-            { href: '/writing.html', label: 'Writing' },
+            { href: '/node.html', label: 'The Node' },
+            { href: '/products.html', label: 'Platform' },
+            { href: '/use-cases.html', label: 'Use cases' },
             { href: '/trust-center.html', label: 'Trust' },
             { href: '/contact.html', label: 'Contact' }
         ];
         const path = (typeof window !== 'undefined' && window.location && window.location.pathname) || '';
         const inWritingDir = /^\/writing\//.test(path);
-        const productPages = new Set([
+        const nodePages = new Set([
+            'node.html'
+        ]);
+        const platformPages = new Set([
             'products.html',
-            'acheronvault.html',
-            'blackglass.html',
-            'charongate.html'
+            'pricing.html',
+            'api.html',
+            'tools.html'
         ]);
         const trustPages = new Set([
             'trust-center.html',
@@ -197,8 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return items.map((item) => {
             const bare = item.href.replace(/^\//, '');
             const isActive = bare === activePage
-                || (item.href === '/writing.html' && inWritingDir)
-                || (item.href === '/products.html' && productPages.has(activePage))
+                || (item.href === '/node.html' && nodePages.has(activePage))
+                || (item.href === '/products.html' && platformPages.has(activePage))
                 || (item.href === '/trust-center.html' && trustPages.has(activePage));
             return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
         }).join('');
@@ -270,12 +273,12 @@ document.addEventListener('DOMContentLoaded', () => {
             '<div class="footer-grid">' +
             '  <div class="footer-brand">' +
             '    <a href="/index.html" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
-            '    <p class="footer-tagline">Acheron Vault · Blackglass · Charon Gate · fewer moving parts.</p>' +
+            '    <p class="footer-tagline">Rugged edge intelligence for critical infrastructure. Power, compute &amp; sensing in one node.</p>' +
             '    <p class="footer-company-info"><a href="/about.html#company-details">Company details</a></p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Work</h4><ul><li><a href="/acheronvault.html">Acheron Vault</a></li><li><a href="/blackglass.html">Blackglass</a></li><li><a href="/charongate.html">Charon Gate</a></li><li><a href="/products.html">Compare</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/tools.html">Tools</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Live</h4><ul><li><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a></li><li><a href="https://charongate.com" target="_blank" rel="noopener noreferrer">charongate.com</a></li><li><a href="/trust-center.html">Trust</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/writing.html">Writing</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/security.html">Security</a></li><li><a href="/terms.html">Terms</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Product</h4><ul><li><a href="/node.html">The Mk.II Node</a></li><li><a href="/products.html">Platform</a></li><li><a href="/use-cases.html">Use cases</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/api.html">API &amp; integrations</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Resources</h4><ul><li><a href="/writing.html">Writing</a></li><li><a href="/tools.html">Tools</a></li><li><a href="/trust-center.html">Trust Center</a></li><li><a href="/security.html">Security</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
             '  <p>&copy; 2026 Obsidian Dynamics Limited</p>' +
@@ -332,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <article class="operational-trust-card"><h3>Evidence trail</h3><p>Timestamps, signed deliveries, and exports your auditor can act on.</p></article>' +
             '  </div>' +
             '  <div class="operational-trust-links">' +
-            '    <a href="blackglass.html">Blackglass</a><a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a><a href="charongate.html">Charon Gate</a><a href="trust-center.html">Trust Center</a><a href="security.html">Security</a>' +
+            '    <a href="node.html">The Node</a><a href="products.html">Platform</a><a href="trust-center.html">Trust Center</a><a href="security.html">Security</a>' +
             '  </div>' +
             '</div>';
         main.appendChild(strip);
@@ -365,8 +368,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = (document.title || 'Obsidian Dynamics').trim();
         const descTag = document.querySelector('meta[name="description"]');
         const description = ((descTag && descTag.getAttribute('content')) || '').trim()
-            || 'Blackglass: operational integrity for Linux hosts — fleet baselines, finding triage, evidence exports. Charon Gate: webhook reliability with DLQ and replay.';
-        const defaultOgImage = siteOrigin + '/img/og-image.jpg';
+            || 'Obsidian Dynamics builds the Mk.II Node — secure, rugged edge intelligence with integrated power, compute and sensing for noise, vibration and seismic monitoring on critical infrastructure.';
+        const defaultOgImage = siteOrigin + '/img/node-hero.png';
 
         function upsertMeta(attrName, attrValue, content) {
             let tag = document.head.querySelector('meta[' + attrName + '="' + attrValue + '"]');
@@ -406,16 +409,16 @@ document.addEventListener('DOMContentLoaded', () => {
         upsertMeta('property', 'og:site_name', 'Obsidian Dynamics');
         upsertMeta('property', 'og:locale', 'en_GB');
         upsertMeta('property', 'og:image', defaultOgImage);
-        upsertMeta('property', 'og:image:width', '1200');
-        upsertMeta('property', 'og:image:height', '630');
-        upsertMeta('property', 'og:image:type', 'image/jpeg');
-        upsertMeta('property', 'og:image:alt', 'Obsidian Dynamics — Blackglass and Charon Gate');
+        upsertMeta('property', 'og:image:width', '1536');
+        upsertMeta('property', 'og:image:height', '1024');
+        upsertMeta('property', 'og:image:type', 'image/png');
+        upsertMeta('property', 'og:image:alt', 'Obsidian Dynamics Mk.II Node — rugged edge intelligence');
 
         upsertMeta('name', 'twitter:card', 'summary_large_image');
         upsertMeta('name', 'twitter:title', title);
         upsertMeta('name', 'twitter:description', description);
         upsertMeta('name', 'twitter:image', defaultOgImage);
-        upsertMeta('name', 'twitter:image:alt', 'Obsidian Dynamics — Blackglass and Charon Gate');
+        upsertMeta('name', 'twitter:image:alt', 'Obsidian Dynamics Mk.II Node — rugged edge intelligence');
 
         upsertMeta('name', 'theme-color', '#f8f6f3');
     }
@@ -1004,9 +1007,10 @@ document.addEventListener('DOMContentLoaded', () => {
             interestField.value = roleToInterest[roleParam];
         }
         const productToInterest = {
-            acheronvault: 'acheronvault',
-            blackglass: 'blackglass',
-            charongate: 'charongate'
+            node: 'node',
+            'mk2-node': 'node',
+            platform: 'platform',
+            deployment: 'deployment'
         };
         if (interestField && productToInterest[productParam]) {
             interestField.value = productToInterest[productParam];
@@ -1015,9 +1019,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const roleLabel = roleParam ? roleParam.charAt(0).toUpperCase() + roleParam.slice(1) : '';
             const intentLabel = intentParam ? intentParam.replace(/-/g, ' ') : 'briefing';
             const productNames = {
-                acheronvault: 'Acheron Vault',
-                blackglass: 'Blackglass',
-                charongate: 'Charon Gate'
+                node: 'the Mk.II Node',
+                'mk2-node': 'the Mk.II Node',
+                platform: 'the monitoring platform',
+                deployment: 'a site deployment'
             };
             const productLabel = productNames[productParam] || '';
             let opener = 'Hello Obsidian team, ';
@@ -1140,11 +1145,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- aria-current="page" for active nav link ---
     const inWritingSection = /^\/writing\//.test(window.location.pathname || '');
-    const productPages = new Set([
+    const nodePages = new Set([
+        'node.html'
+    ]);
+    const platformPages = new Set([
         'products.html',
-        'acheronvault.html',
-        'blackglass.html',
-        'charongate.html'
+        'pricing.html',
+        'api.html',
+        'tools.html'
     ]);
     const trustPages = new Set([
         'trust-center.html',
@@ -1155,10 +1163,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-link').forEach(link => {
         const href = (link.getAttribute('href') || '').replace(/^\//, '');
         const matchesPage = href === currentPage || (currentPage === '' && href === 'index.html');
-        const matchesWritingSection = href === 'writing.html' && inWritingSection;
-        const matchesProductSection = href === 'products.html' && productPages.has(currentPage);
+        const matchesNodeSection = href === 'node.html' && nodePages.has(currentPage);
+        const matchesPlatformSection = href === 'products.html' && platformPages.has(currentPage);
+        const matchesUseCases = href === 'use-cases.html' && (currentPage === 'use-cases.html' || inWritingSection);
         const matchesTrustSection = href === 'trust-center.html' && trustPages.has(currentPage);
-        if (matchesPage || matchesWritingSection || matchesProductSection || matchesTrustSection) {
+        if (matchesPage || matchesNodeSection || matchesPlatformSection || matchesUseCases || matchesTrustSection) {
             link.setAttribute('aria-current', 'page');
         }
     });

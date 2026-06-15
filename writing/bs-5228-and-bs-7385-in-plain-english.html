@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS 5228 and BS 7385, in plain English | Obsidian Dynamics</title>
+    <meta name="description" content="A plain-language guide to the two standards that govern construction noise (BS 5228) and building vibration (BS 7385), and how the Mk.II Node turns them into live limits.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="BS 5228 and BS 7385, in plain English">
+    <meta property="og:description" content="What the construction noise and vibration standards actually ask for, without the jargon.">
+    <meta property="og:url" content="https://obsidiandynamics.co.uk/writing/bs-5228-and-bs-7385-in-plain-english">
+    <meta property="og:site_name" content="Obsidian Dynamics">
+    <meta property="og:image" content="https://obsidiandynamics.co.uk/img/node-deployment.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Mk.II Node deployed on a construction site">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BS 5228 and BS 7385, in plain English">
+    <meta name="twitter:image" content="https://obsidiandynamics.co.uk/img/node-deployment.png">
+    <meta name="twitter:image:alt" content="Mk.II Node deployed on site">
+    <link rel="canonical" href="https://obsidiandynamics.co.uk/writing/bs-5228-and-bs-7385-in-plain-english">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#f8f6f3">
+    <link rel="preload" href="/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/outfit-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"BS 5228 and BS 7385, in plain English","description":"What the construction noise and vibration standards actually ask for, without the jargon.","datePublished":"2026-06-12","author":{"@type":"Organization","name":"Obsidian Dynamics","url":"https://obsidiandynamics.co.uk"},"publisher":{"@type":"Organization","name":"Obsidian Dynamics Limited","url":"https://obsidiandynamics.co.uk","logo":{"@type":"ImageObject","url":"https://obsidiandynamics.co.uk/img/icon-512.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://obsidiandynamics.co.uk/writing/bs-5228-and-bs-7385-in-plain-english"},"image":"https://obsidiandynamics.co.uk/img/node-deployment.png"}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://obsidiandynamics.co.uk/"},
+      {"@type":"ListItem","position":2,"name":"Writing","item":"https://obsidiandynamics.co.uk/writing"},
+      {"@type":"ListItem","position":3,"name":"BS 5228 and BS 7385, in plain English","item":"https://obsidiandynamics.co.uk/writing/bs-5228-and-bs-7385-in-plain-english"}
+    ]}
+    </script>
+</head>
+<body>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+<nav class="navbar" id="navbar"><div class="nav-container"><a href="/index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<main id="main-content">
+    <section class="page-hero">
+        <p class="page-hero__badge">WRITING · 2026-06-12</p>
+        <h1 class="page-hero__title" style="margin-top:0;">BS 5228 and BS 7385, in plain English</h1>
+        <p class="page-hero__subtitle">Two British Standards govern most site monitoring: one for noise, one for vibration. This is the short version — what they ask for, and how a node turns them into limits you can actually watch.</p>
+    </section>
+    <section class="legal-content">
+        <div class="container container--narrow">
+            <p><em>This is a plain-language overview, not compliance advice. Always work to the consent conditions and the assessment of a qualified consultant for your site.</em></p>
+            <h2>BS 5228 — noise (and vibration) on construction sites</h2>
+            <p>BS 5228 is the code of practice for noise and vibration control on construction and open sites. In practice the part most people care about is the noise limit attached to a planning consent: a level, measured as <strong>L<sub>Aeq</sub></strong> (an average sound level in dB(A) over a period), that the works must not exceed.</p>
+            <p>The catch is that the limit usually changes through the day. Daytime working hours get one figure; evenings and nights get tighter ones. A single number is never the whole picture — the time of day matters as much as the level.</p>
+            <h2>BS 7385 — vibration in buildings</h2>
+            <p>BS 7385 deals with vibration and the risk of cosmetic or structural damage to buildings. The headline measurement is <strong>peak particle velocity (PPV)</strong> in mm/s, captured by a geophone. Guidance values depend on the type of structure and the frequency of the vibration — a modern frame tolerates more than a sensitive or historic structure.</p>
+            <h2>Turning standards into live limits</h2>
+            <p>On their own, the standards are documents. To use them you turn them into a <strong>limit profile</strong>: a noise figure per period (day / evening / night), a PPV value for the structures nearby, and the working hours that decide which period applies. The Mk.II Node stores that profile and checks every reading against it.</p>
+            <ul>
+                <li><strong>Per-period thresholds</strong> so a level that is fine at 11am is flagged at 11pm.</li>
+                <li><strong>Working-hours rules</strong> so out-of-hours activity stands out rather than hiding in an average.</li>
+                <li><strong>Escalation</strong> when a breach is approached or goes unacknowledged.</li>
+                <li><strong>Signed evidence</strong> so the record you hand a client or authority can be verified.</li>
+            </ul>
+            <p>The point is not to replace the consultant. It is to make the standard something a site team can see in real time, and something an auditor can trust after the fact.</p>
+        </div>
+    </section>
+    <section class="features-section article-product-cta" style="padding-top:0;" aria-label="The platform">
+        <div class="container container--narrow">
+            <div class="cta-card">
+                <div class="cta-card__content">
+                    <span class="feature-card__tag">THE PLATFORM</span>
+                    <h2 class="cta-card__title">From standard to signed report.</h2>
+                    <p class="cta-card__desc">Limit profiles for BS 5228 and BS 7385, evaluated on-site and turned into audit-ready evidence.</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="/products.html" class="btn btn-primary">See the platform</a>
+                    <a href="/use-cases.html" class="btn btn-secondary">Where it fits</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer" role="contentinfo"><div class="container"></div></footer>
+<script src="/js/main.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

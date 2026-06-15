@@ -7,8 +7,6 @@ Disallow: /developer-central.html
 Disallow: /developer-login
 Disallow: /developer-login.html
 Disallow: /onboarding
-Disallow: /onboarding-charongate
-Disallow: /onboarding-blackglass
 Disallow: /account-operations
 Disallow: /access-denied
 Disallow: /access-denied.html

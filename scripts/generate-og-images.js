@@ -177,20 +177,20 @@ function renderOg({ filename, tag, title, subtitle }) {
 if (!fs.existsSync(imgDir)) fs.mkdirSync(imgDir, { recursive: true });
 
 renderOg({
-    filename: 'og-acheronvault.png',
-    tag: 'ACHERON VAULT',
-    title: 'BACKUP RECOVERABILITY',
-    subtitle: 'EPHEMERAL RESTORE VERIFICATION'
+    filename: 'og-node.png',
+    tag: 'MK.II NODE',
+    title: 'RUGGED EDGE INTELLIGENCE',
+    subtitle: 'POWER COMPUTE AND SENSING'
 });
 renderOg({
-    filename: 'og-blackglass.png',
-    tag: 'BLACKGLASS',
-    title: 'LINUX FLEET INTEGRITY',
-    subtitle: 'BASELINES DRIFT AND EVIDENCE'
+    filename: 'og-platform.png',
+    tag: 'PLATFORM',
+    title: 'INGEST EVALUATE ALERT',
+    subtitle: 'SIGNED COMPLIANCE EVIDENCE'
 });
 renderOg({
-    filename: 'og-charongate.png',
-    tag: 'CHARON GATE',
-    title: 'WEBHOOK RELIABILITY',
-    subtitle: 'INGEST RETRY DLQ REPLAY'
+    filename: 'og-use-cases.png',
+    tag: 'USE CASES',
+    title: 'NOISE VIBRATION SEISMIC',
+    subtitle: 'CONSTRUCTION RAIL AND DEMOLITION'
 });

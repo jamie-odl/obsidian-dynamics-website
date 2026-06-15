@@ -1,10 +1,10 @@
 const PLAN_TO_PRICE_ENV = {
-    blackglass_starter: 'PRICE_BLACKGLASS_STARTER',
-    blackglass_professional: 'PRICE_BLACKGLASS_PROFESSIONAL',
-    blackglass_enterprise: 'PRICE_BLACKGLASS_ENTERPRISE',
-    charongate_starter: 'PRICE_CHARONGATE_STARTER',
-    charongate_pro: 'PRICE_CHARONGATE_PRO',
-    charongate_team: 'PRICE_CHARONGATE_TEAM'
+    node_starter: 'PRICE_NODE_STARTER',
+    node_professional: 'PRICE_NODE_PROFESSIONAL',
+    node_enterprise: 'PRICE_NODE_ENTERPRISE',
+    platform_starter: 'PRICE_PLATFORM_STARTER',
+    platform_pro: 'PRICE_PLATFORM_PRO',
+    platform_team: 'PRICE_PLATFORM_TEAM'
 };
 
 async function createCheckoutSession({ priceId, origin }) {
