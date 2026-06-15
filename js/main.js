@@ -215,8 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
             'developer-login.html',
             'access-denied.html',
             'onboarding.html',
-            'onboarding-charongate.html',
-            'onboarding-blackglass.html',
             'account-operations.html',
             '404.html'
         ]);
@@ -354,8 +352,6 @@ document.addEventListener('DOMContentLoaded', () => {
             'developer-login.html',
             'access-denied.html',
             'onboarding.html',
-            'onboarding-charongate.html',
-            'onboarding-blackglass.html',
             'account-operations.html',
             '404.html'
         ]);
@@ -527,8 +523,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const protectedPages = new Set([
         'developer-central.html',
         'onboarding.html',
-        'onboarding-charongate.html',
-        'onboarding-blackglass.html',
         'account-operations.html'
     ]);
     const privateFacingPages = new Set([
