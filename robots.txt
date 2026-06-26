@@ -6,11 +6,12 @@ Disallow: /developer-central
 Disallow: /developer-central.html
 Disallow: /developer-login
 Disallow: /developer-login.html
+Disallow: /developer-api
+Disallow: /developer-api.html
 Disallow: /onboarding
 Disallow: /account-operations
 Disallow: /access-denied
 Disallow: /access-denied.html
-Disallow: /intelligence
-Disallow: /intelligence.html
+Disallow: /admin
 
 Sitemap: https://obsidiandynamics.co.uk/sitemap.xml

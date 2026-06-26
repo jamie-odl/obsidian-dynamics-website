@@ -12,7 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!email) return;
 
         var params = new URLSearchParams(window.location.search);
-        var next = params.get('next') || 'developer-central.html';
+        var next = params.get('next') || 'developer-api.html';
+        if (next.indexOf('://') !== -1 || next.indexOf('..') !== -1 || next.charAt(0) === '/') {
+            next = 'developer-api.html';
+        }
 
         try {
             var response = await fetch('/api/auth/request-link', {

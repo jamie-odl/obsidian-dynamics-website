@@ -3,6 +3,8 @@ const {
     verifyToken,
     serializeSessionCookie,
     isAllowlisted,
+    getUserRole,
+    resolvePostLoginRedirect,
     isMagicLinkConsumed,
     markMagicLinkConsumed,
     getClientIp,
@@ -39,10 +41,17 @@ module.exports = async (request, response) => {
 
         markMagicLinkConsumed(payload.jti, 15 * 60);
 
-        const sessionToken = signToken({ email: payload.email, type: 'session' }, 12 * 60 * 60);
+        const role = getUserRole(payload.email);
+        if (!role) {
+            authAudit('auth_verify_failed', { ip, email: payload.email, reason: 'not_allowlisted' });
+            return response.status(401).send('Invalid or expired token');
+        }
+
+        const sessionToken = signToken({ email: payload.email, type: 'session', role }, 12 * 60 * 60);
         response.setHeader('Set-Cookie', serializeSessionCookie(sessionToken));
-        authAudit('auth_verify_success', { ip, email: payload.email });
-        return response.redirect(302, `/${payload.next || 'developer-central.html'}`);
+        const destination = resolvePostLoginRedirect(payload.email, payload.next);
+        authAudit('auth_verify_success', { ip, email: payload.email, role, destination });
+        return response.redirect(302, `/${destination}`);
     } catch (error) {
         authAudit('auth_verify_error', { error: String(error && error.message ? error.message : error) });
         return response.status(500).send('Unable to verify login');

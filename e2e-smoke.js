@@ -115,7 +115,8 @@ async function apiCheck() {
   };
 
   process.env.AUTH_TOKEN_SECRET = process.env.AUTH_TOKEN_SECRET || 'local-test-secret-123';
-  process.env.DEVELOPER_ALLOWLIST = process.env.DEVELOPER_ALLOWLIST || 'jamie@obsidiandynamics.co.uk';
+  process.env.ADMIN_ALLOWLIST = process.env.ADMIN_ALLOWLIST || 'jamie@obsidiandynamics.co.uk';
+  process.env.API_ALLOWLIST = process.env.API_ALLOWLIST || 'api-user@example.com';
   process.env.NODE_ENV = process.env.NODE_ENV || 'development';
   process.env.RESEND_API_KEY = process.env.RESEND_API_KEY || 'dummy';
   process.env.AUTH_EMAIL_FROM = process.env.AUTH_EMAIL_FROM || 'security@example.com';
@@ -163,6 +164,17 @@ async function apiCheck() {
   const resSessionYes = mkRes();
   await handlers.session(reqSessionYes, resSessionYes);
 
+  // 8) api user should not land on admin destinations
+  const apiMagicToken = utils.signToken({
+    email: 'api-user@example.com',
+    type: 'magic_link',
+    next: 'admin/dashboard',
+    jti: 'test-jti-api-1',
+  }, 15 * 60);
+  const reqApiVerify = { method: 'GET', query: { token: apiMagicToken }, headers: {}, socket: { remoteAddress: '127.0.0.1' } };
+  const resApiVerify = mkRes();
+  await handlers.verify(reqApiVerify, resApiVerify);
+
   // 7) logout should clear cookie
   const reqLogout = { method: 'POST', headers: {}, socket: { remoteAddress: '127.0.0.1' } };
   const resLogout = mkRes();
@@ -177,6 +189,8 @@ async function apiCheck() {
     verifyRedirect: resVerify._state.redirectTo,
     replayStatus: resReplay._state.statusCode,
     sessionWithCookieStatus: resSessionYes._state.statusCode,
+    sessionRole: resSessionYes._state.body && resSessionYes._state.body.role,
+    apiVerifyRedirect: resApiVerify._state.redirectTo,
     logoutStatus: resLogout._state.statusCode,
     logoutSetCookiePresent: Boolean(resLogout._state.headers['Set-Cookie']),
   };

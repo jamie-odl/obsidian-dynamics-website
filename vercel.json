@@ -3,21 +3,33 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/api/public/coverage",
+      "destination": "/api/public-coverage-proxy"
+    },
+    {
+      "source": "/api/intelligence/:path*",
+      "destination": "/api/intelligence-proxy?upstream=:path*"
+    },
+    {
+      "source": "/admin",
+      "destination": "https://obsidian-dynamics-admin.vercel.app/admin"
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "https://obsidian-dynamics-admin.vercel.app/admin/:path*"
+    }
+  ],
   "redirects": [
-    { "source": "/platform", "destination": "/node", "permanent": true },
-    { "source": "/platform.html", "destination": "/node", "permanent": true },
-    { "source": "/products", "destination": "/node", "permanent": true },
-    { "source": "/products.html", "destination": "/node", "permanent": true },
-    { "source": "/use-cases", "destination": "/node", "permanent": true },
-    { "source": "/use-cases.html", "destination": "/node", "permanent": true },
-    { "source": "/api", "destination": "/node", "permanent": true },
-    { "source": "/api.html", "destination": "/node", "permanent": true },
-    { "source": "/tools", "destination": "/", "permanent": true },
-    { "source": "/tools.html", "destination": "/", "permanent": true },
-    { "source": "/security", "destination": "/trust-center", "permanent": true },
-    { "source": "/security.html", "destination": "/trust-center", "permanent": true },
-    { "source": "/writing", "destination": "/", "permanent": true },
-    { "source": "/writing.html", "destination": "/", "permanent": true },
+    { "source": "/platform", "destination": "/about", "permanent": true },
+    { "source": "/platform.html", "destination": "/about", "permanent": true },
+    { "source": "/products", "destination": "/about", "permanent": true },
+    { "source": "/products.html", "destination": "/about", "permanent": true },
+    { "source": "/trust-center", "destination": "/privacy", "permanent": true },
+    { "source": "/trust-center.html", "destination": "/privacy", "permanent": true },
+    { "source": "/intelligence", "destination": "/about", "permanent": true },
+    { "source": "/intelligence.html", "destination": "/about", "permanent": true },
     { "source": "/billing", "destination": "/", "permanent": true },
     { "source": "/billing.html", "destination": "/", "permanent": true },
     { "source": "/status", "destination": "/", "permanent": true },
@@ -26,35 +38,62 @@
     { "source": "/methodology.html", "destination": "/", "permanent": true },
     { "source": "/evidence-library", "destination": "/", "permanent": true },
     { "source": "/evidence-library.html", "destination": "/", "permanent": true },
-    { "source": "/intelligence", "destination": "/node", "permanent": true },
-    { "source": "/intelligence.html", "destination": "/node", "permanent": true },
-    { "source": "/acheronvault", "destination": "/node", "permanent": true },
-    { "source": "/blackglass", "destination": "/node", "permanent": true },
-    { "source": "/blackglass.html", "destination": "/node", "permanent": true },
-    { "source": "/charongate", "destination": "/node", "permanent": true },
-    { "source": "/onboarding-blackglass", "destination": "/onboarding", "permanent": true },
-    { "source": "/onboarding-blackglass.html", "destination": "/onboarding", "permanent": true },
-    { "source": "/onboarding-charongate", "destination": "/onboarding", "permanent": true },
-    { "source": "/onboarding-charongate.html", "destination": "/onboarding", "permanent": true },
-    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/pricing", "destination": "/contact", "permanent": true },
+    { "source": "/pricing.html", "destination": "/contact", "permanent": true },
+    { "source": "/writing", "destination": "/about", "permanent": true },
+    { "source": "/writing.html", "destination": "/about", "permanent": true },
+    { "source": "/tools", "destination": "/", "permanent": true },
+    { "source": "/tools.html", "destination": "/", "permanent": true },
+    { "source": "/use-cases", "destination": "/about", "permanent": true },
+    { "source": "/use-cases.html", "destination": "/about", "permanent": true },
+    { "source": "/api", "destination": "/about", "permanent": true },
+    { "source": "/api.html", "destination": "/about", "permanent": true },
+    { "source": "/node", "destination": "/", "permanent": true },
+    { "source": "/node.html", "destination": "/", "permanent": true },
+    { "source": "/acheronvault", "destination": "/about", "permanent": true },
+    { "source": "/blackglass", "destination": "/about", "permanent": true },
+    { "source": "/blackglass.html", "destination": "/about", "permanent": true },
+    { "source": "/charongate", "destination": "/about", "permanent": true },
+    { "source": "/acheronvault.html", "destination": "/about", "permanent": true },
+    { "source": "/charongate.html", "destination": "/about", "permanent": true },
+    { "source": "/writing/(.*)", "destination": "/about", "permanent": true },
     { "source": "/contact.html", "destination": "/contact", "permanent": true },
     { "source": "/privacy.html", "destination": "/privacy", "permanent": true },
     { "source": "/terms.html", "destination": "/terms", "permanent": true },
-    { "source": "/skygrid", "destination": "/node", "permanent": true },
-    { "source": "/skygrid.html", "destination": "/node", "permanent": true },
+    { "source": "/security.html", "destination": "/privacy", "permanent": true },
+    { "source": "/skygrid", "destination": "/about", "permanent": true },
+    { "source": "/skygrid.html", "destination": "/about", "permanent": true },
     { "source": "/onboarding-skygrid", "destination": "/onboarding", "permanent": true },
     { "source": "/onboarding-skygrid.html", "destination": "/onboarding", "permanent": true },
-    { "source": "/charongate.html", "destination": "/node", "permanent": true },
-    { "source": "/acheronvault.html", "destination": "/node", "permanent": true },
-    { "source": "/writing/(.*)", "destination": "/", "permanent": true }
+    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/account-operations", "destination": "/contact", "permanent": true },
+    { "source": "/account-operations.html", "destination": "/contact", "permanent": true },
+    { "source": "/for-journalists", "destination": "/research#journalists", "permanent": true },
+    { "source": "/for-journalists.html", "destination": "/research#journalists", "permanent": true }
   ],
   "headers": [
+    {
+      "source": "/developer-api",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+    },
+    {
+      "source": "/developer-api.html",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+    },
     {
       "source": "/developer-central",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
     },
     {
       "source": "/developer-central.html",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+    },
+    {
+      "source": "/admin",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+    },
+    {
+      "source": "/admin/:path*",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
     },
     {
@@ -126,3 +165,4 @@
     }
   ]
 }
+

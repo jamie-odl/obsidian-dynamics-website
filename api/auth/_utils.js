@@ -21,14 +21,55 @@ function normalizeEmail(value) {
     return String(value || '').trim().toLowerCase();
 }
 
-function getAllowlist() {
-    const raw = process.env.DEVELOPER_ALLOWLIST || '';
+function parseAllowlistEnv(name) {
+    const raw = process.env[name] || '';
     return raw.split(',').map((email) => normalizeEmail(email)).filter(Boolean);
 }
 
+function getAdminAllowlist() {
+    const admin = parseAllowlistEnv('ADMIN_ALLOWLIST');
+    if (admin.length) return admin;
+    return parseAllowlistEnv('DEVELOPER_ALLOWLIST');
+}
+
+function getApiAllowlist() {
+    return parseAllowlistEnv('API_ALLOWLIST');
+}
+
+function getUserRole(email) {
+    const normalized = normalizeEmail(email);
+    if (!normalized) return null;
+    if (getAdminAllowlist().includes(normalized)) return 'admin';
+    if (getApiAllowlist().includes(normalized)) return 'api';
+    return null;
+}
+
 function isAllowlisted(email) {
-    const allowlist = getAllowlist();
-    return allowlist.includes(normalizeEmail(email));
+    return getUserRole(email) !== null;
+}
+
+const ADMIN_ONLY_HTML = new Set([
+    'developer-central.html',
+    'account-operations.html',
+    'onboarding.html',
+    'onboarding-charongate.html',
+    'onboarding-blackglass.html'
+]);
+
+function isAdminDestination(next) {
+    if (typeof next !== 'string' || !next) return false;
+    if (next.startsWith('admin/')) return true;
+    return ADMIN_ONLY_HTML.has(next);
+}
+
+function resolvePostLoginRedirect(email, requestedNext) {
+    const role = getUserRole(email);
+    const fallback = role === 'admin' ? 'developer-central.html' : 'developer-api.html';
+    const next = typeof requestedNext === 'string' && requestedNext ? requestedNext : fallback;
+    if (role === 'admin') return next;
+    if (isAdminDestination(next)) return 'developer-api.html';
+    if (next.endsWith('.html')) return next;
+    return 'developer-api.html';
 }
 
 function signToken(payload, ttlSeconds) {
@@ -129,7 +170,12 @@ module.exports = {
     SESSION_TTL_SECONDS,
     getBaseUrl,
     normalizeEmail,
+    getAdminAllowlist,
+    getApiAllowlist,
+    getUserRole,
     isAllowlisted,
+    isAdminDestination,
+    resolvePostLoginRedirect,
     signToken,
     verifyToken,
     serializeSessionCookie,

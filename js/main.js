@@ -68,7 +68,7 @@
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Typography loads via @import in css/styles.css (IBM Plex).
+    // Typography loads via @import in css/styles.css (IBM Plex — matches admin console).
 
     const prefersReducedMotionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v3.0.0';
+    const SITE_VERSION = 'v2.18.0';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
@@ -174,24 +174,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getStandardNavMarkup(activePage) {
         const items = [
-            { href: '/node.html', label: 'The Node' },
-            { href: '/pricing.html', label: 'Pricing' },
-            { href: '/trust-center.html', label: 'Trust' },
+            { href: '/about.html', label: 'About' },
+            { href: '/research.html', label: 'Research & data' },
             { href: '/contact.html', label: 'Contact' }
         ];
-        const nodePages = new Set([
-            'node.html'
-        ]);
-        const trustPages = new Set([
-            'trust-center.html',
-            'privacy.html',
-            'terms.html'
-        ]);
         return items.map((item) => {
             const bare = item.href.replace(/^\//, '');
-            const isActive = bare === activePage
-                || (item.href === '/node.html' && nodePages.has(activePage))
-                || (item.href === '/trust-center.html' && trustPages.has(activePage));
+            const isActive = bare === activePage;
             return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
         }).join('');
     }
@@ -202,8 +191,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const skipPages = new Set([
             'developer-central.html',
             'developer-login.html',
+            'developer-api.html',
             'access-denied.html',
             'onboarding.html',
+            'onboarding-charongate.html',
+            'onboarding-blackglass.html',
             'account-operations.html',
             '404.html'
         ]);
@@ -260,15 +252,15 @@ document.addEventListener('DOMContentLoaded', () => {
             '<div class="footer-grid">' +
             '  <div class="footer-brand">' +
             '    <a href="/index.html" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
-            '    <p class="footer-tagline">Rugged edge intelligence for critical infrastructure. Power, compute &amp; sensing in one node.</p>' +
-            '    <p class="footer-company-info"><a href="/about.html#company-details">Company details</a></p>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Product</h4><ul><li><a href="/node.html">The Mk.II Node</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/contact.html">Contact</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/about.html">About</a></li><li><a href="/trust-center.html">Trust</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Site</h4><ul><li><a href="/about.html">About</a></li><li><a href="/research.html">Research &amp; data</a></li><li><a href="/contact.html">Contact</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
+            '  <p class="footer-trading-disclosure">Obsidian Dynamics Limited. Registered in England and Wales. Company number 16663833. Registered office: Lytchett House, 13 Freeland Park, Wareham Road, Poole, Dorset BH16 6FA.</p>' +
             '  <p>&copy; 2026 Obsidian Dynamics Limited</p>' +
             '  <div class="footer-legal"><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a></div>' +
+            '  <p class="footer-attribution">Structured public IFS data · republication requires attribution · <a href="/terms.html#attribution">Terms</a></p>' +
             '</div>';
 
         if (!footer) {
@@ -284,25 +276,26 @@ document.addEventListener('DOMContentLoaded', () => {
         footerContainer.innerHTML = footerMarkup;
     }
 
-    function injectOperationalTrustStrip() {
-        const main = document.querySelector('main');
-        if (!main || document.getElementById('operationalTrustStrip')) return;
-        const strip = document.createElement('section');
-        strip.id = 'operationalTrustStrip';
-        strip.className = 'operational-trust-strip';
-        strip.setAttribute('aria-label', 'Operational trust and freshness');
-        strip.innerHTML =
-            '<div class="container">' +
-            '  <div class="operational-trust-grid">' +
-            '    <article class="operational-trust-card"><h3>Tenant isolation</h3><p>Every query is scoped. Exports and replays stay inside the workspace boundary.</p></article>' +
-            '    <article class="operational-trust-card"><h3>Honest semantics</h3><p>At-least-once delivery, advisory findings, plain language on what ships.</p></article>' +
-            '    <article class="operational-trust-card"><h3>Evidence trail</h3><p>Timestamps, signed deliveries, and exports your auditor can act on.</p></article>' +
-            '  </div>' +
-            '  <div class="operational-trust-links">' +
-            '    <a href="node.html">The Node</a><a href="pricing.html">Pricing</a><a href="trust-center.html">Trust</a><a href="contact.html">Contact</a>' +
-            '  </div>' +
-            '</div>';
-        main.appendChild(strip);
+    function normalizeCtaLanguage() {
+        const ctaMap = [
+            { from: /book demo|request demo|schedule demo/gi, to: 'Discuss Scope' },
+            { from: /book a pilot scoping call|request .*pilot/gi, to: 'Discuss Operational Scope' },
+            { from: /^view pricing$/gi, to: 'View Access by Tier' },
+            { from: /^view platform and pricing$/gi, to: 'View Platform Access' },
+            { from: /start trial|get started/gi, to: 'Discuss Scope' },
+            { from: /^request onboarding support$/gi, to: 'Discuss Onboarding Scope' },
+            { from: /^request credentials$/gi, to: 'Open Credentials Request' }
+        ];
+        document.querySelectorAll('a.btn, button.btn, a.nav-cta').forEach((el) => {
+            const label = (el.textContent || '').trim();
+            if (!label) return;
+            for (const item of ctaMap) {
+                if (item.from.test(label)) {
+                    el.textContent = item.to;
+                    break;
+                }
+            }
+        });
     }
 
     function markMediaForPerformance() {
@@ -316,8 +309,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const privateSeoBlock = new Set([
             'developer-central.html',
             'developer-login.html',
+            'developer-api.html',
             'access-denied.html',
             'onboarding.html',
+            'onboarding-charongate.html',
+            'onboarding-blackglass.html',
             'account-operations.html',
             '404.html'
         ]);
@@ -330,8 +326,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = (document.title || 'Obsidian Dynamics').trim();
         const descTag = document.querySelector('meta[name="description"]');
         const description = ((descTag && descTag.getAttribute('content')) || '').trim()
-            || 'Obsidian Dynamics builds the Mk.II Node — secure, rugged edge intelligence with integrated power, compute and sensing for noise, vibration and seismic monitoring on critical infrastructure.';
-        const defaultOgImage = siteOrigin + '/img/node-hero.png';
+            || 'UK developer contributions intelligence — structured Section 106, CIL, and Infrastructure Funding Statement data linked to source documents.';
+        const defaultOgImage = siteOrigin + '/img/og-image.jpg';
 
         function upsertMeta(attrName, attrValue, content) {
             let tag = document.head.querySelector('meta[' + attrName + '="' + attrValue + '"]');
@@ -371,16 +367,16 @@ document.addEventListener('DOMContentLoaded', () => {
         upsertMeta('property', 'og:site_name', 'Obsidian Dynamics');
         upsertMeta('property', 'og:locale', 'en_GB');
         upsertMeta('property', 'og:image', defaultOgImage);
-        upsertMeta('property', 'og:image:width', '1536');
-        upsertMeta('property', 'og:image:height', '1024');
-        upsertMeta('property', 'og:image:type', 'image/png');
-        upsertMeta('property', 'og:image:alt', 'Obsidian Dynamics Mk.II Node — rugged edge intelligence');
+        upsertMeta('property', 'og:image:width', '1200');
+        upsertMeta('property', 'og:image:height', '630');
+        upsertMeta('property', 'og:image:type', 'image/jpeg');
+        upsertMeta('property', 'og:image:alt', 'Obsidian Dynamics — UK developer contributions intelligence');
 
         upsertMeta('name', 'twitter:card', 'summary_large_image');
         upsertMeta('name', 'twitter:title', title);
         upsertMeta('name', 'twitter:description', description);
         upsertMeta('name', 'twitter:image', defaultOgImage);
-        upsertMeta('name', 'twitter:image:alt', 'Obsidian Dynamics Mk.II Node — rugged edge intelligence');
+        upsertMeta('name', 'twitter:image:alt', 'Obsidian Dynamics — UK developer contributions intelligence');
 
         upsertMeta('name', 'theme-color', '#f8f6f3');
     }
@@ -474,6 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     applyGlobalBrandShell();
+    normalizeCtaLanguage();
     markMediaForPerformance();
     ensureSeoMetaDefaults();
     applyUnifiedPageShell();
@@ -485,11 +482,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Developer Portal Access Guard ---
-    const protectedPages = new Set([
+    const adminOnlyPages = new Set([
         'developer-central.html',
         'onboarding.html',
+        'onboarding-charongate.html',
+        'onboarding-blackglass.html',
         'account-operations.html'
     ]);
+    const apiPortalPages = new Set(['developer-api.html']);
+    const protectedPages = new Set([...adminOnlyPages, ...apiPortalPages]);
     const privateFacingPages = new Set([
         ...protectedPages,
         'developer-login.html',
@@ -538,6 +539,10 @@ document.addEventListener('DOMContentLoaded', () => {
             .then((data) => {
                 if (!data || !data.authenticated) {
                     window.location.href = 'developer-login.html?next=' + encodeURIComponent(currentPage);
+                    return;
+                }
+                if (adminOnlyPages.has(currentPage) && data.role !== 'admin') {
+                    window.location.href = 'developer-api.html';
                     return;
                 }
                 renderDeveloperSessionControls(data.email || 'developer');
@@ -953,48 +958,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
         const roleParam = (params.get('role') || '').toLowerCase();
         const intentParam = (params.get('intent') || '').toLowerCase();
-        const productParam = (params.get('product') || '').toLowerCase();
         const interestField = document.getElementById('interest');
         const messageField = document.getElementById('message');
         const roleToInterest = {
-            operations: 'platform',
-            risk: 'platform',
-            insurance: 'platform',
-            integration: 'platform'
+            journalist: 'journalist',
+            operations: 'access',
+            risk: 'access',
+            insurance: 'access',
+            integration: 'api'
         };
         if (interestField && roleToInterest[roleParam]) {
             interestField.value = roleToInterest[roleParam];
         }
-        const productToInterest = {
-            node: 'node',
-            'mk2-node': 'node',
-            platform: 'platform',
-            deployment: 'deployment'
-        };
-        if (interestField && productToInterest[productParam]) {
-            interestField.value = productToInterest[productParam];
-        }
-        if (messageField && (roleParam || intentParam || productParam) && !messageField.value.trim()) {
+        if (messageField && (roleParam || intentParam) && !messageField.value.trim()) {
             const roleLabel = roleParam ? roleParam.charAt(0).toUpperCase() + roleParam.slice(1) : '';
-            const intentLabel = intentParam ? intentParam.replace(/-/g, ' ') : 'briefing';
-            const productNames = {
-                node: 'the Mk.II Node',
-                'mk2-node': 'the Mk.II Node',
-                platform: 'the monitoring platform',
-                deployment: 'a site deployment'
-            };
-            const productLabel = productNames[productParam] || '';
+            const intentLabel = intentParam ? intentParam.replace(/-/g, ' ') : 'enquiry';
             let opener = 'Hello Obsidian team, ';
-            if (intentParam === 'beta' && productLabel) {
-                opener += 'we would like to join the ' + productLabel + ' beta. ';
-            } else if (intentParam && productLabel) {
-                opener += 'we would like a ' + intentLabel + ' for ' + productLabel + '. ';
-            } else if (productLabel) {
-                opener += 'we are evaluating ' + productLabel + '. ';
+            if (roleParam === 'journalist') {
+                opener += 'we are researching developer contributions and would like to discuss coverage data. ';
             } else if (roleLabel) {
                 opener += 'we would like a ' + roleLabel + ' ' + intentLabel + '. ';
             } else {
-                opener += 'we would like to discuss scope. ';
+                opener += 'we would like to discuss developer contributions intelligence. ';
             }
             messageField.value = opener;
         }
@@ -1103,20 +1088,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- aria-current="page" for active nav link ---
-    const nodePages = new Set([
-        'node.html'
-    ]);
-    const trustPages = new Set([
-        'trust-center.html',
-        'privacy.html',
-        'terms.html'
-    ]);
     document.querySelectorAll('.nav-link').forEach(link => {
         const href = (link.getAttribute('href') || '').replace(/^\//, '');
         const matchesPage = href === currentPage || (currentPage === '' && href === 'index.html');
-        const matchesNodeSection = href === 'node.html' && nodePages.has(currentPage);
-        const matchesTrustSection = href === 'trust-center.html' && trustPages.has(currentPage);
-        if (matchesPage || matchesNodeSection || matchesTrustSection) {
+        if (matchesPage) {
             link.setAttribute('aria-current', 'page');
         }
     });

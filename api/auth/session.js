@@ -1,4 +1,4 @@
-const { verifyToken, isAllowlisted, getClientIp, enforceRateLimit, authAudit } = require('./_utils');
+const { verifyToken, getUserRole, getClientIp, enforceRateLimit, authAudit } = require('./_utils');
 
 function parseCookie(cookieHeader) {
     const raw = String(cookieHeader || '');
@@ -33,10 +33,11 @@ module.exports = async (request, response) => {
         const cookies = parseCookie(request.headers.cookie);
         const token = cookies.od_dev_session;
         const payload = verifyToken(token);
-        if (!payload || payload.type !== 'session' || !isAllowlisted(payload.email)) {
+        const role = payload && payload.email ? getUserRole(payload.email) : null;
+        if (!payload || payload.type !== 'session' || !role) {
             return response.status(401).json({ authenticated: false });
         }
-        return response.status(200).json({ authenticated: true, email: payload.email });
+        return response.status(200).json({ authenticated: true, email: payload.email, role });
     } catch (error) {
         return response.status(401).json({ authenticated: false });
     }

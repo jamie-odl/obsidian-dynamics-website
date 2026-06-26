@@ -2,7 +2,7 @@ async function createPortalSession({ customerId, origin }) {
     const stripeKey = process.env.STRIPE_SECRET_KEY;
     if (!stripeKey) throw new Error('STRIPE_SECRET_KEY is not configured');
 
-    const returnUrl = process.env.BILLING_PORTAL_RETURN_URL || `${origin}/account-operations.html`;
+    const returnUrl = process.env.BILLING_PORTAL_RETURN_URL || `${origin}/contact.html`;
     const body = new URLSearchParams();
     body.append('customer', customerId);
     body.append('return_url', returnUrl);

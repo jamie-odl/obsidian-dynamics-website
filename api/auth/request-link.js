@@ -10,6 +10,15 @@ const {
 } = require('./_utils');
 const crypto = require('crypto');
 
+function sanitizeNext(next) {
+    const fallback = 'developer-api.html';
+    if (typeof next !== 'string' || !next) return fallback;
+    if (next.includes('://') || next.includes('..') || next.startsWith('/')) return fallback;
+    if (next.endsWith('.html')) return next;
+    if (next.startsWith('admin/')) return next;
+    return fallback;
+}
+
 async function sendMagicLinkEmail({ to, link }) {
     const apiKey = process.env.RESEND_API_KEY;
     const from = process.env.AUTH_EMAIL_FROM;
@@ -45,7 +54,7 @@ module.exports = async (request, response) => {
     try {
         const { email, next } = request.body || {};
         const normalizedEmail = normalizeEmail(email);
-        const safeNext = typeof next === 'string' && next.endsWith('.html') ? next : 'developer-central.html';
+        const safeNext = sanitizeNext(next);
         const ip = getClientIp(request);
 
         const requestRate = enforceRateLimit({

@@ -2,12 +2,12 @@
    See <head> of each page: IBM Plex Sans + IBM Plex Mono + Outfit. */
 
 /* ============================================================
-   OBSIDIAN DYNAMICS — Light theme (Mk.II Node)
-   Less is more: porcelain canvas, charcoal type, signal-teal accent.
+   OBSIDIAN DYNAMICS — Light theme (Charon Gate aligned)
+   Less is more: porcelain canvas, charcoal type, harbor-teal accent.
    ============================================================ */
 
 :root {
-    /* Marketing / light system — signal-teal on porcelain */
+    /* Marketing / light system — mirrors Charon Gate palette */
     --porcelain: #f8f6f3;
     --porcelain-soft: #f3f0eb;
     --mist: #eef0f3;
@@ -127,7 +127,7 @@ img { max-width: 100%; display: block; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 input, textarea, select { font-family: inherit; }
 
-/* Display font for headings (Outfit) */
+/* Display font for headings (Outfit, matches Charon Gate) */
 .hero-title, .page-hero__title, .section-title, .service-card h3, .feature-card h3, .capability-card h3, .trust-card h3, .company-info-card h2, .legal-content h2, .legal-content h3, h1, h2, h3 {
     font-family: var(--font-display);
     color: var(--obsidian);
@@ -534,7 +534,7 @@ code, kbd, samp, .font-mono {
     margin-bottom: 14px;
     backdrop-filter: none;
 }
-.page-hero--about .page-hero__badge, .page-hero--contact .page-hero__badge, .page-hero--legal .page-hero__badge {
+.page-hero--skygrid .page-hero__badge, .page-hero--strait .page-hero__badge, .page-hero--about .page-hero__badge, .page-hero--contact .page-hero__badge, .page-hero--legal .page-hero__badge {
     color: var(--harbor-teal-mid);
 }
 .page-hero__title {
@@ -739,7 +739,6 @@ code, kbd, samp, .font-mono {
 }
 .features-grid--2col { grid-template-columns: repeat(2, 1fr); }
 .features-grid--3col { grid-template-columns: repeat(3, 1fr); }
-.features-grid--4col { grid-template-columns: repeat(4, 1fr); }
 
 
 .feature-card {
@@ -1459,12 +1458,27 @@ code, kbd, samp, .font-mono {
     gap: 12px;
 }
 .footer-bottom p { font-size: 0.82rem; color: var(--slate-muted); }
+.footer-trading-disclosure { font-size: 0.75rem; line-height: 1.5; max-width: 42rem; margin-bottom: 0.75rem; }
 .footer-legal { display: flex; gap: 18px; flex-wrap: wrap; }
 .footer-legal a {
     font-size: 0.82rem;
     color: var(--slate-muted);
 }
 .footer-legal a:hover { color: var(--charcoal); }
+.footer-attribution {
+    flex-basis: 100%;
+    width: 100%;
+    margin: 0.35rem 0 0;
+    font-size: 0.75rem;
+    color: var(--slate-muted);
+    line-height: 1.5;
+}
+.footer-attribution a {
+    color: var(--slate-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.footer-attribution a:hover { color: var(--charcoal); }
 
 /* ============================================================
    SCROLL ANIMATIONS — gentle
@@ -1779,7 +1793,6 @@ body.has-cookie-consent { padding-bottom: 90px; }
    ============================================================ */
 @media (max-width: 1024px) {
     .features-grid--3col { grid-template-columns: repeat(2, 1fr); }
-    .features-grid--4col { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
     .about-grid { grid-template-columns: 1fr; gap: 32px; }
     
@@ -1810,7 +1823,7 @@ body.has-cookie-consent { padding-bottom: 90px; }
     .nav-link { width: 100%; padding: 12px 12px; font-size: 0.95rem; }
     .nav-toggle { display: flex; }
 
-    .features-grid, .features-grid--2col, .features-grid--3col, .features-grid--4col { grid-template-columns: 1fr; }
+    .features-grid, .features-grid--2col, .features-grid--3col { grid-template-columns: 1fr; }
     .capabilities-grid { grid-template-columns: 1fr; }
     
     
@@ -1897,94 +1910,4 @@ body.has-cookie-consent { padding-bottom: 90px; }
     color: var(--slate-muted);
     line-height: 1.7;
     font-size: 0.97rem;
-}
-
-/* ============================================================
-   PRODUCT HERO + HARDWARE (Mk.II Node)
-   ============================================================ */
-.hero-grid--product {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 500px);
-}
-.hero-visual--product { min-height: 0; }
-.hero-photo {
-    margin: 0;
-    background: linear-gradient(160deg, #ffffff 0%, var(--porcelain-soft) 100%);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
-    padding: 14px 14px 10px;
-    transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
-}
-.hero-photo:hover { transform: translateY(-3px); box-shadow: 0 1px 2px rgba(14,17,20,0.04), 0 22px 60px rgba(14,17,20,0.09); }
-.hero-photo img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-md);
-    display: block;
-}
-.hero-photo__caption {
-    margin-top: 10px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.02em;
-    color: var(--slate-muted);
-    text-align: center;
-}
-
-.hero-spec-row {
-    list-style: none;
-    margin: 26px 0 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
-    max-width: 520px;
-}
-.hero-spec-row li {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 12px 14px;
-    background: #ffffff;
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-}
-.hero-spec-row__val {
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--harbor-teal);
-    letter-spacing: 0.02em;
-}
-.hero-spec-row__lbl {
-    font-size: 0.72rem;
-    color: var(--slate-muted);
-    line-height: 1.3;
-}
-
-.hardware-split {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    gap: 24px;
-    align-items: stretch;
-}
-.hardware-photo {
-    margin: 0;
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    background: var(--porcelain-soft);
-}
-.hardware-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.hardware-split__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; }
-
-@media (max-width: 960px) {
-    .hero-grid--product { grid-template-columns: minmax(0, 1fr); }
-    .hero-visual--product { max-width: 560px; }
-    .hardware-split { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-    .hero-spec-row { grid-template-columns: repeat(2, 1fr); }
-    .hardware-split__grid { grid-template-columns: 1fr; }
 }

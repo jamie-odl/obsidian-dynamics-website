@@ -3,16 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Mk.II Node | Obsidian Dynamics</title>
-    <meta name="robots" content="noindex, follow">
-    <link rel="canonical" href="https://obsidiandynamics.co.uk/node">
-    <meta http-equiv="refresh" content="0; url=/node">
+    <title>Blackglass — Linux operational integrity | Obsidian Dynamics</title>
+    <meta name="description" content="Operational integrity for Linux hosts — fleet baselines, finding triage, and evidence exports. Blackglass helps you understand what changed, how serious it is, and what to do next.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blackglass">
+    <meta property="og:description" content="Operational integrity for Linux hosts — fleet baselines, finding triage, and evidence exports.">
+    <meta property="og:url" content="https://obsidiandynamics.co.uk/blackglass">
+    <meta property="og:site_name" content="Obsidian Dynamics">
+    <meta property="og:image" content="https://obsidiandynamics.co.uk/img/og-blackglass.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Blackglass — Linux operational integrity by Obsidian Dynamics">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blackglass — Linux operational integrity">
+    <meta name="twitter:description" content="Spot unwanted server changes early — before they become emergencies.">
+    <meta name="twitter:image" content="https://obsidiandynamics.co.uk/img/og-blackglass.png">
+    <meta name="twitter:image:alt" content="Blackglass — Linux operational integrity by Obsidian Dynamics">
+    <link rel="canonical" href="https://obsidiandynamics.co.uk/blackglass">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#f8f6f3">
+    <link rel="preload" href="/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/outfit-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Product","name":"Blackglass","description":"Operational integrity for Linux hosts — fleet baselines, SSH posture, drift detection with severity, and audit-ready evidence exports.","brand":{"@type":"Brand","name":"Obsidian Dynamics"},"url":"https://obsidiandynamics.co.uk/blackglass","sameAs":["https://blackglasssec.com/"],"category":"Linux operational integrity","audience":{"@type":"Audience","audienceType":"Platform engineering, SRE, security and compliance teams"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://obsidiandynamics.co.uk/"},
+      {"@type":"ListItem","position":2,"name":"Products","item":"https://obsidiandynamics.co.uk/products"},
+      {"@type":"ListItem","position":3,"name":"Blackglass","item":"https://obsidiandynamics.co.uk/blackglass"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Is Blackglass agent-based or agentless?","acceptedAnswer":{"@type":"Answer","text":"Agentless. Collection runs over SSH with read-scoped credentials. There is nothing to install on each host, and nothing acts on a host without a separately approved playbook."}},
+      {"@type":"Question","name":"Which Linux distributions are supported?","acceptedAnswer":{"@type":"Answer","text":"Debian and Ubuntu LTS, RHEL/CentOS/Rocky/Alma, Amazon Linux, and SUSE. CIS Benchmark coverage targets the same set. Bespoke baselines for other distributions are supported on enterprise plans."}},
+      {"@type":"Question","name":"How does Blackglass detect drift?","acceptedAnswer":{"@type":"Answer","text":"Each fleet has a baseline captured at onboarding or from a golden host. Subsequent collections diff against the baseline, classify findings by severity, and produce evidence-grade exports for change reviews and audits."}},
+      {"@type":"Question","name":"Does Blackglass change anything on my servers?","acceptedAnswer":{"@type":"Answer","text":"By default, no. Collection is read-only. Any remediation playbook is gated behind explicit approval and dry-run preview, and is logged with operator identity for the audit trail."}},
+      {"@type":"Question","name":"Where is the data hosted?","acceptedAnswer":{"@type":"Answer","text":"The hosted console runs on UK and EU infrastructure with tenant isolation, encryption in transit and at rest, and customer-scoped data residency on enterprise plans."}},
+      {"@type":"Question","name":"How does Blackglass compare with Charon Gate?","acceptedAnswer":{"@type":"Answer","text":"They solve different problems. Charon Gate is webhook reliability with durable ingest, retries, DLQ, and replay. Blackglass is Linux operational integrity with baselines, drift detection, and audit evidence. Teams typically run both."}}
+    ]}
+    </script>
 </head>
 <body>
-    <main style="max-width:640px;margin:0 auto;padding:80px 24px;text-align:center;">
-        <p>Obsidian Dynamics now builds the <strong>Mk.II Node</strong>. Redirecting you to <a href="/node.html">the product page</a>.</p>
-    </main>
-    <script>window.location.replace('/node');</script>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<main id="main-content">
+    <section class="page-hero">
+        <p class="page-hero__badge">BLACKGLASS · CLARITY FOR LINUX TEAMS</p>
+        <h1 class="page-hero__title">Spot unwanted server changes early — before they become emergencies.</h1>
+        <p class="page-hero__best-for"><strong>Best for:</strong> Platform and security teams managing Linux fleets at scale.</p>
+        <p class="page-hero__pain">Configuration drift goes unnoticed until an incident, a breach, or an audit question.</p>
+        <p class="page-hero__subtitle">Blackglass helps you understand what changed on your Linux systems, how serious it is, and what to do next — with baselines, severity-ranked findings, and audit-ready exports.</p>
+        <div class="page-hero__actions">
+            <a href="https://blackglasssec.com/sign-up" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Start free trial</a>
+            <a href="contact.html?intent=demo&amp;product=blackglass" class="btn btn-secondary">Discuss scope</a>
+        </div>
+        <p class="page-hero__subtitle hero-repo-note">Free Lab tier for homelabs · 14-day trial of any paid plan · no credit card · SSH-first · optional one-line push agent · each customer&apos;s data stays separate end to end</p>
+    </section>
+
+    <section class="features-section" id="problem" aria-labelledby="problem-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">WHY IT MATTERS</span>
+                <h2 class="section-title" id="problem-heading">Why small changes add up</h2>
+                <p class="section-desc" style="max-width:48rem;">Rules change. Software updates. Someone adjusts remote login settings. Spreadsheets and occasional audits often miss the period when risk actually moves. Blackglass gives you a steady, easy-to-read picture — whether you run a handful of servers or many.</p>
+            </div>
+            <div class="features-grid features-grid--2col">
+                <div class="feature-card"><h3>Silent drift</h3><p>You only hear about drift when something breaks — or when an auditor asks.</p></div>
+                <div class="feature-card"><h3>Uneven lockdown</h3><p>Inconsistent hardening across machines makes it hard to see how far a problem could spread.</p></div>
+                <div class="feature-card"><h3>One-off fixes</h3><p>Emergency fixes can leave servers no one fully understands.</p></div>
+                <div class="feature-card"><h3>Evidence gaps</h3><p>Security reviews need a paper trail — not screenshots lost in chat.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;" id="how-it-works" aria-labelledby="how-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">HOW IT WORKS</span>
+                <h2 class="section-title" id="how-heading">How it works</h2>
+            </div>
+            <div class="features-grid features-grid--2col">
+                <div class="feature-card"><span class="section-tag" style="display:inline-block;margin-bottom:8px;">01</span><h3>Connect your servers</h3><p>Link Linux hosts with a light-touch setup you control — nothing shipped to us beyond what you choose to share.</p></div>
+                <div class="feature-card"><span class="section-tag" style="display:inline-block;margin-bottom:8px;">02</span><h3>Save a trusted snapshot</h3><p>After a release or hardening pass, pin an approved picture of each system so you have something to compare against.</p></div>
+                <div class="feature-card"><span class="section-tag" style="display:inline-block;margin-bottom:8px;">03</span><h3>See what changed</h3><p>Regular checks highlight differences in remote access, accounts, scheduled tasks, software, and more — ranked so the important items stand out.</p></div>
+                <div class="feature-card"><span class="section-tag" style="display:inline-block;margin-bottom:8px;">04</span><h3>Respond with confidence</h3><p>Track who is handling each item, add notes, and export neat summaries for leadership or compliance partners.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="charon-heading">
+        <div class="container container--narrow">
+            <div class="section-header">
+                <span class="section-tag">ADD-ON</span>
+                <h2 class="section-title" id="charon-heading">Optional: Charon for cloud sprawl</h2>
+                <p class="section-desc" style="max-width:none;">When you enable the Charon add-on, you can link read-scoped credentials for DigitalOcean, AWS, or Google Cloud. Blackglass inventories resources, highlights likely idle candidates, and keeps cleanup behind explicit approval — the same careful posture as the rest of the product.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;">
+        <div class="container container--narrow">
+            <p class="section-desc" style="max-width:none; text-align:center;">Tenant isolation, agentless SSH collection, and an audit trail for material actions — summarised on <a href="https://blackglasssec.com/security" target="_blank" rel="noopener noreferrer">blackglasssec.com/security</a>.</p>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="codebase-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">CODEBASE</span>
+                <h2 class="section-title" id="codebase-heading">Same product, visible source</h2>
+                <p class="section-desc" style="max-width:40rem;">The hosted console is the Next.js application in <a href="https://github.com/thevenomv/blackglass-console" target="_blank" rel="noopener noreferrer">blackglass-console</a>: fleet baselines, configuration findings, evidence exports, and SaaS operations — aligned with what ships at <a href="https://blackglasssec.com" target="_blank" rel="noopener noreferrer">blackglasssec.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="blackglass-faq-heading">
+        <div class="container container--narrow">
+            <div class="section-header">
+                <span class="section-tag">QUESTIONS</span>
+                <h2 class="section-title" id="blackglass-faq-heading">Common questions</h2>
+            </div>
+            <div class="faq">
+                <details class="faq-item">
+                    <summary>Is Blackglass agent-based or agentless?</summary>
+                    <p>Agentless. Collection runs over SSH with read-scoped credentials. There's nothing to install on each host, and nothing acts on a host without a separately approved playbook.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Which Linux distributions are supported?</summary>
+                    <p>The major server distributions out of the box: Debian and Ubuntu LTS, RHEL/CentOS/Rocky/Alma, Amazon Linux, and SUSE. CIS Benchmark coverage targets the same set. Bespoke baselines for other distributions are supported on enterprise plans.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How does Blackglass detect drift?</summary>
+                    <p>Each fleet has a baseline captured at onboarding (or from a golden host). Subsequent collections diff against the baseline, classify findings by severity, and produce evidence-grade exports for change reviews and audits.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Does Blackglass change anything on my servers?</summary>
+                    <p>By default, no. Collection is read-only. Any remediation playbook (e.g. hardening, removing a stale SSH key) is gated behind explicit approval and dry-run preview — and is logged with operator identity for the audit trail.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Where is the data hosted?</summary>
+                    <p>The hosted console runs on UK / EU infrastructure with tenant isolation, encryption in transit and at rest, and customer-scoped data residency available on enterprise plans. Full procurement detail lives under <a href="trust-center.html">Trust</a> and <a href="https://blackglasssec.com/security" target="_blank" rel="noopener noreferrer">blackglasssec.com/security</a>.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How does Blackglass compare with Charon Gate?</summary>
+                    <p>They solve different problems. <a href="charongate.html">Charon Gate</a> is webhook reliability — durable ingest, retries, DLQ, replay. Blackglass is Linux operational integrity — baselines, drift, audit evidence. Teams typically run both.</p>
+                </details>
+            </div>
+            <p class="section-desc" style="max-width:none; margin-top:24px; color:var(--slate-muted);">Further reading: <a href="writing/linux-fleet-baselines-explained.html">Linux fleet baselines, explained without jargon</a>.</p>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="pair-heading">
+        <div class="container container--narrow">
+            <div class="section-header">
+                <span class="section-tag">PAIR WITH</span>
+                <h2 class="section-title" id="pair-heading">Charon Gate — webhook reliability</h2>
+                <p class="section-desc" style="max-width:none;">If you also receive webhooks that providers retry inconsistently or deploys silently drop, look at <a href="charongate.html">Charon Gate</a>. Durable ingest, exponential retries with jitter, dead-letter queue, and manual replay with lineage.</p>
+            </div>
+            <div class="cta-actions">
+                <a href="charongate.html" class="btn btn-secondary">View Charon Gate</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">GO DEEPER</span>
+                <h2 class="section-title">More on blackglasssec.com</h2>
+                <p class="section-desc" style="max-width:36rem;">The full product site has use cases, pricing, CIS benchmark coverage, and SSH audit guides. Start with the interactive demo — no account needed.</p>
+            </div>
+            <div class="cta-actions" style="justify-content:center;">
+                <a href="https://blackglasssec.com/demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open interactive demo</a>
+                <a href="https://blackglasssec.com/pricing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Pricing</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="bg-loop-heading">
+        <div class="container container--narrow">
+            <div class="section-header">
+                <span class="section-tag">CONNECTED STACK</span>
+                <h2 class="section-title" id="bg-loop-heading">Detection to response — without manual steps.</h2>
+                <p class="section-desc" style="max-width:none;">Blackglass closes the loop with the other two products in the stack. When drift is detected, the response is automatic.</p>
+            </div>
+            <div class="faq">
+                <details class="faq-item" open>
+                    <summary>Blackglass detects drift → Charon Gate routes the alert</summary>
+                    <p>Blackglass can fire a signed webhook when it classifies a finding as high severity. <a href="charongate.html">Charon Gate</a> ingests the event durably — so even if your alerting destination (Slack, PagerDuty, your own endpoint) is temporarily unavailable, the event is queued and delivered when the destination recovers. No lost alerts in the critical path.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Charon Gate routes the alert → Acheron Vault runs a backup health check</summary>
+                    <p>Simultaneously, Charon Gate can trigger <a href="acheronvault.html">Acheron Vault</a> to run a backup readiness verification on the affected target. When an unauthorized configuration change lands on a database host, the question of whether the latest backup is recoverable becomes immediately relevant — Acheron Vault answers it automatically, so your team has a fresh recoverability report at the same moment as the incident alert.</p>
+                </details>
+            </div>
+            <div class="cta-actions" style="margin-top:24px;">
+                <a href="charongate.html" class="btn btn-secondary">Charon Gate</a>
+                <a href="acheronvault.html" class="btn btn-ghost">Acheron Vault</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer" role="contentinfo"><div class="container"></div></footer>
+<script src="js/main.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>

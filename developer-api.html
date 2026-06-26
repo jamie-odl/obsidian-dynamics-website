@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligence API reference (private) | Obsidian Dynamics</title>
+    <meta name="description" content="Structured IFS data API — search, provenance, delivery pressure, exports, and evidence links. Allowlisted access only.">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .api-doc { padding: 48px 0 72px; }
+        .api-doc .section-title { margin-top: 2.5rem; }
+        .api-doc .section-title:first-child { margin-top: 0; }
+        .api-toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 1.25rem 0 0; padding: 0; list-style: none; }
+        .api-toc a {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            padding: 6px 12px;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            color: var(--slate-muted);
+            text-decoration: none;
+        }
+        .api-toc a:hover { border-color: var(--border-strong); color: var(--obsidian); }
+        .api-callout {
+            background: var(--harbor-teal-soft);
+            border: 1px solid rgba(20, 122, 130, 0.22);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            margin: 1.25rem 0;
+        }
+        .api-callout p { margin: 0; color: var(--slate-muted); line-height: var(--line-loose); }
+        .api-callout p + p { margin-top: 0.75rem; }
+        .api-endpoint-group { margin-top: 1.5rem; }
+        .api-endpoint-group h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin: 0 0 0.75rem;
+            color: var(--obsidian);
+        }
+        .api-endpoint {
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            background: #fff;
+        }
+        .api-endpoint__route {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--obsidian);
+            word-break: break-word;
+        }
+        .api-endpoint__route .method {
+            display: inline-block;
+            min-width: 3.5rem;
+            font-weight: 600;
+            color: var(--harbor-teal-mid);
+        }
+        .api-endpoint__desc {
+            margin: 6px 0 0;
+            font-size: 14px;
+            color: var(--slate-muted);
+            line-height: 1.55;
+        }
+        .api-endpoint__auth {
+            margin-top: 6px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--slate-muted);
+        }
+        .api-pre {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            line-height: 1.6;
+            background: var(--obsidian);
+            color: #e8e4df;
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            overflow-x: auto;
+            margin: 0.75rem 0 0;
+            white-space: pre-wrap;
+        }
+        .api-table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 14px; }
+        .api-table th, .api-table td {
+            text-align: left;
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--border-subtle);
+            vertical-align: top;
+        }
+        .api-table th { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate-muted); }
+    </style>
+</head>
+<body>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
+<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div></div></nav>
+<main id="main-content">
+    <section class="page-hero">
+        <p class="page-hero__badge">INTELLIGENCE API</p>
+        <h1 class="page-hero__title">Structured IFS data.</h1>
+        <p class="page-hero__subtitle">Search, provenance, delivery pressure, and exports — JSON by default, with separate routes for archived source files and screenshots.</p>
+    </section>
+
+    <section class="api-doc">
+        <div class="container container--narrow">
+            <nav aria-label="On this page">
+                <ul class="api-toc">
+                    <li><a href="#base-urls">Base URLs</a></li>
+                    <li><a href="#authentication">Authentication</a></li>
+                    <li><a href="#formats">Formats</a></li>
+                    <li><a href="#attribution">Attribution</a></li>
+                    <li><a href="#endpoints">Endpoints</a></li>
+                    <li><a href="#media-evidence">Media &amp; evidence</a></li>
+                    <li><a href="#openapi">OpenAPI</a></li>
+                </ul>
+            </nav>
+
+            <h2 class="section-title" id="base-urls">Base URLs</h2>
+            <p class="section-desc" style="max-width:none;">All routes below are relative to an API root ending in <code class="font-mono">/api</code> (except <code class="font-mono">/health</code>).</p>
+
+            <div class="api-endpoint-group">
+                <h3>Production (via website proxy)</h3>
+                <p class="section-desc" style="max-width:none;">When calling from a browser session on the Obsidian Dynamics site (including the admin dashboard), requests go through the intelligence proxy:</p>
+                <pre class="api-pre">https://obsidiandynamics.co.uk/api/intelligence/api/search/records?page=1</pre>
+                <p class="section-desc" style="max-width:none;margin-top:0.75rem;">The segment after <code class="font-mono">/api/intelligence/</code> is forwarded verbatim to the backend. Requires an <strong>admin</strong> magic-link session cookie (<code class="font-mono">od_dev_session</code>). Returns <strong>401</strong> without it.</p>
+            </div>
+
+            <div class="api-endpoint-group">
+                <h3>Direct backend</h3>
+                <p class="section-desc" style="max-width:none;">Server-to-server integrations use the deployment backend URL (provided at onboarding). Example local default:</p>
+                <pre class="api-pre">http://127.0.0.1:8000/api/search/records?page=1</pre>
+                <p class="section-desc" style="max-width:none;margin-top:0.75rem;">Read routes are open on the backend unless your deployment adds network-level restrictions. Admin write routes require <code class="font-mono">X-Admin-Key</code> (see below).</p>
+            </div>
+
+            <div class="api-callout">
+                <p><strong>Health check:</strong> <code class="font-mono">GET /health</code> → <code class="font-mono">{"status":"ok","service":"obsidian-dynamics-api"}</code></p>
+            </div>
+
+            <h2 class="section-title" id="authentication">Authentication</h2>
+            <p class="section-desc" style="max-width:none;">Portal access uses allowlisted email and a one-time magic link (<a href="developer-login.html">developer login</a>).</p>
+
+            <table class="api-table">
+                <thead>
+                    <tr><th>Role</th><th>Allowlist env</th><th>Access</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="font-mono">api</code></td>
+                        <td><code class="font-mono">API_ALLOWLIST</code></td>
+                        <td>This reference page. Call the backend directly with your deployment URL.</td>
+                    </tr>
+                    <tr>
+                        <td><code class="font-mono">admin</code></td>
+                        <td><code class="font-mono">ADMIN_ALLOWLIST</code> or <code class="font-mono">DEVELOPER_ALLOWLIST</code></td>
+                        <td><a href="developer-central.html">Developer central</a>, admin dashboard at <code class="font-mono">/admin</code>, and the <code class="font-mono">/api/intelligence</code> proxy.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="api-endpoint-group" style="margin-top:1.5rem;">
+                <h3>Admin API key</h3>
+                <p class="section-desc" style="max-width:none;">Routes under <code class="font-mono">/api/admin/*</code>, plus selected operator actions, require the header below when <code class="font-mono">ADMIN_API_KEY</code> is set on the backend (skipped in local dev when unset):</p>
+                <pre class="api-pre">X-Admin-Key: &lt;your-admin-api-key&gt;</pre>
+            </div>
+
+            <h2 class="section-title" id="formats">Response formats</h2>
+            <p class="section-desc" style="max-width:none;">Most endpoints return JSON. Errors use FastAPI shape: <code class="font-mono">{"detail": "…"}</code> with an appropriate HTTP status (404, 401, 422, etc.). CSV export and binary evidence routes return file bodies with standard content types.</p>
+
+            <h2 class="section-title" id="attribution">Attribution &amp; request tracing</h2>
+            <p class="section-desc" style="max-width:none;">Every JSON route under <code class="font-mono">/api/</code> includes machine-readable attribution headers. Key read routes also embed a top-level <code class="font-mono">attribution</code> object in the JSON body (additive — existing clients can ignore it).</p>
+
+            <table class="api-table">
+                <thead>
+                    <tr><th>Header</th><th>Example</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="font-mono">X-Obsidian-Dynamics-Source</code></td>
+                        <td>Obsidian Dynamics Limited</td>
+                        <td>Data provider identity for republication and audit.</td>
+                    </tr>
+                    <tr>
+                        <td><code class="font-mono">X-Data-License</code></td>
+                        <td><code class="font-mono">attribution-required; …</code></td>
+                        <td>License note — structured extraction from public IFS sources; see <a href="terms.html">Terms</a>.</td>
+                    </tr>
+                    <tr>
+                        <td><code class="font-mono">X-Request-Id</code></td>
+                        <td><code class="font-mono">550e8400-e29b-41d4-a716-446655440000</code></td>
+                        <td>Per-request UUID. Quote this when reporting issues or suspected misuse.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="section-desc" style="max-width:none;margin-top:1rem;">Example JSON envelope on <code class="font-mono">GET /api/public/coverage</code>, <code class="font-mono">GET /api/search/records</code>, and <code class="font-mono">GET /api/records/{id}</code>:</p>
+            <pre class="api-pre">{
+  "generated_at": "2025-06-01T12:00:00+00:00",
+  "summary": { "…": "…" },
+  "attribution": {
+    "provider": "Obsidian Dynamics Limited",
+    "terms_url": "https://obsidiandynamics.co.uk/terms",
+    "contact": "jamie@obsidiandynamics.co.uk",
+    "license_note": "Structured extraction from public IFS sources; attribution required for republication.",
+    "request_id": "550e8400-e29b-41d4-a716-446655440000"
+  }
+}</pre>
+
+            <div class="api-callout">
+                <p><strong>How to cite us:</strong> When publishing analysis that relies materially on this data, cite Obsidian Dynamics as the structured data provider, link to the original council source where we supply a provenance URL, and note that figures should be verified against council originals. See <a href="terms.html#attribution">Terms §6.1</a>.</p>
+                <p>Bespoke journalist exports are fingerprinted separately (<code class="font-mono">export_id</code> in README and CSV headers) — see <a href="research.html#journalists">Research &amp; data</a>.</p>
+                <p>API requests (including authenticated Intelligence routes) are logged with request IDs, client identity where applicable, and timestamps for operational monitoring and misuse investigation.</p>
+            </div>
+
+            <h2 class="section-title" id="endpoints">Endpoints</h2>
+
+            <div class="api-endpoint-group">
+                <h3>Configuration</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/config</div>
+                    <p class="api-endpoint__desc">Public thresholds and weights: review confidence cutoff, delivery-pressure weights and band thresholds, FOI requester defaults.</p>
+                </div>
+            </div>
+
+            <div class="api-endpoint-group">
+                <h3>Authorities</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/authorities</div>
+                    <p class="api-endpoint__desc">Paginated list of active authorities.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/authorities/meta/report-periods</div>
+                    <p class="api-endpoint__desc">Distinct report period labels across the corpus.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/authorities/{slug}</div>
+                    <p class="api-endpoint__desc">Authority detail: retained totals, record counts, report periods.</p>
+                </div>
+            </div>
+
+            <div class="api-endpoint-group">
+                <h3>Search &amp; dashboard</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/search/records</div>
+                    <p class="api-endpoint__desc">Filter contribution records. Query params include <code class="font-mono">authority_slug</code>, <code class="font-mono">report_period_label</code>, <code class="font-mono">contribution_type</code>, <code class="font-mono">metric_type</code>, <code class="font-mono">category_normalized</code>, <code class="font-mono">min_amount</code>, <code class="font-mono">keyword</code>, <code class="font-mono">min_confidence</code>, <code class="font-mono">review_status</code>, <code class="font-mono">page</code>, <code class="font-mono">page_size</code> (max 500).</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/search/dashboard</div>
+                    <p class="api-endpoint__desc">Aggregate stats: retained totals, pending review count, top authorities/categories, recent source updates.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/search/categories</div>
+                    <p class="api-endpoint__desc">Category totals. Optional <code class="font-mono">metric_type</code> (default <code class="font-mono">retained</code>) and <code class="font-mono">report_period_label</code>.</p>
+                </div>
+            </div>
+
+            <div class="api-endpoint-group">
+                <h3>Records &amp; provenance</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/records/{record_id}</div>
+                    <p class="api-endpoint__desc">Single contribution record with authority name, period label, source document title, and council <code class="font-mono">source_url</code>.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/records/{record_id}/provenance</div>
+                    <p class="api-endpoint__desc">Full provenance bundle: locator fields, checksum, fetch time, <code class="font-mono">evidence_types</code>, and URL paths to archived files or screenshots when present.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/records/{record_id}/screenshot</div>
+                    <p class="api-endpoint__desc">Binary PNG when a record-level screenshot was captured during ingestion. Returns <strong>404</strong> when none exists.</p>
+                </div>
+            </div>
+
+            <div class="api-endpoint-group">
+                <h3>Source documents</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/source-documents/{document_id}/file</div>
+                    <p class="api-endpoint__desc">Download the archived source file (PDF, spreadsheet, etc.) as <code class="font-mono">application/octet-stream</code>. Returns <strong>404</strong> if not archived locally.</p>
+                </div>
+            </div>
+
+            <div class="api-endpoint-group">
+                <h3>Exports</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/exports/records.csv</div>
+                    <p class="api-endpoint__desc">CSV download using the same filter params as <code class="font-mono">/api/search/records</code>.</p>
+                </div>
+            </div>
+
+            <div class="api-endpoint-group">
+                <h3>Delivery pressure analytics</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/analytics/delivery-pressure</div>
+                    <p class="api-endpoint__desc">Ranked pressure metrics. Filters: <code class="font-mono">authority_slug</code>, <code class="font-mono">region</code>, <code class="font-mono">report_period_label</code>, <code class="font-mono">contribution_type</code>, <code class="font-mono">normalized_category</code>, <code class="font-mono">pressure_band</code>, <code class="font-mono">latest_only</code>, <code class="font-mono">confidence_mode</code>.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/analytics/delivery-pressure/summary</div>
+                    <p class="api-endpoint__desc">Summary counts and band distribution for the same filter set.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/analytics/delivery-pressure/authorities/{slug}</div>
+                    <p class="api-endpoint__desc">Authority-level pressure view.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/analytics/delivery-pressure/categories/{category}</div>
+                    <p class="api-endpoint__desc">Category-level pressure view. <code class="font-mono">{category}</code> is a normalized category enum value.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">POST</span> /api/analytics/rebuild-delivery-pressure</div>
+                    <p class="api-endpoint__desc">Recompile metrics. Optional JSON body for weight overrides.</p>
+                    <p class="api-endpoint__auth">Requires X-Admin-Key</p>
+                </div>
+            </div>
+
+            <div class="api-endpoint-group">
+                <h3>Cases</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/cases · <span class="method">POST</span> /api/cases</div>
+                    <p class="api-endpoint__desc">List or create research cases.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/cases/{id} · <span class="method">PATCH</span> · <span class="method">DELETE</span></div>
+                    <p class="api-endpoint__desc">Read, update, or delete a case.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">POST</span> /api/cases/{id}/items · <span class="method">DELETE</span> /api/cases/{id}/items/{item_id}</div>
+                    <p class="api-endpoint__desc">Pin or remove records and pressure metrics on a case.</p>
+                </div>
+            </div>
+
+            <div class="api-endpoint-group">
+                <h3>FOI workspace</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/foi/templates · /api/foi/templates/{id} · /api/foi/templates/follow-ups</div>
+                    <p class="api-endpoint__desc">Template catalogue and rendered bodies.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">POST</span> /api/foi/render</div>
+                    <p class="api-endpoint__desc">Render a template for an authority without persisting a request.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/foi/requests · <span class="method">POST</span> /api/foi/requests</div>
+                    <p class="api-endpoint__desc">Track FOI requests through review, send, and response.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/foi/recommendations/{authority_slug}</div>
+                    <p class="api-endpoint__desc">Suggested templates based on ingested data for an authority.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">POST</span> /api/foi/run-notifications</div>
+                    <p class="api-endpoint__desc">Trigger deadline and review notification batch.</p>
+                    <p class="api-endpoint__auth">Requires X-Admin-Key</p>
+                </div>
+            </div>
+
+            <div class="api-endpoint-group">
+                <h3>Admin (operator)</h3>
+                <p class="section-desc" style="max-width:none;margin-bottom:0.75rem;">All routes under <code class="font-mono">/api/admin/*</code> require <code class="font-mono">X-Admin-Key</code> when configured.</p>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/admin/review-queue</div>
+                    <p class="api-endpoint__desc">Records awaiting human review. Optional <code class="font-mono">status</code> filter.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">PATCH</span> /api/admin/review/{review_id}</div>
+                    <p class="api-endpoint__desc">Approve, reject, or correct an extraction.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/admin/source-documents</div>
+                    <p class="api-endpoint__desc">Ingested source document metadata. Optional <code class="font-mono">authority_slug</code>.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">POST</span> /api/admin/crawler-heartbeat · /api/admin/rebuild-delivery-pressure</div>
+                    <p class="api-endpoint__desc">Crawler status and metric rebuild hooks.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint__route"><span class="method">GET</span> /api/admin/access-log</div>
+                    <p class="api-endpoint__desc">API access audit trail (timestamp, endpoint, hashed client identity, request ID, status). Query params: <code class="font-mono">limit</code>, <code class="font-mono">offset</code>, <code class="font-mono">endpoint</code>, <code class="font-mono">since</code>. For operator abuse investigation — does not store response bodies.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="media-evidence">Media &amp; evidence</h2>
+            <div class="api-callout">
+                <p><strong>JSON responses do not embed screenshots or file bytes.</strong> Search results and record objects include text metadata only: council <code class="font-mono">source_url</code>, page/table references, and optional <code class="font-mono">source_excerpt</code>. There is no base64 image field in any JSON schema.</p>
+                <p>The provenance endpoint adds link paths — not inline data — when evidence exists:</p>
+            </div>
+
+            <pre class="api-pre">{
+  "source_url": "https://council.example.gov.uk/ifs-2024.pdf",
+  "archived_file_url": "/api/source-documents/42/file",
+  "screenshot_url": "/api/records/991/screenshot",
+  "evidence_types": ["file", "excerpt", "screenshot"],
+  "source_locator_summary": "p. 12, Table 3 — …"
+}</pre>
+
+            <p class="section-desc" style="max-width:none;margin-top:1rem;">To retrieve binary content, issue a separate GET to the URL path (prefixed with your API base). Screenshots are served as <strong>PNG</strong> (<code class="font-mono">image/png</code>). Archived sources are served as downloadable files. Both return <strong>404</strong> when the underlying file was not stored during ingestion.</p>
+            <p class="section-desc" style="max-width:none;margin-top:0.75rem;">Not every record has a screenshot — only those where ingestion captured a page image. The council’s original <code class="font-mono">source_url</code> is always the primary reference when present.</p>
+
+            <h2 class="section-title" id="openapi">Interactive OpenAPI</h2>
+            <p class="section-desc" style="max-width:none;">The FastAPI backend exposes machine-readable schema and a Swagger UI on the deployment host (not via the website proxy):</p>
+            <ul class="section-desc" style="max-width:none;padding-left:1.25rem;">
+                <li><code class="font-mono">GET /docs</code> — interactive Swagger UI</li>
+                <li><code class="font-mono">GET /openapi.json</code> — OpenAPI 3 schema</li>
+            </ul>
+            <p class="section-desc" style="max-width:none;margin-top:0.75rem;">Replace the host with your backend URL, e.g. <code class="font-mono">http://127.0.0.1:8000/docs</code> locally.</p>
+
+            <div class="cta-actions" style="margin-top:2rem;">
+                <a href="contact.html" class="btn btn-primary">Request access</a>
+                <a href="developer-login.html" class="btn btn-ghost">Developer login</a>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer" role="contentinfo"><div class="container"></div></footer>
+<script src="js/main.js" defer></script>
+</body>
+</html>

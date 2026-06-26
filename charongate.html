@@ -3,16 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Mk.II Node | Obsidian Dynamics</title>
-    <meta name="robots" content="noindex, follow">
-    <link rel="canonical" href="https://obsidiandynamics.co.uk/node">
-    <meta http-equiv="refresh" content="0; url=/node">
+    <title>Charon Gate — Webhook reliability | Obsidian Dynamics</title>
+    <meta name="description" content="Charon Gate: dead-letter queue and replay for inbound webhooks. Fast ingest, durable storage, exponential retries with jitter, DLQ, manual replay.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Charon Gate — Webhook reliability">
+    <meta property="og:description" content="Catch failed webhooks before they become incidents. Receive, retry, replay.">
+    <meta property="og:url" content="https://obsidiandynamics.co.uk/charongate">
+    <meta property="og:site_name" content="Obsidian Dynamics">
+    <meta property="og:image" content="https://obsidiandynamics.co.uk/img/og-charongate.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Charon Gate — Webhook reliability by Obsidian Dynamics">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Charon Gate — Webhook reliability">
+    <meta name="twitter:description" content="DLQ and replay for inbound webhooks — built for teams who ship under pressure.">
+    <meta name="twitter:image" content="https://obsidiandynamics.co.uk/img/og-charongate.png">
+    <meta name="twitter:image:alt" content="Charon Gate — Webhook reliability by Obsidian Dynamics">
+    <link rel="canonical" href="https://obsidiandynamics.co.uk/charongate">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#f8f6f3">
+    <link rel="preload" href="/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/outfit-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Charon Gate",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "description": "Webhook reliability: stable ingest URLs, fast acknowledgements, durable storage, exponential backoff, DLQ, and manual replay.",
+        "url": "https://obsidiandynamics.co.uk/charongate",
+        "sameAs": ["https://charongate.com"],
+        "provider": {
+            "@type": "Organization",
+            "name": "Obsidian Dynamics Limited",
+            "url": "https://obsidiandynamics.co.uk"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://obsidiandynamics.co.uk/"},
+      {"@type":"ListItem","position":2,"name":"Products","item":"https://obsidiandynamics.co.uk/products"},
+      {"@type":"ListItem","position":3,"name":"Charon Gate","item":"https://obsidiandynamics.co.uk/charongate"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Which providers does Charon Gate support out of the box?","acceptedAnswer":{"@type":"Answer","text":"Adapters for Stripe and GitHub HMAC ship by default, plus generic HMAC where you bring the secret. The ingest URL is provider-agnostic, so Clerk, Resend, Shopify, custom producers, and internal services all work."}},
+      {"@type":"Question","name":"How does the retry policy work?","acceptedAnswer":{"@type":"Answer","text":"Exponential backoff with jitter. Retryability is decided per HTTP status family: 5xx and selected 4xx retry, 2xx and most 4xx do not. The schedule is bounded so spikes do not pile up; anything that exceeds it lands in the DLQ."}},
+      {"@type":"Question","name":"What goes into the dead-letter queue?","acceptedAnswer":{"@type":"Answer","text":"Events whose delivery chain exhausted the retry budget, or which a downstream explicitly rejected as non-retryable. DLQ rows retain the original headers, raw body, every attempt with latency and response preview, and a correlation ID for tracing when you replay."}},
+      {"@type":"Question","name":"Is delivery exactly-once?","acceptedAnswer":{"@type":"Answer","text":"No. Charon Gate is at-least-once by design. Duplicates can happen via provider resends, network blips, or replay. Your handlers stay idempotent and dedupe on the provider event ID or the Charon delivery header."}},
+      {"@type":"Question","name":"How is the signing secret protected?","acceptedAnswer":{"@type":"Answer","text":"Signing secrets and destination auth are encrypted at rest. Nothing sensitive is echoed back from the API. HMAC verification uses constant-time compares, and supported providers enforce a timestamp window."}},
+      {"@type":"Question","name":"How does Charon Gate compare with Blackglass?","acceptedAnswer":{"@type":"Answer","text":"Different problems. Blackglass is Linux operational integrity with SSH posture, fleet baselines, drift detection, and audit exports. Charon Gate is webhook reliability with durable ingest, retries, DLQ, and replay. Many teams run both."}}
+    ]}
+    </script>
 </head>
 <body>
-    <main style="max-width:640px;margin:0 auto;padding:80px 24px;text-align:center;">
-        <p>Obsidian Dynamics now builds the <strong>Mk.II Node</strong>. Redirecting you to <a href="/node.html">the product page</a>.</p>
-    </main>
-    <script>window.location.replace('/node');</script>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo" aria-label="Obsidian Dynamics home">
+            <span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span>
+        </a>
+        <div class="nav-links" id="navLinks"></div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+
+<main id="main-content">
+    <section class="page-hero" aria-labelledby="charongate-heading">
+        <p class="page-hero__badge">CHARON GATE · WEBHOOK RELIABILITY</p>
+        <h1 class="page-hero__title" id="charongate-heading">Catch failed webhooks before they become incidents.</h1>
+        <p class="page-hero__best-for"><strong>Best for:</strong> Teams receiving inbound webhooks from payment, identity, or SaaS providers.</p>
+        <p class="page-hero__pain">Events drop during deploys. Retries are inconsistent. Replay is manual and untracked.</p>
+        <p class="page-hero__subtitle">Stable ingest URLs, fast acknowledgements, durable storage, exponential backoff, dead-letter queue, and manual replay — for the events your product depends on.</p>
+        <div class="page-hero__actions">
+            <a href="https://charongate.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open Charon Gate</a>
+            <a href="contact.html?intent=demo&amp;product=charongate" class="btn btn-secondary">Discuss scope</a>
+        </div>
+        <p class="page-hero__subtitle hero-repo-note">At-least-once delivery · tenant-isolated · honest semantics</p>
+    </section>
+
+    <section class="features-section" id="how-it-works" aria-labelledby="how-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">HOW IT WORKS</span>
+                <h2 class="section-title" id="how-heading">Receive, retry, replay.</h2>
+                <p class="section-desc">A narrow layer between providers and your application. Webhook insurance — for the path that carries your revenue.</p>
+            </div>
+            <div class="features-grid features-grid--3col">
+                <div class="feature-card">
+                    <span class="section-tag" style="display:inline-block;margin-bottom:8px;">01</span>
+                    <h3>Receive</h3>
+                    <p>Point your provider at a stable Charon URL. We acknowledge fast, persist the payload, and hand off to the background — your destination's latency never touches the critical path.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="section-tag" style="display:inline-block;margin-bottom:8px;">02</span>
+                    <h3>Retry</h3>
+                    <p>Exponential backoff with jitter. Transient 5xx and timeouts get another chance; clear 4xx fails fast.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="section-tag" style="display:inline-block;margin-bottom:8px;">03</span>
+                    <h3>Replay</h3>
+                    <p>When policy exhausts, the event lands in DLQ with full context. Fix the destination, replay — a new delivery chain tied to the original. No asking the provider to resend.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="product-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">PRODUCT</span>
+                <h2 class="section-title" id="product-heading">Visibility, retries, DLQ, replay.</h2>
+                <p class="section-desc">The control plane focuses on operator clarity. Every ingress is a durable record; every forward is an explicit, timed, inspectable attempt.</p>
+            </div>
+            <div class="features-grid features-grid--2col">
+                <div class="feature-card">
+                    <h3>Event stream</h3>
+                    <p>Headers, raw body, content type, and correlation IDs land in one place. Filter by endpoint or provider, trace an ID across retries without digging through logs.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Delivery attempts</h3>
+                    <p>No anonymous retries. Every POST to your app is an attempt row: latency, HTTP family, retryability, and a bounded response preview.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Failure triage</h3>
+                    <p>Dead-lettered events stay in an inbox, not in limbo. Triage by status family, endpoint, or provider — then fix, adjust policy, or replay.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Replay with lineage</h3>
+                    <p>Manual replay issues a new event and delivery chain while preserving ties to the original. Recover from bad deploys without re-wiring the provider.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="trust-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">SECURITY &amp; TRUST</span>
+                <h2 class="section-title" id="trust-heading">Practical controls.</h2>
+                <p class="section-desc">No theatre. What ships: cryptography, isolation, and honest delivery semantics.</p>
+            </div>
+            <div class="features-grid features-grid--2col">
+                <div class="feature-card"><h3>HMAC verification</h3><p>Stripe and GitHub adapters, plus generic HMAC where you bring the secret. Constant-time compares; timestamp windows where the format allows.</p></div>
+                <div class="feature-card"><h3>Encrypted secrets</h3><p>Signing secrets and destination auth are encrypted at rest. Nothing sensitive is echoed back from the API.</p></div>
+                <div class="feature-card"><h3>Tenant isolation</h3><p>Every query is tenant-scoped. DLQ, replays, and exports stay inside the workspace boundary.</p></div>
+                <div class="feature-card"><h3>At-least-once semantics</h3><p>Duplicates can happen. Dedupe with provider IDs or Charon delivery headers — your handlers stay idempotent.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="charongate-faq-heading">
+        <div class="container container--narrow">
+            <div class="section-header">
+                <span class="section-tag">QUESTIONS</span>
+                <h2 class="section-title" id="charongate-faq-heading">Common questions</h2>
+            </div>
+            <div class="faq">
+                <details class="faq-item">
+                    <summary>Which providers does Charon Gate support out of the box?</summary>
+                    <p>Adapters for Stripe and GitHub HMAC ship by default, plus generic HMAC where you bring the secret. The ingest URL itself is provider-agnostic — anything that POSTs a webhook works (Clerk, Resend, Shopify, custom producers, internal services).</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How does the retry policy work?</summary>
+                    <p>Exponential backoff with jitter. Retryability is decided per HTTP status family (5xx and selected 4xx retry; 2xx and most 4xx don't). The schedule is bounded so traffic spikes don't pile up indefinitely — anything that exceeds the schedule lands in the DLQ for inspection or manual replay.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>What goes into the dead-letter queue?</summary>
+                    <p>Events whose delivery chain exhausted the retry budget, or which a downstream service explicitly rejected as non-retryable. DLQ rows keep the original headers, raw body, every attempt with its latency and response preview, and a correlation ID so you can trace the full lineage when you replay.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Is delivery exactly-once?</summary>
+                    <p>No — Charon Gate is at-least-once by design. Duplicates can happen (provider re-sends, network blips, replay). Your handlers stay idempotent and dedupe on the provider event ID or the Charon delivery header. We err on the side of "deliver again" rather than "drop silently".</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How is the signing secret protected?</summary>
+                    <p>Signing secrets and destination auth are encrypted at rest. Nothing sensitive is echoed back from the API — masked values only. HMAC verification uses constant-time compares, and the supported providers also enforce a timestamp window.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How does Charon Gate compare with Blackglass?</summary>
+                    <p>Different problems. <a href="blackglass.html">Blackglass</a> is Linux operational integrity — SSH posture, fleet baselines, drift detection, audit exports. Charon Gate is webhook reliability — durable ingest, retries, DLQ, replay. Many teams run both.</p>
+                </details>
+            </div>
+            <p class="section-desc" style="max-width:none; margin-top:24px; color:var(--slate-muted);">Further reading: <a href="writing/why-we-built-charon-gate.html">Why we built Charon Gate</a> &middot; <a href="writing/webhook-reliability-primer.html">A short webhook reliability primer</a>.</p>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;" aria-labelledby="pair-heading">
+        <div class="container container--narrow">
+            <div class="section-header">
+                <span class="section-tag">CONNECTED STACK</span>
+                <h2 class="section-title" id="pair-heading">Charon Gate is the connective tissue.</h2>
+                <p class="section-desc" style="max-width:none;">Charon Gate routes events between the other two products in the stack — making it possible to respond to infrastructure signals automatically, without manual intervention in the critical path.</p>
+            </div>
+            <div class="faq">
+                <details class="faq-item" open>
+                    <summary>Acheron Vault — event-driven backup verification</summary>
+                    <p><a href="acheronvault.html">Acheron Vault</a> verifies that your backups actually restore. Instead of relying on fixed cron schedules, Charon Gate lets you trigger an Acheron Vault verification run immediately after a database migration, a deployment pipeline, or any other infrastructure event that warrants a fresh recoverability check. If the verification fails, Charon Gate queues the alert and guarantees delivery to your team regardless of downstream availability.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Blackglass — alert routing and closed-loop response</summary>
+                    <p>When <a href="blackglass.html">Blackglass</a> classifies a high-severity drift finding on a Linux host, it fires a signed webhook to Charon Gate. Charon Gate delivers the alert to your team and simultaneously triggers Acheron Vault to run a backup health check on the affected target — so detection, alerting, and data safety verification all happen in a single automated chain.</p>
+                </details>
+            </div>
+            <div class="cta-actions" style="margin-top:24px;">
+                <a href="acheronvault.html" class="btn btn-secondary">Acheron Vault</a>
+                <a href="blackglass.html" class="btn btn-ghost">Blackglass</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:0;">
+        <div class="container container--narrow">
+            <p class="section-desc" style="max-width:none;"><code class="font-mono">POST /ingest/&hellip;</code> → <strong>202 Accepted</strong> → verify → forward → retry → DLQ → replay. Built for teams on Stripe, GitHub, Clerk, Resend, Shopify, and custom webhook producers.</p>
+            <div class="cta-actions" style="margin-top:1.5rem;">
+                <a href="https://charongate.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open Charon Gate</a>
+                <a href="contact.html" class="btn btn-ghost">Contact</a>
+                <a href="index.html" class="btn btn-ghost">Obsidian home</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer" role="contentinfo"><div class="container"></div></footer>
+<script src="js/main.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
