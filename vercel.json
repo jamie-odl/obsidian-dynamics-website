@@ -5,6 +5,46 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/admin",
+      "has": [
+        {
+          "type": "host",
+          "value": "civitas.weareobsidian.co.uk"
+        }
+      ],
+      "destination": "https://obsidian-dynamics-admin.vercel.app/admin"
+    },
+    {
+      "source": "/admin/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "civitas.weareobsidian.co.uk"
+        }
+      ],
+      "destination": "https://obsidian-dynamics-admin.vercel.app/admin/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "civitas.weareobsidian.co.uk"
+        }
+      ],
+      "destination": "/civitas.html"
+    },
+    {
+      "source": "/index.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "civitas.weareobsidian.co.uk"
+        }
+      ],
+      "destination": "/civitas.html"
+    },
+    {
       "source": "/api/public/coverage",
       "destination": "/api/public-coverage-proxy"
     },
@@ -22,152 +62,460 @@
     }
   ],
   "redirects": [
-    { "source": "/research", "destination": "/", "permanent": true },
-    { "source": "/research.html", "destination": "/", "permanent": true },
-    { "source": "/for-journalists", "destination": "/", "permanent": true },
-    { "source": "/for-journalists.html", "destination": "/", "permanent": true },
-    { "source": "/pilot.html", "destination": "/pilot", "permanent": true },
-    { "source": "/construction.html", "destination": "/construction", "permanent": true },
-    { "source": "/logistics.html", "destination": "/logistics", "permanent": true },
-    { "source": "/platform", "destination": "/about", "permanent": true },
-    { "source": "/platform.html", "destination": "/about", "permanent": true },
-    { "source": "/products", "destination": "/about", "permanent": true },
-    { "source": "/products.html", "destination": "/about", "permanent": true },
-    { "source": "/trust-center", "destination": "/privacy", "permanent": true },
-    { "source": "/trust-center.html", "destination": "/privacy", "permanent": true },
-    { "source": "/intelligence", "destination": "/about", "permanent": true },
-    { "source": "/intelligence.html", "destination": "/about", "permanent": true },
-    { "source": "/billing", "destination": "/", "permanent": true },
-    { "source": "/billing.html", "destination": "/", "permanent": true },
-    { "source": "/status", "destination": "/", "permanent": true },
-    { "source": "/status.html", "destination": "/", "permanent": true },
-    { "source": "/methodology", "destination": "/", "permanent": true },
-    { "source": "/methodology.html", "destination": "/", "permanent": true },
-    { "source": "/evidence-library", "destination": "/", "permanent": true },
-    { "source": "/evidence-library.html", "destination": "/", "permanent": true },
-    { "source": "/pricing", "destination": "/contact", "permanent": true },
-    { "source": "/pricing.html", "destination": "/contact", "permanent": true },
-    { "source": "/writing", "destination": "/about", "permanent": true },
-    { "source": "/writing.html", "destination": "/about", "permanent": true },
-    { "source": "/tools", "destination": "/", "permanent": true },
-    { "source": "/tools.html", "destination": "/", "permanent": true },
-    { "source": "/use-cases", "destination": "/about", "permanent": true },
-    { "source": "/use-cases.html", "destination": "/about", "permanent": true },
-    { "source": "/api", "destination": "/about", "permanent": true },
-    { "source": "/api.html", "destination": "/about", "permanent": true },
-    { "source": "/node", "destination": "/", "permanent": true },
-    { "source": "/node.html", "destination": "/", "permanent": true },
-    { "source": "/acheronvault", "destination": "/about", "permanent": true },
-    { "source": "/blackglass", "destination": "/about", "permanent": true },
-    { "source": "/blackglass.html", "destination": "/about", "permanent": true },
-    { "source": "/charongate", "destination": "/about", "permanent": true },
-    { "source": "/acheronvault.html", "destination": "/about", "permanent": true },
-    { "source": "/charongate.html", "destination": "/about", "permanent": true },
-    { "source": "/writing/(.*)", "destination": "/about", "permanent": true },
-    { "source": "/contact.html", "destination": "/contact", "permanent": true },
-    { "source": "/privacy.html", "destination": "/privacy", "permanent": true },
-    { "source": "/terms.html", "destination": "/terms", "permanent": true },
-    { "source": "/security.html", "destination": "/privacy", "permanent": true },
-    { "source": "/skygrid", "destination": "/about", "permanent": true },
-    { "source": "/skygrid.html", "destination": "/about", "permanent": true },
-    { "source": "/onboarding-skygrid", "destination": "/onboarding", "permanent": true },
-    { "source": "/onboarding-skygrid.html", "destination": "/onboarding", "permanent": true },
-    { "source": "/about.html", "destination": "/about", "permanent": true },
-    { "source": "/account-operations", "destination": "/contact", "permanent": true },
-    { "source": "/account-operations.html", "destination": "/contact", "permanent": true }
+    {
+      "source": "/research",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/research.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/for-journalists",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/for-journalists.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pilot.html",
+      "destination": "/pilot",
+      "permanent": true
+    },
+    {
+      "source": "/construction.html",
+      "destination": "/construction",
+      "permanent": true
+    },
+    {
+      "source": "/logistics.html",
+      "destination": "/logistics",
+      "permanent": true
+    },
+    {
+      "source": "/platform",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/platform.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/products",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/products.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/trust-center",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/trust-center.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/intelligence",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/intelligence.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/billing",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/billing.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/status",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/status.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/methodology",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/methodology.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/evidence-library",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/evidence-library.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/pricing.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/writing",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/writing.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/tools",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/tools.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/use-cases",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/use-cases.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/api",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/api.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/node",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/node.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/acheronvault",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/blackglass",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/blackglass.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/charongate",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/acheronvault.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/charongate.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/writing/(.*)",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/security.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/skygrid",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/skygrid.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/onboarding-skygrid",
+      "destination": "/onboarding",
+      "permanent": true
+    },
+    {
+      "source": "/onboarding-skygrid.html",
+      "destination": "/onboarding",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/account-operations",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/account-operations.html",
+      "destination": "/contact",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/developer-api",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     },
     {
       "source": "/developer-api.html",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     },
     {
       "source": "/developer-central",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     },
     {
       "source": "/developer-central.html",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     },
     {
       "source": "/admin",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     },
     {
       "source": "/admin/:path*",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     },
     {
       "source": "/developer-login",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     },
     {
       "source": "/developer-login.html",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     },
     {
       "source": "/css/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=300, stale-while-revalidate=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, stale-while-revalidate=86400"
+        }
       ]
     },
     {
       "source": "/js/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=300, stale-while-revalidate=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, stale-while-revalidate=86400"
+        }
       ]
     },
     {
       "source": "/img/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" },
-        { "key": "Cross-Origin-Resource-Policy", "value": "cross-origin" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "cross-origin"
+        }
       ]
     },
     {
       "source": "/fonts/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        }
       ]
     },
     {
       "source": "/(favicon\\.(?:svg|ico)|robots\\.txt|sitemap\\.xml)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
       ]
     },
     {
       "source": "/(.*).html",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
-        { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" },
-        { "key": "X-DNS-Prefetch-Control", "value": "on" },
-        { "key": "Permissions-Policy", "value": "accelerometer=(), autoplay=(), browsing-topics=(), camera=(), clipboard-read=(), clipboard-write=(self), display-capture=(), encrypted-media=(), fullscreen=(self), gamepad=(), geolocation=(), gyroscope=(), hid=(), identity-credentials-get=(), idle-detection=(), interest-cohort=(), magnetometer=(), microphone=(), midi=(), otp-credentials=(), payment=(), picture-in-picture=(), publickey-credentials-create=(self), publickey-credentials-get=(self), screen-wake-lock=(), serial=(), speaker-selection=(), storage-access=(), usb=(), web-share=(self), window-management=(), xr-spatial-tracking=()" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "X-DNS-Prefetch-Control",
+          "value": "on"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "accelerometer=(), autoplay=(), browsing-topics=(), camera=(), clipboard-read=(), clipboard-write=(self), display-capture=(), encrypted-media=(), fullscreen=(self), gamepad=(), geolocation=(), gyroscope=(), hid=(), identity-credentials-get=(), idle-detection=(), interest-cohort=(), magnetometer=(), microphone=(), midi=(), otp-credentials=(), payment=(), picture-in-picture=(), publickey-credentials-create=(self), publickey-credentials-get=(self), screen-wake-lock=(), serial=(), speaker-selection=(), storage-access=(), usb=(), web-share=(self), window-management=(), xr-spatial-tracking=()"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests"
+        }
       ]
     },
     {
       "source": "/api/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "no-store" }
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
       ]
     }
   ]
 }
-
