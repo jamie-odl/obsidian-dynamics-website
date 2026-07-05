@@ -156,5 +156,36 @@
     if (footer) footer.innerHTML = footerHtml();
     bindMobileNav();
     bindContactForms();
+    ensureMetaTags();
   });
+
+  function ensureMetaTags() {
+    var title = document.title || "We Are Obsidian";
+    var descEl = document.querySelector('meta[name="description"]');
+    var desc = descEl && descEl.getAttribute("content");
+    if (!desc) return;
+    var canonEl = document.querySelector('link[rel="canonical"]');
+    var url = (canonEl && canonEl.getAttribute("href")) || SITE.url + window.location.pathname.replace(/\.html$/, "");
+    var image = "https://www.weareobsidian.co.uk/img/marketing/hero.jpg";
+    function upsert(attr, value, content) {
+      var tag = document.querySelector('meta[' + attr + '="' + value + '"]');
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, value);
+        document.head.appendChild(tag);
+      }
+      if (!tag.getAttribute("content")) tag.setAttribute("content", content);
+    }
+    upsert("property", "og:site_name", "We Are Obsidian");
+    upsert("property", "og:locale", "en_GB");
+    upsert("property", "og:title", title);
+    upsert("property", "og:description", desc);
+    upsert("property", "og:url", url);
+    upsert("property", "og:type", "website");
+    upsert("property", "og:image", image);
+    upsert("name", "twitter:card", "summary_large_image");
+    upsert("name", "twitter:title", title);
+    upsert("name", "twitter:description", desc);
+    upsert("name", "twitter:image", image);
+  }
 })();

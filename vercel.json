@@ -74,9 +74,7 @@
     { "source": "/onboarding-skygrid.html", "destination": "/onboarding", "permanent": true },
     { "source": "/about.html", "destination": "/about", "permanent": true },
     { "source": "/account-operations", "destination": "/contact", "permanent": true },
-    { "source": "/account-operations.html", "destination": "/contact", "permanent": true },
-    { "source": "/for-journalists", "destination": "/research#journalists", "permanent": true },
-    { "source": "/for-journalists.html", "destination": "/research#journalists", "permanent": true }
+    { "source": "/account-operations.html", "destination": "/contact", "permanent": true }
   ],
   "headers": [
     {

@@ -1,5 +1,10 @@
 /* Obsidian marketing — matches weareobsidian.co.uk visual language */
 
+:root {
+  --font-display: "Oswald", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
 .mkt {
   --mkt-bg: #0a0a0a;
   --mkt-bg-light: #141414;
@@ -46,6 +51,15 @@
   .mkt {
     font-size: var(--mkt-fs-base);
   }
+}
+
+.mkt-page,
+.mkt-legal,
+.mkt-platform,
+.mkt-steps,
+.mkt-verticals,
+.mkt-features {
+  text-align: left;
 }
 
 .mkt main {

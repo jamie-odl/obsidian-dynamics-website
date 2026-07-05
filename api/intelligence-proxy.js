@@ -34,7 +34,6 @@ function parseCookie(cookieHeader) {
 function backendBase() {
     const base =
         process.env.OBSIDIAN_INTELLIGENCE_API_URL ||
-        process.env.CIVITAS_API_URL ||
         'http://127.0.0.1:8000';
     return base.replace(/\/$/, '');
 }

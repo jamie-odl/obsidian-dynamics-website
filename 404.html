@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page not found | Obsidian Dynamics</title>
-    <meta name="description" content="The page you requested is not available. Explore Blackglass, Charon Gate, or contact Obsidian Dynamics.">
-    <meta name="robots" content="noindex, follow">
-    <link rel="icon" href="/favicon.ico" sizes="32x32">
-    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#f8f6f3">
-    <link rel="preload" href="/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/outfit-600.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found | We Are Obsidian</title>
+  <meta name="description" content="The page you requested is not available on weareobsidian.co.uk.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/marketing.css">
 </head>
 <body>
-<a href="#main-content" class="skip-to-content">Skip to main content</a>
-<canvas id="particleCanvas" aria-hidden="true"></canvas>
-<nav class="navbar" id="navbar"><div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span></a><div class="nav-links" id="navLinks"></div><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
-<main id="main-content">
-<section class="page-hero"><p class="page-hero__badge">404</p><h1 class="page-hero__title">Page not found.</h1><p class="page-hero__subtitle">That URL is not here. Try home, a product page, or tools.</p><div class="cta-actions" style="flex-wrap:wrap; gap:12px; margin-top:1.25rem;"><a href="index.html" class="btn btn-primary">Home</a><a href="blackglass.html" class="btn btn-secondary">Blackglass</a><a href="charongate.html" class="btn btn-secondary">Charon Gate</a><a href="tools.html" class="btn btn-secondary">Tools</a><a href="contact.html" class="btn btn-ghost">Contact</a></div></section>
-</main>
-<footer class="footer" role="contentinfo"><div class="container"></div></footer>
-<script src="js/main.js" defer></script>
-<script defer src="/_vercel/insights/script.js"></script>
-<script defer src="/_vercel/speed-insights/script.js"></script>
+  <div class="mkt">
+    <a class="mkt-skip" href="#main-content">Skip to content</a>
+    <div id="mkt-header"></div>
+    <main id="main-content" class="mkt-page">
+      <div class="mkt-container">
+        <p class="mkt-page__kicker">404</p>
+        <h1 class="mkt-page__title">Page not found</h1>
+        <p class="mkt-page__lead">That URL is not on weareobsidian.co.uk. Try the home page, demo, or contact us if you need help finding something.</p>
+        <p class="mkt-page__cta">
+          <a href="/" class="mkt-btn-primary">Home</a>
+          <a href="/demo" class="mkt-btn-outline">Try demo</a>
+          <a href="/contact" class="mkt-btn-outline">Contact</a>
+        </p>
+      </div>
+    </main>
+    <div id="mkt-footer"></div>
+  </div>
+  <script src="/js/marketing.js" defer></script>
 </body>
 </html>
