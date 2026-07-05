@@ -5,46 +5,6 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/admin",
-      "has": [
-        {
-          "type": "host",
-          "value": "civitas.weareobsidian.co.uk"
-        }
-      ],
-      "destination": "https://obsidian-dynamics-admin.vercel.app/admin"
-    },
-    {
-      "source": "/admin/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "civitas.weareobsidian.co.uk"
-        }
-      ],
-      "destination": "https://obsidian-dynamics-admin.vercel.app/admin/:path*"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "civitas.weareobsidian.co.uk"
-        }
-      ],
-      "destination": "/civitas"
-    },
-    {
-      "source": "/index.html",
-      "has": [
-        {
-          "type": "host",
-          "value": "civitas.weareobsidian.co.uk"
-        }
-      ],
-      "destination": "/civitas"
-    },
-    {
       "source": "/api/public/coverage",
       "destination": "/api/public-coverage-proxy"
     },
@@ -70,6 +30,50 @@
           "value": "civitas.weareobsidian.co.uk"
         }
       ],
+      "destination": "https://www.weareobsidian.co.uk/",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "civitas.weareobsidian.co.uk"
+        }
+      ],
+      "destination": "https://www.weareobsidian.co.uk/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "weareobsidian.co.uk"
+        }
+      ],
+      "destination": "https://www.weareobsidian.co.uk/",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "weareobsidian.co.uk"
+        }
+      ],
+      "destination": "https://www.weareobsidian.co.uk/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.weareobsidian.co.uk"
+        }
+      ],
       "destination": "/civitas",
       "permanent": false
     },
@@ -78,7 +82,7 @@
       "has": [
         {
           "type": "host",
-          "value": "civitas.weareobsidian.co.uk"
+          "value": "www.weareobsidian.co.uk"
         }
       ],
       "destination": "/civitas",
