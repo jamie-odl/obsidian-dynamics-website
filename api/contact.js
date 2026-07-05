@@ -1,6 +1,6 @@
 // POST /api/contact — deliver contact form submissions to the team inbox.
-// Requires RESEND_API_KEY on Vercel (verify weareobsidian.co.uk or obsidiandynamics.co.uk domain).
-// Env: CONTACT_TO (default jamie@obsidiandynamics.co.uk)
+// Requires RESEND_API_KEY (verify weareobsidian.co.uk in Resend dashboard).
+// Env: CONTACT_TO (default contact@weareobsidian.co.uk)
 //      CONTACT_FROM (default We Are Obsidian <contact@weareobsidian.co.uk>)
 
 const rate = new Map();
@@ -147,7 +147,7 @@ module.exports = async (request, response) => {
     }
     const resolvedInterest = interest || (intent === 'pilot' ? 'pilot' : intent === 'support' ? 'support' : '');
 
-    const to = trim(process.env.CONTACT_TO, 254) || 'jamie@obsidiandynamics.co.uk';
+    const to = trim(process.env.CONTACT_TO, 254) || 'contact@weareobsidian.co.uk';
     const from = trim(process.env.CONTACT_FROM, 254)
         || trim(process.env.AUTH_EMAIL_FROM, 254)
         || 'We Are Obsidian <contact@weareobsidian.co.uk>';
@@ -208,7 +208,7 @@ module.exports = async (request, response) => {
             }
         }));
         return response.status(503).json({
-            error: 'Unable to send your message right now. Email jamie@obsidiandynamics.co.uk directly.'
+            error: 'Unable to send your message right now. Email contact@weareobsidian.co.uk directly.'
         });
     }
 

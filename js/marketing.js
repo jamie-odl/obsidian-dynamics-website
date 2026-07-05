@@ -3,7 +3,7 @@
     name: "Obsidian",
     tagline: "Track what matters.",
     url: "https://www.weareobsidian.co.uk",
-    email: "jamie@obsidiandynamics.co.uk",
+    email: "contact@weareobsidian.co.uk",
     company: "Obsidian Dynamics Limited",
     address: "Lytchett House, 13 Freeland Park, Wareham Road, Poole, Dorset BH16 6FA, United Kingdom",
     ico: "ZC141175",

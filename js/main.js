@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (privateSeoBlock.has(currentPage)) {
             return;
         }
-        const siteOrigin = 'https://obsidiandynamics.co.uk';
+        const siteOrigin = 'https://www.weareobsidian.co.uk';
         const path = window.location.pathname || '/';
         const absoluteUrl = siteOrigin + path;
         const title = (document.title || 'Obsidian Dynamics').trim();
@@ -938,8 +938,8 @@ document.addEventListener('DOMContentLoaded', () => {
         emailRevealBtn.addEventListener('click', () => {
             const container = emailRevealBtn.parentElement;
             // Build email from parts to avoid scraping
-            const user = 'jamie';
-            const domain = 'obsidiandynamics';
+            const user = 'contact';
+            const domain = 'weareobsidian';
             const tld = 'co.uk';
             const addr = user + '@' + domain + '.' + tld;
             const revealedEl = document.createElement('div');
@@ -1030,7 +1030,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.disabled = false;
                 if (formStatus) {
                     formStatus.className = 'form-status form-status--error';
-                    formStatus.textContent = (err && err.message) || 'Unable to send. Email jamie@obsidiandynamics.co.uk directly.';
+                    formStatus.textContent = (err && err.message) || 'Unable to send. Email contact@weareobsidian.co.uk directly.';
                 }
                 return;
             }

@@ -10,7 +10,8 @@ Static marketing pages for **We Are Obsidian** / Obsidian Node live in this repo
 | `/about`, `/contact`, `/pilot` | Company, enquiries, pilot programme |
 | `/construction`, `/logistics` | Industry pages |
 | `/privacy`, `/terms` | Legal |
-| `/api/contact` | Contact form (Vercel serverless + Resend) |
+
+On the **droplet**, contact form POSTs go to obsidian-node at `/api/contact` (Caddy routes `/api/*` to Next.js). This repo’s `api/contact.js` is used on **Vercel** only.
 
 ## What stays in obsidian-node
 
@@ -18,7 +19,7 @@ Static marketing pages for **We Are Obsidian** / Obsidian Node live in this repo
 |------|---------|
 | `/portal` | Asset portal PWA |
 | `/admin` | Operations console |
-| `/api/*` | BLE ingest, heartbeat, cron |
+| `/api/*` | BLE ingest, heartbeat, cron, **contact form** |
 | `/demo` | Live demo (needs backend) |
 | `/sign-in`, `/sign-up` | Portal auth |
 
@@ -43,14 +44,35 @@ Deploy this repo to Vercel with `weareobsidian.co.uk` as the production domain. 
 
 ## Environment variables
 
+### Droplet (obsidian-node `.env`)
+
+Contact delivery on production uses the Next.js backend, not this repo’s serverless handler.
+
+| Variable | Purpose |
+|----------|---------|
+| `RESEND_API_KEY` | Resend API key |
+| `EMAIL_FROM` | Verified sender, e.g. `We Are Obsidian <contact@weareobsidian.co.uk>` |
+| `RESEND_FROM` | Optional alias for `EMAIL_FROM` |
+| `CONTACT_EMAIL` | Inbox for submissions (default `contact@weareobsidian.co.uk`) |
+
+### Vercel (this repo — if using Vercel contact handler)
+
 | Variable | Purpose |
 |----------|---------|
 | `RESEND_API_KEY` | Contact form delivery |
-| `CONTACT_TO` | Inbox (default `jamie@obsidiandynamics.co.uk`) |
+| `CONTACT_TO` | Inbox (default `contact@weareobsidian.co.uk`) |
 | `CONTACT_FROM` | From address (default `We Are Obsidian <contact@weareobsidian.co.uk>`) |
-| `OBSIDIAN_INTELLIGENCE_API_URL` | Legacy intelligence API proxy (replaces `CIVITAS_API_URL`) |
+| `OBSIDIAN_INTELLIGENCE_API_URL` | Intelligence API proxy base URL |
 
 Do not commit `.env*` files with secrets.
+
+## Resend dashboard (weareobsidian.co.uk)
+
+1. [Resend → Domains](https://resend.com/domains) → **Add domain** → `weareobsidian.co.uk`
+2. Add DNS records shown (SPF, DKIM; optional DMARC)
+3. Wait until status is **Verified**
+4. Set `EMAIL_FROM` / `CONTACT_FROM` to an address on that domain (e.g. `contact@weareobsidian.co.uk`)
+5. Ensure the inbox (`CONTACT_EMAIL` / `CONTACT_TO`) can receive mail — forward `contact@` to your personal inbox if needed
 
 ## Local preview
 
@@ -59,7 +81,3 @@ Open `index.html` via a static server, or use Vercel CLI:
 ```bash
 npx vercel dev
 ```
-
-## Rebrand note
-
-The former **Civitas** intelligence product references have been retired from the public site. Env var `CIVITAS_API_URL` is still accepted as a fallback for API proxies during transition.
