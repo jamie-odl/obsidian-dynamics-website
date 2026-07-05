@@ -92,6 +92,13 @@ body.mkt-nav-open {
   display: block;
 }
 
+/* Full-bleed marketing photos — override generic img sizing */
+.mkt-hero__img,
+.mkt-page-visual img,
+.mkt-about-visual__img {
+  max-width: none;
+}
+
 .mkt figure {
   margin: 0;
 }
@@ -160,9 +167,8 @@ body.mkt-nav-open {
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: #000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .mkt-header__inner {
@@ -174,7 +180,23 @@ body.mkt-nav-open {
 
 @media (min-width: 1024px) {
   .mkt-header__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 1.5rem;
     height: 4.5rem;
+  }
+
+  .mkt-logo {
+    justify-self: start;
+  }
+
+  .mkt-nav {
+    justify-self: center;
+  }
+
+  .mkt-header__actions {
+    justify-self: end;
   }
 }
 
@@ -208,6 +230,8 @@ body.mkt-nav-open {
 }
 
 .mkt-logo__tag {
+  display: block;
+  margin-top: 0.15rem;
   font-size: var(--mkt-fs-2xs);
   letter-spacing: 0.2em;
   color: rgba(255, 255, 255, 0.6);

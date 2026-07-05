@@ -112,7 +112,7 @@
 
       "</nav></div>" +
 
-      '<a href="/sign-in" class="mkt-btn-outline mkt-btn-sm">Sign in</a>' +
+      '<a href="/sign-in" class="mkt-btn-primary mkt-btn-sm">Sign in</a>' +
 
       '<a href="/contact?intent=pilot" class="mkt-btn-primary mkt-btn-sm">Request pilot</a>' +
 
