@@ -1223,7 +1223,7 @@ a.mkt-card--link:hover {
 .mkt-preview__scan-code {
   flex-shrink: 0;
   width: 5rem;
-  height: 5rem;
+  aspect-ratio: 1;
   padding: 0.35rem;
   background: #fff;
   border-radius: 6px;
@@ -1233,7 +1233,9 @@ a.mkt-card--link:hover {
 .mkt-preview__scan-code img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
 }
 
 .mkt-preview__scan-label {
