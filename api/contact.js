@@ -1,20 +1,22 @@
 // POST /api/contact — deliver contact form submissions to the team inbox.
-// Requires RESEND_API_KEY on Vercel (Resend: verify obsidiandynamics.co.uk domain).
+// Requires RESEND_API_KEY on Vercel (verify weareobsidian.co.uk or obsidiandynamics.co.uk domain).
 // Env: CONTACT_TO (default jamie@obsidiandynamics.co.uk)
-//      CONTACT_FROM (default Obsidian Dynamics <contact@obsidiandynamics.co.uk>)
+//      CONTACT_FROM (default We Are Obsidian <contact@weareobsidian.co.uk>)
 
 const rate = new Map();
 const LIMIT = 8;
 const WINDOW = 60;
 
 const VALID_INTEREST = new Set([
+    'pilot',
+    'support',
+    'general',
     'acheronvault',
     'blackglass',
     'charongate',
     'platform',
     'onboarding',
-    'account-operations',
-    'general'
+    'account-operations'
 ]);
 
 function getIp(request) {
@@ -51,13 +53,15 @@ function escapeHtml(value) {
 
 function interestLabel(value) {
     const map = {
+        pilot: 'Obsidian Node pilot',
+        support: 'Portal support',
+        general: 'General',
         acheronvault: 'Acheron Vault',
         blackglass: 'Blackglass',
         charongate: 'Charon Gate',
         platform: 'Platform / API',
         onboarding: 'Onboarding',
-        'account-operations': 'Account operations',
-        general: 'General'
+        'account-operations': 'Account operations'
     };
     return map[value] || value || 'Not specified';
 }
@@ -117,12 +121,13 @@ module.exports = async (request, response) => {
     }
 
     // Honeypot — bots fill hidden fields; humans leave them empty.
-    if (trim(body.company_website, 200)) {
+    if (trim(body.company_website, 200) || trim(body.website, 200)) {
         return response.status(200).json({ ok: true });
     }
 
     const name = trim(body.name, 120);
     const email = trim(body.email, 254).toLowerCase();
+    const organisation = trim(body.organisation, 200);
     const interest = trim(body.interest, 40).toLowerCase();
     const message = trim(body.message, 8000);
     const page = trim(body.page, 300);
@@ -140,12 +145,13 @@ module.exports = async (request, response) => {
     if (interest && !VALID_INTEREST.has(interest)) {
         return response.status(400).json({ error: 'Invalid interest selection.' });
     }
+    const resolvedInterest = interest || (intent === 'pilot' ? 'pilot' : intent === 'support' ? 'support' : '');
 
     const to = trim(process.env.CONTACT_TO, 254) || 'jamie@obsidiandynamics.co.uk';
     const from = trim(process.env.CONTACT_FROM, 254)
         || trim(process.env.AUTH_EMAIL_FROM, 254)
-        || 'Obsidian Dynamics <contact@obsidiandynamics.co.uk>';
-    const interestText = interestLabel(interest);
+        || 'We Are Obsidian <contact@weareobsidian.co.uk>';
+    const interestText = interestLabel(resolvedInterest || 'general');
     const subjectParts = ['Contact'];
     if (interest) subjectParts.push(interestText);
     if (intent) subjectParts.push(intent.replace(/-/g, ' '));
@@ -157,6 +163,7 @@ module.exports = async (request, response) => {
         '',
         'Name: ' + name,
         'Email: ' + email,
+        organisation ? 'Organisation: ' + organisation : null,
         'Interest: ' + interestText,
         intent ? 'Intent: ' + intent : null,
         page ? 'Page: ' + page : null,
@@ -170,6 +177,7 @@ module.exports = async (request, response) => {
         '<h2>New contact form submission</h2>',
         '<p><strong>Name:</strong> ' + escapeHtml(name) + '</p>',
         '<p><strong>Email:</strong> <a href="mailto:' + escapeHtml(email) + '">' + escapeHtml(email) + '</a></p>',
+        organisation ? '<p><strong>Organisation:</strong> ' + escapeHtml(organisation) + '</p>' : '',
         '<p><strong>Interest:</strong> ' + escapeHtml(interestText) + '</p>',
         intent ? '<p><strong>Intent:</strong> ' + escapeHtml(intent) + '</p>' : '',
         page ? '<p><strong>Page:</strong> ' + escapeHtml(page) + '</p>' : '',

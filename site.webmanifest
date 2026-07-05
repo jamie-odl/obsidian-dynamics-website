@@ -1,13 +1,13 @@
 {
-  "name": "Obsidian Dynamics",
+  "name": "We Are Obsidian",
   "short_name": "Obsidian",
-  "description": "UK developer contributions intelligence — Section 106, CIL, and Infrastructure Funding Statements.",
+  "description": "Obsidian Node — asset tracking for outdoor sites.",
   "lang": "en-GB",
   "start_url": "/",
   "scope": "/",
   "display": "minimal-ui",
-  "background_color": "#f8f6f3",
-  "theme_color": "#f8f6f3",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
   "icons": [
     { "src": "/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },

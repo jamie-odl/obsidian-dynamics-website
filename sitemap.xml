@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://obsidiandynamics.co.uk/</loc></url>
-  <url><loc>https://obsidiandynamics.co.uk/about</loc></url>
-  <url><loc>https://obsidiandynamics.co.uk/contact</loc></url>
-  <url><loc>https://obsidiandynamics.co.uk/research</loc></url>
-  <url><loc>https://obsidiandynamics.co.uk/privacy</loc></url>
-  <url><loc>https://obsidiandynamics.co.uk/terms</loc></url>
+  <url><loc>https://www.weareobsidian.co.uk/</loc></url>
+  <url><loc>https://www.weareobsidian.co.uk/about</loc></url>
+  <url><loc>https://www.weareobsidian.co.uk/contact</loc></url>
+  <url><loc>https://www.weareobsidian.co.uk/pilot</loc></url>
+  <url><loc>https://www.weareobsidian.co.uk/construction</loc></url>
+  <url><loc>https://www.weareobsidian.co.uk/logistics</loc></url>
+  <url><loc>https://www.weareobsidian.co.uk/privacy</loc></url>
+  <url><loc>https://www.weareobsidian.co.uk/terms</loc></url>
 </urlset>

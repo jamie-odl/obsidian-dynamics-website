@@ -1,17 +1,13 @@
 User-agent: *
 Allow: /
 
-# Private authenticated surfaces (not for search indexing)
+Disallow: /admin
+Disallow: /portal
 Disallow: /developer-central
-Disallow: /developer-central.html
 Disallow: /developer-login
-Disallow: /developer-login.html
 Disallow: /developer-api
-Disallow: /developer-api.html
 Disallow: /onboarding
 Disallow: /account-operations
 Disallow: /access-denied
-Disallow: /access-denied.html
-Disallow: /admin
 
-Sitemap: https://obsidiandynamics.co.uk/sitemap.xml
+Sitemap: https://www.weareobsidian.co.uk/sitemap.xml

@@ -22,6 +22,13 @@
     }
   ],
   "redirects": [
+    { "source": "/research", "destination": "/", "permanent": true },
+    { "source": "/research.html", "destination": "/", "permanent": true },
+    { "source": "/for-journalists", "destination": "/", "permanent": true },
+    { "source": "/for-journalists.html", "destination": "/", "permanent": true },
+    { "source": "/pilot.html", "destination": "/pilot", "permanent": true },
+    { "source": "/construction.html", "destination": "/construction", "permanent": true },
+    { "source": "/logistics.html", "destination": "/logistics", "permanent": true },
     { "source": "/platform", "destination": "/about", "permanent": true },
     { "source": "/platform.html", "destination": "/about", "permanent": true },
     { "source": "/products", "destination": "/about", "permanent": true },

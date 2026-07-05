@@ -1,2 +1,5 @@
 .vercel
 _ref_blackglass/
+.env
+.env.*
+!.env.example
