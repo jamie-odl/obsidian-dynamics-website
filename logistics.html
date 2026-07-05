@@ -59,12 +59,16 @@
           <h2 class="mkt-section-title">Talk to us about your yard</h2>
           <div class="mkt-card mkt-contact__form-card">
             <form class="mkt-contact__form" data-contact-form data-intent="pilot">
-              <label>Name<input name="name" required></label>
-              <label>Email<input name="email" type="email" required></label>
-              <label>Organisation<input name="organisation"></label>
-              <label>Yard details<textarea name="message" rows="5" required></textarea></label>
+              <p class="mkt-contact__intent">Request a pilot</p>
+              <div class="mkt-contact__fields">
+                <label class="mkt-contact__field"><span>Name</span><input name="name" required autocomplete="name"></label>
+                <label class="mkt-contact__field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+              </div>
+              <label class="mkt-contact__field"><span>Organisation (optional)</span><input name="organisation" autocomplete="organization"></label>
+              <label class="mkt-contact__field"><span>Yard details</span><textarea name="message" rows="5" required placeholder="Depot footprint, trailer count, industry…"></textarea></label>
+              <input type="text" name="website" class="mkt-contact__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
               <button type="submit" class="mkt-btn-primary">Send enquiry</button>
-              <p data-form-status role="status"></p>
+              <p data-form-status role="status" aria-live="polite"></p>
             </form>
           </div>
         </section>

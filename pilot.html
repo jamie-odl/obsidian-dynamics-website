@@ -41,7 +41,7 @@
         <h1 class="mkt-page__title">Start on one site</h1>
         <p class="mkt-page__lead">A typical pilot runs 4–6 weeks on a live site — enough time to tag kit, train operators, and prove value before you scale.</p>
         <p class="mkt-page__lead mkt-contact-email--tight">Or email <a href="mailto:contact@weareobsidian.co.uk" class="mkt-contact-email__link">contact@weareobsidian.co.uk</a></p>
-        <div class="mkt-cards mkt-pilot__cards">
+        <div class="mkt-cards mkt-cards--pilot mkt-pilot__cards">
           <article class="mkt-card mkt-card--lift"><h3>Site assessment</h3><p>We map your footprint and agree how many edge gateways you need — most sites need one or two.</p></article>
           <article class="mkt-card mkt-card--lift"><h3>Tags &amp; labels</h3><p>QR stickers pre-linked to your assets — peel, stick, scan to register.</p></article>
           <article class="mkt-card mkt-card--lift"><h3>Edge gateway deployment</h3><p>RevPi Connect 4 units configured for your site — PoE or 24 V — with offline-friendly sync.</p></article>
@@ -62,12 +62,16 @@
           <h2 class="mkt-section-title">Request a pilot</h2>
           <div class="mkt-card mkt-contact__form-card">
             <form class="mkt-contact__form" data-contact-form data-intent="pilot">
-              <label>Name<input name="name" required></label>
-              <label>Email<input name="email" type="email" required></label>
-              <label>Organisation<input name="organisation"></label>
-              <label>Tell us about your site<textarea name="message" rows="5" required placeholder="Site footprint, asset count, industry…"></textarea></label>
+              <p class="mkt-contact__intent">Request a pilot</p>
+              <div class="mkt-contact__fields">
+                <label class="mkt-contact__field"><span>Name</span><input name="name" required autocomplete="name"></label>
+                <label class="mkt-contact__field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+              </div>
+              <label class="mkt-contact__field"><span>Organisation (optional)</span><input name="organisation" autocomplete="organization"></label>
+              <label class="mkt-contact__field"><span>Tell us about your site</span><textarea name="message" rows="5" required placeholder="Site footprint, asset count, industry…"></textarea></label>
+              <input type="text" name="website" class="mkt-contact__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
               <button type="submit" class="mkt-btn-primary">Request pilot</button>
-              <p data-form-status role="status"></p>
+              <p data-form-status role="status" aria-live="polite"></p>
             </form>
           </div>
         </section>

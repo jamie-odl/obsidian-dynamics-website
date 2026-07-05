@@ -45,11 +45,13 @@
           <div class="mkt-card mkt-contact__form-card">
             <h2>Send a message</h2>
             <form class="mkt-contact__form" data-contact-form data-intent="general">
-              <label>Name<input name="name" required autocomplete="name"></label>
-              <label>Email<input name="email" type="email" required autocomplete="email"></label>
-              <label>Organisation<input name="organisation" autocomplete="organization"></label>
-              <label>Message<textarea name="message" rows="5" required></textarea></label>
-              <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+              <div class="mkt-contact__fields">
+                <label class="mkt-contact__field"><span>Name</span><input name="name" required autocomplete="name"></label>
+                <label class="mkt-contact__field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+              </div>
+              <label class="mkt-contact__field"><span>Organisation (optional)</span><input name="organisation" autocomplete="organization"></label>
+              <label class="mkt-contact__field"><span>Message</span><textarea name="message" rows="5" required placeholder="Tell us about your site, pilot, or portal access needs."></textarea></label>
+              <input type="text" name="website" class="mkt-contact__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
               <button type="submit" class="mkt-btn-primary">Send message</button>
               <p data-form-status role="status" aria-live="polite"></p>
             </form>
