@@ -1230,7 +1230,7 @@ a.mkt-card--link:hover {
   line-height: 0;
 }
 
-.mkt-preview__scan-code svg {
+.mkt-preview__scan-code img {
   display: block;
   width: 100%;
   height: auto;
@@ -2266,10 +2266,14 @@ a.mkt-card--link:hover {
 .mkt-preview__list li {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 0.15rem 0.75rem;
-  padding: 0.75rem 0;
+  gap: 0.25rem 0.75rem;
+  padding: 1rem 0 0.55rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   font-size: var(--mkt-fs-sm);
+}
+
+.mkt-preview__list li + li {
+  padding-top: 1.15rem;
 }
 
 .mkt-preview__list strong {
