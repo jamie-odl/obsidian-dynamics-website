@@ -8,7 +8,7 @@
 
     url: "https://www.obsidiandynamics.co.uk",
 
-    email: "contact@obsidiandynamics.co.uk",
+    email: "jamie@obsidiandynamics.co.uk",
 
     company: "Obsidian Dynamics Limited",
 

@@ -1030,7 +1030,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.disabled = false;
                 if (formStatus) {
                     formStatus.className = 'form-status form-status--error';
-                    formStatus.textContent = (err && err.message) || 'Unable to send. Email contact@obsidiandynamics.co.uk directly.';
+                    formStatus.textContent = (err && err.message) || 'Unable to send. Email jamie@obsidiandynamics.co.uk directly.';
                 }
                 return;
             }

@@ -1,7 +1,7 @@
 // POST /api/contact — deliver contact form submissions to the team inbox.
 // Requires RESEND_API_KEY (verify obsidiandynamics.co.uk in Resend dashboard).
-// Env: CONTACT_TO (default contact@obsidiandynamics.co.uk)
-//      CONTACT_FROM (default Obsidian Dynamics <contact@obsidiandynamics.co.uk>)
+// Env: CONTACT_TO (default jamie@obsidiandynamics.co.uk)
+//      CONTACT_FROM (default Obsidian Dynamics <jamie@obsidiandynamics.co.uk>)
 
 const rate = new Map();
 const LIMIT = 8;
@@ -147,10 +147,10 @@ module.exports = async (request, response) => {
     }
     const resolvedInterest = interest || (intent === 'pilot' ? 'pilot' : intent === 'support' ? 'support' : '');
 
-    const to = trim(process.env.CONTACT_TO, 254) || 'contact@obsidiandynamics.co.uk';
+    const to = trim(process.env.CONTACT_TO, 254) || 'jamie@obsidiandynamics.co.uk';
     const from = trim(process.env.CONTACT_FROM, 254)
         || trim(process.env.AUTH_EMAIL_FROM, 254)
-        || 'Obsidian Dynamics <contact@obsidiandynamics.co.uk>';
+        || 'Obsidian Dynamics <jamie@obsidiandynamics.co.uk>';
     const interestText = interestLabel(resolvedInterest || 'general');
     const subjectParts = ['Contact'];
     if (interest) subjectParts.push(interestText);
@@ -208,7 +208,7 @@ module.exports = async (request, response) => {
             }
         }));
         return response.status(503).json({
-            error: 'Unable to send your message right now. Email contact@obsidiandynamics.co.uk directly.'
+            error: 'Unable to send your message right now. Email jamie@obsidiandynamics.co.uk directly.'
         });
     }
 

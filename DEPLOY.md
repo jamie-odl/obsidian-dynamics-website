@@ -51,17 +51,17 @@ Contact delivery on production uses the Next.js backend, not this repo’s serve
 | Variable | Purpose |
 |----------|---------|
 | `RESEND_API_KEY` | Resend API key |
-| `EMAIL_FROM` | Verified sender, e.g. `Obsidian Dynamics <contact@obsidiandynamics.co.uk>` |
+| `EMAIL_FROM` | Verified sender, e.g. `Obsidian Dynamics <jamie@obsidiandynamics.co.uk>` |
 | `RESEND_FROM` | Optional alias for `EMAIL_FROM` |
-| `CONTACT_EMAIL` | Inbox for submissions (default `contact@obsidiandynamics.co.uk`) |
+| `CONTACT_EMAIL` | Inbox for submissions (default `jamie@obsidiandynamics.co.uk`) |
 
 ### Vercel (this repo — if using Vercel contact handler)
 
 | Variable | Purpose |
 |----------|---------|
 | `RESEND_API_KEY` | Contact form delivery |
-| `CONTACT_TO` | Inbox (default `contact@obsidiandynamics.co.uk`) |
-| `CONTACT_FROM` | From address (default `Obsidian Dynamics <contact@obsidiandynamics.co.uk>`) |
+| `CONTACT_TO` | Inbox (default `jamie@obsidiandynamics.co.uk`) |
+| `CONTACT_FROM` | From address (default `Obsidian Dynamics <jamie@obsidiandynamics.co.uk>`) |
 | `OBSIDIAN_INTELLIGENCE_API_URL` | Intelligence API proxy base URL |
 
 Do not commit `.env*` files with secrets.
@@ -71,8 +71,8 @@ Do not commit `.env*` files with secrets.
 1. [Resend → Domains](https://resend.com/domains) → **Add domain** → `obsidiandynamics.co.uk`
 2. Add DNS records shown (SPF, DKIM; optional DMARC)
 3. Wait until status is **Verified**
-4. Set `EMAIL_FROM` / `CONTACT_FROM` to an address on that domain (e.g. `contact@obsidiandynamics.co.uk`)
-5. Ensure the inbox (`CONTACT_EMAIL` / `CONTACT_TO`) can receive mail — forward `contact@` to your personal inbox if needed
+4. Set `EMAIL_FROM` / `CONTACT_FROM` to an address on that domain (e.g. `jamie@obsidiandynamics.co.uk`)
+5. Ensure the inbox (`CONTACT_EMAIL` / `CONTACT_TO`) can receive mail at `jamie@obsidiandynamics.co.uk`
 
 ## Local preview
 

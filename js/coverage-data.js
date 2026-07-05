@@ -119,7 +119,7 @@
         } catch (_error) {
             const tbody = document.getElementById('coverageTableBody');
             if (tbody) {
-                tbody.innerHTML = '<tr><td colspan="6">Coverage data unavailable. Contact contact@obsidiandynamics.co.uk.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="6">Coverage data unavailable. Contact jamie@obsidiandynamics.co.uk.</td></tr>';
             }
             setStatus('Coverage data unavailable.', 'error');
         }
