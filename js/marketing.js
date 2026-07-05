@@ -6,9 +6,9 @@
 
     tagline: "Track what matters.",
 
-    url: "https://www.weareobsidian.co.uk",
+    url: "https://www.obsidiandynamics.co.uk",
 
-    email: "contact@weareobsidian.co.uk",
+    email: "contact@obsidiandynamics.co.uk",
 
     company: "Obsidian Dynamics Limited",
 
@@ -410,7 +410,7 @@
 
   function ensureMetaTags() {
 
-    var title = document.title || "We Are Obsidian";
+    var title = document.title || "Obsidian Dynamics";
 
     var descEl = document.querySelector('meta[name="description"]');
 
@@ -422,7 +422,7 @@
 
     var url = (canonEl && canonEl.getAttribute("href")) || SITE.url + window.location.pathname.replace(/\.html$/, "");
 
-    var image = "https://www.weareobsidian.co.uk/img/marketing/hero.jpg";
+    var image = "https://www.obsidiandynamics.co.uk/img/marketing/hero.jpg";
 
     function upsert(attr, value, content) {
 
@@ -442,7 +442,7 @@
 
     }
 
-    upsert("property", "og:site_name", "We Are Obsidian");
+    upsert("property", "og:site_name", "Obsidian Dynamics");
 
     upsert("property", "og:locale", "en_GB");
 

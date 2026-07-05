@@ -252,14 +252,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const footerMarkup =
             '<div class="footer-grid">' +
             '  <div class="footer-brand">' +
-            '    <a href="/" class="nav-logo" aria-label="We Are Obsidian home">' + getPrimaryLogoMarkup() + '</a>' +
+            '    <a href="/" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
             '  </div>' +
             '  <div class="footer-links"><h4>Product</h4><ul><li><a href="/demo">Demo</a></li><li><a href="/pilot">Pilot</a></li><li><a href="/construction">Construction</a></li><li><a href="/logistics">Logistics</a></li></ul></div>' +
             '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
             '  <p class="footer-trading-disclosure">Obsidian Dynamics Limited. Registered in England and Wales. Company number 16663833. Registered office: Lytchett House, 13 Freeland Park, Wareham Road, Poole, Dorset BH16 6FA.</p>' +
-            '  <p>&copy; 2026 Obsidian Dynamics Limited · <a href="https://www.weareobsidian.co.uk">weareobsidian.co.uk</a></p>' +
+            '  <p>&copy; 2026 Obsidian Dynamics Limited · <a href="https://www.obsidiandynamics.co.uk">obsidiandynamics.co.uk</a></p>' +
             '  <div class="footer-legal"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div>' +
             '</div>';
 
@@ -320,10 +320,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (privateSeoBlock.has(currentPage)) {
             return;
         }
-        const siteOrigin = 'https://www.weareobsidian.co.uk';
+        const siteOrigin = 'https://www.obsidiandynamics.co.uk';
         const path = window.location.pathname || '/';
         const absoluteUrl = siteOrigin + path;
-        const title = (document.title || 'We Are Obsidian').trim();
+        const title = (document.title || 'Obsidian Dynamics').trim();
         const descTag = document.querySelector('meta[name="description"]');
         const description = ((descTag && descTag.getAttribute('content')) || '').trim()
             || 'Obsidian Node — outdoor asset tracking for UK construction, logistics, and industrial sites with QR labels, BLE beacons, and edge gateways.';
@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
         upsertMeta('property', 'og:title', title);
         upsertMeta('property', 'og:description', description);
         upsertMeta('property', 'og:url', canonical.getAttribute('href') || absoluteUrl);
-        upsertMeta('property', 'og:site_name', 'We Are Obsidian');
+        upsertMeta('property', 'og:site_name', 'Obsidian Dynamics');
         upsertMeta('property', 'og:locale', 'en_GB');
         upsertMeta('property', 'og:image', defaultOgImage);
         upsertMeta('property', 'og:image:width', '1920');
@@ -939,7 +939,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const container = emailRevealBtn.parentElement;
             // Build email from parts to avoid scraping
             const user = 'contact';
-            const domain = 'weareobsidian';
+            const domain = 'obsidiandynamics';
             const tld = 'co.uk';
             const addr = user + '@' + domain + '.' + tld;
             const revealedEl = document.createElement('div');
@@ -1030,7 +1030,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.disabled = false;
                 if (formStatus) {
                     formStatus.className = 'form-status form-status--error';
-                    formStatus.textContent = (err && err.message) || 'Unable to send. Email contact@weareobsidian.co.uk directly.';
+                    formStatus.textContent = (err && err.message) || 'Unable to send. Email contact@obsidiandynamics.co.uk directly.';
                 }
                 return;
             }

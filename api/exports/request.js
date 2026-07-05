@@ -25,7 +25,7 @@ function parseCookie(header, key) {
 function resolveEntitlement(email) {
     const normalized = String(email || '').toLowerCase();
     if (!normalized) return 'public_snapshot';
-    if (normalized.endsWith('@weareobsidian.co.uk') || normalized.endsWith('@obsidiandynamics.co.uk')) return 'full_export';
+    if (normalized.endsWith('@obsidiandynamics.co.uk') || normalized.endsWith('@obsidiandynamics.co.uk')) return 'full_export';
     return 'limited_export';
 }
 

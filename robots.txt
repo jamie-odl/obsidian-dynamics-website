@@ -10,4 +10,4 @@ Disallow: /onboarding
 Disallow: /account-operations
 Disallow: /access-denied
 
-Sitemap: https://www.weareobsidian.co.uk/sitemap.xml
+Sitemap: https://www.obsidiandynamics.co.uk/sitemap.xml
