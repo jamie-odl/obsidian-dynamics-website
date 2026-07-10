@@ -19,10 +19,6 @@
     {
       "source": "/admin/:path*",
       "destination": "https://obsidian-dynamics-admin.vercel.app/admin/:path*"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     }
   ],
   "redirects": [
