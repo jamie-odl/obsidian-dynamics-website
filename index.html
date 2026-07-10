@@ -22,7 +22,8 @@
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#f4f7f8">
+    <meta name="theme-color" content="#0c4a4e">
+    <link rel="preload" href="/img/marketing/hero.jpg" as="image" fetchpriority="high">
     <link rel="preload" href="/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/outfit-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/fonts.css">
@@ -37,7 +38,7 @@
     }
     </script>
 </head>
-<body>
+<body class="has-hero-bleed">
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
@@ -52,21 +53,33 @@
 
     <main id="main-content">
         <section class="hero hero--bleed" aria-labelledby="hero-brand">
+            <div class="hero-media" aria-hidden="true">
+                <img
+                    class="hero-media__img"
+                    src="/img/marketing/hero.jpg"
+                    alt=""
+                    width="1600"
+                    height="900"
+                    fetchpriority="high"
+                    decoding="async"
+                >
+            </div>
+            <div class="hero-scrim" aria-hidden="true"></div>
             <div class="hero-atmosphere" aria-hidden="true"></div>
             <div class="hero-bleed__inner">
                 <p class="hero-brand" id="hero-brand">Obsidian Dynamics</p>
-                <h1 class="hero-title" id="hero-heading">UK developer contributions intelligence</h1>
+                <h1 class="hero-title" id="hero-heading">Developer contributions, traced to source</h1>
                 <p class="hero-subtitle">
-                    Section 106, CIL, and Infrastructure Funding Statements — organised and linked back to the page they came from.
+                    Section 106, CIL, and Infrastructure Funding Statements — structured and linked back to the page they came from.
                 </p>
                 <div class="hero-actions" data-track-section="hero">
-                    <a href="/research#journalists" class="btn btn-primary" data-track-section="hero">Research &amp; data</a>
-                    <a href="/contact" class="btn btn-secondary" data-track-section="hero">Get in touch</a>
+                    <a href="/contact" class="btn btn-primary btn-lg" data-track-section="hero">Request access</a>
+                    <a href="/research" class="btn btn-lg btn-on-media" data-track-section="hero">Research &amp; data</a>
                 </div>
             </div>
         </section>
 
-        <section class="features-section" aria-labelledby="what-we-cover-heading">
+        <section class="features-section home-cover" aria-labelledby="what-we-cover-heading">
             <div class="container">
                 <div class="section-header">
                     <p class="section-tag">What we cover</p>
@@ -103,11 +116,11 @@
         <section class="features-section home-final-cta" aria-labelledby="final-cta-heading" data-track-section="final-cta">
             <div class="container">
                 <div class="final-cta">
-                    <h2 class="final-cta__title" id="final-cta-heading">Research, journalism, or access?</h2>
-                    <p class="final-cta__desc">Coverage data, methodology notes, sample exports, or a general question — we reply from jamie@obsidiandynamics.co.uk.</p>
+                    <h2 class="final-cta__title" id="final-cta-heading">Need coverage, methodology, or access?</h2>
+                    <p class="final-cta__desc">Tell us what you are working on — we reply from jamie@obsidiandynamics.co.uk.</p>
                     <div class="hero-actions">
-                        <a href="/research#journalists" class="btn btn-primary" data-track-section="final-cta">Research &amp; data</a>
-                        <a href="/contact" class="btn btn-secondary" data-track-section="final-cta">Contact us</a>
+                        <a href="/contact" class="btn btn-primary btn-lg" data-track-section="final-cta">Request access</a>
+                        <a href="/research" class="btn btn-secondary" data-track-section="final-cta">Research &amp; data</a>
                     </div>
                 </div>
             </div>

@@ -864,7 +864,9 @@ document.addEventListener('DOMContentLoaded', () => {
         '.section-header',
         '.operational-trust-card',
         '.proof-chip',
-        '.role-cta-card'
+        '.role-cta-card',
+        '.cover-column',
+        '.final-cta'
     ];
     document.querySelectorAll(fadeSelectors.join(', ')).forEach((el) => {
         el.classList.add('fade-in');
@@ -872,8 +874,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document
-        .querySelectorAll('.hero-content > *:not(.hero-grid-overlay), .page-hero > *:not(.hero-grid-overlay)')
+        .querySelectorAll('.hero-content > *:not(.hero-grid-overlay), .hero-bleed__inner > *:not(.hero-grid-overlay), .page-hero > *:not(.hero-grid-overlay)')
         .forEach((el, i) => {
+            // Home bleed hero uses CSS entrance animation; skip double-fade.
+            if (el.closest('.hero--bleed')) return;
             el.classList.add('fade-in');
             el.style.setProperty('--reveal-delay', `${Math.min(i, 12) * 68}ms`);
             revealObserver.observe(el);
