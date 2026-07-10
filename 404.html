@@ -1,36 +1,53 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page not found | Obsidian Dynamics</title>
-  <meta name="description" content="The page you requested is not available on obsidiandynamics.co.uk.">
-  <meta name="robots" content="noindex, follow">
-  <link rel="icon" href="/favicon.ico" sizes="32x32">
-  <meta name="theme-color" content="#0a0a0a">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/marketing.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found | Obsidian Dynamics</title>
+    <meta name="description" content="The page you requested is not available on weareobsidian.co.uk.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <meta name="theme-color" content="#0c4a4e">
+    <link rel="preload" href="/img/marketing/hero.jpg" as="image">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
-  <div class="mkt">
-    <a class="mkt-skip" href="#main-content">Skip to content</a>
-    <div id="mkt-header"></div>
-    <main id="main-content" class="mkt-page">
-      <div class="mkt-container">
-        <p class="mkt-page__kicker">404</p>
-        <h1 class="mkt-page__title">Page not found</h1>
-        <p class="mkt-page__lead">That URL is not on obsidiandynamics.co.uk. Try the home page, demo, or contact us if you need help finding something.</p>
-        <p class="mkt-page__cta">
-          <a href="/" class="mkt-btn-primary">Home</a>
-          <a href="/demo" class="mkt-btn-outline">Try demo</a>
-          <a href="/contact" class="mkt-btn-outline">Contact</a>
-        </p>
-      </div>
+<body class="has-hero-bleed">
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="/" class="nav-logo" aria-label="Obsidian Dynamics home">
+                <span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span>
+            </a>
+            <div class="nav-links" id="navLinks"></div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="hero hero--bleed hero--page" aria-labelledby="not-found-heading">
+            <div class="hero-media" aria-hidden="true">
+                <img class="hero-media__img" src="/img/marketing/hero.jpg" alt="" width="1600" height="900" decoding="async">
+            </div>
+            <div class="hero-scrim" aria-hidden="true"></div>
+            <div class="hero-atmosphere" aria-hidden="true"></div>
+            <div class="hero-bleed__inner">
+                <p class="hero-brand">Obsidian Dynamics</p>
+                <h1 class="hero-title" id="not-found-heading">Page not found</h1>
+                <p class="hero-subtitle">
+                    That URL is not on weareobsidian.co.uk. Head home, check research coverage, or request access if you need help finding something.
+                </p>
+                <div class="hero-actions">
+                    <a href="/" class="btn btn-primary btn-lg">Home</a>
+                    <a href="/research" class="btn btn-lg btn-on-media">Research &amp; data</a>
+                    <a href="/contact" class="btn btn-lg btn-on-media">Request access</a>
+                </div>
+            </div>
+        </section>
     </main>
-    <div id="mkt-footer"></div>
-  </div>
-  <script src="/js/marketing.js" defer></script>
+
+    <footer class="footer" role="contentinfo"><div class="container"></div></footer>
+    <script src="/js/main.js" defer></script>
 </body>
 </html>

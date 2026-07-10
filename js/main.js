@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.18.0';
+    const SITE_VERSION = 'v2.19.0';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
         return items.map((item) => {
             const bare = item.href.replace(/^\//, '');
-            const isActive = bare === activePage || (bare === 'research' && activePage === 'research.html');
+            const isActive = bare === activePage || activePage === bare + '.html';
             return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
         }).join('');
     }

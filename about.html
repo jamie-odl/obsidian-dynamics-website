@@ -9,8 +9,9 @@
     <link rel="canonical" href="https://www.weareobsidian.co.uk/about">
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#f4f7f8">
+    <meta name="theme-color" content="#0c4a4e">
     <meta property="og:type" content="website">
     <meta property="og:title" content="About Obsidian Dynamics | UK developer contributions">
     <meta property="og:description" content="Obsidian Dynamics Limited builds UK developer contributions intelligence — Section 106, CIL, and IFS data linked back to source.">
@@ -18,10 +19,13 @@
     <meta property="og:site_name" content="Obsidian Dynamics">
     <meta property="og:locale" content="en_GB">
     <meta property="og:image" content="https://www.weareobsidian.co.uk/img/og-image.jpg">
+    <link rel="preload" href="/img/marketing/hero.jpg" as="image">
+    <link rel="preload" href="/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/outfit-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
+<body class="has-hero-bleed">
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
@@ -34,24 +38,37 @@
     </nav>
 
     <main id="main-content">
-        <section class="page-hero page-hero--about">
-            <p class="page-hero__brand">Obsidian Dynamics</p>
-            <h1 class="page-hero__title">About</h1>
-            <p class="page-hero__subtitle">We organise developer contribution records from published UK local authority documents — so researchers, journalists, and operators can follow every figure back to source.</p>
+        <section class="hero hero--bleed hero--page" aria-labelledby="about-heading">
+            <div class="hero-media" aria-hidden="true">
+                <img class="hero-media__img" src="/img/marketing/hero.jpg" alt="" width="1600" height="900" decoding="async">
+            </div>
+            <div class="hero-scrim" aria-hidden="true"></div>
+            <div class="hero-atmosphere" aria-hidden="true"></div>
+            <div class="hero-bleed__inner">
+                <p class="hero-brand">Obsidian Dynamics</p>
+                <h1 class="hero-title" id="about-heading">About</h1>
+                <p class="hero-subtitle">
+                    We organise developer contribution records from published UK local authority documents — so researchers, journalists, and operators can follow every figure back to source.
+                </p>
+                <div class="hero-actions">
+                    <a href="/contact" class="btn btn-primary btn-lg">Request access</a>
+                    <a href="/research" class="btn btn-lg btn-on-media">Research &amp; data</a>
+                </div>
+            </div>
         </section>
 
-        <section class="about-section">
+        <section class="about-section page-band" aria-labelledby="what-we-do-heading">
             <div class="container container--narrow">
-                <h2 class="section-title">What we do</h2>
+                <h2 class="section-title" id="what-we-do-heading">What we do</h2>
                 <p class="section-desc">Obsidian Dynamics Limited builds intelligence on Section 106 planning obligations, Community Infrastructure Levy (CIL), and Infrastructure Funding Statements (IFS). We extract, structure, and provenance-link figures that are already in the public domain.</p>
                 <p class="section-desc">Outputs are for research and operational review. They are not legal, planning, or financial advice — always verify against the original authority documents.</p>
             </div>
         </section>
 
-        <section class="about-company">
+        <section class="about-company" aria-labelledby="company-heading">
             <div class="container">
                 <div class="company-info-card">
-                    <h2>Company</h2>
+                    <h2 id="company-heading">Company</h2>
                     <div class="company-details">
                         <div class="company-detail">
                             <span class="company-detail__label">Legal name</span>
@@ -69,6 +86,19 @@
                             <span class="company-detail__label">Contact</span>
                             <span class="company-detail__value"><a href="mailto:jamie@obsidiandynamics.co.uk">jamie@obsidiandynamics.co.uk</a></span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section home-final-cta" aria-labelledby="about-cta-heading" data-track-section="final-cta">
+            <div class="container">
+                <div class="final-cta">
+                    <h2 class="final-cta__title" id="about-cta-heading">Need coverage or access?</h2>
+                    <p class="final-cta__desc">Tell us what you are working on — we reply from jamie@obsidiandynamics.co.uk.</p>
+                    <div class="hero-actions">
+                        <a href="/contact" class="btn btn-primary btn-lg">Request access</a>
+                        <a href="/research" class="btn btn-secondary">Research &amp; data</a>
                     </div>
                 </div>
             </div>

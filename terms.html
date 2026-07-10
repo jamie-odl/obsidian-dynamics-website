@@ -8,18 +8,20 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.weareobsidian.co.uk/terms">
     <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#f4f7f8">
+    <meta name="theme-color" content="#0c4a4e">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Terms of Service | Obsidian Dynamics">
     <meta property="og:description" content="Terms of use for weareobsidian.co.uk and related Obsidian Dynamics services.">
     <meta property="og:url" content="https://www.weareobsidian.co.uk/terms">
     <meta property="og:site_name" content="Obsidian Dynamics">
     <meta property="og:locale" content="en_GB">
+    <link rel="preload" href="/img/marketing/hero.jpg" as="image">
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
+<body class="has-hero-bleed">
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
@@ -32,12 +34,19 @@
     </nav>
 
     <main id="main-content">
-        <section class="page-hero page-hero--legal">
-            <p class="page-hero__brand">Obsidian Dynamics</p>
-            <h1 class="page-hero__title">Terms of Service</h1>
-            <p class="page-hero__subtitle">Last updated: 10 July 2026</p>
+        <section class="hero hero--bleed hero--page hero--legal" aria-labelledby="terms-heading">
+            <div class="hero-media" aria-hidden="true">
+                <img class="hero-media__img" src="/img/marketing/hero.jpg" alt="" width="1600" height="900" decoding="async">
+            </div>
+            <div class="hero-scrim" aria-hidden="true"></div>
+            <div class="hero-atmosphere" aria-hidden="true"></div>
+            <div class="hero-bleed__inner">
+                <p class="hero-brand">Obsidian Dynamics</p>
+                <h1 class="hero-title" id="terms-heading">Terms of Service</h1>
+                <p class="hero-subtitle">Last updated: 10 July 2026</p>
+            </div>
         </section>
-        <section class="legal-content">
+        <section class="legal-content page-band">
             <div class="container container--narrow">
                 <p>These Terms govern access to <strong>https://www.weareobsidian.co.uk</strong> and related research, coverage, and admin tools operated by Obsidian Dynamics Limited (company number 16663833).</p>
                 <p>By accessing or using the site, you agree to these Terms. If you use the services on behalf of an organisation, you represent that you have authority to bind that organisation.</p>
@@ -47,13 +56,15 @@
                 <p>Data and extracts are for research and review. They are not legal, planning, or financial advice. Always verify figures against original authority documents.</p>
                 <h2>3. Permitted use</h2>
                 <p>You may use the site for lawful research and enquiry. You must not bypass authentication, disrupt services, scrape in a way that harms availability, or misrepresent our data as official government figures.</p>
-                <h2>4. Privacy</h2>
+                <h2 id="attribution">4. Attribution</h2>
+                <p>If you republish analysis that relies materially on Obsidian Dynamics structured data, attribute Obsidian Dynamics Limited as the structured data provider and verify figures against council originals before publication. Shared exports and API responses may include identifiers so we can trace republication and investigate suspected misuse.</p>
+                <h2>5. Privacy</h2>
                 <p>Our collection and use of personal data is described in our <a href="/privacy">Privacy Policy</a>.</p>
-                <h2>5. Limitation of liability</h2>
+                <h2>6. Limitation of liability</h2>
                 <p>Nothing in these Terms limits liability for death or personal injury caused by negligence, fraud, or any liability that cannot be limited under applicable law. Subject to the above, our total aggregate liability shall not exceed fees paid in the twelve months preceding the claim, or £100 if no fees were paid.</p>
-                <h2>6. Governing law</h2>
+                <h2>7. Governing law</h2>
                 <p>These Terms are governed by the laws of England and Wales. The courts of England and Wales have exclusive jurisdiction.</p>
-                <h2>7. Contact</h2>
+                <h2>8. Contact</h2>
                 <p>Questions about these Terms: <a href="mailto:jamie@obsidiandynamics.co.uk">jamie@obsidiandynamics.co.uk</a></p>
             </div>
         </section>

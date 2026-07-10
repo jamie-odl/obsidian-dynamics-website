@@ -9,8 +9,9 @@
     <link rel="canonical" href="https://www.weareobsidian.co.uk/contact">
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#f4f7f8">
+    <meta name="theme-color" content="#0c4a4e">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Contact Obsidian Dynamics | Research &amp; access">
     <meta property="og:description" content="Contact Obsidian Dynamics about UK developer contributions data, research access, or general enquiries.">
@@ -18,10 +19,13 @@
     <meta property="og:site_name" content="Obsidian Dynamics">
     <meta property="og:locale" content="en_GB">
     <meta property="og:image" content="https://www.weareobsidian.co.uk/img/og-image.jpg">
+    <link rel="preload" href="/img/marketing/hero.jpg" as="image">
+    <link rel="preload" href="/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/outfit-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
+<body class="has-hero-bleed">
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
@@ -34,16 +38,25 @@
     </nav>
 
     <main id="main-content">
-        <section class="page-hero page-hero--contact">
-            <p class="page-hero__brand">Obsidian Dynamics</p>
-            <h1 class="page-hero__title">Contact</h1>
-            <p class="page-hero__subtitle">Research access, methodology questions, or a general enquiry — send a message and we will reply by email.</p>
+        <section class="hero hero--bleed hero--page" aria-labelledby="contact-heading">
+            <div class="hero-media" aria-hidden="true">
+                <img class="hero-media__img" src="/img/marketing/hero.jpg" alt="" width="1600" height="900" decoding="async">
+            </div>
+            <div class="hero-scrim" aria-hidden="true"></div>
+            <div class="hero-atmosphere" aria-hidden="true"></div>
+            <div class="hero-bleed__inner">
+                <p class="hero-brand">Obsidian Dynamics</p>
+                <h1 class="hero-title" id="contact-heading">Request access</h1>
+                <p class="hero-subtitle">
+                    Research access, methodology questions, or a general enquiry — send a message and we will reply by email.
+                </p>
+            </div>
         </section>
 
-        <section class="contact-section">
+        <section class="contact-section page-band" aria-labelledby="send-message-heading">
             <div class="container contact-layout">
                 <div class="contact-form-wrapper">
-                    <h2>Send a message</h2>
+                    <h2 id="send-message-heading">Send a message</h2>
                     <form class="contact-form" id="contactForm" novalidate>
                         <div class="form-group">
                             <label class="form-label" for="name">Name</label>
@@ -58,7 +71,7 @@
                             <select class="form-input form-select" id="interest" name="interest">
                                 <option value="general">General enquiry</option>
                                 <option value="journalist">Journalism / research</option>
-                                <option value="access">Data access</option>
+                                <option value="access" selected>Data access</option>
                                 <option value="api">API / coverage</option>
                                 <option value="support">Support</option>
                             </select>
@@ -68,7 +81,7 @@
                             <textarea class="form-input form-textarea" id="message" name="message" rows="5" required placeholder="Tell us what you need — coverage, methodology, or access."></textarea>
                         </div>
                         <input type="text" name="company_website" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
-                        <button type="submit" class="btn btn-primary">Send message</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Send message</button>
                         <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
                     </form>
                 </div>
