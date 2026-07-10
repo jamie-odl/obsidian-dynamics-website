@@ -2,12 +2,17 @@ User-agent: *
 Allow: /
 
 Disallow: /admin
-Disallow: /portal
 Disallow: /developer-central
 Disallow: /developer-login
 Disallow: /developer-api
 Disallow: /onboarding
 Disallow: /account-operations
 Disallow: /access-denied
+Disallow: /node
+Disallow: /pilot
+Disallow: /construction
+Disallow: /logistics
+Disallow: /demo
+Disallow: /portal
 
-Sitemap: https://www.obsidiandynamics.co.uk/sitemap.xml
+Sitemap: https://www.weareobsidian.co.uk/sitemap.xml

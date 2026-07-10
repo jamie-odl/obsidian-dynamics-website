@@ -67,60 +67,78 @@
       "permanent": true
     },
     {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.weareobsidian.co.uk"
-        }
-      ],
-      "destination": "/civitas",
-      "permanent": false
+      "source": "/civitas",
+      "destination": "/",
+      "permanent": true
     },
     {
-      "source": "/index.html",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.weareobsidian.co.uk"
-        }
-      ],
-      "destination": "/civitas",
-      "permanent": false
-    },
-    {
-      "source": "/research",
+      "source": "/civitas.html",
       "destination": "/",
       "permanent": true
     },
     {
       "source": "/research.html",
-      "destination": "/",
+      "destination": "/research",
       "permanent": true
     },
     {
       "source": "/for-journalists",
-      "destination": "/",
+      "destination": "/research",
       "permanent": true
     },
     {
       "source": "/for-journalists.html",
+      "destination": "/research",
+      "permanent": true
+    },
+    {
+      "source": "/pilot",
       "destination": "/",
       "permanent": true
     },
     {
       "source": "/pilot.html",
-      "destination": "/pilot",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/construction",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/construction.html",
-      "destination": "/construction",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/logistics",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/logistics.html",
-      "destination": "/logistics",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/demo",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/demo/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/portal",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/portal/:path*",
+      "destination": "/",
       "permanent": true
     },
     {

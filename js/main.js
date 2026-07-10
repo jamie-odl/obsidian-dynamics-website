@@ -169,19 +169,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getPrimaryLogoMarkup() {
-        return '<span class="logo-text">OBSIDIAN</span>';
+        return '<span class="logo-text">OBSIDIAN <span class="logo-accent">DYNAMICS</span></span>';
     }
 
     function getStandardNavMarkup(activePage) {
         const items = [
-            { href: '/demo', label: 'Demo' },
-            { href: '/pilot', label: 'Pilot' },
+            { href: '/research', label: 'Research' },
             { href: '/about', label: 'About' },
             { href: '/contact', label: 'Contact' }
         ];
         return items.map((item) => {
             const bare = item.href.replace(/^\//, '');
-            const isActive = bare === activePage;
+            const isActive = bare === activePage || (bare === 'research' && activePage === 'research.html');
             return '<a href="' + item.href + '" class="nav-link' + (isActive ? ' active' : '') + '">' + item.label + '</a>';
         }).join('');
     }
@@ -254,12 +253,12 @@ document.addEventListener('DOMContentLoaded', () => {
             '  <div class="footer-brand">' +
             '    <a href="/" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
             '  </div>' +
-            '  <div class="footer-links"><h4>Product</h4><ul><li><a href="/demo">Demo</a></li><li><a href="/pilot">Pilot</a></li><li><a href="/construction">Construction</a></li><li><a href="/logistics">Logistics</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Product</h4><ul><li><a href="/research">Research &amp; data</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li><li><a href="mailto:jamie@obsidiandynamics.co.uk">Email</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
             '  <p class="footer-trading-disclosure">Obsidian Dynamics Limited. Registered in England and Wales. Company number 16663833. Registered office: Lytchett House, 13 Freeland Park, Wareham Road, Poole, Dorset BH16 6FA.</p>' +
-            '  <p>&copy; 2026 Obsidian Dynamics Limited · <a href="https://www.obsidiandynamics.co.uk">obsidiandynamics.co.uk</a></p>' +
+            '  <p>&copy; 2026 Obsidian Dynamics Limited · <a href="https://www.weareobsidian.co.uk">weareobsidian.co.uk</a></p>' +
             '  <div class="footer-legal"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div>' +
             '</div>';
 
@@ -320,14 +319,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (privateSeoBlock.has(currentPage)) {
             return;
         }
-        const siteOrigin = 'https://www.obsidiandynamics.co.uk';
+        const siteOrigin = 'https://www.weareobsidian.co.uk';
         const path = window.location.pathname || '/';
         const absoluteUrl = siteOrigin + path;
         const title = (document.title || 'Obsidian Dynamics').trim();
         const descTag = document.querySelector('meta[name="description"]');
         const description = ((descTag && descTag.getAttribute('content')) || '').trim()
-            || 'Obsidian Node — outdoor asset tracking for UK construction, logistics, and industrial sites with QR labels, BLE beacons, and edge gateways.';
-        const defaultOgImage = siteOrigin + '/img/marketing/hero.jpg';
+            || 'UK developer contributions intelligence — Section 106, CIL, and Infrastructure Funding Statements linked back to source.';
+        const defaultOgImage = siteOrigin + '/img/og-image.jpg';
 
         function upsertMeta(attrName, attrValue, content) {
             let tag = document.head.querySelector('meta[' + attrName + '="' + attrValue + '"]');
@@ -370,15 +369,15 @@ document.addEventListener('DOMContentLoaded', () => {
         upsertMeta('property', 'og:image:width', '1920');
         upsertMeta('property', 'og:image:height', '1080');
         upsertMeta('property', 'og:image:type', 'image/jpeg');
-        upsertMeta('property', 'og:image:alt', 'Obsidian Node — outdoor asset tracking on a UK site');
+        upsertMeta('property', 'og:image:alt', 'Obsidian Dynamics — UK developer contributions intelligence');
 
         upsertMeta('name', 'twitter:card', 'summary_large_image');
         upsertMeta('name', 'twitter:title', title);
         upsertMeta('name', 'twitter:description', description);
         upsertMeta('name', 'twitter:image', defaultOgImage);
-        upsertMeta('name', 'twitter:image:alt', 'Obsidian Node — outdoor asset tracking on a UK site');
+        upsertMeta('name', 'twitter:image:alt', 'Obsidian Dynamics — UK developer contributions intelligence');
 
-        upsertMeta('name', 'theme-color', '#0a0a0a');
+        upsertMeta('name', 'theme-color', '#f4f7f8');
     }
 
     function enablePremiumEntrance() {
@@ -975,11 +974,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const intentLabel = intentParam ? intentParam.replace(/-/g, ' ') : 'enquiry';
             let opener = 'Hello Obsidian team, ';
             if (roleParam === 'journalist') {
-                opener += 'we would like to discuss Obsidian Node for a story. ';
+                opener += 'we would like to discuss developer contributions data for a story. ';
             } else if (roleLabel) {
                 opener += 'we would like a ' + roleLabel + ' ' + intentLabel + '. ';
             } else {
-                opener += 'we would like to discuss an Obsidian Node pilot or deployment. ';
+                opener += 'we would like to discuss UK developer contributions intelligence. ';
             }
             messageField.value = opener;
         }
