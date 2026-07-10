@@ -21,7 +21,7 @@
       "destination": "https://obsidian-dynamics-admin.vercel.app/admin/:path*"
     },
     {
-      "source": "/((?!api(?:/|$)|admin(?:/|$)|developer-login|developer-central|developer-api|access-denied|offline|favicon\\.ico|robots\\.txt|site\\.webmanifest|css/|fonts/|js/|img/).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
