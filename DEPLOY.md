@@ -19,6 +19,7 @@ Production currently deploys a **minimal holding page** instead of the full mark
 - Build: `node scripts/build-offline.mjs` → `offline-dist/`
 - `vercel.json` uses `buildCommand` + `outputDirectory: offline-dist`
 - **`/admin` rewrites are preserved** (Civitas admin must keep working)
+- Auth pages kept online: `/developer-login`, `/developer-central`, `/developer-api`, `/access-denied` (plus `css`/`js`/`fonts`/`img`)
 - Marketing HTML in the repo is unchanged and can be restored
 
 ### Restore the live marketing site
