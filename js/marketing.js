@@ -8,8 +8,6 @@
 
     url: "https://www.obsidiandynamics.co.uk",
 
-    email: "jamie@obsidiandynamics.co.uk",
-
     company: "Obsidian Dynamics Limited",
 
     address: "Lytchett House, 13 Freeland Park, Wareham Road, Poole, Dorset BH16 6FA, United Kingdom",
@@ -392,7 +390,7 @@
 
         } catch (_) {
 
-          if (status) status.textContent = "Network error. Please email " + SITE.email + ".";
+          if (status) status.textContent = "Network error. Please try again shortly, or use the contact form.";
 
         } finally {
 

@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '    <a href="/" class="nav-logo" aria-label="Obsidian Dynamics home">' + getPrimaryLogoMarkup() + '</a>' +
             '  </div>' +
             '  <div class="footer-links"><h4>Product</h4><ul><li><a href="/research">Research &amp; data</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div>' +
-            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li><li><a href="mailto:jamie@obsidiandynamics.co.uk">Email</a></li></ul></div>' +
+            '  <div class="footer-links"><h4>Company</h4><ul><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li><li><a href="/contact">Contact</a></li></ul></div>' +
             '</div>' +
             '<div class="footer-bottom">' +
             '  <p class="footer-trading-disclosure">Obsidian Dynamics Limited. Registered in England and Wales. Company number 16663833. Registered office: Lytchett House, 13 Freeland Park, Wareham Road, Poole, Dorset BH16 6FA.</p>' +
@@ -938,21 +938,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Email Reveal Button ---
     const emailRevealBtn = document.getElementById('emailRevealBtn');
     if (emailRevealBtn) {
-        emailRevealBtn.addEventListener('click', () => {
-            const container = emailRevealBtn.parentElement;
-            // Build email from parts to avoid scraping
-            const user = 'contact';
-            const domain = 'obsidiandynamics';
-            const tld = 'co.uk';
-            const addr = user + '@' + domain + '.' + tld;
-            const revealedEl = document.createElement('div');
-            revealedEl.className = 'email-revealed';
-            const mailLink = document.createElement('a');
-            mailLink.href = 'mailto:' + addr;
-            mailLink.textContent = addr;
-            revealedEl.appendChild(mailLink);
-            emailRevealBtn.replaceWith(revealedEl);
-        });
+        emailRevealBtn.remove();
     }
 
     // --- Contact Form Handler ---
@@ -1033,7 +1019,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.disabled = false;
                 if (formStatus) {
                     formStatus.className = 'form-status form-status--error';
-                    formStatus.textContent = (err && err.message) || 'Unable to send. Email jamie@obsidiandynamics.co.uk directly.';
+                    formStatus.textContent = (err && err.message) || 'Unable to send right now. Please try again shortly.';
                 }
                 return;
             }

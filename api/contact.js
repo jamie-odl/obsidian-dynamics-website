@@ -208,7 +208,7 @@ module.exports = async (request, response) => {
             }
         }));
         return response.status(503).json({
-            error: 'Unable to send your message right now. Email jamie@obsidiandynamics.co.uk directly.'
+            error: 'Unable to send your message right now. Please try again shortly.'
         });
     }
 

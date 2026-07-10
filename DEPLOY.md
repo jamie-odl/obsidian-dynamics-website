@@ -11,13 +11,15 @@ Static marketing pages for **Obsidian Dynamics** / Civitas (UK developer contrib
 
 **Obsidian Node is not served on weareobsidian.co.uk.** Former Node paths (`/node`, `/pilot`, `/construction`, `/logistics`, `/demo`, `/portal`) permanently redirect to `/`.
 
-## SITE OFFLINE (current production mode)
+## SITE OFFLINE (optional holding page)
 
-Production currently deploys a **minimal holding page** instead of the full marketing site.
+Production normally serves the full marketing site (`buildCommand: null`, `outputDirectory: "."`).
+
+To take marketing offline temporarily without removing `/admin`:
 
 - Holding page source: `offline.html`
 - Build: `node scripts/build-offline.mjs` → `offline-dist/`
-- `vercel.json` uses `buildCommand` + `outputDirectory: offline-dist`
+- Set `vercel.json` to `"buildCommand": "node scripts/build-offline.mjs"` and `"outputDirectory": "offline-dist"`
 - **`/admin` rewrites are preserved** (Civitas admin must keep working)
 - Auth pages kept online: `/developer-login`, `/developer-central`, `/developer-api`, `/access-denied` (plus `css`/`js`/`fonts`/`img`)
 - Marketing HTML in the repo is unchanged and can be restored
