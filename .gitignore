@@ -1,6 +1,5 @@
 .vercel
 _ref_blackglass/
-offline-dist/
 .env
 .env.*
 !.env.example
