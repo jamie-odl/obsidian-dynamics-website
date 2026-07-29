@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research &amp; data — methodology and coverage | Obsidian Dynamics</title>
+    <title>Research &amp; data â€” methodology and coverage | Obsidian Dynamics</title>
     <meta name="description" content="What we study, coverage, methodology, limits, and data access for journalists, academics, and policy researchers using IFS / S106 / CIL developer contribution data.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.weareobsidian.co.uk/research">
@@ -13,7 +13,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#0a5f78">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Research &amp; data — methodology and coverage | Obsidian Dynamics">
+    <meta property="og:title" content="Research &amp; data â€” methodology and coverage | Obsidian Dynamics">
     <meta property="og:description" content="Coverage, methodology, and limits for UK Section 106, CIL, and IFS developer contribution data.">
     <meta property="og:url" content="https://www.weareobsidian.co.uk/research">
     <meta property="og:site_name" content="Obsidian Dynamics">
@@ -21,7 +21,7 @@
     <meta property="og:image" content="https://www.weareobsidian.co.uk/img/og-image.jpg">
     <link rel="preload" href="/img/marketing/construction-plant.jpg" as="image">
     <link rel="preload" href="/fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/syne-800.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/instrument-sans-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -45,10 +45,10 @@
             <div class="hero-scrim" aria-hidden="true"></div>
             <div class="hero-atmosphere" aria-hidden="true"></div>
             <div class="hero-bleed__inner">
-                <p class="hero-brand">Obsidian Dynamics</p>
+                <p class="hero-brand"><span class="hero-brand__line">Obsidian</span> <span class="hero-brand__line">Dynamics</span></p>
                 <h1 class="hero-title" id="research-heading">Research &amp; data</h1>
                 <p class="hero-subtitle">
-                    Structured Section 106, CIL, and IFS line items from published council documents — with coverage, methodology, and honest limits.
+                    Structured Section 106, CIL, and IFS line items from published council documents â€” with coverage, methodology, and honest limits.
                 </p>
                 <div class="hero-actions">
                     <a href="/contact" class="btn btn-primary btn-lg">Request access</a>
@@ -60,11 +60,11 @@
         <section class="research-doc page-band">
             <div class="container container--narrow">
                 <h2 class="section-title" id="what-we-study">What we study</h2>
-                <p class="section-desc" style="max-width:none;">Obsidian Dynamics ingests published Infrastructure Funding Statement (IFS) material — spreadsheets and PDFs — and extracts developer contribution rows. Each row is linked to a source document where possible. The dataset covers developer contributions reported through:</p>
+                <p class="section-desc" style="max-width:none;">Obsidian Dynamics ingests published Infrastructure Funding Statement (IFS) material â€” spreadsheets and PDFs â€” and extracts developer contribution rows. Each row is linked to a source document where possible. The dataset covers developer contributions reported through:</p>
                 <ul class="research-list">
-                    <li><strong>Section 106</strong> — planning obligations and developer agreement contributions</li>
-                    <li><strong>Community Infrastructure Levy (CIL)</strong> — levy receipts, allocations, and retained balances where published</li>
-                    <li><strong>IFS tables</strong> — tabular reporting that authorities publish annually or on request</li>
+                    <li><strong>Section 106</strong> â€” planning obligations and developer agreement contributions</li>
+                    <li><strong>Community Infrastructure Levy (CIL)</strong> â€” levy receipts, allocations, and retained balances where published</li>
+                    <li><strong>IFS tables</strong> â€” tabular reporting that authorities publish annually or on request</li>
                 </ul>
                 <p class="section-desc" style="max-width:none;margin-top:1rem;">We also provide:</p>
                 <ul class="research-list">
@@ -78,13 +78,13 @@
                 <div class="research-callout">
                     <p><strong>Not full council budgets.</strong> We do not ingest entire local authority accounts, capital programmes, or general revenue spending. Coverage is limited to developer contribution material published through IFS-style reporting.</p>
                     <p><strong>Not legal or planning advice.</strong> Figures are extracted from published documents and may require verification against originals. Low-confidence rows are flagged internally for review.</p>
-                    <p><strong>Not complete national coverage.</strong> Many authorities publish inconsistently, in non-machine-readable formats, or not at all. The table below shows where we have ingested data today — not where data theoretically exists.</p>
+                    <p><strong>Not complete national coverage.</strong> Many authorities publish inconsistently, in non-machine-readable formats, or not at all. The table below shows where we have ingested data today â€” not where data theoretically exists.</p>
                 </div>
 
                 <h2 class="section-title" id="coverage">Coverage</h2>
                 <p class="section-desc" style="max-width:none;">Live statistics are loaded from <code class="font-mono">/api/public/coverage</code> when the backend is reachable. If not, the page falls back to the last exported snapshot bundled with the site.</p>
                 <div class="coverage-summary" id="coverageSummary" hidden></div>
-                <p class="coverage-status" id="coverageStatus" aria-live="polite">Loading coverage…</p>
+                <p class="coverage-status" id="coverageStatus" aria-live="polite">Loading coverageâ€¦</p>
                 <div class="coverage-table-wrap">
                     <table class="coverage-table" id="coverageTable">
                         <thead>
@@ -98,7 +98,7 @@
                             </tr>
                         </thead>
                         <tbody id="coverageTableBody">
-                            <tr><td colspan="6">Loading…</td></tr>
+                            <tr><td colspan="6">Loadingâ€¦</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -106,11 +106,11 @@
                 <h2 class="section-title" id="methodology">Methodology</h2>
                 <p class="section-desc" style="max-width:none;">Each record passes through a documented pipeline from public source to structured output:</p>
                 <ol class="research-list">
-                    <li><strong>Public sources</strong> — council IFS landing pages, published spreadsheets, and PDFs</li>
-                    <li><strong>Crawl</strong> — scheduled fetch of new and updated documents per authority</li>
-                    <li><strong>Normalisation</strong> — parse tabular line items; map categories to a consistent schema (S106, CIL, IFS)</li>
-                    <li><strong>Review threshold</strong> — low-confidence extractions are flagged internally and withheld from published exports until reviewed</li>
-                    <li><strong>Provenance</strong> — each row links to source document URL, report period, and page or table reference where available</li>
+                    <li><strong>Public sources</strong> â€” council IFS landing pages, published spreadsheets, and PDFs</li>
+                    <li><strong>Crawl</strong> â€” scheduled fetch of new and updated documents per authority</li>
+                    <li><strong>Normalisation</strong> â€” parse tabular line items; map categories to a consistent schema (S106, CIL, IFS)</li>
+                    <li><strong>Review threshold</strong> â€” low-confidence extractions are flagged internally and withheld from published exports until reviewed</li>
+                    <li><strong>Provenance</strong> â€” each row links to source document URL, report period, and page or table reference where available</li>
                 </ol>
                 <ul class="research-pipeline" aria-hidden="true">
                     <li>Public sources</li>
@@ -123,7 +123,7 @@
 
                 <h2 class="section-title" id="limitations">Limitations</h2>
                 <ul class="research-list">
-                    <li><strong>Coverage gaps.</strong> Many authorities publish inconsistently, in non-machine-readable formats, or not at all. The table above shows where we have ingested data today — not where data theoretically exists.</li>
+                    <li><strong>Coverage gaps.</strong> Many authorities publish inconsistently, in non-machine-readable formats, or not at all. The table above shows where we have ingested data today â€” not where data theoretically exists.</li>
                     <li><strong>Council inconsistency.</strong> Reporting periods, category labels, and table structures vary by authority. Normalisation improves comparability but cannot remove all local variation.</li>
                     <li><strong>Not legal or financial advice.</strong> Structured extracts are for research and review. They are not a substitute for professional advice or verification against original published documents.</li>
                 </ul>
@@ -131,27 +131,27 @@
                 <h2 class="section-title" id="how-to-cite">How to cite</h2>
                 <p class="section-desc" style="max-width:none;">If you republish analysis that relies materially on this data, attribution to Obsidian Dynamics Limited is required. Verify figures against council originals before publication.</p>
                 <div class="research-callout research-callout--accent">
-                    <p>Attribution requirements, permitted use, and export identifiers are set out in <a href="/terms#attribution">Terms of Service (§4)</a>. API responses include machine-readable attribution metadata and per-request identifiers.</p>
+                    <p>Attribution requirements, permitted use, and export identifiers are set out in <a href="/terms#attribution">Terms of Service (Â§4)</a>. API responses include machine-readable attribution metadata and per-request identifiers.</p>
                 </div>
                 <details class="faq-item research-data-use" id="data-use">
                     <summary>Data use &amp; attribution</summary>
-                    <p>Figures are structured extracts from published Infrastructure Funding Statements and related council documents — not original council records.</p>
-                    <p>If you republish analysis that relies materially on this data, please attribute Obsidian Dynamics as the structured data provider and verify figures against council originals. See <a href="/terms#attribution">Terms (§4)</a>.</p>
-                    <p>Shared exports and API responses include identifiers so we can trace republication and investigate suspected misuse. This supports responsible data use — not marketing profiling.</p>
+                    <p>Figures are structured extracts from published Infrastructure Funding Statements and related council documents â€” not original council records.</p>
+                    <p>If you republish analysis that relies materially on this data, please attribute Obsidian Dynamics as the structured data provider and verify figures against council originals. See <a href="/terms#attribution">Terms (Â§4)</a>.</p>
+                    <p>Shared exports and API responses include identifiers so we can trace republication and investigate suspected misuse. This supports responsible data use â€” not marketing profiling.</p>
                 </details>
 
                 <h2 class="section-title" id="journalists">For journalists &amp; researchers</h2>
                 <div class="research-callout research-callout--accent">
-                    <p><strong>GET /api/public/coverage</strong> — JSON list of authorities with record counts, latest period, source URLs, and ingest timestamps. No authentication. Responses include Obsidian Dynamics attribution headers and a machine-readable <code class="font-mono">attribution</code> block with a per-request ID.</p>
-                    <p>Structured search, provenance, and bulk export access are available on request — <a href="/contact">request access</a> if you need more than the public coverage endpoint.</p>
-                    <p><strong>Bespoke exports are fingerprinted.</strong> Each pack we send includes a unique <code class="font-mono">export_id</code> in the README and as a comment line at the top of CSV files (not inside data cells). If you publish material derived from a pack we supplied, quote the export ID when contacting us — it helps us trace attribution without altering the underlying figures.</p>
+                    <p><strong>GET /api/public/coverage</strong> â€” JSON list of authorities with record counts, latest period, source URLs, and ingest timestamps. No authentication. Responses include Obsidian Dynamics attribution headers and a machine-readable <code class="font-mono">attribution</code> block with a per-request ID.</p>
+                    <p>Structured search, provenance, and bulk export access are available on request â€” <a href="/contact">request access</a> if you need more than the public coverage endpoint.</p>
+                    <p><strong>Bespoke exports are fingerprinted.</strong> Each pack we send includes a unique <code class="font-mono">export_id</code> in the README and as a comment line at the top of CSV files (not inside data cells). If you publish material derived from a pack we supplied, quote the export ID when contacting us â€” it helps us trace attribution without altering the underlying figures.</p>
                 </div>
                 <div class="research-access-links">
                     <a href="/contact" class="btn btn-primary">Request access</a>
                 </div>
 
                 <h2 class="section-title" id="enquiries">Enquiries</h2>
-                <p class="section-desc" style="max-width:none;">Media and research enquiries welcome — <a href="/contact">request access</a> for methodology questions, corrections, or bespoke exports.</p>
+                <p class="section-desc" style="max-width:none;">Media and research enquiries welcome â€” <a href="/contact">request access</a> for methodology questions, corrections, or bespoke exports.</p>
             </div>
         </section>
 
@@ -159,7 +159,7 @@
             <div class="container">
                 <div class="final-cta">
                     <h2 class="final-cta__title" id="research-cta-heading">Need coverage, methodology, or access?</h2>
-                    <p class="final-cta__desc">Tell us what you are working on — use the contact form and we will get back to you.</p>
+                    <p class="final-cta__desc">Tell us what you are working on â€” use the contact form and we will get back to you.</p>
                     <div class="hero-actions">
                         <a href="/contact" class="btn btn-primary btn-lg">Request access</a>
                         <a href="/about" class="btn btn-secondary">About</a>
