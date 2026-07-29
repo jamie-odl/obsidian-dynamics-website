@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T04:37:30.532920Z",
+  "generated_at": "2026-07-29T20:36:24.433393Z",
   "authorities": [
     {
       "id": 19,
@@ -7,12 +7,14 @@
       "name": "Adur District Council",
       "region": "South East",
       "country": "England",
-      "record_count": 0,
-      "last_period": null,
-      "last_updated": null,
-      "has_source_document": false,
+      "record_count": 410,
+      "last_period": "FOI #13 (2026-06-27)",
+      "last_updated": "2026-07-29T20:03:33.819692Z",
+      "has_source_document": true,
       "official_ifs_url": "https://www.adur-worthing.gov.uk",
-      "source_urls": []
+      "source_urls": [
+        "foi://request/13/Adur_Section_106_monitoring_register.xlsx"
+      ]
     },
     {
       "id": 20,
@@ -371,7 +373,7 @@
       "country": "England",
       "record_count": 264,
       "last_period": "2020/03",
-      "last_updated": "2026-06-24T17:00:22.083309Z",
+      "last_updated": "2026-07-23T11:07:03.472080Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.brighton-hove.gov.uk",
       "source_urls": [
@@ -425,14 +427,17 @@
       "name": "Bromsgrove District Council",
       "region": "West Midlands",
       "country": "England",
-      "record_count": 60,
+      "record_count": 69,
       "last_period": "2024/25",
-      "last_updated": "2026-06-24T09:30:54.728608Z",
+      "last_updated": "2026-07-05T11:26:09.874241Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.bromsgrove.gov.uk",
       "source_urls": [
         "https://www.bromsgrove.gov.uk/media/brwccbgn/bdc-ifs-2024-25-final.pdf",
-        "https://www.bromsgrove.gov.uk/media/rwsj2cge/modify-or-discharge-section-106-obligation.pdf"
+        "https://www.bromsgrove.gov.uk/media/rwsj2cge/modify-or-discharge-section-106-obligation.pdf",
+        "https://www.bromsgrove.gov.uk/media/ernkdxql/bromsgrove-district-council-action-plan-2024-2025.pdf",
+        "https://www.bromsgrove.gov.uk/media/axqflwdl/worcestershire-housing-strategy.pdf",
+        "https://www.bromsgrove.gov.uk/media/11nnriah/customer-digital-strategy-2022-2026.pdf"
       ]
     },
     {
@@ -458,9 +463,9 @@
       "name": "Broxtowe Borough Council",
       "region": "East Midlands",
       "country": "England",
-      "record_count": 151,
-      "last_period": "2024/20",
-      "last_updated": "2026-06-24T09:30:54.728608Z",
+      "record_count": 199,
+      "last_period": "2025/26",
+      "last_updated": "2026-07-05T11:26:09.874241Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.broxtowe.gov.uk",
       "source_urls": [
@@ -469,7 +474,19 @@
         "https://www.broxtowe.gov.uk/media/2zhaytop/infrastructure-funding-statement-2022-2023.pdf",
         "https://www.broxtowe.gov.uk/media/10792/infrastructure-funding-statement-2021-22.pdf",
         "https://www.broxtowe.gov.uk/media/10354/broxtowe-infrastructure-funding-statement-2020-21.pdf",
-        "https://www.broxtowe.gov.uk/media/8266/broxtowe-infrastructure-funding-statement-2019-2020.pdf"
+        "https://www.broxtowe.gov.uk/media/8266/broxtowe-infrastructure-funding-statement-2019-2020.pdf",
+        "https://www.broxtowe.gov.uk/media/rfvpnbam/housing-annual-report-2022-23-final.pdf",
+        "https://www.broxtowe.gov.uk/media/ieko02ho/housing-annual-report-2022-23-key-facts.pdf",
+        "https://www.broxtowe.gov.uk/media/scxp2n0q/housing-annual-report-2022-23-where-the-money-was-spent.pdf",
+        "https://www.broxtowe.gov.uk/media/qrnhepom/housing-annual-report-2022-23-your-homes.pdf",
+        "https://www.broxtowe.gov.uk/media/musf3fmf/housing-annual-report-2022-23-engagining-with-our-customers.pdf",
+        "https://www.broxtowe.gov.uk/media/3yqnpc5x/housing-annual-report-2022-23-join-us.pdf",
+        "https://www.broxtowe.gov.uk/media/3w1dq1zm/housing-annual-report-2022-23-complaints.pdf",
+        "https://www.broxtowe.gov.uk/media/xe5l4otj/housing-annual-report-2022-23-compliments-and-comments.pdf",
+        "https://www.broxtowe.gov.uk/media/b5zfljuk/housing-for-you-winter-2024-web.pdf",
+        "https://www.broxtowe.gov.uk/media/glipoyoh/ukspf-report-accessible.pdf",
+        "https://www.broxtowe.gov.uk/media/vbkf2ih5/mib-business-support-grant-guidance-notes.pdf",
+        "https://www.broxtowe.gov.uk/media/335htx24/application-form-v2-final.pdf"
       ]
     },
     {
@@ -837,9 +854,9 @@
       "name": "Colchester City Council",
       "region": "East of England",
       "country": "England",
-      "record_count": 503,
-      "last_period": "2023/24",
-      "last_updated": "2026-06-23T22:07:34.384734Z",
+      "record_count": 562,
+      "last_period": "2024/25",
+      "last_updated": "2026-07-22T11:08:48.962394Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.colchester.gov.uk/infrastructure-funding-statement/",
       "source_urls": [
@@ -862,7 +879,11 @@
         "https://cbccrmdata.blob.core.windows.net/noteattachment/Developer%20Agreement%20contributions%202021-22%20(1).xlsx",
         "https://cbccrmdata.blob.core.windows.net/noteattachment/Developer%20Agreement%20Transactions%202021-22%20(1).xlsx",
         "https://cbccrmdata.blob.core.windows.net/noteattachment/Developer%20Agreements%202021-22%20(1).xlsx",
-        "https://cbccrmdata.blob.core.windows.net/noteattachment/Colchester%20Borough%20Council%20Infrastructure%20Funding%20Statement%202021-22%20(1).pdf"
+        "https://cbccrmdata.blob.core.windows.net/noteattachment/Colchester%20Borough%20Council%20Infrastructure%20Funding%20Statement%202021-22%20(1).pdf",
+        "https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Developer-Agreement-Transactions-2024-25-Developer Agreement Transactions 2024-25.xlsx",
+        "https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Developer-Agreement-Contributions-2024-25-Developer Agreement Contributions 2024-25.xlsx",
+        "https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Developer-Agreements-2024-25-Developer Agreements 2024-25.xlsx",
+        "https://cbccrmdata.blob.core.windows.net/noteattachment/CBC-null-Colchester-City-Council-Infrastructure-Funding-Statement-2024-25-Colchester City Council Infrastructure Funding Statement 2024-25.pdf"
       ]
     },
     {
@@ -897,12 +918,14 @@
       "name": "Council of the Isles of Scilly",
       "region": "South West",
       "country": "England",
-      "record_count": 0,
-      "last_period": null,
-      "last_updated": null,
-      "has_source_document": false,
+      "record_count": 1,
+      "last_period": "2025/26",
+      "last_updated": "2026-06-26T11:06:02.177768Z",
+      "has_source_document": true,
       "official_ifs_url": "https://www.scilly.gov.uk",
-      "source_urls": []
+      "source_urls": [
+        "https://www.scilly.gov.uk/sites/default/files/planning-apps/infrastructure-funding-statement%202026.csv"
+      ]
     },
     {
       "id": 78,
@@ -1203,7 +1226,7 @@
       "country": "England",
       "record_count": 0,
       "last_period": null,
-      "last_updated": "2026-06-24T17:00:22.083309Z",
+      "last_updated": "2026-07-28T11:07:23.461445Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.eastriding.gov.uk/",
       "source_urls": [
@@ -1216,9 +1239,9 @@
       "name": "East Staffordshire Borough Council",
       "region": "West Midlands",
       "country": "England",
-      "record_count": 368,
+      "record_count": 484,
       "last_period": "2025/26",
-      "last_updated": "2026-06-24T12:55:04.525079Z",
+      "last_updated": "2026-07-29T11:06:38.866773Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.eaststaffsbc.gov.uk",
       "source_urls": [
@@ -1300,15 +1323,15 @@
       "name": "Epping Forest District Council",
       "region": "East of England",
       "country": "England",
-      "record_count": 0,
-      "last_period": null,
+      "record_count": 4,
+      "last_period": "2025/26",
       "last_updated": "2026-06-24T09:30:54.728608Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.eppingforestdc.gov.uk",
       "source_urls": [
         "https://www.eppingforestdc.gov.uk/app/uploads/2026/05/HOW-TO-COMPLETE-THE-S106-UNILATERAL-UNDERTAKING-Template-2026.pdf",
-        "https://www.eppingforestdc.gov.uk/app/uploads/2024/12/EFDC03-Confirmation-of-Compliance-Planning-Obligations-S106-Interactive-2022.pdf",
-        "https://www.eppingforestdc.gov.uk/app/uploads/2024/07/Modification-or-Discharge-to-Planning-Obligations-Guidance-Note-Fees.pdf"
+        "https://www.eppingforestdc.gov.uk/app/uploads/2024/07/Modification-or-Discharge-to-Planning-Obligations-Guidance-Note-Fees.pdf",
+        "https://www.eppingforestdc.gov.uk/app/uploads/2024/12/EFDC03-Confirmation-of-Compliance-Planning-Obligations-S106-Interactive-2022.pdf"
       ]
     },
     {
@@ -1317,12 +1340,35 @@
       "name": "Epsom and Ewell Borough Council",
       "region": "South East",
       "country": "England",
-      "record_count": 0,
-      "last_period": null,
-      "last_updated": null,
-      "has_source_document": false,
+      "record_count": 222,
+      "last_period": "2025/26",
+      "last_updated": "2026-06-26T11:06:02.177768Z",
+      "has_source_document": true,
       "official_ifs_url": "https://www.epsom-ewell.gov.uk",
-      "source_urls": []
+      "source_urls": [
+        "https://epsom-ewell.gov.uk/sites/default/files/documents/residents/planning/planning-policy/community-infrastructure-levy-cil/developer-agreement.csv",
+        "https://epsom-ewell.gov.uk/sites/default/files/documents/residents/planning/planning-policy/community-infrastructure-levy-cil/Developer%20agreement%20transaction.csv",
+        "https://epsom-ewell.gov.uk/sites/default/files/documents/residents/planning/planning-policy/community-infrastructure-levy-cil/Developer%20agreement%20contributions.csv",
+        "https://dev-epsom-ewell.pantheonsite.io/sites/default/files/documents/residents/planning/planning-advice-and-services/EEBCCILChargingScheduleFinalVersionApril2014.pdf",
+        "https://www.epsom-ewell.gov.uk/sites/default/files/CIL%20charges%202021FV.pdf",
+        "https://www.epsom-ewell.gov.uk/sites/default/files/CIL%20charges%202022FV.pdf",
+        "https://www.epsom-ewell.gov.uk/sites/default/files/documents/residents/planning/planning-policy/community-infrastructure-levy-cil/CIL%20charges%202023FV.pdf",
+        "https://www.epsom-ewell.gov.uk/sites/default/files/documents/residents/planning/planning-policy/community-infrastructure-levy-cil/CIL%20charges%202024.pdf",
+        "https://www.epsom-ewell.gov.uk/sites/default/files/documents/residents/planning/community-infrastructure-levy-cil/CIL%20charges%202025.pdf",
+        "https://ecab.planningportal.co.uk/uploads/1app/forms/cil_questions.pdf",
+        "https://ecab.planningportal.co.uk/uploads/1app/cil_guidance.pdf",
+        "https://www.epsom-ewell.gov.uk/sites/default/files/documents/residents/planning/community-infrastructure-levy-cil/community-infrastructure-levy-fund/Community%20Infrastructure%20Levy%20CIL%20Spending%20Protocol%20-%20March%202025.pdf",
+        "https://ecab.planningportal.co.uk/uploads/1app/forms/form_2_assumption_of_liability.pdf",
+        "https://ecab.planningportal.co.uk/uploads/1app/forms/form_5_notice_of_chargeable_development.pdf",
+        "https://ecab.planningportal.co.uk/uploads/1app/forms/form_10_charitable_social_housing_relief_claim.pdf",
+        "http://ecab.planningportal.co.uk/uploads/1app/forms/form_11_exceptional_circumstances_relief_claim.pdf",
+        "https://ecab.planningportal.co.uk/uploads/1app/forms/form_7_self_build_part_1_exemption_claim.pdf",
+        "https://ecab.planningportal.co.uk/uploads/1app/forms/form_7_self_build_part_2_exemption_claim.pdf",
+        "https://ecab.planningportal.co.uk/uploads/1app/forms/form_8_residential_annex_claim.pdf",
+        "https://ecab.planningportal.co.uk/uploads/1app/forms/form_9_extension_exemption_claim.pdf",
+        "https://ecab.planningportal.co.uk/uploads/1app/forms/form_6_commencement_notice.pdf",
+        "https://www.legislation.gov.uk/uksi/2012/2975/pdfs/uksi_20122975_en.pdf"
+      ]
     },
     {
       "id": 108,
@@ -1786,9 +1832,9 @@
       "name": "Huntingdonshire District Council",
       "region": "East of England",
       "country": "England",
-      "record_count": 394,
+      "record_count": 400,
       "last_period": "2025/26",
-      "last_updated": "2026-06-24T09:30:54.728608Z",
+      "last_updated": "2026-07-05T11:26:09.874241Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.huntingdonshire.gov.uk",
       "source_urls": [
@@ -1798,7 +1844,8 @@
         "https://www.huntingdonshire.gov.uk/media/otmdnn1k/infrastructure-funding-statement-2022-23.pdf",
         "https://www.huntingdonshire.gov.uk/media/6807/infrastructure-funding-statement-2021-22.pdf",
         "https://www.huntingdonshire.gov.uk/media/5874/infrastructure-funding-statement-2020-21.pdf",
-        "https://www.huntingdonshire.gov.uk/media/4980/infrastructure-funding-statement-2019-20.pdf"
+        "https://www.huntingdonshire.gov.uk/media/4980/infrastructure-funding-statement-2019-20.pdf",
+        "https://www.huntingdonshire.gov.uk/media/1048/cil-charging-schedule.pdf"
       ]
     },
     {
@@ -2586,9 +2633,9 @@
       "name": "Newark and Sherwood District Council",
       "region": "East Midlands",
       "country": "England",
-      "record_count": 3869,
+      "record_count": 4309,
       "last_period": "2025/26",
-      "last_updated": "2026-06-24T09:30:54.728608Z",
+      "last_updated": "2026-07-05T11:26:09.874241Z",
       "has_source_document": true,
       "official_ifs_url": "https://beta.newark-sherwooddc.gov.uk/planning-building-control/planning/planning-policy-guidance/infrastructure/infrastructure-funding-statements",
       "source_urls": [
@@ -2617,7 +2664,17 @@
         "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/CIL-developer-agreement-contribution_20210331.csv",
         "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/S106-developer-agreement-transaction_20200331.csv",
         "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/S106-developer-agreement-contribution_20200331.csv",
-        "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/CIL-developer-agreement-contribution_20200331.csv"
+        "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/CIL-developer-agreement-contribution_20200331.csv",
+        "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/CIL-developer-agreement_20240331.csv",
+        "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/S106-developer-agreement_20240331.csv",
+        "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/CIL-developer-agreement_20230331.csv",
+        "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/CIL-developer-agreement_20220331.csv",
+        "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/S106-developer-agreement_2022331.csv",
+        "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/S106-developer-agreement_2021331.csv",
+        "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/S106-developer-agreement_2020331.csv",
+        "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/S106_Developer_Agreement_Transaction_2025.xlsx",
+        "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/CIL-developer-agreement_20210331.csv",
+        "https://www.newark-sherwooddc.gov.uk/sites/default/files/2026-04/CIL-developer-agreement_20200331.csv"
       ]
     },
     {
@@ -3077,15 +3134,18 @@
       "name": "Redditch Borough Council",
       "region": "West Midlands",
       "country": "England",
-      "record_count": 0,
-      "last_period": null,
-      "last_updated": "2026-06-24T09:30:54.728608Z",
+      "record_count": 17,
+      "last_period": "2025/26",
+      "last_updated": "2026-07-05T11:26:09.874241Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.redditchbc.gov.uk",
       "source_urls": [
         "https://www.redditchbc.gov.uk/media/01vcs13r/standard-s106-web-upload-dec-2011-2.pdf",
         "https://www.redditchbc.gov.uk/media/ounpurca/modify-or-discharge-section-106-obligation-5.pdf",
-        "https://www.redditchbc.gov.uk/media/iq5nduhl/rbc-ifs-2024-25-final.pdf"
+        "https://www.redditchbc.gov.uk/media/iq5nduhl/rbc-ifs-2024-25-final.pdf",
+        "https://www.redditchbc.gov.uk/media/5fokxvl5/worcestershire-housing-strategy.pdf",
+        "https://www.redditchbc.gov.uk/media/ipkc1hqg/redditch-borough-council-action-plan-2024-2025.pdf",
+        "https://www.redditchbc.gov.uk/media/xs3hbdbg/customer-digital-strategy-2022-2026.pdf"
       ]
     },
     {
@@ -3545,14 +3605,14 @@
       "name": "South Oxfordshire District Council",
       "region": "South East",
       "country": "England",
-      "record_count": 0,
-      "last_period": null,
+      "record_count": 81,
+      "last_period": "2025/26",
       "last_updated": "2026-06-24T09:30:54.728608Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.southoxon.gov.uk",
       "source_urls": [
-        "https://www.southandvale.gov.uk/app/uploads/sites/2/2026/04/S106-Monitoring-Fees-April-2026.pdf",
         "https://www.southoxon.gov.uk/wp-content/uploads/sites/2/2022/12/South-Developer-Contributions-SPD-Jan-2023.pdf",
+        "https://www.southandvale.gov.uk/app/uploads/sites/2/2026/04/S106-Monitoring-Fees-April-2026.pdf",
         "https://www.southandvale.gov.uk/app/uploads/sites/2/2026/04/Statement-supporting-S106-Fees-April-2026.pdf"
       ]
     },
@@ -4144,12 +4204,13 @@
       "name": "Vale of White Horse District Council",
       "region": "South East",
       "country": "England",
-      "record_count": 0,
-      "last_period": null,
-      "last_updated": "2026-06-24T09:30:54.728608Z",
+      "record_count": 78,
+      "last_period": "2025/26",
+      "last_updated": "2026-07-05T11:26:09.874241Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.whitehorsedc.gov.uk",
       "source_urls": [
+        "https://www.southandvale.gov.uk/app/uploads/sites/3/2025/11/VOWH-COUNCIL-PLANS-211025.pdf",
         "https://www.whitehorsedc.gov.uk/wp-content/uploads/sites/3/2021/10/Vale-Developer-Contributions-SPD-Nov-2021-1.pdf",
         "https://www.southandvale.gov.uk/app/uploads/sites/3/2026/04/S106-Monitoring-Fees-April-2026.pdf",
         "https://www.southandvale.gov.uk/app/uploads/sites/3/2026/04/Statement-supporting-S106-Fees-April-2026.pdf"
@@ -4258,9 +4319,9 @@
       "name": "Wealden District Council",
       "region": "South East",
       "country": "England",
-      "record_count": 291,
+      "record_count": 345,
       "last_period": "2025/26",
-      "last_updated": "2026-06-24T09:30:54.728608Z",
+      "last_updated": "2026-07-05T11:26:09.874241Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.wealden.gov.uk",
       "source_urls": [
@@ -4283,7 +4344,17 @@
         "https://www.wealden.gov.uk/UploadedFiles/IFS-2022-2023-FINAL.pdf",
         "https://www.wealden.gov.uk/UploadedFiles/FINAL-IFS-V4-2021-2022-Clean-copy-003-ACC-1.pdf",
         "https://www.wealden.gov.uk/UploadedFiles/IFS-2020-21-Final-16.12.21.pdf",
-        "https://www.wealden.gov.uk/UploadedFiles/IFS-Report-2020-Website-Version-1.pdf"
+        "https://www.wealden.gov.uk/UploadedFiles/IFS-Report-2020-Website-Version-1.pdf",
+        "https://www.wealden.gov.uk/UploadedFiles/Hartfield-Parish-Council-CIL-Monitoring-Report-2024-2025.pdf",
+        "https://www.wealden.gov.uk/UploadedFiles/Heathfield-Waldron-Parish-Council-CIL-Monitoring-Report-2024-2025.pdf",
+        "https://www.wealden.gov.uk/UploadedFiles/Hellingly-Parish-Council-CIL-Monitoring-Report-2024-2025.pdf",
+        "https://www.wealden.gov.uk/UploadedFiles/Herstmonceux-Parish-Council-CIL-Monitoring-Report-2024-2025-V2.pdf",
+        "https://www.wealden.gov.uk/UploadedFiles/Hooe-Parish-Council-CIL-Monitoring-Report-2024-2025.pdf",
+        "https://www.wealden.gov.uk/UploadedFiles/Horam-Parish-Council-CIL-Monitoring-Report-V2-2024-2025.pdf",
+        "https://www.wealden.gov.uk/UploadedFiles/Isfield-Parish-Council-CIL-Monitoring-Report-2024-2025.pdf",
+        "https://www.wealden.gov.uk/UploadedFiles/Laughton-Parish-Council-CIL-Monitoring-Report-2024-2025.pdf",
+        "https://www.wealden.gov.uk/UploadedFiles/Little-Horsted-Parish-Council-CIL-Monitoring-Report-2024-2025.pdf",
+        "https://www.wealden.gov.uk/UploadedFiles/Long-Man-Parish-Council-CIL-Monitoring-Report-2024-2025.pdf"
       ]
     },
     {
@@ -4563,9 +4634,9 @@
       "name": "Worcestershire County Council",
       "region": "West Midlands",
       "country": "England",
-      "record_count": 808,
+      "record_count": 1305,
       "last_period": "2025/10",
-      "last_updated": "2026-06-24T09:30:54.728608Z",
+      "last_updated": "2026-07-05T11:26:09.874241Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.worcestershire.gov.uk",
       "source_urls": [
@@ -4588,7 +4659,17 @@
         "https://www.worcestershire.gov.uk/sites/default/files/2023-12/2023-12-21_csv_file_3_developer-agreement-transaction_202312_highways.csv",
         "https://www.worcestershire.gov.uk/sites/default/files/2023-12/2023-12-21_csv_file_1_developer-agreement_202312_education.csv",
         "https://www.worcestershire.gov.uk/sites/default/files/2023-12/2023-12-21_csv_file_1_developer-agreement_202312_highways.csv",
-        "https://www.worcestershire.gov.uk/sites/default/files/2022-12/2022_12_13_CSV_File_2_Developer_Agreement_Contributions_Education.csv"
+        "https://www.worcestershire.gov.uk/sites/default/files/2022-12/2022_12_13_CSV_File_2_Developer_Agreement_Contributions_Education.csv",
+        "https://www.worcestershire.gov.uk/sites/default/files/2025-12/2025-10-21_csv_file_1_developer_agreement_education.csv",
+        "https://www.worcestershire.gov.uk/sites/default/files/2022-11/01.12.21_CSV_File_2_Developer_Agreement_Contribution_Transport.csv",
+        "https://www.worcestershire.gov.uk/sites/default/files/2022-11/05.01.21_CSV_File_2_Developer_Agreement_Contribution_Highways.csv",
+        "https://www.worcestershire.gov.uk/sites/default/files/2022-11/01.12.21_CSV_File_3_Developer_Agreement_Transaction_Education.csv",
+        "https://www.worcestershire.gov.uk/sites/default/files/2022-11/05.01.21_CSV_File_3_Developer_Agreement_Transaction_Education.csv",
+        "https://www.worcestershire.gov.uk/sites/default/files/2022-11/01.12.21_CSV_File_3_Developer_Agreement_Transaction_Transport.csv",
+        "https://www.worcestershire.gov.uk/sites/default/files/2022-11/05.01.21_CSV_File_3_Developer_Agreement_Transaction_Highways.csv",
+        "https://www.worcestershire.gov.uk/sites/default/files/2022-12/2022_12_13_CSV_File_2_Developer_Agreement_Contributions_Highways.csv",
+        "https://www.worcestershire.gov.uk/sites/default/files/2022-12/2022_12_13_CSV_File_3_Developer_Agreement_Transactions_Education.csv",
+        "https://www.worcestershire.gov.uk/sites/default/files/2022-12/2022_12_13_CSV_File_3_Developer_Agreement_Transactions_Highways.csv"
       ]
     },
     {
@@ -4662,21 +4743,21 @@
       "name": "Yorkshiredales (national park)",
       "region": null,
       "country": "England",
-      "record_count": 0,
-      "last_period": null,
-      "last_updated": "2026-06-24T20:16:01.136504Z",
+      "record_count": 15,
+      "last_period": "2025/26",
+      "last_updated": "2026-07-04T11:06:48.896251Z",
       "has_source_document": true,
       "official_ifs_url": "https://www.yorkshiredales.org.uk/park-authority/living-and-working/planning-policy/infrastructure-funding-statements/",
       "source_urls": [
         "https://www.yorkshiredales.org.uk/wp-content/uploads/sites/13/2025/12/developer-agreement-transaction_20251031.csv",
-        "https://www.yorkshiredales.org.uk/wp-content/uploads/sites/13/2025/12/Developer-Agreement-Contribution-2051031.csv",
-        "https://www.yorkshiredales.org.uk/wp-content/uploads/sites/13/2025/12/Developer-Agreement-20251031.csv"
+        "https://www.yorkshiredales.org.uk/wp-content/uploads/sites/13/2025/12/Developer-Agreement-20251031.csv",
+        "https://www.yorkshiredales.org.uk/wp-content/uploads/sites/13/2025/12/Developer-Agreement-Contribution-2051031.csv"
       ]
     }
   ],
   "summary": {
     "total_authorities": 332,
-    "authorities_with_records": 40,
-    "total_records": 51679
+    "authorities_with_records": 48,
+    "total_records": 53736
   }
 }
