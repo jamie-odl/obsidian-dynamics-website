@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Website Version + Global Brand Shell ---
-    const SITE_VERSION = 'v2.19.0';
+    const SITE_VERSION = 'v3.0.0';
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.documentElement.setAttribute('data-site-version', SITE_VERSION);
     const analyticsEndpoint = '/api/analytics/event';
@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
         upsertMeta('name', 'twitter:image', defaultOgImage);
         upsertMeta('name', 'twitter:image:alt', 'Obsidian Dynamics — UK developer contributions intelligence');
 
-        upsertMeta('name', 'theme-color', '#f4f7f8');
+        upsertMeta('name', 'theme-color', '#0a5f78');
     }
 
     function enablePremiumEntrance() {

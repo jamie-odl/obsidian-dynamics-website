@@ -22,10 +22,10 @@
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#0c4a4e">
+    <meta name="theme-color" content="#0a5f78">
     <link rel="preload" href="/img/marketing/hero.jpg" as="image" fetchpriority="high">
-    <link rel="preload" href="/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/outfit-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/syne-800.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/styles.css">
     <script type="application/ld+json">
@@ -70,7 +70,7 @@
                 <p class="hero-brand" id="hero-brand">Obsidian Dynamics</p>
                 <h1 class="hero-title" id="hero-heading">Developer contributions, traced to source</h1>
                 <p class="hero-subtitle">
-                    Section 106, CIL, and Infrastructure Funding Statements — structured and linked back to the page they came from.
+                    Section 106, CIL, and Infrastructure Funding Statements — structured from published council records and linked back to the page they came from.
                 </p>
                 <div class="hero-actions" data-track-section="hero">
                     <a href="/contact" class="btn btn-primary btn-lg" data-track-section="hero">Request access</a>
@@ -83,17 +83,17 @@
             <div class="container">
                 <div class="section-header">
                     <p class="section-tag">What we cover</p>
-                    <h2 class="section-title" id="what-we-cover-heading">Developer contributions from published records</h2>
-                    <p class="section-desc">Material already in the public domain — Infrastructure Funding Statements, Section 106 agreements, and Community Infrastructure Levy schedules. For research and review, not legal or planning advice.</p>
+                    <h2 class="section-title" id="what-we-cover-heading">Public records, made comparable</h2>
+                    <p class="section-desc">Material already in the public domain — Infrastructure Funding Statements, Section 106 agreements, and Community Infrastructure Levy schedules. Built for research and review, not legal or planning advice.</p>
                 </div>
                 <div class="cover-columns">
                     <article class="cover-column fade-in">
                         <h3>Section 106</h3>
-                        <p>Planning obligations from published IFS tables — contributions received, spent, and outstanding, with category breakdowns where authorities report them.</p>
+                        <p>Planning obligations from published IFS tables — received, spent, and outstanding, with category breakdowns where authorities report them.</p>
                     </article>
                     <article class="cover-column fade-in">
                         <h3>CIL</h3>
-                        <p>Community Infrastructure Levy receipts and allocations as reported in Infrastructure Funding Statements, normalised across different reporting formats.</p>
+                        <p>Community Infrastructure Levy receipts and allocations as reported in Infrastructure Funding Statements, normalised across formats.</p>
                     </article>
                     <article class="cover-column fade-in">
                         <h3>IFS</h3>
@@ -103,13 +103,14 @@
             </div>
         </section>
 
-        <section class="features-section home-trust" aria-labelledby="provenance-heading">
-            <div class="container">
-                <div class="section-header">
-                    <p class="section-tag">Provenance</p>
-                    <h2 class="section-title" id="provenance-heading">Every figure traces to source</h2>
-                    <p class="section-desc">Records link back to the document and page they were extracted from. Always check the original. Journalists can query authority coverage at <code>/api/public/coverage</code>.</p>
-                </div>
+        <section class="visual-band" aria-labelledby="visual-band-heading">
+            <div class="visual-band__media" aria-hidden="true">
+                <img src="/img/marketing/construction-plant.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async">
+            </div>
+            <div class="visual-band__scrim" aria-hidden="true"></div>
+            <div class="visual-band__inner">
+                <h2 class="visual-band__title" id="visual-band-heading">Every figure traces to source</h2>
+                <p class="visual-band__desc">Records link back to the document and page they were extracted from. Always check the original. Coverage for journalists is available at <code>/api/public/coverage</code>.</p>
             </div>
         </section>
 
